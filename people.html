@@ -1,0 +1,26 @@
+---
+layout: default
+---
+
+
+<div id="faculty-container" style="padding-bottom: 5rem;">
+    {% for section in site.data.people %}
+    <h2 class="faculty-title"> {{ section.section_name }} </h2>
+    <div class="faculty-list">
+        {% for people in section.people %}
+            <div class="faculty">
+                <a href=" {{ people.homepage }}" class="circular"
+                    style="background-image: url(/assets/images/people/{{people.image_file}}); background-position: top;"
+                    alt="{{ people.name }}">
+                </a>
+                <div class="faculty-caption">
+                    <a href="{{ people.homepage }}" class="faculty-text">
+                        <div class="faculty-text"> {{ people.name | replace_first: " ", "<br>"}} </div>
+                        <div class="faculty-text" style="font-size: 0.8rem;"> {{ people.subtitle }} </div>
+                    </a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    {% endfor %}
+</div>

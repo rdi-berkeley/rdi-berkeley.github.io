@@ -1,0 +1,72 @@
+---
+layout: default
+---
+
+<div class="splide splide--slide splide--ltr splide--draggable is-active" id="splide01" style="visibility: visible;">
+    <div class="splide__arrows"><button class="splide__arrow splide__arrow--prev" type="button"
+            aria-controls="splide01-track" disabled="" aria-label="Previous slide"><svg
+                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40">
+                <path d="m15.5 0.932-4.3 4.38 14.5 14.6-14.5 14.5 4.3 4.4 14.6-14.6 4.4-4.3-4.4-4.4-14.6-14.6z">
+                </path>
+            </svg></button><button class="splide__arrow splide__arrow--next" type="button"
+            aria-controls="splide01-track" aria-label="Next slide"><svg xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 40 40" width="40" height="40">
+                <path d="m15.5 0.932-4.3 4.38 14.5 14.6-14.5 14.5 4.3 4.4 14.6-14.6 4.4-4.3-4.4-4.4-14.6-14.6z">
+                </path>
+            </svg></button></div>
+    <div class="splide__track" id="splide01-track">
+        <ul class="splide__list" id="splide01-list" style="transform: translateX(0px);">
+            <li class="splide__slide is-active is-visible" id="splide01-slide01" aria-hidden="false" tabindex="0"
+                style="width: 1007px;">
+                <div class="slide-image-container">
+                    <img src="/assets/images/berkeley_2.jpg" alt="Berkeley" class="slide-image">
+                </div>
+            </li>
+            <li class="splide__slide" id="splide01-slide02" style="width: 1007px;">
+                <div class="slide-image-container">
+                    <img src="/assets/images/berkeley_1.jpg" alt="Berkeley" class="slide-image">
+                </div>
+            </li>
+            <li class="splide__slide" id="splide01-slide03" style="width: 1007px;">
+                <div class="slide-image-container">
+                    <img src="/assets/images/berkeley_3.jpg" alt="Berkeley" class="slide-image">
+                </div>
+            </li>
+        </ul>
+    </div>
+    <ul class="splide__pagination">
+        <li><button class="splide__pagination__page is-active" type="button" aria-current="true"
+                aria-controls="splide01-slide01" aria-label="Go to slide 1"></button></li>
+        <li><button class="splide__pagination__page" type="button" aria-controls="splide01-slide02"
+                aria-label="Go to slide 2"></button></li>
+        <li><button class="splide__pagination__page" type="button" aria-controls="splide01-slide03"
+                aria-label="Go to slide 3"></button></li>
+    </ul>
+</div>
+<div id="slide-underline-container">
+
+</div>
+
+<div id="main-text-container" style="font-size: 12pt; font-family: 'Open Sans', sans-serif; font-weight: 300;">
+    {{ content }}
+</div>
+
+<div id="affiliated-container">
+    <h2 id="affiliated-title">Affiliated Institutions</h2>
+    <div id="affiliated-images-container">
+        <a href="https://data.berkeley.edu/" class="affiliated-link">
+            <img class="affiliated" src="/assets/images/cdss.jpg" alt="The CDSS Logo">
+        </a>
+        <a href="https://bliss.eecs.berkeley.edu/" class="affiliated-link">
+            <img class="affiliated" src="/assets/images/bliss.png" alt="The BLISS Logo">
+        </a>
+        <a href="https://bair.berkeley.edu/" class="affiliated-link">
+            <img class="affiliated" src="/assets/images/bair.png" alt="The BAIR Logo">
+        </a>
+        <a href="https://simons.berkeley.edu/" class="affiliated-link">
+            <img class="affiliated" src="/assets/images/simons.png" alt="The Simons Logo">
+        </a><a href="https://citris-uc.org/" class="affiliated-link">
+            <img class="affiliated" src="/assets/images/citris.svg" alt="The CITRIS Logo">
+        </a>
+    </div>
+</div>

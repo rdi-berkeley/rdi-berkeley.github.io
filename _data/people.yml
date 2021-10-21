@@ -1,0 +1,61 @@
+- section_name: "FACULTY"
+  people:
+    - name: Dawn Song
+      homepage: https://people.eecs.berkeley.edu/~dawnsong/
+      image_file: dawn.jpg
+      subtitle: "Security & Privacy, Blockchain, ML" 
+    - name: Shafi Goldwasser
+      homepage: http://people.csail.mit.edu/shafi/
+      image_file: shafi.jpg
+      subtitle: "Turing Award winner in Cryptography"
+    - name: Sanjam Garg
+      homepage: https://people.eecs.berkeley.edu/~sanjamg/
+      image_file: sanjam.jpg
+      subtitle: Cryptography
+    - name: Natacha Crooks
+      homepage: https://nacrooks.github.io/
+      image_file: natacha.jpg
+      subtitle: Decentralized Systems, Privacy
+    - name: Raluca Ada Popa
+      homepage: https://people.eecs.berkeley.edu/~raluca/
+      image_file: raluca.jpg
+      subtitle: Security & Privacy
+    - name: Sanjit Seshia
+      homepage: https://people.eecs.berkeley.edu/~sseshia/
+      image_file: sanjit.jpg
+      subtitle: Programming Systems, Formal Verification
+    - name: Koushik Sen
+      homepage: https://people.eecs.berkeley.edu/~ksen/
+      image_file: koushik.jpg
+      subtitle: Programming Languages
+- section_name: " "  # just a place holder for a new line
+  people:
+    - name: Christine Parlour
+      homepage: https://sites.google.com/berkeley.edu/thefinanceparlour/
+      image_file: christine.jpg
+      subtitle: Finance, DeFi
+    - name: Joseph Hellerstein
+      homepage: https://dsf.berkeley.edu/jmh/
+      image_file: josephH.jpg
+      subtitle: Databases, Distributed Computing
+    - name: Joseph Gonzalez
+      homepage: https://people.eecs.berkeley.edu/~jegonzal/
+      image_file: josephG.jpg
+      subtitle: Data Science, ML systems
+    - name: Terrence Hendershott
+      homepage: http://faculty.haas.berkeley.edu/hender
+      image_file: terrence.jpg
+      subtitle: Finance, Banking
+    - name: Paul Gertler
+      homepage: https://www.paulgertler.com/
+      image_file: paul.jpg 
+      subtitle: Economics
+    - name: Frank Partnoy
+      homepage: https://www.law.berkeley.edu/our-faculty/faculty-profiles/frank-partnoy
+      image_file: frank.jpg
+      subtitle: Law
+    - name: Rebecca Wexler
+      homepage: https://www.law.berkeley.edu/our-faculty/faculty-profiles/rebecca-wexler
+      image_file: rebecca.jpg
+      subtitle: Law
+    
