@@ -2,14 +2,50 @@
 layout: home
 ---
 
-The Center for the Theoretical Foundations of Learning, Inference, Information, Intelligence, Mathematics and Microeconomics at Berkeley (CLIMB) was established to address new conceptual and mathematical challenges arising at the interface between technology, science, and society.
+## Our mission
 
-Whereas an earlier generation of information technology focused on hardware and software, CLIMB recognizes the emergence of a new generation of technology that focuses on data, inferences, and decisions, a development that is leading to a deeper engagement between technology and real-world phenomena that involve human decisions, values, discoveries, and culture.  
+**Advance the science and technology of decentralization and decentralized intelligence, to make it universally accessible and empowering a responsible digital economy.**
 
-While CLIMB is focused on the future, it also builds on a vision of the past, revisiting themes that began to emerge a century ago, when individuals such as Andrei Kolmogorov, John von Neumann, Jerzy Neymann, Alan Turing, Abraham Wald, and Norbert Wiener devised mathematical formulations of concepts such as "algorithm," "probability," "feedback," "uncertainty," "model," and "risk." Although their ideas reposed on both the deductive and inductive traditions of mathematics, it was their blending of those traditions that yielded some of the most exciting new developments in science and engineering during the twentieth century. The scope was further broadened in the hands of individuals such as David Blackwell, Herbert Robbins, and Claude Shannon, whose work led to new perspectives on economics, communications, and psychology. Terms such as "cybernetics" were coined in an attempt to capture the unity of the overall enterprise, but the vast scope of the enterprise made it difficult to retain a single identity. Indeed, in subsequent decades the sense of unity has faded. Major new academic disciplines have emerged---including computer science, control theory, information theory, signal processing, and mathematical statistics---each focused on particular aspects of the overall set of challenges associated with information, inference, and decisions. Whereas Kolmogorov, von Neumann, et al. would likely have resisted being labeled with a single one of these disciplinary labels, subsequent researchers have generally pursued their careers entirely within a single discipline.  
+---
 
-There are two major new trends that are leading to a revisiting of the age of Kolmogorov, von Neumann, et al. First, the core problems of many of the separate disciplines have been solved, or nearly so, and the emerging problems are often those at the boundaries where classical disciplines merge into other disciplines. For example, it is often no longer sufficient to analyze an algorithm in terms of runtime and other concepts associated solely with the internal world of a computer; rather, it is necessary to consider whether the algorithm will work when interfaced to the real world where data are noisy, incomplete, or inconsistent, where it is necessary to take into account interactions with humans, where there are feedback loops and adversaries, and where it is essential to consider unintended consequences. Moreover, algorithms need to be evaluated according to inferential, economic, and ethical criteria in addition to purely computational criteria.
+### Decentralized Systems
 
-Second, real-world problem solving in industry, science, and government often involves team efforts that cross disciplinary boundaries. Such efforts invariably uncover new problems that cannot be solved by merely juxtaposing existing frameworks. 
+Decentralized trust has many advantages. It provides stronger security guarantees, encourages open access and participation, implies transparency, and empowers different entities and individuals.
 
-Research in CLIMB recognizes and embraces this emerging interdisciplinarity. Faculty in CLIMB focus on theoretical challenges across a wide range of problem areas, bridging classical academic disciplines and seeking broad new conceptual and mathematical foundations. We aim to train students who are future thought leaders, able to climb to nearby mountaintops and perceive the full scope of emerging problems in science, technology, and society.
+Decentralized systems enable decentralized trust. There are different types of decentralized systems: blockchains that enable distributed ledger with decentralized trust, decentralized data science that enables distributed data analytics and machine learning across different data sources.
+
+### Decentralized Intelligence
+
+When we have a programmable decentralized system, we can enable decentralized agents and intelligence. For example, smart contracts are decentralized agents, DAOs envision the future organization structures, and the decentralized AI has huge potentials to surpass many centralized AI systems today.
+
+### Decentralization Empowers New Capabilities & Economy
+
+- Blockchain & Decentralized Finance
+- Decentralized Data Science
+- Creators Economy
+- Ownership Economy
+- Data Sovereignty
+
+### Open Research Challenges
+
+In order to enable these new capabilities & economy, we need to address many open research challenges:
+
+- **Scalability**: How to build scalable decentralized systems that can support planet scale usage?
+- **Usability**: How to build decentralized systems that are easy to use and universally accessible? How to build self-custody systems that are secure and easy to use?
+- **Provable guarantee**: How to build decentralized systems that have provable guarantees of the security and other desired properties? E.g., using formal verification techniques
+- **Auditable privacy**: How to enable privacy while still ensure certain transparency, auditability, and compliance in decentralized systems?
+- **Incentive compatible**: How to design incentives and economics models to ensure that rational behaviors lead to desired behaviors for the decentralized systems?
+- **Systemic stability**: How to design monitoring and defense mechanisms to mitigate systemic risks?
+- **Decentralized data science**: How to enable distributed data analytics and machine learning in a privacy-preserving way and make it easy to use for societal benefit?
+- **Decentralized intelligence**: How to enable decentralized smart agents to interact and achieve good global utility when making local decisions?
+- **Decentralized system building**: How to enable incentive-compatible way for building systems in a decentralized fashion? For reducing mono-culture and concentration of power on code.
+- **Decentralized governance and organization**: How to empower effective distributed decision making? how to develop new mechanisms for effective decentralized organization? What types of regulatory framework can best support this?
+- **Responsibility**: What are the guidance on regulation; regulation body, and ecosystem?
+
+### Responsible, Decentralized Intelligence
+
+Being responsible, we protect the welfare of individuals and society, protect privacy and be regulation compliant. We level the playing field, empower innovation, promote fairness, inclusiveness, and ethics.
+
+Being decentralized, we innovate in technologies to enable scalable and easy-to-use systems with a decentralized trust and support collaboration among distributed parties. We explore legal frameworks to support decentralized organization structures, as well as analyzing and understanding the societal impact of decentralized systems.
+
+Targetting to improve intelligence, we innovate in technologies to build autonomous agents and organizations operating with decentralized trust, empowering decentralized data science and AI. We also explore new incentive mechanisms for decentralized autonomous agents.
