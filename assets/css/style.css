@@ -56,10 +56,9 @@ body {
 
 .nav-url {
   font-family: "Open Sans", sans-serif;
-  font-weight: 400;
-  font-size: 16pt;
+  font-weight: 600;
   text-decoration: none;
-  color: #666666;
+  color: #222222;
 }
 
 .seperator {
