@@ -3,7 +3,7 @@
 body {
   margin-left: 10vw;
   margin-right: 10vw;
-  background:#ffffff url("/assets/images/header-image.png") no-repeat right top;
+  background:#ffffff url("/assets/images/header-image2.png") no-repeat right top;
   background-size: 100%;
 }
 
@@ -26,7 +26,7 @@ body {
 #nav-container {
   width: auto;
   margin-left: auto;
-  margin-right: 6%;
+  margin-right: 2%;
   display: flex;
   flex-direction: column;
 }
