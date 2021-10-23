@@ -1,9 +1,5 @@
 - section_name: "FACULTY"
   people:
-    - name: Dawn Song
-      homepage: https://people.eecs.berkeley.edu/~dawnsong/
-      image_file: dawn.jpg
-      subtitle: "Security & Privacy, Blockchain, ML" 
     - name: Shafi Goldwasser
       homepage: http://people.csail.mit.edu/shafi/
       image_file: shafi.jpg
@@ -28,12 +24,6 @@
       homepage: https://people.eecs.berkeley.edu/~ksen/
       image_file: koushik.jpg
       subtitle: Programming Languages
-- section_name: " "  # just a place holder for a new line
-  people:
-    - name: Christine Parlour
-      homepage: https://sites.google.com/berkeley.edu/thefinanceparlour/
-      image_file: christine.jpg
-      subtitle: Finance, DeFi
     - name: Joseph Hellerstein
       homepage: https://dsf.berkeley.edu/jmh/
       image_file: josephH.jpg
@@ -58,4 +48,13 @@
       homepage: https://www.law.berkeley.edu/our-faculty/faculty-profiles/rebecca-wexler
       image_file: rebecca.jpg
       subtitle: Law
-    
+- section_name: "CO-DIRECTOR"
+  people:
+    - name: Dawn Song
+      homepage: https://people.eecs.berkeley.edu/~dawnsong/
+      image_file: dawn.jpg
+      subtitle: "Security & Privacy, Blockchain, ML" 
+    - name: Christine Parlour
+      homepage: https://sites.google.com/berkeley.edu/thefinanceparlour/
+      image_file: christine.jpg
+      subtitle: Finance, DeFi
