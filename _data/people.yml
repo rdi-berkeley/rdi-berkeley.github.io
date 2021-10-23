@@ -31,7 +31,15 @@
     - name: Joseph Gonzalez
       homepage: https://people.eecs.berkeley.edu/~jegonzal/
       image_file: josephG.jpg
-      subtitle: Data Science, ML systems
+      subtitle: Data Science, ML Systems
+    - name: Trevor Darrell
+      homepage: https://people.eecs.berkeley.edu/~trevor/
+      image_file: trevor.jpg
+      subtitle: Machine Learning, HCI
+    - name: Jiantao Jiao
+      homepage: https://people.eecs.berkeley.edu/~jiantao/
+      image_file: jiantao.png
+      subtitle: Machine Learning, Data Science
     - name: Terrence Hendershott
       homepage: http://faculty.haas.berkeley.edu/hender
       image_file: terrence.jpg
@@ -58,3 +66,9 @@
       homepage: https://sites.google.com/berkeley.edu/thefinanceparlour/
       image_file: christine.jpg
       subtitle: Finance, DeFi
+- section_name: "DEPUTY DIRECTOR"
+  people:
+    - name: Jocelyn Weber Phipps
+      homepage: https://www.linkedin.com/in/jocelynweberphipps/
+      image_file: jocelyn.jpg
+      subtitle: Educator
