@@ -186,20 +186,17 @@ body {
 }
 
 .faculty {
-  width: 125px;
-  height: 200px;
+  width: 200px;
+  height: 320px;
   text-align: center;
-  margin-left: 20px;
-  margin-right: 20px;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin: 40px;
 }
 
 .circular {
   display: block;
-  width: 125px;
-  height: 125px;
-  border-radius: 125px;
+  width: 200px;
+  height: 200px;
+  border-radius: 200px;
   overflow: hidden;
   -webkit-border-radius: 125px;
   -webkit-background-clip: padding-box;
@@ -219,7 +216,7 @@ body {
 .faculty-text {
   font-family: "Open Sans", sans-serif;
   font-weight: 400;
-  font-size: 14pt;
+  font-size: 18pt;
   text-decoration: none;
   color: #666666;
 }
