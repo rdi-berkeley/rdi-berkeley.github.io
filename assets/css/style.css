@@ -118,6 +118,7 @@ body {
   width: 19%;
   align-self: stretch;
   text-decoration: none;
+  padding: 5px;
 }
 .affiliated {
   margin: auto;
