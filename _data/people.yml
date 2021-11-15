@@ -71,8 +71,9 @@
     - name: Jocelyn Weber Phipps
       homepage: https://www.linkedin.com/in/jocelynweberphipps/
       image_file: jocelyn.jpg
-- section_name: "INDUSTRY PARTNERSHIPS"
+- section_name: "STAFF"
   people:
     - name: Linda Kreitzman
       homepage: https://haas.berkeley.edu/faculty/kreitzman-linda/
       image_file: linda.jpg
+      subtitle: "Industry Partnerships" 
