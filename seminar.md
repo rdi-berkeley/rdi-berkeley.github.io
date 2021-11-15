@@ -4,4 +4,4 @@ layout: default
 
 ## Seminar
 
-TBD
+To be announced soon
