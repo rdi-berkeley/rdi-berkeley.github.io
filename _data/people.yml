@@ -1,3 +1,18 @@
+- section_name: "CO-DIRECTOR"
+  people:
+    - name: Dawn Song
+      homepage: https://people.eecs.berkeley.edu/~dawnsong/
+      image_file: dawn.jpg
+      subtitle: "Security & Privacy, Blockchain, ML" 
+    - name: Christine Parlour
+      homepage: https://sites.google.com/berkeley.edu/thefinanceparlour/
+      image_file: christine.jpg
+      subtitle: Finance, DeFi
+- section_name: "DEPUTY DIRECTOR"
+  people:
+    - name: Jocelyn Weber Phipps
+      homepage: https://www.linkedin.com/in/jocelynweberphipps/
+      image_file: jocelyn.jpg
 - section_name: "FACULTY"
   people:
     - name: Shafi Goldwasser
@@ -56,21 +71,6 @@
       homepage: https://www.law.berkeley.edu/our-faculty/faculty-profiles/rebecca-wexler
       image_file: rebecca.jpg
       subtitle: Law
-- section_name: "CO-DIRECTOR"
-  people:
-    - name: Dawn Song
-      homepage: https://people.eecs.berkeley.edu/~dawnsong/
-      image_file: dawn.jpg
-      subtitle: "Security & Privacy, Blockchain, ML" 
-    - name: Christine Parlour
-      homepage: https://sites.google.com/berkeley.edu/thefinanceparlour/
-      image_file: christine.jpg
-      subtitle: Finance, DeFi
-- section_name: "DEPUTY DIRECTOR"
-  people:
-    - name: Jocelyn Weber Phipps
-      homepage: https://www.linkedin.com/in/jocelynweberphipps/
-      image_file: jocelyn.jpg
 - section_name: "STAFF"
   people:
     - name: Linda Kreitzman
