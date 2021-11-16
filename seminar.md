@@ -4,4 +4,4 @@ layout: default
 
 ## Seminar
 
-To be announced soon
+To be announced soon.

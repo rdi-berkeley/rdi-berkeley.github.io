@@ -10,10 +10,22 @@ layout: default
         <div class="faculty-list">
             {% for people in section.people %}
             <div class="faculty">
+                
+                {% if people.image_file %}
                 <a href=" {{ people.homepage }}" class="circular"
-                    style="background-image: url(/assets/images/people/{{people.image_file}}); background-position: top;"
+                    style="
+                        background-image: url(/assets/images/people/{{people.image_file}});
+                    background-position: top;"
                     alt="{{ people.name }}">
                 </a>
+                {% else %}
+                <a href=" {{ people.homepage }}" class="circular"
+                    style="
+                        background-image: url(/assets/images/default_profile.jpg);
+                    background-position: top;"
+                    alt="{{ people.name }}">
+                </a>
+                {% endif %}
                 <div class="faculty-caption">
                     <a href="{{ people.homepage }}" class="faculty-text">
                         <div class="faculty-text"> {{ people.name | replace_first: " ", "<br>"}} </div>

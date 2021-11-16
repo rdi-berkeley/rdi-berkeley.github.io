@@ -71,6 +71,64 @@
       homepage: https://www.law.berkeley.edu/our-faculty/faculty-profiles/rebecca-wexler
       image_file: rebecca.jpg
       subtitle: Law
+- section_name: "STUDENT"
+  people:
+    - name: Xinyun Chen
+      research_interest: 
+    - name: Jiaheng Zhang
+      research_interest: 
+    - name: Tiancheng Xie
+      research_interest: 
+    - name: Lun Wang
+      research_interest: 
+    - name: Dan Hendrycks
+      research_interest: 
+    - name: Siyuan Zhuang
+      research_interest: 
+    - name: Yu Gai
+      research_interest: 
+    - name: Xiaoyuan Liu
+      research_interest: 
+    - name: Vivek Nair
+      research_interest: 
+    - name: Deevashwer Rathee
+      research_interest: 
+    - name: Justin Kang
+      research_interest: distributed learning and optimization
+    - name: David Chu
+      research_interest: distributed protocol optimization
+    - name: Shadaj Laddad
+      research_interest: distributed programming
+    - name: Conor Power
+      research_interest: distributed programming
+    - name: James Bartusek
+      research_interest: cryptography
+    - name: Jaiden Fairoze
+      research_interest: cryptography
+    - name: Jialin Li
+      research_interest: cryptography
+    - name: Guru Vamsi Policharla
+      research_interest: cryptography
+    - name: Yinuo Zhang
+      research_interest: cryptography
+    - name: Mayank Rathee
+      research_interest: privacy preserving machine learning
+    - name: Emma Dauterman
+      research_interest: decentralized security systems
+    - name: Vivian Fang
+      research_interest: improving performance of cryptographic systems
+    - name: Jean-Luc Watson
+      research_interest: cryptographic systems on specialized hardware
+    - name: Weikeng Chen
+      research_interest: decentralized security
+    - name: Yuncong Hu
+      research_interest: decentralized secure ledgers
+    - name: Sam Kumar
+      research_interest: systems design for cryptographic systems
+    - name: Samyu Yagati 
+      research_interest: 
+    - name: Neil Giridharan
+      research_interest: 
 - section_name: "STAFF"
   people:
     - name: Linda Kreitzman
