@@ -1,10 +1,14 @@
 @charset 'UTF-8';
 
 body {
-  margin-left: 10vw;
-  margin-right: 10vw;
+  margin: 0;
   background:#ffffff url("/assets/images/header-image2.png") no-repeat right top;
   background-size: 100%;
+}
+
+.constraint {
+  margin-left: 10vw;
+  margin-right: 10vw;
 }
 
 #header {
