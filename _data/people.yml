@@ -47,14 +47,6 @@
       homepage: https://people.eecs.berkeley.edu/~jegonzal/
       image_file: josephG.jpg
       subtitle: Data Science, ML Systems
-    - name: Trevor Darrell
-      homepage: https://people.eecs.berkeley.edu/~trevor/
-      image_file: trevor.jpg
-      subtitle: Machine Learning, HCI
-    - name: Jiantao Jiao
-      homepage: https://people.eecs.berkeley.edu/~jiantao/
-      image_file: jiantao.png
-      subtitle: Machine Learning, Data Science
     - name: Terrence Hendershott
       homepage: http://faculty.haas.berkeley.edu/hender
       image_file: terrence.jpg
@@ -134,4 +126,4 @@
     - name: Linda Kreitzman
       homepage: https://haas.berkeley.edu/faculty/kreitzman-linda/
       image_file: linda.jpg
-      subtitle: "Industry Partnerships" 
+      subtitle: "Industry Partnership Lead" 
