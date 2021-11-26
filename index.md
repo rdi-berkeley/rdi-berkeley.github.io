@@ -4,13 +4,13 @@ layout: home
 
 ## Our mission
 
-**Advance the science and technology of decentralization and decentralized intelligence, to make it universally accessible and empowering a responsible digital economy.**
+**Advance the science and technology of decentralization and decentralized intelligence, to make it universally accessible and empower a responsible digital economy.**
 
 ---
 
-Decentralized trust has many advantages, including providing stronger security guarantees, enabling open access and participation, and providing transparency. Decentralized systems, such as blockchain, enable decentralized trust and empower new economies such as Decentralized Finance, the Creators Economy, and Data Sovereignty. In the future, programmable, decentralized systems can enable autonomous agents and organizations to operate effectively with decentralized trust, empowering decentralized intelligence.
+Decentralized trust has many advantages, including providing stronger security guarantees, enabling open access and participation, and providing transparency. Decentralized systems, such as blockchain, enable decentralized trust and empower new economies such as Decentralized Finance, the Creator Economy, and Data Sovereignty. In the future, programmable, decentralized systems can enable autonomous agents and organizations to operate effectively with decentralized trust, empowering decentralized intelligence.
 
-The Berkeley Center for Responsible, Decentralized Intelligence (RDI) is a new multi-disciplinary campus-wide initiative, focusing on advancing the science, technology and education  of decentralization and empowering a responsible digital economy.  The RDI Center currently includes faculty and students from computer science,  finance/economics, and law, and will support 3 pillars: research, education, and community / entrepreneurship.  
+The Berkeley Center for Responsible, Decentralized Intelligence (RDI) is a new multi-disciplinary campus-wide initiative, focusing on advancing the science, technology and education  of decentralization and empowering a responsible digital economy. The RDI Center currently includes faculty and students from computer science,  finance/economics, and law, and will support 3 pillars: research, education, and community / entrepreneurship.  
 
 Research areas include foundations for next generation decentralization technologies including scalability, usability, provable security guarantees, auditable privacy, incentive compatibility, systemic stability, and decentralized systems and intelligence, decentralized governance, and responsible innovation / regulation guidance, etc. 
 
