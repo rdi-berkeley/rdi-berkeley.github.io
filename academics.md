@@ -6,12 +6,12 @@ layout: default
 
 <div style="font-size: 12pt; font-family: 'Open Sans', sans-serif; font-weight: 300; display: flex;">
     <a href="https://defi-learning.org/" style="width: 50%; align-content: center; justify-content: center; display: flex; text-decoration: none;padding: 5px;">
-        <button class="our-button" style="background-color: #2074a1;">
+        <button class="our-button" style="background-color: #2eade5;">
             Join our DeFi MOOC
         </button>
     </a>
     <a href="https://berkeley-desys.github.io/s22" style="width: 50%; align-content: center; justify-content: center; display: flex; text-decoration: none;padding: 5px;">
-        <button class="our-button" style="background-color: #2074a1;">
+        <button class="our-button" style="background-color: #2eade5;">
             Join our Spring22 Course on Decentralization Technology
         </button>
     </a>
