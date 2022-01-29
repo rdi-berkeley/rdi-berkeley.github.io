@@ -9,7 +9,7 @@ The Berkeley Center for Responsible, Decentralized Intelligence (RDI) is a new m
 
 ---
 
-## RDI Content Development Interns
+## RDI Content Development Intern
 
 - **Posted**: January 19, 2022
 - **Job Title**: Student Assistant II, Marketing & Communications Lead
@@ -78,6 +78,18 @@ The Berkeley Center for Responsible, Decentralized Intelligence (RDI) is a new m
 - **Position starts**: February 1, 2022 or dependent on interview date.
 
 <a href="https://forms.gle/Yr7mXhRa2tPDgn8PA" style="width: 100%; align-content: center; justify-content: center; display: flex; text-decoration: none;padding: 0px;">
+    <button class="our-button" style="background-color: #3E8AF2; margin: 0;">
+        Apply now
+    </button>
+</a>
+
+---
+
+## RDI Research Intern
+
+Apply to Join Research Projects and Internships at RDI
+
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSfn16l-74qwGEzagjxT8ffbvShlIlZ6Zm3voiCnrh1PYJ_wvg/viewform" style="width: 100%; align-content: center; justify-content: center; display: flex; text-decoration: none;padding: 0px;">
     <button class="our-button" style="background-color: #3E8AF2; margin: 0;">
         Apply now
     </button>
