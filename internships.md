@@ -20,7 +20,7 @@ The Berkeley Center for Responsible, Decentralized Intelligence (RDI) is a new m
 - **Note**: We expect to hire multiple positions from this job listing. Potential specific roles include podcast & content development lead, graphic design lead, social media lead, and editorial lead. Depending on the skills of applicants, hybrid roles may be possible.
 - **Application deadline**: February 1, 2022
 
-<a href="https://forms.gle/YfBa4XVCDdB6CTaM8" style="width: 100%; align-content: center; justify-content: center; display: flex; text-decoration: none;padding: 0px;">
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSevnYgx0iCzEdUbBw0naPPA6S2dcujMyEZt3Cf3SNUKxjlVSA/viewform" style="width: 100%; align-content: center; justify-content: center; display: flex; text-decoration: none;padding: 0px;">
     <button class="our-button" style="background-color: #3E8AF2; margin: 0;">
         Apply now
     </button>
@@ -58,7 +58,7 @@ The Berkeley Center for Responsible, Decentralized Intelligence (RDI) is a new m
 - **Application deadline**: February 1, 2022
 - **Position starts**: February 1, 2022 or dependent on interview date.
 
-<a href="https://forms.gle/Dt1A2Z1vJkycf1LMA" style="width: 100%; align-content: center; justify-content: center; display: flex; text-decoration: none;padding: 0px;">
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSc5LVVPwROMoTES-QS0l68bki9ms2PijQeyhpvMe-h04lAZ5Q/viewform" style="width: 100%; align-content: center; justify-content: center; display: flex; text-decoration: none;padding: 0px;">
     <button class="our-button" style="background-color: #3E8AF2; margin: 0;">
         Apply now
     </button>
