@@ -39,7 +39,7 @@ The Berkeley Center for Responsible, Decentralized Intelligence (RDI) is a new m
 - **Application deadline**: February 1, 2022
 - **Position starts**: February 1, 2022 or dependent on interview date.
 
-<a href="https://forms.gle/peiw1WhXNuRudQ1A6" style="width: 100%; align-content: center; justify-content: center; display: flex; text-decoration: none;padding: 0px;">
+<a href="https://docs.google.com/forms/d/e/1FAIpQLScMa5yFqLu9ygyPUaC7sgs4TiJ1x4-_toPWBoVcyDB12whNpg/viewform" style="width: 100%; align-content: center; justify-content: center; display: flex; text-decoration: none;padding: 0px;">
     <button class="our-button" style="background-color: #3E8AF2; margin: 0;">
         Apply now
     </button>
