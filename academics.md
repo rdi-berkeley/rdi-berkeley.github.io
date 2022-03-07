@@ -25,7 +25,7 @@ layout: default
 - [MFE 230J: Financial Innovation with data science](http://guide.berkeley.edu/courses/mfe/)
 - [MBA/EWMBA 237: FinTech](http://courses.haas.berkeley.edu/descriptions/Descriptions/EWMBA237-1_Spring19.htm)
 - [UGBA 137: FinTech](https://classes.berkeley.edu/content/2020-Spring-UGBA-137-001-LEC-001)
-- [CS 17: Introduction to Cryptography](https://people.eecs.berkeley.edu/~sanjamg/teaching/cs171-spring21)
+- [CS 171: Introduction to Cryptography](https://people.eecs.berkeley.edu/~sanjamg/teaching/cs171-spring21)
 - [CS 276: Graduate Cryptography](https://people.eecs.berkeley.edu/~sanjamg/teaching/cs276-fall18)
 - [CS 294: Advanced Cryptography](https://people.eecs.berkeley.edu/~sanjamg/teaching/cs294-spring18)
 - [CS 161: Introduction to Computer Security](cs161.org)
