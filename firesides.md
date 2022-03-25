@@ -2,7 +2,7 @@
 layout: default
 ---
 
-<div style="color: black; width: 150px; height: 150px; margin-top: 60px; position: absolute; display: flex; flex-direction: column; justify-content: space-evenly">
+<div style="color: black; width: 15%; height: 160px; margin-top: 60px; position: absolute; display: flex; flex-direction: column; justify-content: space-evenly">
     <a href="/publicCourses" class="nav-url">
         Public Courses
     </a>
@@ -15,7 +15,7 @@ layout: default
     <a href="https://twitter.com/BerkeleyRDI?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @BerkeleyRDI</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </div>
 
-<div style="font-size: 12pt; font-family: 'Open Sans', sans-serif; font-weight: 300; margin-left: 20%; overflow: scroll; width: 75%;">
+<div style="font-size: 12pt; font-family: 'Open Sans', sans-serif; font-weight: 300; margin-left: 22%; overflow: scroll; width: 75%;">
     <h2>Fireside Chats & Panel Discussions</h2>
     <div>
         <h3 style='margin-bottom: 0px; font-weight: normal;'>Fireside chat series: the Future of DeFi
