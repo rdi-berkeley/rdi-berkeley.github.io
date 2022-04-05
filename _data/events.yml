@@ -1,80 +1,112 @@
-- date: March 31
+- date: April 7
   start: 10:00 am
   end: 12:00 pm
+  location: In person @ 310 Soda Hall
   title: Berkeley RDI Frontier Forum
-  subtitle: '3/31/22 - A conversation on Central Bank Digital Currency: Why, Why not, Alternatives'
-  img: /assets/images/events/rdi_event_1.png
-  link: https://berkeley.zoom.us/webinar/register/WN_ZXBLPe7mTEOKWWA4dDTrlw
+  subtitle: '4/7/22 - The Future of NFTs & Metaverse'
+  img: /assets/images/events/rdi_event_2.png
   description: |
-    You're invited! UC Berkeley's new Center for Responsible, Decentralized Intelligence (RDI) is 
-    excited to announce the first panel of its Frontier Forum speaker series. Join us online on 
-    Thursday, March 31st at 10:00am for a series of presentations and roundtable discussion on the 
-    benefits, challenges and alternatives of Central Bank Digital Currency! 
-    <br /><br />
-    Featuring a panel of thought leaders from the Federal Reserve and academia, this event will 
-    provide insights into the implications of a centralized digital currency.
+    You're invited! UC Berkeley's new Center for Responsible, Decentralized Intelligence (RDI) 
+    is excited to announce this week's Frontier Forum: The Future of NFTs and Metaverse, with 
+    David Min, VP of Strategic Business Innovation at Disney. Join us in person on Thursday, 
+    April 7 at 10:00am in 310 Soda Hall for a presentation and roundtable discussion on NFTs 
+    and the Metaverse!
   speakers:
-    - name: Robert C. Hockett
+    - name: David Min
       description: |
-        Robert Hockett joined the Cornell Law Faculty in 2004. His principal teaching, research, 
-        and writing interests lie in the fields of organizational, financial, and monetary law 
-        and economics in both their positive and normative, as well as their national and 
-        transnational, dimensions. His guiding concern in these fields is with the legal and 
-        institutional prerequisites to a just, prosperous, and sustainable economic order.
+        David Min is Vice President of Strategic Business Innovation at The Walt Disney Company. 
+        His primary role is to build partnerships with emerging businesses and technology 
+        companies to bring innovation into the various business units of Disney. David also 
+        oversees investments in early stage companies and launched the Disney Innovation Challenge 
+        in 2012 and the Disney Accelerator in 2014 (now in its seventh year) as part of Disney's 
+        investment strategy.
         <br /><br />
-        A Fellow of the Century Foundation and regular commissioned author for the New America 
-        Foundation, Hockett also does regular consulting work for the Federal Reserve Bank of New 
-        York, the International Monetary Fund, Americans for Financial Reform, the 'Occupy' 
-        Cooperative, and a number of federal and state legislators and local governments.
+        Prior to Disney, David spent 10 plus years at Steamboat Ventures, the venture capital 
+        affiliate of Disney, where he invested and served on the board of directors of multiple 
+        private companies in digital media. David has over 20 years of experience in media & 
+        entertainment and technology, and was named to TheFunded.com's list of top-ranked individual 
+        VC's of 2008 and 2009.
         <br /><br />
-        Prior to doing his doctoral work and entering academe, he worked for the International 
-        Monetary Fund and clerked for the Honorable Deanell Reece Tacha, Chief Judge of the U.S. 
-        Court of Appeals for the Tenth Circuit.
-    - name: Neha Narula
-      description: |
-        Neha Narula is the Director of the Digital Currency Initiative at the MIT Media Lab, where her 
-        research interests are in cryptocurrencies and distributed systems. She received her PhD in 
-        computer science from MIT in 2015, where she published work on fast, scalable databases. Neha 
-        has given a TED talk on the future of money, was named to WIRED's list of 25 leaders shaping 
-        the next 25 years of technology, and was listed on Fortune's Ledger 40 under 40. In a previous 
-        life, she helped relaunch the news aggregator Digg and was a senior software engineer at Google.
-    - name: Ehud Shapiro
-      description: |
-        Ehud Shapiro is an interdisciplinary scientist, entrepreneur, artist, and political activist. He 
-        earned his BA/BSc in mathematics and philosophy from Tel Aviv University in 1979 and his PhD in 
-        computer science from Yale in 1982; he has been with the Weizmann Institute of Science since then, 
-        where he holds the Harry Weinrebe Professorial Chair of Computer Science and Biology. His PhD 
-        research on inductive logic programming and algorithmic debugging has served as a foundation for 
-        these two disciplines. At Weizmann, he developed the discipline of concurrent logic programming and 
-        the distributed logic programming language Concurrent Prolog, in collaboration with the Japanese 
-        Fifth Generation Computer Systems project. In 1993, he founded Ubique Ltd., the first internet social 
-        networking software start-up. In 1995, Ubique launched Virtual Places 1.0, a social networking/2D 
-        metaverse application with 2D avatars on web pages, providing instant messaging, chat rooms, joint and 
-        guided web surfing, online events and games, and integrated voice-over IP. This was well before 
-        Facebook was founded and two and a half decades before it announced its interest in the metaverse. 
-        He sold Ubique to America Online, performed a management buyout, and then sold it again in 1998 to 
-        IBM, where its technology was the basis of Sametime, IBM's successful corporate network communication 
-        and collaboration product. 
-        <br /><br />
-        Upon return to Weizmann in 1998, Ehud switched to biology, and led research projects on biomolecular 
-        computers, synthetic biology, and human cell lineage reconstruction, for which he received two ERC 
-        Advanced Grants. In 2017, he began working on digital democracy, initially with Nimrod Talmon and later 
-        also with collaborators and a research team he formed at Weizmann. In 2020, Ehud founded a new 
-        Israeli political party, democratit. Ehud is a bass singer and the founder and artistic director of the 
-        Ba Rock Band. He is presently on sabbatical at Columbia University in its computer science department.
-    - name: Michael Warner
-      description: |
-        Mike Warner is a technology strategist who works in the Federal Reserve (FRS) of San Francisco. He is 
-        focused on the intersection of emerging digital/social systems of value (payments), intelligence 
-        (economics) and trust (supervision) as they relate to inflective innovations and the landscape for a 
-        new digitally enabled economy. Over his nine years at the Fed, he has worked with the TechLab, 
-        co-chaired application and data system architecture groups, participated in the early exploratory 
-        development of FedNow and was part of the team that deployed our current national cash infrastructure 
-        system. Previously he was the CEO and founder of Quantum4D – a venture funded (In-Q-Tel) software 
-        company that developed holographic systems modeling capabilities for the US intelligence community and 
-        SWIFT. He got started in technology at Sun Microsystems and has worked as an Ontologist and Information 
-        Architect at various start-ups. He is passionate about the intersection of innovation and public 
-        service as they relate to the transformations that may help us resolve previously intractable challenges 
-        of climate and inclusion.
+        David received an MBA from UCLA's Anderson School of Business, and has both a BS in Biology 
+        and a BA in Telecommunications from Indiana University.
+    
+# - date: March 31
+#   start: 10:00 am
+#   end: 12:00 pm
+#   title: Berkeley RDI Frontier Forum
+#   subtitle: '3/31/22 - A conversation on Central Bank Digital Currency: Why, Why not, Alternatives'
+#   img: /assets/images/events/rdi_event_1.png
+#   link: https://berkeley.zoom.us/webinar/register/WN_ZXBLPe7mTEOKWWA4dDTrlw
+#   description: |
+#     You're invited! UC Berkeley's new Center for Responsible, Decentralized Intelligence (RDI) is 
+#     excited to announce the first panel of its Frontier Forum speaker series. Join us online on 
+#     Thursday, March 31st at 10:00am for a series of presentations and roundtable discussion on the 
+#     benefits, challenges and alternatives of Central Bank Digital Currency! 
+#     <br /><br />
+#     Featuring a panel of thought leaders from the Federal Reserve and academia, this event will 
+#     provide insights into the implications of a centralized digital currency.
+#   speakers:
+#     - name: Robert C. Hockett
+#       description: |
+#         Robert Hockett joined the Cornell Law Faculty in 2004. His principal teaching, research, 
+#         and writing interests lie in the fields of organizational, financial, and monetary law 
+#         and economics in both their positive and normative, as well as their national and 
+#         transnational, dimensions. His guiding concern in these fields is with the legal and 
+#         institutional prerequisites to a just, prosperous, and sustainable economic order.
+#         <br /><br />
+#         A Fellow of the Century Foundation and regular commissioned author for the New America 
+#         Foundation, Hockett also does regular consulting work for the Federal Reserve Bank of New 
+#         York, the International Monetary Fund, Americans for Financial Reform, the 'Occupy' 
+#         Cooperative, and a number of federal and state legislators and local governments.
+#         <br /><br />
+#         Prior to doing his doctoral work and entering academe, he worked for the International 
+#         Monetary Fund and clerked for the Honorable Deanell Reece Tacha, Chief Judge of the U.S. 
+#         Court of Appeals for the Tenth Circuit.
+#     - name: Neha Narula
+#       description: |
+#         Neha Narula is the Director of the Digital Currency Initiative at the MIT Media Lab, where her 
+#         research interests are in cryptocurrencies and distributed systems. She received her PhD in 
+#         computer science from MIT in 2015, where she published work on fast, scalable databases. Neha 
+#         has given a TED talk on the future of money, was named to WIRED's list of 25 leaders shaping 
+#         the next 25 years of technology, and was listed on Fortune's Ledger 40 under 40. In a previous 
+#         life, she helped relaunch the news aggregator Digg and was a senior software engineer at Google.
+#     - name: Ehud Shapiro
+#       description: |
+#         Ehud Shapiro is an interdisciplinary scientist, entrepreneur, artist, and political activist. He 
+#         earned his BA/BSc in mathematics and philosophy from Tel Aviv University in 1979 and his PhD in 
+#         computer science from Yale in 1982; he has been with the Weizmann Institute of Science since then, 
+#         where he holds the Harry Weinrebe Professorial Chair of Computer Science and Biology. His PhD 
+#         research on inductive logic programming and algorithmic debugging has served as a foundation for 
+#         these two disciplines. At Weizmann, he developed the discipline of concurrent logic programming and 
+#         the distributed logic programming language Concurrent Prolog, in collaboration with the Japanese 
+#         Fifth Generation Computer Systems project. In 1993, he founded Ubique Ltd., the first internet social 
+#         networking software start-up. In 1995, Ubique launched Virtual Places 1.0, a social networking/2D 
+#         metaverse application with 2D avatars on web pages, providing instant messaging, chat rooms, joint and 
+#         guided web surfing, online events and games, and integrated voice-over IP. This was well before 
+#         Facebook was founded and two and a half decades before it announced its interest in the metaverse. 
+#         He sold Ubique to America Online, performed a management buyout, and then sold it again in 1998 to 
+#         IBM, where its technology was the basis of Sametime, IBM's successful corporate network communication 
+#         and collaboration product. 
+#         <br /><br />
+#         Upon return to Weizmann in 1998, Ehud switched to biology, and led research projects on biomolecular 
+#         computers, synthetic biology, and human cell lineage reconstruction, for which he received two ERC 
+#         Advanced Grants. In 2017, he began working on digital democracy, initially with Nimrod Talmon and later 
+#         also with collaborators and a research team he formed at Weizmann. In 2020, Ehud founded a new 
+#         Israeli political party, democratit. Ehud is a bass singer and the founder and artistic director of the 
+#         Ba Rock Band. He is presently on sabbatical at Columbia University in its computer science department.
+#     - name: Michael Warner
+#       description: |
+#         Mike Warner is a technology strategist who works in the Federal Reserve (FRS) of San Francisco. He is 
+#         focused on the intersection of emerging digital/social systems of value (payments), intelligence 
+#         (economics) and trust (supervision) as they relate to inflective innovations and the landscape for a 
+#         new digitally enabled economy. Over his nine years at the Fed, he has worked with the TechLab, 
+#         co-chaired application and data system architecture groups, participated in the early exploratory 
+#         development of FedNow and was part of the team that deployed our current national cash infrastructure 
+#         system. Previously he was the CEO and founder of Quantum4D – a venture funded (In-Q-Tel) software 
+#         company that developed holographic systems modeling capabilities for the US intelligence community and 
+#         SWIFT. He got started in technology at Sun Microsystems and has worked as an Ontologist and Information 
+#         Architect at various start-ups. He is passionate about the intersection of innovation and public 
+#         service as they relate to the transformations that may help us resolve previously intractable challenges 
+#         of climate and inclusion.
 
 
