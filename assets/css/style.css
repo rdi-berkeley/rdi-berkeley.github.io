@@ -4,6 +4,12 @@ body {
   margin: 0;
   background:#ffffff no-repeat right top;
   background-size: 100%;
+  font-family: 'Lato', sans-serif;
+}
+
+h2, h3 {
+  margin-block-start: 0.7em;
+  margin-block-end: 0.7em;
 }
 
 .constraint {
@@ -14,10 +20,11 @@ body {
 #header {
   width: 100%;
   display: flex;
+  align-items: center;
 }
 
 #logo-container {
-  width: 42%;
+  width: 35%;
   display: flex;
   flex-direction: column-reverse;
 }
@@ -58,7 +65,7 @@ body {
 }
 
 .nav-url {
-  font-family: "Open Sans", sans-serif;
+  /* font-family: "Open Sans", sans-serif; */
   font-weight: 600;
   text-decoration: none;
   color: #222222;
@@ -90,7 +97,7 @@ body {
 }
 
 .main-text {
-  font-family: "Open Sans", sans-serif;
+  /* font-family: "Open Sans", sans-serif; */
   font-weight: 300;
   font-size: 12pt;
 }
@@ -105,7 +112,7 @@ body {
   font-size: 20pt;
   text-align: center;
   margin-bottom: 20px;
-  font-family: "Open Sans", sans-serif;
+  /* font-family: "Open Sans", sans-serif; */
   font-weight: 400;
 }
 
@@ -140,7 +147,7 @@ body {
 }
 
 .footer-nav {
-  font-family: "Open Sans", sans-serif;
+  /* font-family: "Open Sans", sans-serif; */
   font-weight: 400;
   font-size: 12pt;
   text-decoration: none;
@@ -149,7 +156,7 @@ body {
 
 .footer-text {
   text-align: center;
-  font-family: "Open Sans", sans-serif;
+  /* font-family: "Open Sans", sans-serif; */
   font-weight: 300;
   font-size: 12pt;
   color: white;
@@ -217,7 +224,7 @@ body {
 }
 
 .faculty-text {
-  font-family: "Open Sans", sans-serif;
+  /* font-family: "Open Sans", sans-serif; */
   font-weight: 400;
   font-size: 18pt;
   text-decoration: none;
@@ -225,7 +232,7 @@ body {
 }
 
 .faculty-title {
-  font-family: "Open Sans", sans-serif;
+  /* font-family: "Open Sans", sans-serif; */
   font-weight: 400;
   font-size: 26pt;
   color: #666666;
@@ -259,4 +266,42 @@ body {
   -webkit-user-select: none;
   touch-action: manipulation;
   width: 100%;
+}
+
+.event-button-wrapper {
+  text-align: center;
+}
+
+.event-button {
+	display: inline-block;
+  margin: 0;
+  margin-top: 0.5em;
+  margin-bottom: 1em;
+  padding: 0.85rem 4rem;
+	border: 0;
+	border-radius: 0.317rem;
+	background-color: #FFC164;
+	color: #fff;
+	text-decoration: none;
+	font-weight: 700;
+	font-size: 1rem;
+  line-height: 1.5;
+	font-family: 'Lato', sans-serif;
+	cursor: pointer;
+	-webkit-appearance: none;
+	-webkit-font-smoothing: antialiased;
+}
+
+.event-button:hover {
+	opacity: 0.85;
+}
+
+.event-button:hover, .event-button:active, .event-button:focus, .event-button:visited {
+  text-decoration: none;
+  color: #fff;
+}
+
+.event-link, .event-link:link, .event-link:visited {
+  text-decoration: none!important;
+  color: #fff;
 }
