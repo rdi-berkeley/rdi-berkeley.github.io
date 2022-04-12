@@ -1,10 +1,10 @@
 - date: April 14
   start: 10:00 am
   end: 12:00 pm
-  location: '* Watch this page for the Zoom Webinar Registration link to be added soon'
   title: Berkeley RDI Frontier Forum
   subtitle: '4/14/22 - DAOs Can Do More'
   img: /assets/images/events/rdi_event_3.png
+  link: https://berkeley.zoom.us/webinar/register/WN_8FAFukrjQv2MdNo-Ve9U7A
   description: |
     UC Berkeley's new Center for Responsible, Decentralized Intelligence (RDI) is excited to announce 
     this week's Frontier Forum: DAOs Can Do More, with Jon Allen, UC Berkeley alum and GP at Magnus 
