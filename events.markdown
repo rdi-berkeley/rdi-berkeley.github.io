@@ -12,7 +12,8 @@ layout: default
         <h3 style="font-weight: 700;">{{ row.date }} {{ row.start }} - {{ row.end }} PST</h3>
         <h3 style="font-weight: 700;">{{ row.location }}</h3>
         {% if row.link %}
-            <div class="event-button-wrapper"><button class="event-button"><a class="event-link" href="{{ row.link }}" target="_blank">Register Here</a></button></div>
+            <h3 class="event-tag">All are welcome to join via the webinar - Register Here:</h3>
+            <div class="event-button-wrapper"><button class="event-button"><a class="event-link" href="{{ row.link }}" target="_blank">Webinar Registration</a></button></div>
         {% endif %}
         <img src="{{ row.img }}" style="width: 100%; margin-top: 0.5rem; margin-bottom: 0.5rem;">
         <h2>The Event</h2>

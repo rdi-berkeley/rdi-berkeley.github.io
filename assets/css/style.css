@@ -292,6 +292,12 @@ h2, h3 {
 	-webkit-font-smoothing: antialiased;
 }
 
+.event-tag {
+  margin: auto;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
 .event-button:hover {
 	opacity: 0.85;
 }
