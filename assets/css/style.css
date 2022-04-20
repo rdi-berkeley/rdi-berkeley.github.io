@@ -311,3 +311,13 @@ h2, h3 {
   text-decoration: none!important;
   color: #fff;
 }
+
+.event-a {
+  color: #003262;
+  text-decoration: none!important;
+}
+
+.event-a:hover {
+  color: #003262;
+  text-decoration: underline!important;
+}
