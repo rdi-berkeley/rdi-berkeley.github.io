@@ -1,3 +1,31 @@
+- link: /events/4-28
+  row-title: "Responsible Innovation & web3"
+  date: "2022-04-28"
+  formatted-date: "April 28"
+  start: "10:00 am"
+  end: "12:00 pm"
+  title: "4/28/22 - Responsible Innovation & web3"
+  img: /assets/images/events/4-28.png
+  location: Online Webinar
+  zoom: https://berkeley.zoom.us/webinar/register/WN_Hi44XRhiRhy11U-exg_VOw
+  description: |
+    UC Berkeley's new Center for Responsible, Decentralized Intelligence (RDI) 
+    is excited to announce this week's Frontier Forum: Responsible Innovation & Web3, 
+    with Alex Feerst, the CEO and founder of Murmuration Labs. Join us virtually on 
+    Thursday, April 28 at 10:00am for a presentation and roundtable discussion on 
+    the challenges and potential for decentralized regulation and innovation!
+  speakers:
+    - name: Alex Feerst
+      description: |
+        Alex Feerst leads Murmuration Labs, which works with leading tech companies and 
+        web3 projects to develop online trust and safety practices. He was previously 
+        Head of Legal and Head of Trust and Safety at Medium, and General Counsel at 
+        Neuralink. In 2021, he co-founded the Digital Trust and Safety Partnership, 
+        the first industry-led initiative to establish best practices for ensuring 
+        online safety. He serves as a board member of the MobileCoin Foundation, an 
+        advisor to the Filecoin Foundation, and a member of the editorial board of the 
+        Journal of Online Trust & Safety.
+
 - link: /events/4-21
   row-title: "Wikidata - The free knowledge graph for everyone"
   date: "2022-04-21"
@@ -7,7 +35,7 @@
   title: "4/21/22 - Wikidata - The free knowledge graph for everyone"
   img: /assets/images/events/4-21.png
   location: In person @ 310 Soda Hall & Online
-  zoom: https://berkeley.zoom.us/webinar/register/WN_FfuHReLPQ-G7KrVCTqKq9w
+  # zoom: https://berkeley.zoom.us/webinar/register/WN_FfuHReLPQ-G7KrVCTqKq9w
   description: |
     UC Berkeley's new Center for Responsible, Decentralized Intelligence (RDI) is excited to announce this 
     week's Frontier Forum: Wikidata - The free knowledge graph for everyone, with Denny Vrandečić, 
