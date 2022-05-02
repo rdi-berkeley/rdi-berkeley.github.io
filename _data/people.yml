@@ -55,6 +55,10 @@
       homepage: https://www.paulgertler.com/
       image_file: paul.jpg 
       subtitle: Economics
+    - name: Toby Stuart
+      homepage: http://faculty.haas.berkeley.edu/tstuart/bio.html
+      image_file: toby.png
+      subtitle: Entrepreneurship, Strategy and Innovation
     - name: Frank Partnoy
       homepage: https://www.law.berkeley.edu/our-faculty/faculty-profiles/frank-partnoy
       image_file: frank.jpg
@@ -63,6 +67,19 @@
       homepage: https://www.law.berkeley.edu/our-faculty/faculty-profiles/rebecca-wexler
       image_file: rebecca.jpg
       subtitle: Law
+    - name: Trevor Darrell
+      homepage: https://people.eecs.berkeley.edu/~trevor/
+      image_file: trevor.jpg
+      subtitle: Machine Learning, HCI
+    - name: Jiantao Jiao
+      homepage: https://people.eecs.berkeley.edu/~jiantao/
+      image_file: jiantao.png
+      subtitle: Machine Learning, Data Science
+    - name: Arthur Gervais
+      homepage: https://arthurgervais.com/
+      image_file: arthur.jpg
+      subtitle: Affiliate Faculty, Imperial College London
+
 # - section_name: "STUDENT"
 #   people:
 #     - name: Xinyun Chen
