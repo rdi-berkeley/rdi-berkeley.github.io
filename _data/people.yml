@@ -58,7 +58,7 @@
     - name: Toby Stuart
       homepage: http://faculty.haas.berkeley.edu/tstuart/bio.html
       image_file: toby.jpg
-      subtitle: Entrepreneurship, Strategy and Innovation
+      subtitle: Finance
     - name: Frank Partnoy
       homepage: https://www.law.berkeley.edu/our-faculty/faculty-profiles/frank-partnoy
       image_file: frank.jpg
@@ -70,15 +70,17 @@
     - name: Trevor Darrell
       homepage: https://people.eecs.berkeley.edu/~trevor/
       image_file: trevor.jpg
-      subtitle: Machine Learning, HCI
+      subtitle: Machine Learning, Decentralized Data Science, Metaverse
     - name: Jiantao Jiao
       homepage: https://people.eecs.berkeley.edu/~jiantao/
       image_file: jiantao.png
-      subtitle: Machine Learning, Data Science
+      subtitle: Machine Learning, Blockchain, Decentralized Data Science
     - name: Arthur Gervais
       homepage: https://arthurgervais.com/
       image_file: arthur.jpg
-      subtitle: Affiliate Faculty, Imperial College London
+      subtitle: |
+        Affiliate Faculty, Imperial College London
+        Blockchain, DeFi
 
 # - section_name: "STUDENT"
 #   people:
