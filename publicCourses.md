@@ -3,15 +3,15 @@ layout: default
 ---
 
 <div style="color: black; width: 15%; height: 160px; margin-top: 60px; position: absolute; display: flex; flex-direction: column; justify-content: space-evenly">
-    <a href="/publicCourses" class="nav-url" style="text-decoration: underline;">
-        Public Courses
+    <a href="/publicCourses" class="nav-url">
+        DeFi MOOC
     </a>
     <a href="/firesides" class="nav-url">
-        Firesides & Panels
+        Fireside chat series: the Future of DeFi
     </a>
-    <a href="/newsletter" class="nav-url">
+    <!-- <a href="/newsletter" class="nav-url">
         Newsletter
-    </a>
+    </a> -->
     <a href="https://twitter.com/BerkeleyRDI?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @BerkeleyRDI</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </div>
 

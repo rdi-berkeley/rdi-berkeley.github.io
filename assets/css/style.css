@@ -350,6 +350,12 @@ h3 {
   -webkit-font-smoothing: antialiased;
 }
 
+.event-tag {
+  margin: auto;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
 .event-button:hover {
   opacity: 0.85;
 }
@@ -398,4 +404,14 @@ h3 {
   position: relative;
   top: 0;
   left: 576px;
+}
+
+.event-a {
+  color: #003262;
+  text-decoration: none!important;
+}
+
+.event-a:hover {
+  color: #003262;
+  text-decoration: underline!important;
 }
