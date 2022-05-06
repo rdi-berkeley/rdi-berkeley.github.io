@@ -4,6 +4,8 @@
 
 Note that it takes up to a few minutes for the update to be reflected on the deployed webpages. Please disable the caching of the browser to see the latest version in the first time.
 
+Also **please do not delete the CNAME in the root directory**, which would cause an error for GitHub page custom domain name.
+
 ### Editing the landing page
 
 1. **Update the content**: Change [this markdown file](https://github.com/rdi-berkeley/rdi-berkeley.github.io/blob/main/index.md).
