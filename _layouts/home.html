@@ -3,12 +3,8 @@ layout: default
 ---
 
 <div class="slide-image-container">
-  <img
-    src="/assets/images/uc_berkeley_sunset.jpg"
-    alt="Berkeley"
-    class="slide-image"
-    style="background-position: top"
-  />
+  <img src="/assets/images/uc_berkeley_sunset.jpg" alt="Berkeley" class="slide-image"
+    style="background-position: top" />
 </div>
 <!--
 <div class="splide splide--slide splide--ltr splide--draggable is-active" id="splide01" style="visibility: visible;">
@@ -57,40 +53,57 @@ layout: default
 </div>
 -->
 
-<div
-  id="main-text-container"
-  style="
+<div id="main-text-container" style="
     font-size: 12pt;
     font-family: 'Open Sans', sans-serif;
     font-weight: 300;
-  "
->
+  ">
   {{ content }}
 </div>
 
-<div id="affiliated-container" >
-    <!-- <h2 id="affiliated-title">Join our Community</h2> -->
-    <div style="font-size: 12pt; font-family: 'Open Sans', sans-serif; font-weight: 300;">
-        <p>
-            RDI will also act as a hub and platform for collaborations globally with other organizations and researchers, as exemplified in leading the first <a href="https://defi-learning.org/">Decentralized Finance MOOC</a> with thousands of students enrolled from over 30 countries. In addition, RDI embraces Open Source, given the spirit of web3 and decentralization technology, and work funded by RDI will in general be in the public domain as publications and open source code.
-        </p>
-        <p>
-            For more information about the RDI Center, please join <a href="https://groups.google.com/g/berkeley-rdi">berkeley-rdi@googlegroups.com</a>. For students who are interested in learning more about research opportunities and internship programs offered by the RDI Center, please fill out <a href="https://docs.google.com/forms/d/e/1FAIpQLSfn16l-74qwGEzagjxT8ffbvShlIlZ6Zm3voiCnrh1PYJ_wvg/viewform">this form</a>. 
-        </p>
-        <div style="display: flex; width: 100%;">
-            <a href="https://forms.gle/eDChgjkGCZJKtpM29" style="width: 50%; align-content: center; justify-content: center; display: flex; text-decoration: none; padding: 5px; ">
-                <button class="our-button" style="background-color: #44BBA4; color: black;">
-                    Join Our Community to Learn More
-                </button>
-            </a>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfn16l-74qwGEzagjxT8ffbvShlIlZ6Zm3voiCnrh1PYJ_wvg/viewform" style="width: 50%; align-content: center; justify-content: center; display: flex; text-decoration: none;padding: 5px;">
-                <button class="our-button" style="background-color: #DC3D38;">
-                    Apply to Join Research Projects and Internships at RDI
-                </button>
-            </a>
-        </div>
+<div id="affiliated-container">
+  <!-- <h2 id="affiliated-title">Join our Community</h2> -->
+  <div style="font-size: 12pt; font-family: 'Open Sans', sans-serif; font-weight: 300;">
+    <p>
+      RDI will also act as a hub and platform for collaborations globally with other organizations and researchers, as
+      exemplified in leading the first <a href="https://defi-learning.org/">Decentralized Finance MOOC</a> with
+      thousands of students enrolled from over 30 countries. In addition, RDI embraces Open Source, given the spirit of
+      web3 and decentralization technology, and work funded by RDI will in general be in the public domain as
+      publications and open source code.
+    </p>
+    <p>
+      For more information about the RDI Center, please join <a
+        href="https://groups.google.com/g/berkeley-rdi">berkeley-rdi@googlegroups.com</a>. For students who are
+      interested in learning more about research opportunities and internship programs offered by the RDI Center, please
+      fill out <a
+        href="https://docs.google.com/forms/d/e/1FAIpQLSfn16l-74qwGEzagjxT8ffbvShlIlZ6Zm3voiCnrh1PYJ_wvg/viewform">this
+        form</a>.
+    </p>
+    <div style="display: flex; width: 100%;">
+      <!-- <a href="https://forms.gle/eDChgjkGCZJKtpM29"
+        style="width: 50%; align-content: center; justify-content: center; display: flex; text-decoration: none; padding: 5px; "> -->
+      <div style="width: 50%; align-content: center; justify-content: center; display: flex; text-decoration: none; padding: 5px; ">
+        <button class="our-button" id="communityBtn" style="background-color: #44BBA4; color: black;">
+          Join Our Community to Learn More
+        </button>
+      </div>
+      <!-- </a> -->
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSfn16l-74qwGEzagjxT8ffbvShlIlZ6Zm3voiCnrh1PYJ_wvg/viewform"
+        style="width: 50%; align-content: center; justify-content: center; display: flex; text-decoration: none;padding: 5px;">
+        <button class="our-button" style="background-color: #DC3D38;">
+          Apply to Join Research Projects and Internships at RDI
+        </button>
+      </a>
     </div>
   </div>
+</div>
+</div>
+
+<div id="joinBtn">
+  <img id="mailList"
+    src="https://www.audioanimals.co.uk/wp-content/uploads/bb-plugin/cache/Email-Logo-300x300-circle.png"
+    alt="Subscribe to RDI Mailing List">
+  <div id="toolTip">Subscribe to RDI Mailing List</div>
 </div>
 
 <div id="affiliated-container">
@@ -98,65 +111,35 @@ layout: default
   <div id="affiliated-images-container">
     <a href="https://engineering.berkeley.edu/" class="affiliated-link">
       <div style="width: 100%; height: 100%; display: flex">
-        <img
-          class="affiliated"
-          src="/assets/images/eng.png"
-          alt="Berkeley Engineering"
-        />
+        <img class="affiliated" src="/assets/images/eng.png" alt="Berkeley Engineering" />
       </div>
     </a>
     <a href="https://haas.berkeley.edu/" class="affiliated-link">
-      <div
-        style="
+      <div style="
           background-color: #15284b;
           width: 100%;
           height: 100%;
           display: flex;
-        "
-      >
-        <img
-          class="affiliated"
-          src="/assets/images/haas.svg"
-          alt="Berkeley Haas"
-        />
+        ">
+        <img class="affiliated" src="/assets/images/haas.svg" alt="Berkeley Haas" />
       </div>
     </a>
     <a href="https://www.law.berkeley.edu/" class="affiliated-link">
       <div style="width: 100%; height: 100%; display: flex">
-        <img
-          class="affiliated"
-          src="/assets/images/law.svg"
-          alt="Berkeley Law"
-        />
+        <img class="affiliated" src="/assets/images/law.svg" alt="Berkeley Law" />
       </div>
     </a>
     <a href="https://data.berkeley.edu/" class="affiliated-link">
-      <img
-        class="affiliated"
-        src="/assets/images/cdss.jpg"
-        alt="The CDSS Logo"
-      />
+      <img class="affiliated" src="/assets/images/cdss.jpg" alt="The CDSS Logo" />
     </a>
     <a href="https://scet.berkeley.edu/" class="affiliated-link">
-      <img
-        class="affiliated"
-        src="/assets/images/scet.png"
-        alt="The SCET Logo"
-      />
+      <img class="affiliated" src="/assets/images/scet.png" alt="The SCET Logo" />
     </a>
     <a href="https://simons.berkeley.edu/" class="affiliated-link">
-      <img
-        class="affiliated"
-        src="/assets/images/simons.png"
-        alt="The Simons Logo"
-      />
+      <img class="affiliated" src="/assets/images/simons.png" alt="The Simons Logo" />
     </a>
     <a href="https://blockchain.berkeley.edu/" class="affiliated-link">
-      <img
-        class="affiliated"
-        src="/assets/images/blockchainatberkeley.jpg"
-        alt="The Blockchain at Berkeley Logo"
-      />
+      <img class="affiliated" src="/assets/images/blockchainatberkeley.jpg" alt="The Blockchain at Berkeley Logo" />
     </a>
     <!-- <a href="https://citris-uc.org/" class="affiliated-link">
             <img class="affiliated" src="/assets/images/citris.svg" alt="The CITRIS Logo">
@@ -165,163 +148,106 @@ layout: default
             <img class="affiliated" src="/assets/images/bair.png" alt="The BAIR Logo">
         </a> -->
   </div>
-  <!-- <div id="joinBtn">Join</div> -->
 
+  <!-- Use an embeded form and use JavaScript to create the pop-up effect on click -->
   <div id="modal" hidden></div>
   <div id="subscribe" hidden>
     <!-- Begin Mailchimp Signup Form -->
-    <link
-      href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css"
-      rel="stylesheet"
-      type="text/css"
-    />
+    <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
     <style type="text/css">
       #mc_embed_signup {
         background: #fff;
         clear: left;
-        font: 14px Helvetica, Arial, sans-serif;
+        font: 16px Helvetica, Arial, sans-serif;
         width: 600px;
+        padding: 0px 10px 0px 10px;
       }
+
       /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
-     We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+        We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
     </style>
     <div id="mc_embed_signup">
-      <button
-        type="button"
-        class="close"
-        data-dismiss="modal"
-        aria-label="Close"
-        id="formclose"
-      >
-        <span aria-hidden="true">&times;</span>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="formclose">
+        <span aria-hidden="true" style="font-size: 25px;">&times;</span>
       </button>
-      <form
-        action="https://berkeley.us14.list-manage.com/subscribe/post?u=0d89bb5c8066a9533eb98759d&amp;id=c0a5c3e877"
-        method="post"
-        id="mc-embedded-subscribe-form"
-        name="mc-embedded-subscribe-form"
-        class="validate"
-        target="_blank"
-        novalidate
-      >
+      <form action="https://berkeley.us14.list-manage.com/subscribe/post?u=0d89bb5c8066a9533eb98759d&amp;id=c0a5c3e877"
+        method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank"
+        novalidate>
         <div id="mc_embed_signup_scroll">
-          <h2>Subscribe</h2>
-          <div class="indicates-required">
-            <span class="asterisk">*</span> indicates required
-          </div>
+          <img src="assets/images/Berkeley Center for RDI Logo.png" alt="Berkeley RDI"
+            style="width: 550px; height: auto; margin-top: -10px; margin-bottom: 10px;">
+          <h2>Subscribe to Our Mailing List</h2>
+          <div class="indicates-required" style="margin-top: -15px;"><span class="asterisk">*</span> indicates required</div>
           <div class="mc-field-group">
-            <label for="mce-EMAIL"
-              >Email Address <span class="asterisk">*</span>
+            <label for="mce-EMAIL">Email Address <span class="asterisk">*</span>
             </label>
-            <input
-              type="email"
-              value=""
-              name="EMAIL"
-              class="required email"
-              id="mce-EMAIL"
-            />
+            <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
           </div>
           <div class="mc-field-group">
-            <label for="mce-FNAME">First Name </label>
-            <input type="text" value="" name="FNAME" class="" id="mce-FNAME" />
-          </div>
-          <div class="mc-field-group">
-            <label for="mce-LNAME"
-              >Last Name <span class="asterisk">*</span>
+            <label for="mce-FNAME">First Name <span class="asterisk">*</span>
             </label>
-            <input
-              type="text"
-              value=""
-              name="LNAME"
-              class="required"
-              id="mce-LNAME"
-            />
+            <input type="text" value="" name="FNAME" class="required" id="mce-FNAME">
           </div>
           <div class="mc-field-group">
-            <label for="mce-TITLE">Organization/Title </label>
-            <input type="text" value="" name="TITLE" class="" id="mce-TITLE" />
+            <label for="mce-LNAME">Last Name <span class="asterisk">*</span>
+            </label>
+            <input type="text" value="" name="LNAME" class="required" id="mce-LNAME">
+          </div>
+          <div class="mc-field-group">
+            <label for="mce-ORG">Organization </label>
+            <input type="text" value="" name="ORG" class="" id="mce-ORG">
+          </div>
+          <div class="mc-field-group">
+            <label for="mce-CATEGORY">Category </label>
+            <select name="CATEGORY" class="" id="mce-CATEGORY">
+              <option value=""></option>
+              <option value="Academic">Academic</option>
+              <option value="Industry">Industry</option>
+              <option value="Other (e.g. NGO, Government)">Other (e.g. NGO, Government)</option>
+
+            </select>
           </div>
           <div id="mce-responses" class="clear">
-            <div
-              class="response"
-              id="mce-error-response"
-              style="display: none"
-            ></div>
-            <div
-              class="response"
-              id="mce-success-response"
-              style="display: none"
-            ></div>
+            <div class="response" id="mce-error-response" style="display:none"></div>
+            <div class="response" id="mce-success-response" style="display:none"></div>
           </div>
           <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-          <div style="position: absolute; left: -5000px" aria-hidden="true">
-            <input
-              type="text"
-              name="b_0d89bb5c8066a9533eb98759d_c0a5c3e877"
-              tabindex="-1"
-              value=""
-            />
-          </div>
-          <div class="clear">
-            <input
-              type="submit"
-              value="Subscribe"
-              name="subscribe"
-              id="mc-embedded-subscribe"
-              class="button"
-            />
-          </div>
+          <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text"
+              name="b_0d89bb5c8066a9533eb98759d_c0a5c3e877" tabindex="-1" value=""></div>
+          <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe"
+              class="button"></div>
         </div>
       </form>
     </div>
+    <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
     <script
-      type="text/javascript"
-      src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"
-    ></script>
-    <script type="text/javascript">
-      (function ($) {
-        window.fnames = new Array();
-        window.ftypes = new Array();
-        fnames[0] = "EMAIL";
-        ftypes[0] = "email";
-        fnames[1] = "FNAME";
-        ftypes[1] = "text";
-        fnames[2] = "LNAME";
-        ftypes[2] = "text";
-        fnames[3] = "ADDRESS";
-        ftypes[3] = "address";
-        fnames[4] = "PHONE";
-        ftypes[4] = "phone";
-        fnames[5] = "BIRTHDAY";
-        ftypes[5] = "birthday";
-        fnames[6] = "TITLE";
-        ftypes[6] = "text";
-      })(jQuery);
-      var $mcj = jQuery.noConflict(true);
-    </script>
+      type='text/javascript'>(function ($) { window.fnames = new Array(); window.ftypes = new Array(); fnames[0] = 'EMAIL'; ftypes[0] = 'email'; fnames[1] = 'FNAME'; ftypes[1] = 'text'; fnames[2] = 'LNAME'; ftypes[2] = 'text'; fnames[3] = 'ADDRESS'; ftypes[3] = 'address'; fnames[4] = 'PHONE'; ftypes[4] = 'phone'; fnames[5] = 'BIRTHDAY'; ftypes[5] = 'birthday'; fnames[6] = 'ORG'; ftypes[6] = 'text'; fnames[7] = 'CATEGORY'; ftypes[7] = 'dropdown'; }(jQuery)); var $mcj = jQuery.noConflict(true);</script>
     <!--End mc_embed_signup-->
   </div>
 
   <script>
-      let joinBtn = document.getElementById('joinBtn');
-      let modal = document.getElementById('modal');
-      let subscribe = document.getElementById('subscribe');
-      let formclose = document.getElementById('formclose');
-      let signupForm = document.getElementById('mc-embedded-subscribe-form');
+    let joinBtn = document.getElementById('joinBtn');
+    let communityBtn = document.getElementById('communityBtn');
+    let modal = document.getElementById('modal');
+    let subscribe = document.getElementById('subscribe');
+    let formclose = document.getElementById('formclose');
+    let signupForm = document.getElementById('mc-embedded-subscribe-form');
 
-      joinBtn.addEventListener('click', openSubscribeForm);
-      formclose.addEventListener('click', closeSubscribeForm);
+    joinBtn.addEventListener('click', openSubscribeForm);
+    communityBtn.addEventListener('click', openSubscribeForm);
+    formclose.addEventListener('click', closeSubscribeForm);
 
-      function openSubscribeForm() {
-          modal.hidden = false;
-          subscribe.hidden = false;
-          document.body.style.overflow = 'hidden';
-      }
+    function openSubscribeForm() {
+      modal.hidden = false;
+      subscribe.hidden = false;
+      document.body.style.overflow = 'hidden';
+    }
 
-      function closeSubscribeForm() {
-          modal.hidden = true;
-          subscribe.hidden = true;
-          document.body.style.overflow = 'scroll';
-      }
+    function closeSubscribeForm() {
+      signupForm.reset();
+      modal.hidden = true;
+      subscribe.hidden = true;
+      document.body.style.overflow = 'scroll';
+    }
   </script>
 </div>
