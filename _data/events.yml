@@ -7,7 +7,7 @@
   title: "4/28/22 - Responsible Innovation & web3"
   img: /assets/images/events/4-28.png
   location: Online Webinar
-  zoom: https://berkeley.zoom.us/webinar/register/WN_Hi44XRhiRhy11U-exg_VOw
+  # zoom: https://berkeley.zoom.us/webinar/register/WN_Hi44XRhiRhy11U-exg_VOw
   description: |
     UC Berkeley's new Center for Responsible, Decentralized Intelligence (RDI) 
     is excited to announce this week's Frontier Forum: Responsible Innovation & Web3, 
@@ -85,7 +85,7 @@
   formatted-date: "April 7"
   start: "10:00 am"
   end: "12:00 pm"
-  title: '4/7/22 - The Future of NFTs & Metaverse'
+  title: "4/7/22 - The Future of NFTs & Metaverse"
   img: /assets/images/events/4-7.png
   location: "In person @ 310 Soda Hall"
   description: |
@@ -114,7 +114,7 @@
         <br /><br />
         David received an MBA from UCLA's Anderson School of Business, and has both a BS in Biology 
         and a BA in Telecommunications from Indiana University.
-    
+
 - link: /events/3-31
   row-title: "A conversation on Central Bank Digital Currency: Why, Why not, Alternatives"
   date: "2022-03-31"
@@ -196,5 +196,3 @@
         Architect at various start-ups. He is passionate about the intersection of innovation and public 
         service as they relate to the transformations that may help us resolve previously intractable challenges 
         of climate and inclusion.
-
-
