@@ -416,21 +416,42 @@ h3 {
   left: 0;
   align-items: center;
   justify-content: center;
-  background-color: lightgray;
+  background-color: rgb(162, 162, 162);
   opacity: 0.6;
 }
 
 #subscribe {
   position: fixed;
-  top: 12%;
+  top: 5%;
   left: 50%;
+  max-height: 90%;
   margin-left: -300px; 
+  color:#003262;
+  overflow: scroll;
+}
+
+#mc-embedded-subscribe {
+  background-color: #d88200 !important;
+}
+
+#mc-embedded-subscribe:hover {
+  background-color:#003262 !important;
 }
 
 #formclose {
   position: relative;
+  background-color: white;
+  color: grey;
+  border: none;
+  width: 30px;
+  height: 30px;
   top: 0;
-  left: 576px;
+  left: 100%;
+  margin-left: -20px;
+}
+
+#formclose:hover {
+  color: #003262;
 }
 
 .event-a {
