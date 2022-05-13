@@ -16,5 +16,29 @@
     </div>
 
 </body>
+<script>
+    let join = document.querySelectorAll('.join');
+    let modal = document.getElementById('modal');
+    let subscribe = document.getElementById('subscribe');
+    let formclose = document.getElementById('formclose');
+    let signupForm = document.getElementById('mc-embedded-subscribe-form');
 
+    for (let itm of join) {
+        itm.addEventListener('click', openSubscribeForm);
+    }
+    formclose.addEventListener('click', closeSubscribeForm);
+
+    function openSubscribeForm() {
+      modal.hidden = false;
+      subscribe.hidden = false;
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeSubscribeForm() {
+      signupForm.reset();
+      modal.hidden = true;
+      subscribe.hidden = true;
+      document.body.style.overflow = 'scroll';
+    }
+</script>
 </html>
