@@ -4,6 +4,8 @@ layout: default
 
 ## Events
 
+Click a banner to view details about each event.
+
 {% assign events = site.data.events | sort: 'date' %}
 
 <div>
