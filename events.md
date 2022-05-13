@@ -2,37 +2,24 @@
 layout: default
 ---
 
-<div style="color: black; width: 15%; height: 160px; margin-top: 60px; position: absolute; display: flex; flex-direction: column; justify-content: space-evenly">
-    <a href="/publicCourses" class="nav-url">
-        DeFi MOOC
-    </a>
-    <a href="/firesides" class="nav-url">
-        Fireside chat series: the Future of DeFi
-    </a>
-    <!-- <a href="/newsletter" class="nav-url">
-        Newsletter
-    </a> -->
-    <a class="nav-url join">
-        Join Our Mailing List
-    </a>
-    <a href="https://twitter.com/BerkeleyRDI?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @BerkeleyRDI</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+## Events
+
+Click a banner to view details about each event.
+
+<span class='join' style="text-decoration: underline; color:blue">Join our mailing list</span> to learn more!
+
+{% assign events = site.data.events | sort: 'date' %}
+
+<div>
+    {% for row in site.data.events %}
+    <a href="{{ row.link }}"><img src="{{ row.img }}" style="width: 100%; margin-top: 0.5rem; margin-bottom: 0.5rem;"></a>
+        <!-- <a class="event-a" href="{{ row.link }}"><h2  style="font-weight: 700;">{{ row.row-title }}</h2></a>
+        <h3  style="font-weight: 700;">{{ row.formatted-date }} {{ row.start }} - {{ row.end }} PT</h3>
+        <p style="margin-bottom: 2em;">{{ row.description }}</p> -->
+    {% endfor %}
 </div>
 
-<div style="font-size: 12pt; font-family: 'Open Sans', sans-serif; font-weight: 300; margin-left: 22%; overflow: scroll; width: 75%; line-height: 1.5;">
-    <h2>Watch / Read</h2>
-This page is your portal to content produced by RDI about our research, education and community / entrepreneurship. <br><br>
-
-The <a href="/publicCourses">DeFi MOOC</a> section allows you to browse and search content from our collection of recorded lectures. <br>
-
-The <a href="/firesides">Fireside chat series: the Future of DeFi</a> section contains our discussions with industry thought leaders. <br>
-
-<!-- The <a href="/newsletter">Newsletter</a> section contains our current and historical news articles. <br><br> -->
-
-To hear from our first-hand updates, <span class='join' style="text-decoration: underline; color:blue">Join our Mailing List</span> or follow us on <a href="https://twitter.com/BerkeleyRDI?ref_src=twsrc%5Etfw">Twitter</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>!
-
-</div>
-
- <!-- Use an embeded form and use JavaScript to create the pop-up effect on click -->
+<!-- Use an embeded form and use JavaScript to create the pop-up effect on click -->
   <div id="modal" hidden></div>
   <div id="subscribe" hidden>
     <!-- Begin Mailchimp Signup Form -->
@@ -56,7 +43,7 @@ To hear from our first-hand updates, <span class='join' style="text-decoration: 
         method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank"
         novalidate>
         <div id="mc_embed_signup_scroll">
-          <img src="assets/images/Berkeley Center for RDI Logo.png" alt="Berkeley RDI"
+          <img src="../assets/images/Berkeley Center for RDI Logo.png" alt="Berkeley RDI"
             style="width: 550px; height: auto; margin-top: -10px; margin-bottom: 10px;">
           <h2>Subscribe to Our Mailing List</h2>
           <div class="indicates-required" style="margin-top: -15px;"><span class="asterisk">*</span> indicates required</div>
