@@ -6,7 +6,7 @@
       subtitle: "Security & Privacy, Blockchain, ML" 
     - name: Christine Parlour
       homepage: https://sites.google.com/berkeley.edu/thefinanceparlour/
-      image_file: christine.jpg
+      image_file: christine.jpeg
       subtitle: Finance, DeFi
 - section_name: "DEPUTY DIRECTOR"
   people:
@@ -17,7 +17,7 @@
   people:
     - name: Shafi Goldwasser
       homepage: http://people.csail.mit.edu/shafi/
-      image_file: shafi.jpg
+      image_file: shafi.jpeg
       subtitle: "Turing Award winner in Cryptography"
     - name: Sanjam Garg
       homepage: https://people.eecs.berkeley.edu/~sanjamg/
@@ -37,15 +37,15 @@
       subtitle: Programming Systems, Formal Verification
     - name: Koushik Sen
       homepage: https://people.eecs.berkeley.edu/~ksen/
-      image_file: koushik.jpg
+      image_file: koushik.jpeg
       subtitle: Programming Languages
     - name: Joseph Hellerstein
       homepage: https://dsf.berkeley.edu/jmh/
-      image_file: josephH.jpg
+      image_file: joe.jpeg
       subtitle: Databases, Distributed Computing
     - name: Joseph Gonzalez
       homepage: https://people.eecs.berkeley.edu/~jegonzal/
-      image_file: josephG.jpg
+      image_file: joseph.jpeg
       subtitle: Distributed Learning
     - name: Terrence Hendershott
       homepage: http://faculty.haas.berkeley.edu/hender
