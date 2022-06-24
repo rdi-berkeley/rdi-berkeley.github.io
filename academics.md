@@ -4,9 +4,10 @@ layout: default
 
 ## Academics
 
+
 <div style="font-size: 12pt; font-family: 'Open Sans', sans-serif; font-weight: 300; display: flex;">
     <a href="https://defi-learning.org/f22" style="width: 50%; align-content: center; justify-content: center; display: flex; text-decoration: none;padding: 5px;">
-        <button class="our-button" style="background-color: #3E8AF2;">
+        <button class="button-85" style="background-color: #3E8AF2;">
             Join our DeFi MOOC
         </button>
     </a>
