@@ -465,7 +465,6 @@ h3 {
 }
 
 
-
 /* CSS */
 .button-85 {
   padding: 0.6em 2em;
@@ -480,6 +479,9 @@ h3 {
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+  width: 100%;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .button-85:before {
