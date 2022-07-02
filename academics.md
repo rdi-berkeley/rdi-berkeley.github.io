@@ -34,7 +34,7 @@ layout: default
   <li><a href="https://inst.eecs.berkeley.edu/~cs294-171/fa21" style="text-decoration: none;">CS 294: Privacy-Preserving Systems</a></li>
   <li><a href="https://inst.eecs.berkeley.edu/~cs294-163/fa19/" style="text-decoration: none;">CS 294: Decentralized Security: Theory and Systems</a></li>
   <li><a href="https://people.eecs.berkeley.edu/~sseshia/219c/" style="text-decoration: none;">EECS 219C: Formal Methods: Specification, Verification, and Synthesis</a></li>
-  <li><a href="https://berkeley-secure-hardware.github.io/cs294-156-f18/" style="text-decoration: none;">CS 294: Advanced Topics on Secure Hardware</a>/li>
+  <li><a href="https://berkeley-secure-hardware.github.io/cs294-156-f18/" style="text-decoration: none;">CS 294: Advanced Topics on Secure Hardware</a></li>
   <li><a href="https://www.law.berkeley.edu/php-programs/courses/coursePage.php?cID=27497" style="text-decoration: none;">Law 241: Evidence Law</a></li>
   <li><a href="https://www.law.berkeley.edu/php-programs/courses/coursePage.php?cID=28103" style="text-decoration: none;">Law 276.82: Secrecy</a></li>
 </ul>
