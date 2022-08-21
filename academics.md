@@ -21,6 +21,7 @@ layout: default
 
 <ul>
   <li><a href="https://berkeley-defi.github.io/f21" style="text-decoration: none;">CS 294: Special Topics on Decentralized Finance</a></li>
+  <li><a href="https://berkeley-desys.github.io/s22" style="text-decoration: none;">CS 294: Decentralized Systems</a></li> 
   <li><a href="https://berkeley-blockchain.github.io/cs294-144-s19/" style="text-decoration: none;">CS 294: Blockchain, Cryptoeconomics, and the Future of Techonology, Business and Law</a></li>
   <li><a href="https://berkeley-blockchain.github.io/cs294-151-f18/" style="text-decoration: none;">CS 294: Blockchain and CryptoEconomics</a></li>
   <li><a href="http://guide.berkeley.edu/courses/mfe/" style="text-decoration: none;">MFE 230J: Financial Innovation with data science</a></li>
