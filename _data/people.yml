@@ -94,6 +94,18 @@
       subtitle: |
         Affiliate Faculty, New York University; 
         Tokenomics and DeFI, Data Analytics
+    - name: Ce Zhang
+      homepage: https://ds3lab.inf.ethz.ch/members/ce-zhang.html
+      image_file: cezhang.jpeg
+      subtitle: |
+        Affiliate Faculty, ETH Zurich,
+        Decentralized DS and ML
+    - name: Bo Li
+      homepage: http://boli.cs.illinois.edu/
+      image_file: boli.jpg
+      subtitle: |
+        Affiliate Faculty, UIUC,
+        Decentralized DS and ML
 
 # - section_name: "STUDENT"
 #   people:
