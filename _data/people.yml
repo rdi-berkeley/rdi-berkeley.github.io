@@ -79,7 +79,7 @@
       homepage: https://arthurgervais.com/
       image_file: arthur.jpg
       subtitle: |
-        Affiliate Faculty, 
+        Affiliate Faculty,
         Imperial College London;
         Blockchain, DeFi
     - name: Yupeng Zhang
@@ -92,20 +92,20 @@
       homepage: https://pages.stern.nyu.edu/~xchen3/?_ga=2.105731206.401891539.1664949863-1427484683.1664949863
       image_file: xichen.jpg
       subtitle: |
-        Affiliate Faculty, New York University; 
+        Affiliate Faculty, New York University;
         Tokenomics and DeFI, Data Analytics
     - name: Ce Zhang
       homepage: https://ds3lab.inf.ethz.ch/members/ce-zhang.html
       image_file: cezhang.jpeg
       subtitle: |
         Affiliate Faculty, ETH Zurich,
-        Decentralized DS and ML
+        Decentralized Data Science and Machine Learning
     - name: Bo Li
       homepage: http://boli.cs.illinois.edu/
       image_file: boli.jpg
       subtitle: |
         Affiliate Faculty, UIUC,
-        Decentralized DS and ML
+        Decentralized Data Science and Machine Learning
 
 # - section_name: "STUDENT"
 #   people:
