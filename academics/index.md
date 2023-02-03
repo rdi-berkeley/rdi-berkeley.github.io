@@ -5,6 +5,13 @@ layout: default
 ## Academics
 
 <div style="font-size: 12pt; font-family: 'Open Sans', sans-serif; font-weight: 300; display: flex;">
+    
+     <a href="https://zk-learning.org/" style="width: 33%; align-content: center; justify-content: center; display: flex; text-decoration: none;padding: 5px;">
+        <button class="our-button"  style="background-color: #3E8AF2;">
+            Join our the ZKP MOOC
+        </button>
+    </a>
+    
     <a href="https://defi-learning.org/f22" style="width: 33%; align-content: center; justify-content: center; display: flex; text-decoration: none;padding: 5px;">
         <button class="our-button" style="background-color: #3E8AF2;">
             Join our DeFi MOOC
@@ -26,6 +33,7 @@ layout: default
 <div style="line-height: 200%; " >
 
 <ul>
+  <li><a href="https://zk-learning.org/" style="text-decoration: none;">CS294/194-238 Zero Knowledge Proof</a></li>
   <li><a href="https://berkeley-defi.github.io/f21" style="text-decoration: none;">CS 294: Special Topics on Decentralized Finance</a></li>
   <li><a href="https://berkeley-desys.github.io/s22" style="text-decoration: none;">CS 294: Decentralized Systems</a></li> 
   <li><a href="https://berkeley-blockchain.github.io/cs294-144-s19/" style="text-decoration: none;">CS 294: Blockchain, Cryptoeconomics, and the Future of Techonology, Business and Law</a></li>
