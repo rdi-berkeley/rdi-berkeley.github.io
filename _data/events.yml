@@ -1,3 +1,26 @@
+- link: https://www.youtube.com/watch?v=O6d0x6NXOig&t=3680s
+  img: /assets/images/events/Tim_Roughgarden.jpeg
+  row-title: "Berkeley RDI Distinguished Lecture"
+  date: "2022-11-02"
+  formatted-date: "November 2"
+  start: "12:30 am"
+  end: "1:30 pm"
+  title: "11/02/22 - Tim Roughgarden - Transaction Fee Mechanism Design"
+  img: /assets/images/events/Tim_Roughgarden.jpeg
+  location: In person @ Soda Hall. Recording not available, but the CESC.io 2022 talk by Tim Roughgarden can be seen here: https://www.youtube.com/watch?v=O6d0x6NXOig&t=3680s
+  # zoom: https://berkeley.zoom.us/webinar/register/WN_Hi44XRhiRhy11U-exg_VOw
+  description: |
+    UC Berkeley's Center for Responsible, Decentralized Intelligence (RDI) 
+    is excited to announce this a Distinguished Lecture: Transaction Fee Mechanism Design, 
+    with Tim Roughgarden, Professor of Computer Science and member of the Data Science Institute at Columbia University. Join us in-person on 
+    November 2 at 12:30pm for an insightful and exciting presentation and discussion on Transaction Fee Mechanism Design. 
+  speakers:
+    - name: Tim Roughgarden
+      description: |
+        Tim Roughgarden is a Professor of Computer Science and member of the Data Science Institute at Columbia University. 
+        He is also Head of Research at a16z crypto, and his research interests lie in Design, analysis, applications, and limitations of algorithms,
+         Game theory and microeconomics, especially as applied to networks, auctions, and web3.
+
 - link: https://cesc.io
   img: /assets/images/events/cesc.png
 
