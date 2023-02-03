@@ -17,9 +17,7 @@
   speakers:
     - name: Tim Roughgarden
       description: |
-        Tim Roughgarden is a Professor of Computer Science and member of the Data Science Institute at Columbia University. 
-        He is also Head of Research at a16z crypto, and his research interests lie in Design, analysis, applications, and limitations of algorithms,
-         Game theory and microeconomics, especially as applied to networks, auctions, and web3.
+        Tim Roughgarden is a Professor of Computer Science at Columbia University and the Head of Research at a16z crypto. Prior to joining Columbia, he spent 15 years on the computer science faculty at Stanford, following a PhD at Cornell and a postdoc at UC Berkeley. His research interests include the many connections between computer science and economics, as well as the design, analysis, applications, and limitations of algorithms. For his research, he has been awarded the ACM Grace Murray Hopper Award, the Presidential Early Career Award for Scientists and Engineers (PECASE), the Kalai Prize in Computer Science and Game Theory, the Social Choice and Welfare Prize, the Mathematical Programming Society's Tucker Prize, and the EATCS-SIGACT Gödel Prize. He was an invited speaker at the 2006 International Congress of Mathematicians, the Shapley Lecturer at the 2008 World Congress of the Game Theory Society, and a Guggenheim Fellow in 2017. He has written or edited ten books and monographs, including Twenty Lectures on Algorithmic Game Theory (2016), Beyond the Worst-Case Analysis of Algorithms (2020), and the Algorithms Illuminated book series (2017-2020).
 
 - link: https://cesc.io
   img: /assets/images/events/cesc.png
