@@ -19,7 +19,7 @@ layout: default
 </div>
 
 <div style="font-size: 12pt; font-family: 'Open Sans', sans-serif; font-weight: 300; margin-left: 22%; overflow: scroll; width: 75%; line-height: 1.5;">
-    <h2>Watch / Read</h2>
+    <h2>Connect / Learn</h2>
 This page is your portal to content produced by RDI about our research, education and community / entrepreneurship. <br><br>
 
 The <a href="/publicCourses">DeFi MOOC</a> section allows you to browse and search content from our collection of recorded lectures. <br>
