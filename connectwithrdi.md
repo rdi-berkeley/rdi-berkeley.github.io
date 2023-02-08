@@ -38,7 +38,7 @@ Use these QR codes to connect with us <br><br>
         </div>
         <div class="sponsor-item-primary">
           <a href="https://forms.gle/gji3UVLrCHyRme9XA" style="text-decoration:none">
-            <img class="sponsor-item-img-primary-2" src='/assets/images/Web3_Crypto_QR.png' width="200" height="auto" />
+            <img class="sponsor-item-img-primary-2" src='/assets/images/Web3_Crypto_QR.png' width="400" height="auto" />
           </a>
         </div>
         <div class="sponsor-item-primary">
@@ -47,7 +47,7 @@ Use these QR codes to connect with us <br><br>
           </a>
         </div>
         <div class="sponsor-item-primary">
-            <img class="sponsor-item-img-primary-2" src='/assets/images/t_me-BerkeleyRDIAnnouncements.jpeg' width="200" height="auto"/>
+            <img class="sponsor-item-img-primary-2" src='/assets/images/image.png' width="200" height="auto"/>
   
         </div>
     </div>
