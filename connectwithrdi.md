@@ -39,7 +39,7 @@ Use these QR codes to connect with us <br><br>
         <div class="sponsor-item-primary">
              <h5>Join Web3 / Crypto Alumni Group </h5>
           <a href="https://forms.gle/gji3UVLrCHyRme9XA" style="text-decoration:none">
-            <img class="sponsor-item-img-primary-2" src='/assets/images/Web3_Crypto_QR.png' width="800" height="auto" />
+            <img class="sponsor-item-img-primary-2" src='/assets/images/QRss.png' width="200" height="auto" />
           </a>
         </div>
         <div class="sponsor-item-primary">
