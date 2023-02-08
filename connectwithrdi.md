@@ -31,24 +31,23 @@ Use these QR codes to connect with us <br><br>
         
     <div class="sponsor-container" style="width: 100%; margin-top: 0;">
         <div class="sponsor-item-primary">
-          <a href="https://www.edudao.io/" style="text-decoration:none">
-            <img class="sponsor-item-img-primary-1" src='/assets/images/RDI_QR.png' width="400" height="auto"/>
+          <a href="https://rdi.berkeley.edu/signup" style="text-decoration:none">
+            <img class="sponsor-item-img-primary-1" src='/assets/images/RDI_QR.png' width="200" height="auto"/>
           </a>
         </div>
         <div class="sponsor-item-primary">
-          <a href="https://www.algorand.com/" style="text-decoration:none">
-            <img class="sponsor-item-img-primary-2" src='/assets/images/Web3_Crypto_QR.png' />
+          <a href="https://forms.gle/gji3UVLrCHyRme9XA" style="text-decoration:none">
+            <img class="sponsor-item-img-primary-2" src='/assets/images/Web3_Crypto_QR.png' width="200" height="auto" />
           </a>
         </div>
         <div class="sponsor-item-primary">
-          <a href="https://jumpcrypto.com/" style="text-decoration:none">
-            <img class="sponsor-item-img-primary-2" src='/assets/images/RDI_twitterblue.jpeg' />
+          <a href="https://twitter.com/BerkeleyRDI?ref_src=twsrc%5Etfw" style="text-decoration:none">
+            <img class="sponsor-item-img-primary-2" src='/assets/images/RDI_twitterblue.jpeg' width="200" height="auto"/>
           </a>
         </div>
         <div class="sponsor-item-primary">
-          <a href="https://web3.foundation/" style="text-decoration:none">
-            <img class="sponsor-item-img-primary-2" src='/assets/images/t_me-BerkeleyRDIAnnouncements.jpeg' />
-          </a>
+            <img class="sponsor-item-img-primary-2" src='/assets/images/t_me-BerkeleyRDIAnnouncements.jpeg' width="200" height="auto"/>
+  
         </div>
     </div>
     
