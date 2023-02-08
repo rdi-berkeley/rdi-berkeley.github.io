@@ -16,7 +16,7 @@ layout: default
         Join Our Mailing List
     </a>
     <a href="https://twitter.com/BerkeleyRDI?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @BerkeleyRDI</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-    <a href="/firesides" class="nav-url">
+    <a href="/connectwithrdi" class="nav-url">
         Connect with RDI
     </a>
 </div>
