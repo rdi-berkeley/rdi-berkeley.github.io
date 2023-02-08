@@ -24,17 +24,15 @@ Use these QR codes to connect with us <br><br>
 
     <div style="display: flex; flex-direction: column; justify-content: space-between; width: 100%; margin: auto;">
     <div style="flex: 1; text-align: left; color: #18233D; width: 100%; margin: auto;">
-      <h1 style="font-weight: 500; color: #CB9445;">Sponsors</h1>
-      <p style="margin-bottom: 0;">Funding for this conference and its affiliated events was provided by:</p>
+      <h1 style="font-weight: 500; color: #CB9445;"></h1>
+      <p style="margin-bottom: 0;"></p>
     </div>
-       
-width="400" 
-     height="500"
+
         
     <div class="sponsor-container" style="width: 100%; margin-top: 0;">
         <div class="sponsor-item-primary">
           <a href="https://www.edudao.io/" style="text-decoration:none">
-            <img class="sponsor-item-img-primary-1" src='/assets/images/RDI_QR.png' width="400" height="500"/>
+            <img class="sponsor-item-img-primary-1" src='/assets/images/RDI_QR.png' width="400" height="auto"/>
           </a>
         </div>
         <div class="sponsor-item-primary">
