@@ -22,9 +22,7 @@ layout: default
     <h2>Connect with RDI</h2>
 Use these QR codes to connect with us <br><br>
 
-</div>
-
-<div style="display: flex; flex-direction: column; justify-content: space-between; width: 100%; margin: auto;">
+    <div style="display: flex; flex-direction: column; justify-content: space-between; width: 100%; margin: auto;">
     <div style="flex: 1; text-align: left; color: #18233D; width: 100%; margin: auto;">
       <h1 style="font-weight: 500; color: #CB9445;">Sponsors</h1>
       <p style="margin-bottom: 0;">Funding for this conference and its affiliated events was provided by:</p>
@@ -51,6 +49,11 @@ Use these QR codes to connect with us <br><br>
           </a>
         </div>
     </div>
+    
+    
+</div>
+
+
 
  <!-- Use an embeded form and use JavaScript to create the pop-up effect on click -->
   <div id="modal" hidden></div>
