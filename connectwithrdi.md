@@ -31,6 +31,7 @@ Use these QR codes to connect with us <br><br>
         
     <div class="sponsor-container" style="width: 100%; margin-top: 0;">
         <div class="sponsor-item-primary">
+            <h3>Join Web3 / Crypto Alumni Group </h3>
           <a href="https://rdi.berkeley.edu/signup" style="text-decoration:none">
             <img class="sponsor-item-img-primary-1" src='/assets/images/RDI_QR.png' width="200" height="auto"/>
           </a>
