@@ -1,23 +1,3 @@
-10_25_Web3_MOOC 
-- link: /events/10-25-22
-  img: /assets/images/events/10_25_Web3_MOOC.jpeg
-  row-title: "Berkeley RDI Frontier Forum"
-  date: "2022-10-25"
-  formatted-date: "October 25"
-  start: "4:00 pm"
-  end: "5:00 pm"
-  title: "10-25-22 Avichal Garg - Entrepreneurship in Web3: Product"
-  img: /assets/images/events/10_25_Web3_MOOC.jpeg
-  location: In person @ Soda Hall
-  # zoom: https://berkeley.zoom.us/webinar/register/WN_Hi44XRhiRhy11U-exg_VOw
-  description: |
-    UC Berkeley's new Center for Responsible, Decentralized Intelligence (RDI) 
-    is excited to announce this week's Frontier Forum: Entrepreneurship in Web3: Product, 
-    with Avichal Garg.
-  speakers:
-    - name: Avichal Garg
-      description: |
-      Avichal Garg, Co-Founder/Partner at Electric Capital. Avichal is a successful entrepreneur with executive experience at Google and Facebook, which acquired his previous company. As an angel investor, Avichal has invested in 15 unicorns and 5 decacorns including Airtable, Boom Supersonic, Color Genomics, Cruise, Deel, Figma, Newfront Insurance, Notion, Nova Credit, Pulley, and others. He co-founded Electric Capital in 2018 and has grown it to one of the largest crypto venture firms globally. Electric is an investor in leading web3 protocols and companies such as Bitwise, Bitnomial, dYdX, Frax, Kraken, Magic Eden, NEAR, and Tokemak.
 - link: /events/2-11-22
   img: /assets/images/events/Tim_Roughgarden.jpeg
   row-title: "Berkeley RDI Distinguished Lecture"
