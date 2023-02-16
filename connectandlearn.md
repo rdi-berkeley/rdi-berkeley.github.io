@@ -4,7 +4,7 @@ layout: default
 
 <div style="color: black; width: 15%; height: 160px; margin-top: 60px; position: absolute; display: flex; flex-direction: column; justify-content: space-evenly">
     <a href="/publicCourses" class="nav-url">
-        DeFi MOOC
+        MOOC
     </a>
     <a href="/firesides" class="nav-url">
         Fireside chat series: the Future of DeFi
