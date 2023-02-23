@@ -20,7 +20,7 @@ layout: default
     <div class='video-playlist'>
         <div class='preview-wrapper'>
             <div class="thumbnail" style="background:url(https://i.ytimg.com/vi/gX3mc83CJtQ/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLAD9NAUosYdZnoLZLQPCVdgG9-HSQ); background-size: cover; background-repeat: no-repeat;">
-                <img src="/assets/images/defi_mooc.jpeg">
+                <img style="width:50px;height:75px; src="/assets/images/defi_mooc.jpeg">
             </div>
         </div>
         <div class='video-title'>
