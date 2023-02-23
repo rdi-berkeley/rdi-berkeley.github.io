@@ -24,7 +24,7 @@ layout: default
             </div>
         </div>
         <div class='video-title'>
-            <p>DeFi MOOC - Fall 2021</p>
+            <p>DeFi MOOC - Fall 2022</p>
         </div>
         <div class="playlist-label">[<a href="https://defi-learning.org/">Course Syllabus</a>]</div>
         <div class="playlist-label">[<a href="https://www.youtube.com/channel/UCB67PxhB5LAWEbI4etQS7aw/playlists?view=50&sort=dd&shelf_id=5">Playlist: 14 videos</a>]</div>
@@ -43,4 +43,20 @@ layout: default
         <div class="playlist-label">[<a href="https://web3-startups.org/">Course Syllabus</a>]</div>
         <div class="playlist-label">[<a href="https://www.youtube.com/@blockchain-web3moocs635/featured">Playlist: 11 videos</a>]</div>
     </div>
+    
+    
+     
+       <div class='video-playlist'>
+        <div class='preview-wrapper'>
+            <div class="thumbnail" style="background:url(https://zk-learning.org/); background-size: cover; background-repeat: no-repeat;">
+                <img class="thumbnail-overlay" src="https://lh3.googleusercontent.com/GhRgXc3pWpkiPzPbcYW-D-n8kN5eIJmVSts6_4MT5vPypL9mQEQReHC0Uf5MkylVyz-ParfVm2DPl2LOP3wo6P6QufhBgBY2EdWXvU0KLmsmoqMPjMcbsfVFwmypBsjGu1hNjwJSdP3VKF4RdIrntZ0">
+            </div>
+        </div>
+        <div class='video-title'>
+            <p>ZKP MOOC - Spring 2023</p>
+        </div>
+        <div class="playlist-label">[<a href="https://zk-learning.org/">Course Syllabus</a>]</div>
+        <div class="playlist-label">[<a href="https://www.youtube.com/channel/UCB67PxhB5LAWEbI4etQS7aw/playlists?view=50&sort=dd&shelf_id=5">Playlist: 11 videos</a>]</div>
+    </div>
+    
 <div>
