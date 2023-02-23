@@ -17,6 +17,20 @@ layout: default
 
 <div style="font-size: 12pt; font-family: 'Open Sans', sans-serif; font-weight: 300; margin-left: 22%; overflow: scroll; width: 75%;">
     <h2>Public Courses</h2>
+    
+     <div class='video-playlist'>
+        <div class='preview-wrapper'>
+            <div class="thumbnail" style="background:url(https://i.ytimg.com/vi/uchjTIlPzFo/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLDwtao-iuSXi45Mw5yyjg4A_q2pFg); background-size: cover; background-repeat: no-repeat;">
+                <img class="thumbnail-overlay" src="/assets/images/ZKP_COVER.jpeg">
+            </div>
+        </div>
+        <div class='video-title'>
+            <p>ZKP MOOC - Spring 2023</p>
+        </div>
+        <div class="playlist-label">[<a href="https://zk-learning.org/">Course Syllabus</a>]</div>
+        <div class="playlist-label">[<a href="https://www.youtube.com/channel/UCB67PxhB5LAWEbI4etQS7aw/playlists?view=50&sort=dd&shelf_id=5">Playlist: New Lectures Release Every Friday</a>]</div>
+    </div>
+    
     <div class='video-playlist'>
         <div class='preview-wrapper'>
             <div class="thumbnail" style="background:url(/assets/images/defi_mooc.jpeg); background-size: cover; background-repeat: no-repeat;">
@@ -46,17 +60,6 @@ layout: default
     
     
      
-       <div class='video-playlist'>
-        <div class='preview-wrapper'>
-            <div class="thumbnail" style="background:url(/assets/images/ZKP_COVER.jpeg); background-size: cover; background-repeat: no-repeat;">
-                <img class="thumbnail-overlay" src="/assets/images/ZKP_COVER.jpeg">
-            </div>
-        </div>
-        <div class='video-title'>
-            <p>ZKP MOOC - Spring 2023</p>
-        </div>
-        <div class="playlist-label">[<a href="https://zk-learning.org/">Course Syllabus</a>]</div>
-        <div class="playlist-label">[<a href="https://www.youtube.com/channel/UCB67PxhB5LAWEbI4etQS7aw/playlists?view=50&sort=dd&shelf_id=5">Playlist: 14 videos</a>]</div>
-    </div>
+      
     
 <div>
