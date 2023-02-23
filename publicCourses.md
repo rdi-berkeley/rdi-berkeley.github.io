@@ -20,7 +20,7 @@ layout: default
     <div class='video-playlist'>
         <div class='preview-wrapper'>
             <div class="thumbnail" style="background:url(https://i.ytimg.com/vi/gX3mc83CJtQ/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLAD9NAUosYdZnoLZLQPCVdgG9-HSQ); background-size: cover; background-repeat: no-repeat;">
-                <img class="thumbnail-overlay" src="https://www.youtube.com/watch?v=gX3mc83CJtQ&list=PLS01nW3RtgopJOtsMVOK3N7n7qyNMPbJ_">
+                <img class="thumbnail-overlay" src="/assets/images/defi_mooc.jpeg">
             </div>
         </div>
         <div class='video-title'>
@@ -49,7 +49,7 @@ layout: default
        <div class='video-playlist'>
         <div class='preview-wrapper'>
             <div class="thumbnail" style="background:url(https://zk-learning.org/); background-size: cover; background-repeat: no-repeat;">
-                <img class="thumbnail-overlay" src="https://lh3.googleusercontent.com/GhRgXc3pWpkiPzPbcYW-D-n8kN5eIJmVSts6_4MT5vPypL9mQEQReHC0Uf5MkylVyz-ParfVm2DPl2LOP3wo6P6QufhBgBY2EdWXvU0KLmsmoqMPjMcbsfVFwmypBsjGu1hNjwJSdP3VKF4RdIrntZ0">
+                <img class="thumbnail-overlay" src="/assets/images/ZKP_COVER.jpeg">
             </div>
         </div>
         <div class='video-title'>
