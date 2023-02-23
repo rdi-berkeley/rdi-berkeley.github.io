@@ -48,7 +48,7 @@ layout: default
      
        <div class='video-playlist'>
         <div class='preview-wrapper'>
-            <div class="thumbnail" style="background:url(https://zk-learning.org/); background-size: cover; background-repeat: no-repeat;">
+            <div class="thumbnail" style="background:url(/assets/images/ZKP_COVER.jpeg); background-size: cover; background-repeat: no-repeat;">
                 <img class="thumbnail-overlay" src="/assets/images/ZKP_COVER.jpeg">
             </div>
         </div>
