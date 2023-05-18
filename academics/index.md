@@ -17,6 +17,12 @@ layout: default
             RDI Certificate
         </button>
     </a>
+    
+        <a href="https://rdi.berkeley.edu/publicCourses" style="width: 33%; align-content: center; justify-content: center; display: flex; text-decoration: none;padding: 5px;">
+        <button class="our-button"  style="background-color: #3E8AF2;">
+            MOOCs
+        </button>
+    </a>
 </div>
 
 
