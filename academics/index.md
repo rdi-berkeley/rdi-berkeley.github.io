@@ -29,7 +29,7 @@ layout: default
 <div style="line-height: 200%; " >
 
 <ul>
-  <li><a href="https://https://rdi.berkeley.edu/responsible-genai/f23" style="text-decoration: none;">CS 294/194-196: Responsible GenAI and Decentralized Intelligence</a></li> 
+  <li><a href="https://rdi.berkeley.edu/responsible-genai/f23" style="text-decoration: none;">CS 294/194-196: Responsible GenAI and Decentralized Intelligence</a></li> 
   <li><a href="https://rdi.berkeley.edu/entrepreneurship-in-web3/f22" style="text-decoration: none;">CS294-224/CS194-224 Entrepreneurship In Web3</a></li>
   <li><a href="https://zk-learning.org/" style="text-decoration: none;">CS294/194-238 Zero Knowledge Proof</a></li>
   <li><a href="https://berkeley-defi.github.io/f21" style="text-decoration: none;">CS 294/194-177: Special Topics on Decentralized Finance</a></li>
