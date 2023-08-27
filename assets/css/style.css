@@ -143,8 +143,6 @@ h3 {
 
 #footer {
   background: #ffffff url("/assets/images/footer-image.png") no-repeat;
-  margin-left: -10vw;
-  margin-right: -10vw;
   background-size: cover;
   height: 100px;
   display: flex;
