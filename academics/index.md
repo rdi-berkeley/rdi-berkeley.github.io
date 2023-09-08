@@ -17,12 +17,13 @@ layout: default
             GenAI Course
         </button>
     </a>
-    
-  <a href="https://rdi.berkeley.edu/academics/RDI-certificate" style="width: 33%; align-content: center; justify-content: center; display: flex; text-decoration: none;padding: 5px;">
+      
+    <a href="https://rdi.berkeley.edu/academics/RDI-certificate" style="width: 33%; align-content: center; justify-content: center; display: flex; text-decoration: none;padding: 5px;">
         <button class="our-button"  style="background-color: #3E8AF2;">
             RDI Certificate
         </button>
     </a>
+    
 </div>
 
 
