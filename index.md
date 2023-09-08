@@ -4,7 +4,8 @@ layout: home
 
 ## Our mission
 
-**Advance the science and technology of web3, decentralization, and decentralized intelligence, to make it universally accessible and empower a responsible digital economy.**
+**Advance the science and technology of decentralization and decentralized intelligence, to make it universally accessible and empower a responsible digital economy.**
+
 
 ---
 
