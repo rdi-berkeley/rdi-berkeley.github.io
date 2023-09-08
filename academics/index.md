@@ -6,21 +6,21 @@ layout: default
 
 <div style="font-size: 12pt; font-family: 'Open Sans', sans-serif; font-weight: 300; display: flex;">
     
-     <a href="https://zk-learning.org/" style="width: 33%; align-content: center; justify-content: center; display: flex; text-decoration: none;padding: 5px;">
+     <a href="https://rdi.berkeley.edu/berkeley-defi/f23" style="width: 33%; align-content: center; justify-content: center; display: flex; text-decoration: none;padding: 5px;">
         <button class="our-button"  style="background-color: #3E8AF2;">
-            Join our the ZKP MOOC
+            DeFi Course
         </button>
     </a>
     
-    <a href="https://rdi.berkeley.edu/academics/RDI-certificate" style="width: 33%; align-content: center; justify-content: center; display: flex; text-decoration: none;padding: 5px;">
+    <a href="https://rdi.berkeley.edu/responsible-genai/f23" style="width: 33%; align-content: center; justify-content: center; display: flex; text-decoration: none;padding: 5px;">
+        <button class="our-button"  style="background-color: #3E8AF2;">
+            GenAI Course
+        </button>
+    </a>
+    
+  <a href="https://rdi.berkeley.edu/academics/RDI-certificate" style="width: 33%; align-content: center; justify-content: center; display: flex; text-decoration: none;padding: 5px;">
         <button class="our-button"  style="background-color: #3E8AF2;">
             RDI Certificate
-        </button>
-    </a>
-    
-        <a href="https://rdi.berkeley.edu/publicCourses" style="width: 33%; align-content: center; justify-content: center; display: flex; text-decoration: none;padding: 5px;">
-        <button class="our-button"  style="background-color: #3E8AF2;">
-            MOOCs
         </button>
     </a>
 </div>
