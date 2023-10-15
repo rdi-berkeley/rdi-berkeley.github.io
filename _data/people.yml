@@ -165,8 +165,24 @@
 #       research_interest:
 #     - name: Neil Giridharan
 #       research_interest:
-- section_name: "STAFF AND AFFILIATES"
+- section_name: "STAFF, INTERNS AND AFFILIATES"
   people:
+    - name: Karin H Bauer
+      homepage: https://www.linkedin.com/in/karinhbauer/
+      image_file: karinbauer.jpg
+      subtitle: "Program Director"
+    - name: Nick Friedland
+      homepage: https://www.linkedin.com/in/nick-friedland/
+      image_file: nickfriedland.jpg
+      subtitle: "Operations Lead"
+    - name: Samantha Guo
+      homepage: https://www.linkedin.com/in/samantha-guo-835056124/
+      image_file: samanthaguo.jpg
+      subtitle: "Program Lead"
+    - name: Emily Fischer-Bunker
+      homepage: https://www.linkedin.com/in/journeytowellness/
+      image_file: emilyfischer-bunker.jpg
+      subtitle: "Media Specialist"
     - name: Linda Kreitzman
       homepage: https://haas.berkeley.edu/faculty/kreitzman-linda/
       image_file: linda.jpg
