@@ -179,35 +179,35 @@
       homepage: https://www.linkedin.com/in/samantha-guo-835056124/
       image_file: samanthaguo.jpg
       subtitle: "Program Lead"
-    - name: Emily Fischer-Bunker
-      homepage: https://www.linkedin.com/in/journeytowellness/
-      image_file: emilyfischer-bunker.jpg
-      subtitle: "Media Specialist"
-    - name: Rohit Kanagal
-      homepage: https://www.linkedin.com/in/rohitkanagal/
-      image_file: rohitkanagal.jpg
-      subtitle: "Intern" 
-    - name: Joseph Chen
-      homepage: https://www.linkedin.com/in/josephchen214/
-      image_file: josephchen.jpg
-      subtitle: "Intern"
-    - name: Deejay Bui
-      homepage: http://www.linkedin.com/in/deejay-bui-587501239
-      image_file: deejaybui.jpg
-      subtitle: "Intern"
-    - name: Alexis Turner
-      homepage: https://www.linkedin.com/in/josephchen214/
-      image_file: alexisturner.jpg
-      subtitle: "Intern"
-    - name: Sarah Feng
-      homepage: https://www.linkedin.com/in/sarah-feng-85b00a1a3/ec2w8
-      image_file: sarahfeng.jpg
-      subtitle: "Intern"
-    - name: Nadeen Mohamed
-      homepage: https://www.linkedin.com/in/josephchen214/
-      image_file: nadeenmohamed.jpg
-      subtitle: "Intern"
-    - name: Linda Kreitzman
-      homepage: https://haas.berkeley.edu/faculty/kreitzman-linda/
-      image_file: linda.jpg
-      subtitle: "Industry Partnerships"
+    # - name: Emily Fischer-Bunker
+    #   homepage: https://www.linkedin.com/in/journeytowellness/
+    #   image_file: emilyfischer-bunker.jpg
+    #   subtitle: "Media Specialist"
+    # - name: Rohit Kanagal
+    #   homepage: https://www.linkedin.com/in/rohitkanagal/
+    #   image_file: rohitkanagal.jpg
+    #   subtitle: "Intern" 
+    # - name: Joseph Chen
+    #   homepage: https://www.linkedin.com/in/josephchen214/
+    #   image_file: josephchen.jpg
+    #   subtitle: "Intern"
+    # - name: Deejay Bui
+    #   homepage: http://www.linkedin.com/in/deejay-bui-587501239
+    #   image_file: deejaybui.jpg
+    #   subtitle: "Intern"
+    # - name: Alexis Turner
+    #   homepage: https://www.linkedin.com/in/josephchen214/
+    #   image_file: alexisturner.jpg
+    #   subtitle: "Intern"
+    # - name: Sarah Feng
+    #   homepage: https://www.linkedin.com/in/sarah-feng-85b00a1a3/ec2w8
+    #   image_file: sarahfeng.jpg
+    #   subtitle: "Intern"
+    # - name: Nadeen Mohamed
+    #   homepage: https://www.linkedin.com/in/josephchen214/
+    #   image_file: nadeenmohamed.jpg
+    #   subtitle: "Intern"
+    # - name: Linda Kreitzman
+    #   homepage: https://haas.berkeley.edu/faculty/kreitzman-linda/
+    #   image_file: linda.jpg
+    #   subtitle: "Industry Partnerships"
