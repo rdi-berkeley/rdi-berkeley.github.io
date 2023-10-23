@@ -207,7 +207,7 @@
     #   homepage: https://www.linkedin.com/in/josephchen214/
     #   image_file: nadeenmohamed.jpg
     #   subtitle: "Intern"
-    # - name: Linda Kreitzman
-    #   homepage: https://haas.berkeley.edu/faculty/kreitzman-linda/
-    #   image_file: linda.jpg
-    #   subtitle: "Industry Partnerships"
+    - name: Linda Kreitzman
+      homepage: https://haas.berkeley.edu/faculty/kreitzman-linda/
+      image_file: linda.jpg
+      subtitle: "Industry Partnerships"
