@@ -47,7 +47,7 @@ layout: default
   <li><a href="https://inst.eecs.berkeley.edu/~cs261/fa18/" style="text-decoration: none;">CS 261: Systems Security</a></li>
   <li><a href="https://inst.eecs.berkeley.edu/~cs294-171/fa21" style="text-decoration: none;">CS 294: Privacy-Preserving Systems</a></li>
   <li><a href="https://inst.eecs.berkeley.edu/~cs294-163/fa19/" style="text-decoration: none;">CS 294: Decentralized Security: Theory and Systems</a></li>
-    <li><a href="https://berkeley-blockchain.github.io/cs294-144-s19/" style="text-decoration: none;">CS 294-144: Blockchain, Cryptoeconomics, and the Future of Techonology, Business and Law</a></li>
+    <li><a href="https://berkeley-blockchain.github.io/cs294-144-s19/" style="text-decoration: none;">CS 294-144: Blockchain, Cryptoeconomics, and the Future of Technology, Business and Law</a></li>
   <li><a href="https://berkeley-blockchain.github.io/cs294-151-f18/" style="text-decoration: none;">CS 294-151: Blockchain and CryptoEconomics</a></li>
     <li><a href="https://people.eecs.berkeley.edu/~sseshia/219c/" style="text-decoration: none;">EECS 219C: Formal Methods: Specification, Verification, and Synthesis</a></li>
   <li><a href="https://berkeley-secure-hardware.github.io/cs294-156-f18/" style="text-decoration: none;">CS 294: Advanced Topics on Secure Hardware</a></li>
