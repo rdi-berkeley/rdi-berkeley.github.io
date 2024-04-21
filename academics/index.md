@@ -30,7 +30,6 @@ layout: default
 <div style="line-height: 200%; " >
 
 <ul>
-  <li><a href="https://www.law.berkeley.edu/php-programs/courses/coursePage.php?cID=33984&termCode=B&termYear=2024" style="text-decoration: none;">247.61 sec. 001: Regulation and Policy of Crypto and web3</a></li> 
   <li><a href="https://rdi.berkeley.edu/understanding_llms/s24" style="text-decoration: none;">CS 294/194-267: Understanding Large Language Models: Foundations and Safety</a></li> 
   <li><a href="https://rdi.berkeley.edu/berkeley-defi/f23" style="text-decoration: none;">CS 294/194-177: Decentralized Finance</a></li> 
   <li><a href="https://rdi.berkeley.edu/responsible-genai/f23" style="text-decoration: none;">CS 294/194-196: Responsible GenAI and Decentralized Intelligence</a></li> 
@@ -54,6 +53,7 @@ layout: default
   <li><a href="https://berkeley-secure-hardware.github.io/cs294-156-f18/" style="text-decoration: none;">CS 294: Advanced Topics on Secure Hardware</a></li>
   <li><a href="https://www.law.berkeley.edu/php-programs/courses/coursePage.php?cID=27497" style="text-decoration: none;">Law 241: Evidence Law</a></li>
   <li><a href="https://www.law.berkeley.edu/php-programs/courses/coursePage.php?cID=28103" style="text-decoration: none;">Law 276.82: Secrecy</a></li>
+<li><a href="https://www.law.berkeley.edu/php-programs/courses/coursePage.php?cID=33984&termCode=B&termYear=2024" style="text-decoration: none;">Law 247.61: Regulation and Policy of Crypto and web3</a></li> 
 </ul>
 
 </div>
