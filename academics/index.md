@@ -30,7 +30,7 @@ layout: default
 <div style="line-height: 200%; " >
 
 <ul>
-  <li><a href="[https://rdi.berkeley.edu/understanding_llms/s24](https://www.law.berkeley.edu/php-programs/courses/coursePage.php?cID=33984&termCode=B&termYear=2024)" style="text-decoration: none;">247.61 sec 001: Regulation and Policy of Crypto and web3</a></li> 
+  <li><a href="https://www.law.berkeley.edu/php-programs/courses/coursePage.php?cID=33984&termCode=B&termYear=2024" style="text-decoration: none;">247.61 sec 001: Regulation and Policy of Crypto and web3</a></li> 
   <li><a href="https://rdi.berkeley.edu/understanding_llms/s24" style="text-decoration: none;">CS 294/194-267: Understanding Large Language Models: Foundations and Safety</a></li> 
   <li><a href="https://rdi.berkeley.edu/berkeley-defi/f23" style="text-decoration: none;">CS 294/194-177: Decentralized Finance</a></li> 
   <li><a href="https://rdi.berkeley.edu/responsible-genai/f23" style="text-decoration: none;">CS 294/194-196: Responsible GenAI and Decentralized Intelligence</a></li> 
