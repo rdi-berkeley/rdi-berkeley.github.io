@@ -99,7 +99,7 @@ layout: default
 </div>
 </div>
 
-<div id="joinBtn">
+<div id="joinBtn" onclick="window.location.href='https://rdi.berkeley.edu/signup';">
   <img id="mailList"
     src="https://www.iconpacks.net/icons/1/free-mail-icon-142-thumb.png"
     alt="Subscribe to RDI Mailing List">
@@ -231,7 +231,7 @@ layout: default
     let formclose = document.getElementById('formclose');
     let signupForm = document.getElementById('mc-embedded-subscribe-form');
 
-    joinBtn.addEventListener('click', openSubscribeForm);
+    //joinBtn.addEventListener('click', openSubscribeForm);
     communityBtn.addEventListener('click', openSubscribeForm);
     formclose.addEventListener('click', closeSubscribeForm);
 
