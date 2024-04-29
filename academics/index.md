@@ -44,7 +44,7 @@ layout: default
   <li><a href="https://people.eecs.berkeley.edu/~sanjamg/teaching/cs171-spring21" style="text-decoration: none;">CS 171: Introduction to Cryptography</a></li>
   <li><a href="https://people.eecs.berkeley.edu/~sanjamg/teaching/cs276-fall18" style="text-decoration: none;">CS 276: Graduate Cryptography</a></li>
   <li><a href="https://people.eecs.berkeley.edu/~sanjamg/teaching/cs294-spring18" style="text-decoration: none;">CS 294: Advanced Cryptography</a></li>
-  <li><a href="cs161.org" style="text-decoration: none;">CS 161: Introduction to Computer Security</a></li>
+  <li><a href="https://cs161.org/" style="text-decoration: none;">CS 161: Introduction to Computer Security</a></li>
   <li><a href="https://inst.eecs.berkeley.edu/~cs261/fa18/" style="text-decoration: none;">CS 261: Systems Security</a></li>
   <li><a href="https://inst.eecs.berkeley.edu/~cs294-171/fa21" style="text-decoration: none;">CS 294: Privacy-Preserving Systems</a></li>
   <li><a href="https://inst.eecs.berkeley.edu/~cs294-163/fa19/" style="text-decoration: none;">CS 294: Decentralized Security: Theory and Systems</a></li>
