@@ -95,13 +95,13 @@
         Affiliate Faculty, New York University;
         Tokenomics and DeFI, Data Analytics
     - name: Ce Zhang
-      homepage: https://ds3lab.inf.ethz.ch/members/ce-zhang.html
+      homepage: https://zhangce.github.io/
       image_file: cezhang.jpeg
       subtitle: |
         Affiliate Faculty, ETH Zurich,
         Decentralized Data Science and Machine Learning
     - name: Bo Li
-      homepage: http://boli.cs.illinois.edu/
+      homepage: https://cs.illinois.edu/about/people/faculty/lbo
       image_file: boli.jpg
       subtitle: |
         Affiliate Faculty, UIUC,
@@ -208,6 +208,6 @@
     #   image_file: nadeenmohamed.jpg
     #   subtitle: "Intern"
     - name: Linda Kreitzman
-      homepage: https://haas.berkeley.edu/faculty/kreitzman-linda/
+      homepage: https://www.linkedin.com/in/linda-k-8891ba/
       image_file: linda.jpg
       subtitle: "Industry Partnerships"
