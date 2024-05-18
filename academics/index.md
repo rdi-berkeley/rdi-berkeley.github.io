@@ -6,19 +6,19 @@ layout: default
 
 <div style="font-size: 12pt; font-family: 'Open Sans', sans-serif; font-weight: 300; display: flex;">
   <a href="https://rdi.berkeley.edu/berkeley-defi/f23" style="width: 33%; align-content: center; justify-content: center; display: flex; text-decoration: none;padding: 5px;">
-    <button class="our-button" style="background-color: #3E8AF2; font-size: 16px; padding: 10px;">
+    <button class="our-button" style="background-color: #3E8AF2; overflow: auto; font-size: 16px; padding: 10px;">
       DeFi Course
     </button>
   </a>
   
   <a href="https://rdi.berkeley.edu/responsible-genai/f23" style="width: 33%; align-content: center; justify-content: center; display: flex; text-decoration: none;padding: 5px;">
-    <button class="our-button" style="background-color: #3E8AF2; font-size: 16px; padding: 10px;">
+    <button class="our-button" style="background-color: #3E8AF2; overflow: auto; font-size: 16px; padding: 10px;">
       GenAI Course
     </button>
   </a>
   
   <a href="https://rdi.berkeley.edu/academics/RDI-certificate" style="width: 33%; align-content: center; justify-content: center; display: flex; text-decoration: none;padding: 5px;">
-    <button class="our-button" style="background-color: #3E8AF2; font-size: 16px; padding: 10px;">
+    <button class="our-button" style="background-color: #3E8AF2; overflow: auto; font-size: 16px; padding: 10px;">
       RDI Certificate
     </button>
   </a>
