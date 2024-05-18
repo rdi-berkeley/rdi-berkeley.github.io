@@ -79,20 +79,19 @@
       homepage: https://arthurgervais.com/
       image_file: arthur.jpg
       subtitle: |
-        Affiliate Faculty,
-        University College London;
+        Affiliate Faculty, University College London,
         Blockchain, DeFi
     - name: Yupeng Zhang
       homepage: https://zhangyp.web.illinois.edu/
       image_file: zhang.jpg
       subtitle: |
-        Assistant Professor, University of Illinois Urbana-Champaign
+        Assistant Professor, University of Illinois Urbana-Champaign,
         Electrical and Computer Engineering and Computer Science
     - name: Xi Chen
       homepage: https://pages.stern.nyu.edu/~xchen3/?_ga=2.105731206.401891539.1664949863-1427484683.1664949863
       image_file: xichen.jpg
       subtitle: |
-        Affiliate Faculty, New York University;
+        Affiliate Faculty, New York University,
         Tokenomics and DeFI, Data Analytics
     - name: Ce Zhang
       homepage: https://zhangce.github.io/
