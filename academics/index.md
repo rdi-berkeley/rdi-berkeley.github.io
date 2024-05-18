@@ -5,25 +5,55 @@ layout: default
 ## Academics
 
 <div style="font-size: 12pt; font-family: 'Open Sans', sans-serif; font-weight: 300; display: flex;">
-    
-     <a href="https://rdi.berkeley.edu/berkeley-defi/f23" style="width: 33%; align-content: center; justify-content: center; display: flex; text-decoration: none;padding: 5px;">
-        <button class="our-button"  style="background-color: #3E8AF2;">
-            DeFi Course
-        </button>
-    </a>
-    
-    <a href="https://rdi.berkeley.edu/responsible-genai/f23" style="width: 33%; align-content: center; justify-content: center; display: flex; text-decoration: none;padding: 5px;">
-        <button class="our-button"  style="background-color: #3E8AF2;">
-            GenAI Course
-        </button>
-    </a>
-      
-    <a href="https://rdi.berkeley.edu/academics/RDI-certificate" style="width: 33%; align-content: center; justify-content: center; display: flex; text-decoration: none;padding: 5px;">
-        <button class="our-button"  style="background-color: #3E8AF2;">
-            RDI Certificate
-        </button>
-    </a>
-    
+  <a href="https://rdi.berkeley.edu/berkeley-defi/f23" style="width: 33%; align-content: center; justify-content: center; display: flex; text-decoration: none;padding: 5px;">
+    <button class="our-button" style="background-color: #3E8AF2; font-size: 16px; padding: 10px;">
+      DeFi Course
+    </button>
+  </a>
+  
+  <a href="https://rdi.berkeley.edu/responsible-genai/f23" style="width: 33%; align-content: center; justify-content: center; display: flex; text-decoration: none;padding: 5px;">
+    <button class="our-button" style="background-color: #3E8AF2; font-size: 16px; padding: 10px;">
+      GenAI Course
+    </button>
+  </a>
+  
+  <a href="https://rdi.berkeley.edu/academics/RDI-certificate" style="width: 33%; align-content: center; justify-content: center; display: flex; text-decoration: none;padding: 5px;">
+    <button class="our-button" style="background-color: #3E8AF2; font-size: 16px; padding: 10px;">
+      RDI Certificate
+    </button>
+  </a>
+</div>
+
+<style>
+  @media (max-width: 1200px) {
+    .our-button {
+      font-size: 14px !important;
+      padding: 8px !important;
+    }
+  }
+
+  @media (max-width: 992px) {
+    .our-button {
+      font-size: 12px !important;
+      padding: 6px !important;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .our-button {
+      font-size: 10px !important;
+      padding: 4px !important;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .our-button {
+      font-size: 8px !important;
+      padding: 2px !important;
+    }
+  }
+</style>
+
 </div>
 
 
