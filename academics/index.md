@@ -54,8 +54,6 @@ layout: default
   }
 </style>
 
-</div>
-
 
 <div style="line-height: 200%; " >
 
