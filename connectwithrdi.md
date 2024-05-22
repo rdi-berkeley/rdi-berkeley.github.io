@@ -21,10 +21,38 @@ layout: default
 <div style="font-size: 12pt; font-family: 'Open Sans', sans-serif; font-weight: 300; margin-left: 22%; overflow: scroll; width: 75%; line-height: 1.5;">
     <h2>Connect with RDI</h2>
 Use these QR codes to connect with us <br><br>
+<div style="display: flex; flex-direction: column; justify-content: space-between; width: 100%; margin: auto;">
+        <div style="flex: 1; text-align: left; color: #18233D; width: 100%; margin: auto;">
+        
+            <p style="margin-bottom: 0;"></p>
+        </div>
 
-    
-    
-</div>
+        <div class="sponsor-container" style="width: 100%; margin-top: 0;">
+            <div class="sponsor-item-primary">
+                <h5>Join RDI mailing lists</h5>
+                <a href="https://rdi.berkeley.edu/signup" style="text-decoration:none">
+                    <img class="sponsor-item-img-primary-1" src='/assets/images/RDI_QR.png' width="200" height="auto"/>
+                </a>
+            </div>
+            <div class="sponsor-item-primary">
+                <h5>Join Web3 / Crypto Alumni Group</h5>
+                <a href="https://forms.gle/gji3UVLrCHyRme9XA" style="text-decoration:none">
+                    <img class="sponsor-item-img-primary-2" src='/assets/images/QRss.png' width="200" height="auto" />
+                </a>
+            </div>
+            <div class="sponsor-item-primary">
+                <h5>Follow us on Twitter</h5>
+                <a href="https://twitter.com/BerkeleyRDI?ref_src=twsrc%5Etfw" style="text-decoration:none">
+                    <img class="sponsor-item-img-primary-2" src='/assets/images/RDI_twitterblue.jpeg' width="200" height="auto"/>
+                </a>
+            </div>
+            <div class="sponsor-item-primary">
+                <h5>Join RDI Telegram Channel</h5>
+                <img class="sponsor-item-img-primary-2" src='/assets/images/image.png' width="200" height="auto"/>
+            </div>
+        </div>
+    </div>
+
 
 
 
