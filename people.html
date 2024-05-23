@@ -15,14 +15,16 @@ layout: default
                     style="
                         background-image: url(/assets/images/people/{{people.image_file}});
                     background-position: top;"
-                    alt="{{ people.name }}">
+                    alt="{{ people.name }}"
+                    aria-label="{{ people.name }}">
                 </a>
                 {% else %}
                 <a href=" {{ people.homepage }}" class="circular"
                     style="
                         background-image: url(/assets/images/default_profile.jpg);
                     background-position: top;"
-                    alt="{{ people.name }}">
+                    alt="{{ people.name }}"
+                    aria-label="{{ people.name }}">
                 </a>
                 {% endif %}
                 <div class="faculty-caption">
