@@ -21,7 +21,7 @@ layout: default
      <div class='video-playlist'>
         <div class='preview-wrapper'>
             <div class="thumbnail" style="background:url(https://i.ytimg.com/vi/uchjTIlPzFo/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLDwtao-iuSXi45Mw5yyjg4A_q2pFg); background-size: cover; background-repeat: no-repeat;">
-                <img class="thumbnail-overlay" src="/assets/images/ZKP_COVER.jpeg">
+                <img class="thumbnail-overlay" src="/assets/images/ZKP_COVER.jpeg" alt="ZKP MOOC Spring 2023 Cover">
             </div>
         </div>
         <div class='video-title'>
@@ -34,7 +34,7 @@ layout: default
     <div class='video-playlist'>
         <div class='preview-wrapper'>
             <div class="thumbnail" style="background:url(/assets/images/defi_mooc.jpeg); background-size: cover; background-repeat: no-repeat;">
-                <img class="thumbnail-overlay" src="/assets/images/defi_mooc.jpeg">
+                <img class="thumbnail-overlay" src="/assets/images/defi_mooc.jpeg" alt="DeFi MOOC Fall 2022 Cover">
             </div>
         </div>
         <div class='video-title'>
@@ -48,7 +48,7 @@ layout: default
        <div class='video-playlist'>
         <div class='preview-wrapper'>
             <div class="thumbnail" style="background:url(https://i.ytimg.com/vi/JnPaeIc9DAg/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCoHW3S4bi-sJkGLdT7XbPiuBh37g); background-size: cover; background-repeat: no-repeat;">
-                <img class="thumbnail-overlay" src="https://www.youtube.com/@blockchain-web3moocs635/featured">
+                <img class="thumbnail-overlay" src="https://www.youtube.com/@blockchain-web3moocs635/featured" alt="Entrepreneurship In Web3 MOOC Fall 2022 Cover">
             </div>
         </div>
         <div class='video-title'>
@@ -58,8 +58,4 @@ layout: default
         <div class="playlist-label">[<a href="https://www.youtube.com/@blockchain-web3moocs635/featured">Playlist: 11 videos</a>]</div>
     </div>
     
-    
-     
-      
-    
-<div>
+</div>
