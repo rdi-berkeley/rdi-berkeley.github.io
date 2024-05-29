@@ -59,7 +59,7 @@ layout: default
 
 <ul>
   
-  <li><a href="https://rdi.berkeley.edu/decentralized_intelligence/chen" style="text-decoration: none;">CS 194/294-196: Decentralized Intelligence: Large Language Model Agents, with Xinyun Chen</a></li>
+  <li><a href="https://rdi.berkeley.edu/llm-agents/f24" style="text-decoration: none;">CS 194/294-196: Decentralized Intelligence: Large Language Model Agents, with Xinyun Chen</a></li>
   <li><a href="https://rdi.berkeley.edu/understanding_llms/s24" style="text-decoration: none;">CS 294/194-267: Understanding Large Language Models: Foundations and Safety</a></li>
   <li><a href="https://rdi.berkeley.edu/responsible_genai/decentralized_intelligence" style="text-decoration: none;">CS294-196/CS194-196: Responsible GenAI and Decentralized Intelligence</a></li>
   <li><a href="https://www.law.berkeley.edu/php-programs/courses/coursePage.php?cID=33984&termCode=B&termYear=2024" style="text-decoration: none;">Law 247.61: Regulation and Policy of Crypto and web3</a> — Offered by Berkeley Law</li>
