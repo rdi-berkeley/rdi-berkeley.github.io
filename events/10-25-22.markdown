@@ -18,7 +18,7 @@ layout: default
             <h3 class="event-tag">All are welcome to join @ Soda</h3>
             <div class="event-button-wrapper"><button class="event-button"><a class="event-link" href="{{ row.zoom }}" target="_blank">Webinar Registration</a></button></div>
         {% endif %}
-        <img src="{{ row.img }}" style="width: 100%; margin-top: 0.5rem; margin-bottom: 0.5rem;">
+        <img alt="Event Banner Image" src="{{ row.img }}" style="width: 100%; margin-top: 0.5rem; margin-bottom: 0.5rem;">
         <h2>The Event</h2>
         {{ row.description }}
         <h2>Speakers</h2>
