@@ -19,7 +19,7 @@ Besides advancing the science, technology and education in this space, responsib
 
 RDI will continue to build upon UC Berkeley’s strong foundation and leadership in these areas, as recently recognized and noted below:
 <ul style="font-size: 15pt;">
-  <li><a href="https://www.coindesk.com/layer2/2021/10/04/the-top-universities-for-blockchain-by-coindesk-2021/" style="font-size: 15pt;">#1 university for blockchain in the US</a></li>
-  <li><a href="https://news.berkeley.edu/2021/09/08/uc-berkeley-no-1-on-forbes-list-of-americas-top-colleges/" style="font-size: 15pt;">#1 university overall in the US</a></li>
-  <li><a href="https://eecs.berkeley.edu/about/by-the-numbers#eecsrankings" style="font-size: 15pt;">#1 computer science graduate program</a></li>
+  <li><a href="https://www.coindesk.com/layer2/2021/10/04/the-top-universities-for-blockchain-by-coindesk-2021/" style="font-size: 15.5pt;">#1 university for blockchain in the US</a></li>
+  <li><a href="https://news.berkeley.edu/2021/09/08/uc-berkeley-no-1-on-forbes-list-of-americas-top-colleges/" style="font-size: 15.5pt;">#1 university overall in the US</a></li>
+  <li><a href="https://eecs.berkeley.edu/about/by-the-numbers#eecsrankings" style="font-size: 15.5pt;">#1 computer science graduate program</a></li>
 </ul>
