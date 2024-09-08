@@ -5,15 +5,21 @@ layout: default
 ## Academics
 
 <div style="font-size: 12pt; font-family: 'Open Sans', sans-serif; font-weight: 300; display: flex;">
-  <a href="https://rdi.berkeley.edu/berkeley-defi/f23" style="width: 33%; align-content: center; justify-content: center; display: flex; text-decoration: none;padding: 5px;">
+  <!-- <a href="https://rdi.berkeley.edu/berkeley-defi/f23" style="width: 33%; align-content: center; justify-content: center; display: flex; text-decoration: none;padding: 5px;">
     <button class="our-button" style="background-color: #3E8AF2; overflow: auto; font-size: 16px; padding: 10px;">
       DeFi Course
     </button>
-  </a>
+  </a> -->
   
-  <a href="https://rdi.berkeley.edu/responsible-genai/f23" style="width: 33%; align-content: center; justify-content: center; display: flex; text-decoration: none;padding: 5px;">
+  <!-- <a href="https://rdi.berkeley.edu/responsible-genai/f23" style="width: 33%; align-content: center; justify-content: center; display: flex; text-decoration: none;padding: 5px;">
     <button class="our-button" style="background-color: #3E8AF2; overflow: auto; font-size: 16px; padding: 10px;">
       GenAI Course
+    </button>
+  </a> -->
+
+  <a href="https://llmagents-learning.org/" style="width: 33%; align-content: center; justify-content: center; display: flex; text-decoration: none;padding: 5px;">
+    <button class="our-button" style="background-color: #3E8AF2; overflow: auto; font-size: 16px; padding: 10px;">
+      LLM Agents MOOC
     </button>
   </a>
   
@@ -63,7 +69,7 @@ layout: default
   <li><a href="https://rdi.berkeley.edu/understanding_llms/s24" style="text-decoration: none;">CS 294/194-267: Understanding Large Language Models: Foundations and Safety</a></li>
   <li><a href="https://rdi.berkeley.edu/responsible-genai/f23" style="text-decoration: none;">CS294-196/CS194-196: Responsible GenAI and Decentralized Intelligence</a></li>
   <li><a href="https://www.law.berkeley.edu/php-programs/courses/coursePage.php?cID=33984&termCode=B&termYear=2024" style="text-decoration: none;">Law 247.61: Regulation and Policy of Crypto and web3</a> — Offered by Berkeley Law</li>
-  <li><a href="https://rdi.berkeley.edu/berkeley-defi/f23" style="text-decoration: none;">CS 294/194-177: Decentralized Finance</a></li> 
+  <li><a href="https://rdi.berkeley.edu/berkeley-defi/" style="text-decoration: none;">CS 294/194-177: Decentralized Finance</a></li> 
   <li><a href="https://rdi.berkeley.edu/entrepreneurship-in-web3/f22" style="text-decoration: none;">CS294-224/CS194-224 Entrepreneurship In Web3</a></li>
   <li><a href="https://zk-learning.org/" style="text-decoration: none;">CS294/194-238 Zero Knowledge Proof</a></li>
   <li><a href="https://berkeley-defi.github.io/f21" style="text-decoration: none;">CS 294/194-177: Special Topics on Decentralized Finance</a></li>
