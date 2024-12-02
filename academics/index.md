@@ -64,7 +64,7 @@ layout: default
 <div style="line-height: 200%; " >
 
 <ul>
-  <li><a href="https://rdi.berkeley.edu/advanced-llm-agents/s25" style="text-decoration: none;">CS 194/294-280: Advanced Large Language Model Agents</a></li>
+  <li><a href="https://rdi.berkeley.edu/adv-llm-agents/s25" style="text-decoration: none;">CS 194/294-280: Advanced Large Language Model Agents</a></li>
   <li><a href="https://rdi.berkeley.edu/llm-agents/f24" style="text-decoration: none;">CS 194/294-196: Decentralized Intelligence: Large Language Model Agents</a></li>
   <li><a href="https://rdi.berkeley.edu/understanding_llms/s24" style="text-decoration: none;">CS 294/194-267: Understanding Large Language Models: Foundations and Safety</a></li>
   <li><a href="https://rdi.berkeley.edu/responsible-genai/f23" style="text-decoration: none;">CS294-196/CS194-196: Responsible GenAI and Decentralized Intelligence</a></li>
