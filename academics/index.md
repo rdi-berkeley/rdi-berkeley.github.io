@@ -17,7 +17,7 @@ layout: default
     </button>
   </a> -->
 
-  <a href="https://llmagents-learning.org/" style="width: 50%; align-content: center; justify-content: center; display: flex; text-decoration: none;padding: 5px;">
+  <a href="https://llmagents-learning.org/f24" style="width: 50%; align-content: center; justify-content: center; display: flex; text-decoration: none;padding: 5px;">
     <button class="our-button" style="background-color: #3E8AF2; overflow: auto; font-size: 16px; padding: 10px;">
       LLM Agents MOOC
     </button>
