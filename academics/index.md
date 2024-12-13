@@ -74,8 +74,8 @@ layout: default
   <li><a href="https://zk-learning.org/" style="text-decoration: none;">CS294/194-238 Zero Knowledge Proof</a></li>
   <li><a href="https://berkeley-defi.github.io/f21" style="text-decoration: none;">CS 294/194-177: Special Topics on Decentralized Finance</a></li>
   <li><a href="https://berkeley-desys.github.io/s22" style="text-decoration: none;">CS 294/194-196: Decentralized Systems</a></li> 
-  <li><a href="http://guide.berkeley.edu/courses/mfe/" style="text-decoration: none;">MFE 230J: Financial Innovation with data science</a></li>
-  <li><a href="http://courses.haas.berkeley.edu/descriptions/Descriptions/EWMBA237-1_Spring19.htm" style="text-decoration: none;">MBA/EWMBA 237: FinTech</a></li>
+  <li><a href="https://guide.berkeley.edu/courses/mfe/" style="text-decoration: none;">MFE 230J: Financial Innovation with data science</a></li>
+  <li><a href="https://courses.haas.berkeley.edu/descriptions/Descriptions/EWMBA237-1_Spring19.htm" style="text-decoration: none;">MBA/EWMBA 237: FinTech</a></li>
   <li><a href="https://classes.berkeley.edu/content/2020-Spring-UGBA-137-001-LEC-001" style="text-decoration: none;">UGBA 137: FinTech</a></li>
   <li><a href="https://people.eecs.berkeley.edu/~sanjamg/teaching/cs171-spring21" style="text-decoration: none;">CS 171: Introduction to Cryptography</a></li>
   <li><a href="https://people.eecs.berkeley.edu/~sanjamg/teaching/cs276-fall18" style="text-decoration: none;">CS 276: Graduate Cryptography</a></li>
