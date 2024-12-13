@@ -170,14 +170,11 @@
       homepage: https://www.linkedin.com/in/karinhbauer/
       image_file: karinbauer.jpeg
       subtitle: "Program Director"
-    - name: Nick Friedland
-      homepage: https://www.linkedin.com/in/nick-friedland/
-      image_file: nickfriedland.jpeg
-      subtitle: "Operations Lead"
+
     - name: Samantha Guo
       homepage: https://www.linkedin.com/in/samantha-guo-835056124/
       image_file: samanthaguo.jpeg
-      subtitle: "Program Lead"
+      subtitle: "Community Manager"
     # - name: Emily Fischer-Bunker
     #   homepage: https://www.linkedin.com/in/journeytowellness/
     #   image_file: emilyfischer-bunker.jpg
