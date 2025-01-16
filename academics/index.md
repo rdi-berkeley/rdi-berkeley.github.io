@@ -17,9 +17,9 @@ layout: default
     </button>
   </a> -->
 
-  <a href="https://llmagents-learning.org/f24" style="width: 50%; align-content: center; justify-content: center; display: flex; text-decoration: none;padding: 5px;">
+  <a href="https://llmagents-learning.org/sp25" style="width: 50%; align-content: center; justify-content: center; display: flex; text-decoration: none;padding: 5px;">
     <button class="our-button" style="background-color: #3E8AF2; overflow: auto; font-size: 16px; padding: 10px;">
-      LLM Agents MOOC
+      Advanced LLM Agents MOOC
     </button>
   </a>
   
@@ -65,7 +65,7 @@ layout: default
 
 <ul>
   <li><a href="https://rdi.berkeley.edu/adv-llm-agents/sp25" style="text-decoration: none;">CS 194/294-280: Advanced Large Language Model Agents</a></li>
-  <li><a href="https://rdi.berkeley.edu/llm-agents/f24" style="text-decoration: none;">CS 194/294-196: Decentralized Intelligence: Large Language Model Agents</a></li>
+  <li><a href="https://rdi.berkeley.edu/llm-agents/f24" style="text-decoration: none;">CS 194/294-196: Large Language Model Agents</a></li>
   <li><a href="https://rdi.berkeley.edu/understanding_llms/s24" style="text-decoration: none;">CS 294/194-267: Understanding Large Language Models: Foundations and Safety</a></li>
   <li><a href="https://rdi.berkeley.edu/responsible-genai/f23" style="text-decoration: none;">CS294-196/CS194-196: Responsible GenAI and Decentralized Intelligence</a></li>
   <li><a href="https://www.law.berkeley.edu/php-programs/courses/coursePage.php?cID=33984&termCode=B&termYear=2024" style="text-decoration: none;">Law 247.61: Regulation and Policy of Crypto and web3</a> — Offered by Berkeley Law</li>
