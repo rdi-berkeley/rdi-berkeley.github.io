@@ -17,6 +17,19 @@ layout: default
 
 <div style="font-size: 12pt; font-family: 'Open Sans', sans-serif; font-weight: 300; margin-left: 22%; overflow: scroll; width: 75%;">
     <h2>Public Courses</h2>
+
+     <div class='video-playlist'>
+        <div class='preview-wrapper'>
+            <div class="thumbnail" style="background:url(https://rdi.berkeley.edu/assets/images/llmagentsmoocimg.png); background-size: cover; background-repeat: no-repeat;">
+                <img class="thumbnail-overlay" src="/assets/images/llmagentsmoocimg.png" alt="Large Language Model Agents">
+            </div>
+        </div>
+        <div class='video-title'>
+            <p>Large Language Model Agents - Fall 2024</p>
+        </div>
+        <div class="playlist-label">[<a href="https://llmagents-learning.org/f24">Course Syllabus</a>]</div>
+        <div class="playlist-label">[<a href="https://www.youtube.com/playlist?list=PLS01nW3RtgopsNLeM936V4TNSsvvVglLc">Playlist: 14 videos</a>]</div>
+    </div>
     
      <div class='video-playlist'>
         <div class='preview-wrapper'>
