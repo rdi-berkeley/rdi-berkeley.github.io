@@ -41,7 +41,7 @@ layout: default
             <p>ZKP MOOC - Spring 2023</p>
         </div>
         <div class="playlist-label">[<a href="https://zk-learning.org/">Course Syllabus</a>]</div>
-        <div class="playlist-label">[<a href="https://www.youtube.com/channel/UCB67PxhB5LAWEbI4etQS7aw/playlists?view=50&sort=dd&shelf_id=5">Playlist: New Lectures Release Every Friday</a>]</div>
+        <div class="playlist-label">[<a href="https://www.youtube.com/channel/UCB67PxhB5LAWEbI4etQS7aw/playlists?view=50&sort=dd&shelf_id=5">Playlist: 14 videos</a>]</div>
     </div>
     
     <div class='video-playlist'>
