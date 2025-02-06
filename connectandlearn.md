@@ -2,7 +2,7 @@
 layout: default
 ---
 
-<div style="color: black; width: 15%; height: 200px; margin-top: 60px; position: absolute; display: flex; flex-direction: column; justify-content: space-evenly">
+<div style="color: black; width: 15%; height: 20rem; margin-top: 60px; position: absolute; display: flex; flex-direction: column; justify-content: space-evenly">
     <a href="/publicCourses" class="nav-url">
         Previous MOOC
     </a>
@@ -23,7 +23,7 @@ layout: default
         View our previous newsletters
     </a>
     <style type="text/css">
-        .display_archive {font-family: arial, verdana; font-size: 12px;}
+        .display_archive {font-family: arial, verdana; font-size: 12px; height: auto; overflow-y: auto; margin-top: 20px; padding: 10px;}
         .campaign {line-height: 125%; margin: 5px;}
     </style>
     <script
@@ -33,7 +33,7 @@ layout: default
     ></script>
 </div>
 
-<div style="font-size: 12pt; font-family: 'Open Sans', sans-serif; font-weight: 300; margin-left: 22%; overflow: scroll; width: 75%; line-height: 1.5;">
+<div style="font-size: 12pt; font-family: 'Open Sans', sans-serif; font-weight: 300; margin-left: 22%; height: 25rem; width: 75%; line-height: 1.5;">
     <h2>Connect / Learn</h2>
     This page is your portal to content produced by RDI about our research, education and community / entrepreneurship. <br><br>
 
