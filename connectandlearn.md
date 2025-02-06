@@ -2,7 +2,7 @@
 layout: default
 ---
 
-<div style="color: black; width: 15%; height: 160px; margin-top: 60px; position: absolute; display: flex; flex-direction: column; justify-content: space-evenly">
+<div style="color: black; width: 15%; height: 200px; margin-top: 60px; position: absolute; display: flex; flex-direction: column; justify-content: space-evenly">
     <a href="/publicCourses" class="nav-url">
         Previous MOOC
     </a>
@@ -19,20 +19,31 @@ layout: default
     <a href="/connectwithrdi" class="nav-url">
         Connect with RDI
     </a>
+    <a href="#" class="nav-url">
+        View our previous newsletters
+    </a>
+    <style type="text/css">
+        .display_archive {font-family: arial, verdana; font-size: 12px;}
+        .campaign {line-height: 125%; margin: 5px;}
+    </style>
+    <script
+        language="javascript"
+        src="https://berkeley.us14.list-manage.com/generate-js/?u=0d89bb5c8066a9533eb98759d&show=10&fid=68734"
+        type="text/javascript"
+    ></script>
 </div>
 
 <div style="font-size: 12pt; font-family: 'Open Sans', sans-serif; font-weight: 300; margin-left: 22%; overflow: scroll; width: 75%; line-height: 1.5;">
     <h2>Connect / Learn</h2>
-This page is your portal to content produced by RDI about our research, education and community / entrepreneurship. <br><br>
+    This page is your portal to content produced by RDI about our research, education and community / entrepreneurship. <br><br>
 
-The <a href="/publicCourses">Previous MOOC</a> section allows you to browse and search content from our collection of recorded lectures. <br>
+    The <a href="/publicCourses">Previous MOOC</a> section allows you to browse and search content from our collection of recorded lectures. <br>
 
-The <a href="/firesides">Fireside chat series: the Future of DeFi</a> section contains our discussions with industry thought leaders. <br>
+    The <a href="/firesides">Fireside chat series: the Future of DeFi</a> section contains our discussions with industry thought leaders. <br>
 
-<!-- The <a href="/newsletter">Newsletter</a> section contains our current and historical news articles. <br><br> -->
+    <!-- The <a href="/newsletter">Newsletter</a> section contains our current and historical news articles. <br><br> -->
 
-To hear from our first-hand updates, <span class='join' style="text-decoration: underline; color:blue">Join our Mailing List</span> or follow us on <a href="https://twitter.com/BerkeleyRDI?ref_src=twsrc%5Etfw">Twitter</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>!
-
+    To hear from our first-hand updates, <span class='join' style="text-decoration: underline; color:blue">Join our Mailing List</span> or follow us on <a href="https://twitter.com/BerkeleyRDI?ref_src=twsrc%5Etfw">Twitter</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>!
 </div>
 
  <!-- Use an embeded form and use JavaScript to create the pop-up effect on click -->
