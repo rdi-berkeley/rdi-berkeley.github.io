@@ -20,27 +20,41 @@ layout: default
 <!-- Main Content Area -->
 <div style="font-size: 14px; font-family: 'Lato', sans-serif; font-weight: 400; width: 60%; margin-left: 20%; padding: 20px;">
     <h2>Newsletter Archive</h2>
-    
-    <!-- Mailchimp Script to Load Newsletters -->
+
+    <!-- Newsletter Container -->
+    <div id="newsletter-container" class="display_archive" style="height: auto; max-height: 600px; overflow-y: scroll; padding: 10px; border: 1px solid #ccc;">
+        <p id="loading-message">Loading newsletters...</p>
+    </div>
+
+    <!-- Preload Mailchimp Script -->
+    <link rel="preload" href="https://berkeley.us14.list-manage.com/generate-js/?u=0d89bb5c8066a9533eb98759d&show=100&fid=68734" as="script">
+
+    <!-- Mailchimp Script (Loaded First) -->
     <script language="javascript" src="https://berkeley.us14.list-manage.com/generate-js/?u=0d89bb5c8066a9533eb98759d&show=100&fid=68734" type="text/javascript"></script>
 
-    <!-- Apply Dynamic Styles and Remove "Loading" Text -->
+    <!-- Apply Styles Instantly After Loading -->
     <script>
-        window.onload = function() {
-            setTimeout(() => {
-                let newsletterContainer = document.getElementById('newsletter-container');
+        document.addEventListener("DOMContentLoaded", function() {
+            let checkContent = setInterval(() => {
+                let newsletters = document.querySelectorAll('.campaign');
+                let loadingMessage = document.getElementById('loading-message');
 
-                // Style each newsletter campaign
-                document.querySelectorAll('.campaign').forEach(el => {
-                    el.style.fontFamily = "'Lato', sans-serif";
-                    el.style.fontWeight = '500';  // Slightly bold
-                    el.style.color = 'black';  
-                    el.style.fontSize = '16px'; 
-                    el.style.marginBottom = '15px'; 
-                    el.style.borderBottom = '1px solid #ddd'; 
-                    el.style.paddingBottom = '10px';
-                });
-            }, 500); // Delay to ensure script populates newsletters
-        };
+                if (newsletters.length > 0) {
+                    clearInterval(checkContent); // Stop checking once content is loaded
+                    loadingMessage.style.display = 'none'; // Hide loading text
+
+                    // Apply styles immediately
+                    newsletters.forEach(el => {
+                        el.style.fontFamily = "'Lato', sans-serif";
+                        el.style.fontWeight = '500';  // Slightly bold
+                        el.style.color = 'black';  
+                        el.style.fontSize = '16px'; 
+                        el.style.marginBottom = '15px'; 
+                        el.style.borderBottom = '1px solid #ddd'; 
+                        el.style.paddingBottom = '10px';
+                    });
+                }
+            }, 100); // Check every 100ms
+        });
     </script>
 </div>
