@@ -21,11 +21,6 @@ layout: default
 <div style="font-size: 14px; font-family: 'Lato', sans-serif; font-weight: 400; width: 60%; margin-left: 20%; padding: 20px;">
     <h2>Newsletter Archive</h2>
 
-    <!-- Newsletter Container -->
-    <div id="newsletter-container" class="display_archive" style="height: auto; max-height: 600px; overflow-y: scroll; padding: 10px; border: 1px solid #ccc;">
-        <p id="loading-message">Loading newsletters...</p>
-    </div>
-
     <!-- Preload Mailchimp Script -->
     <link rel="preload" href="https://berkeley.us14.list-manage.com/generate-js/?u=0d89bb5c8066a9533eb98759d&show=100&fid=68734" as="script">
 
