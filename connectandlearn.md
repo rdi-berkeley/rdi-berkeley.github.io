@@ -2,7 +2,7 @@
 layout: default
 ---
 
-<div style="color: black; width: 15%; height: 20rem; margin-top: 60px; position: absolute; display: flex; flex-direction: column; justify-content: space-evenly">
+<div style="color: black; width: 15%; height: 24rem; margin-top: 60px; position: absolute; display: flex; flex-direction: column; justify-content: space-evenly; gap: 8px;">
     <a href="/publicCourses" class="nav-url">
         Previous MOOC
     </a>
@@ -23,8 +23,8 @@ layout: default
         View our previous newsletters
     </a>
     <style type="text/css">
-        .display_archive {font-family: arial, verdana; font-size: 12px; height: auto; overflow-y: auto; margin-top: 20px; padding: 10px;}
-        .campaign {line-height: 125%; margin: 5px;}
+        .display_archive {font-family: arial, verdana; font-size: 12px; height: auto; overflow-y: scroll; padding: 10px;}
+        .campaign {line-height: 125%; margin-bottom: 10px; font-family: 'Lato', sans-serif; font-weight: 600;}
     </style>
     <script
         language="javascript"
