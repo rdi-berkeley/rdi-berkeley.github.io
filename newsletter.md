@@ -23,7 +23,6 @@ layout: default
     
     <!-- Newsletter Archive Container -->
     <div id="newsletter-container" class="display_archive" style="height: auto; max-height: 600px; overflow-y: scroll; padding: 10px; border: 1px solid #ccc;">
-        <p id="loading-message">Loading newsletters...</p>
     </div>
 
     <!-- Mailchimp Script to Load Newsletters -->
@@ -34,24 +33,18 @@ layout: default
         window.onload = function() {
             setTimeout(() => {
                 let newsletterContainer = document.getElementById('newsletter-container');
-                let loadingMessage = document.getElementById('loading-message');
-
-                // Remove loading text once newsletters are added
-                if (newsletterContainer.getElementsByClassName('campaign').length > 0) {
-                    loadingMessage.style.display = 'none';
-                }
 
                 // Style each newsletter campaign
                 document.querySelectorAll('.campaign').forEach(el => {
                     el.style.fontFamily = "'Lato', sans-serif";
                     el.style.fontWeight = '500';  // Slightly bold
                     el.style.color = 'black';  
-                    el.style.fontSize = '14px'; 
+                    el.style.fontSize = '18px'; 
                     el.style.marginBottom = '15px'; 
                     el.style.borderBottom = '1px solid #ddd'; 
                     el.style.paddingBottom = '10px';
                 });
-            }, 2000); // Delay to ensure script populates newsletters
+            }, 500); // Delay to ensure script populates newsletters
         };
     </script>
 </div>
