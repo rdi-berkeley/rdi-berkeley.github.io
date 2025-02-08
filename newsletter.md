@@ -18,13 +18,9 @@ layout: default
 </div>
 
 <!-- Main Content Area -->
-<div style="font-size: 14px; font-family: 'Lato', sans-serif; font-weight: 400; width: 75%; margin-left: 20%; padding: 20px;">
+<div style="font-size: 14px; font-family: 'Lato', sans-serif; font-weight: 400; width: 60%; margin-left: 20%; padding: 20px;">
     <h2>Newsletter Archive</h2>
     
-    <!-- Newsletter Archive Container -->
-    <div id="newsletter-container" class="display_archive" style="height: auto; max-height: 600px; overflow-y: scroll; padding: 10px; border: 1px solid #ccc;">
-    </div>
-
     <!-- Mailchimp Script to Load Newsletters -->
     <script language="javascript" src="https://berkeley.us14.list-manage.com/generate-js/?u=0d89bb5c8066a9533eb98759d&show=100&fid=68734" type="text/javascript"></script>
 
@@ -39,7 +35,7 @@ layout: default
                     el.style.fontFamily = "'Lato', sans-serif";
                     el.style.fontWeight = '500';  // Slightly bold
                     el.style.color = 'black';  
-                    el.style.fontSize = '18px'; 
+                    el.style.fontSize = '16px'; 
                     el.style.marginBottom = '15px'; 
                     el.style.borderBottom = '1px solid #ddd'; 
                     el.style.paddingBottom = '10px';
