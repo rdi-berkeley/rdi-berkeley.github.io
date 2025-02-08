@@ -2,8 +2,8 @@
 layout: default
 ---
 
-<!-- Top Navigation Links -->
-<div style="color: black; width: 100%; height: auto; margin-top: 20px; display: flex; justify-content: start; gap: 20px;">
+<!-- Sidebar Navigation -->
+<div style="color: black; width: 15%; height: auto; margin-top: 60px; position: absolute; display: flex; flex-direction: column; gap: 15px;">
     <a href="/publicCourses" class="nav-url">
         Public Courses
     </a>
@@ -18,21 +18,30 @@ layout: default
 </div>
 
 <!-- Main Content Area -->
-<div style="font-size: 14px; font-family: 'Lato', sans-serif; font-weight: 400; width: 90%; margin: 40px auto; padding: 20px; max-width: 1000px;">
+<div style="font-size: 14px; font-family: 'Lato', sans-serif; font-weight: 400; width: 75%; margin-left: 20%; padding: 20px;">
     <h2>Newsletter Archive</h2>
     
     <!-- Newsletter Archive Container -->
-    <div class="display_archive" style="height: auto; max-height: 600px; overflow-y: scroll; padding: 10px; border: 1px solid #ccc;">
-        <p>Loading newsletters...</p>
+    <div id="newsletter-container" class="display_archive" style="height: auto; max-height: 600px; overflow-y: scroll; padding: 10px; border: 1px solid #ccc;">
+        <p id="loading-message">Loading newsletters...</p>
     </div>
 
     <!-- Mailchimp Script to Load Newsletters -->
     <script language="javascript" src="https://berkeley.us14.list-manage.com/generate-js/?u=0d89bb5c8066a9533eb98759d&show=100&fid=68734" type="text/javascript"></script>
 
-    <!-- Apply Dynamic Styles to Loaded Newsletters -->
+    <!-- Apply Dynamic Styles and Remove "Loading" Text -->
     <script>
         window.onload = function() {
             setTimeout(() => {
+                let newsletterContainer = document.getElementById('newsletter-container');
+                let loadingMessage = document.getElementById('loading-message');
+
+                // Remove loading text once newsletters are added
+                if (newsletterContainer.getElementsByClassName('campaign').length > 0) {
+                    loadingMessage.style.display = 'none';
+                }
+
+                // Style each newsletter campaign
                 document.querySelectorAll('.campaign').forEach(el => {
                     el.style.fontFamily = "'Lato', sans-serif";
                     el.style.fontWeight = '500';  // Slightly bold
@@ -42,7 +51,7 @@ layout: default
                     el.style.borderBottom = '1px solid #ddd'; 
                     el.style.paddingBottom = '10px';
                 });
-            }, 1500); // Delay to ensure script populates newsletters
+            }, 2000); // Delay to ensure script populates newsletters
         };
     </script>
 </div>
