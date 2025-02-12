@@ -18,7 +18,7 @@ layout: default
 </div>
 
 <!-- Main Content Area -->
-<div style="font-size: 14px; font-family: 'Lato', sans-serif; font-weight: 400; width: 60%; margin-left: 20%; padding: 20px;">
+<div style="font-size: 16px; font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', 'Liberation Sans', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'; font-weight: 400; width: 60%; margin-left: 20%; margin-top: 10px; padding: 20px;">
     <h2>Newsletter Archive</h2>
 
     <!-- Preload Mailchimp Script -->
