@@ -17,6 +17,20 @@ layout: default
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </div>
 
+<style>
+    .campaign {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-weight: 500;
+    color: black;
+    font-size: 16px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    display: block !important;
+}
+
+</style>
+
 <!-- Main Content Area -->
 <div style="font-size: 16px; font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', 'Liberation Sans', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'; font-weight: 400; width: 60%; margin-left: 20%; margin-top: 10px; padding: 20px;">
     <h2>Newsletter Archive</h2>
