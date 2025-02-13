@@ -15,6 +15,14 @@ layout: default
     </a>
     <a href="https://twitter.com/BerkeleyRDI?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @BerkeleyRDI</a>
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+    <div style="display: flex; align-items: center; width: 160px; height: 10px;">
+    <a href="https://rdi.berkeley.edu/signup" 
+       style="display: inline-flex; align-items: center; justify-content: center; padding: 4px 7px; font-size: 8px; font-weight: bold; font-family: Arial, sans-serif; color: white; background-color: black; border-radius: 25px; text-decoration: none; transition: background 0.3s ease-in-out; width: 130px;">
+        📩 Subscribe to the Newsletter
+    </a>
+</div>
+
 </div>
 
 <style>
