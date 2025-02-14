@@ -19,7 +19,7 @@ layout: default
     <a href="/connectwithrdi" class="nav-url">
         Connect with RDI
     </a>
-    <a href="/newsletters" class="nav-url">
+    <a href="/newsletter" class="nav-url">
         View our previous newsletters
     </a>
     <style type="text/css">
