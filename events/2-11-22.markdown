@@ -1,0 +1,30 @@
+---
+layout: default
+---
+
+## Events
+
+{% assign events = site.data.events | where:'date', "2022-11-02" %}
+
+<div>
+    {% for row in events %}
+        <h2 style="font-weight: 700;">Berkeley RDI Distinguished Lecture</h2>
+        <h2 style="font-weight: 700;">{{ row.title }}</h2>
+        <h3 style="font-weight: 700;">{{ row.formatted-date }} {{ row.start }} - {{ row.end }} PST</h3>
+        {% if row.location %}
+            <h3 style="font-weight: 700;">{{ row.location }}</h3>
+        {% endif %}
+        {% if row.zoom %}
+            <h3 class="event-tag">All are welcome to join @ Soda</h3>
+            <div class="event-button-wrapper"><button class="event-button"><a class="event-link" href="{{ row.zoom }}" target="_blank">Webinar Registration</a></button></div>
+        {% endif %}
+        <img alt="Event Banner Image" src="{{ row.img }}" style="width: 100%; margin-top: 0.5rem; margin-bottom: 0.5rem;">
+        <h2>The Event</h2>
+        {{ row.description }}
+        <h2>Speakers</h2>
+        {% for speaker in row.speakers %}
+            <h3 style="">{{ speaker.name }}</h3>
+            <p style="">{{ speaker.description }}</p>
+        {% endfor %}
+    {% endfor %}
+</div>
