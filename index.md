@@ -1,5 +1,6 @@
 ---
 layout: home
+title: Berkeley RDI
 ---
 
 ## Our mission
