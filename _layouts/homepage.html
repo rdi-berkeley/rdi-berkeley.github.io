@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ page.title }} | {{ site.title }}</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="text-gray-800">
+
+  <!-- Sticky Header -->
+  <header class="sticky top-0 bg-white shadow z-50">
+    <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+      <div class="text-xl font-bold text-blue-900">{{ site.title }}</div>
+      <nav class="space-x-6 text-sm font-medium">
+        <a href="/" class="hover:text-blue-600">Home</a>
+        <a href="/research" class="hover:text-blue-600">Research</a>
+        <a href="/education" class="hover:text-blue-600">Education</a>
+        <a href="/community" class="hover:text-blue-600">Community</a>
+        <a href="/events" class="hover:text-blue-600">Events</a>
+        <a href="/about" class="hover:text-blue-600">About</a>
+        <a href="/contact" class="hover:text-blue-600">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Content Injected from index.md or other pages using this layout -->
+  {{ content }}
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-300 text-sm py-10 px-6">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-6">
+      <div>
+        <h4 class="text-white font-semibold mb-2">{{ site.title }}</h4>
+        <p>Advancing the science, technology, and education of decentralization and AI to empower a responsible digital economy.</p>
+        <div class="flex space-x-3 mt-4 text-xl">
+          <span>🐦</span>
+          <span>🔗</span>
+          <span>📺</span>
+          <span>📱</span>
+        </div>
+      </div>
+      <div>
+        <h4 class="text-white font-semibold mb-2">Explore</h4>
+        <ul class="space-y-1">
+          <li><a href="/research" class="hover:underline">Research Areas</a></li>
+          <li><a href="/education" class="hover:underline">Education Programs</a></li>
+          <li><a href="/community" class="hover:underline">Community Initiatives</a></li>
+          <li><a href="/events" class="hover:underline">Events & Hackathons</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-white font-semibold mb-2">Resources</h4>
+        <ul class="space-y-1">
+          <li><a href="/publications" class="hover:underline">Publications</a></li>
+          <li><a href="/moocs" class="hover:underline">MOOCs</a></li>
+          <li><a href="/videos" class="hover:underline">Lecture Videos</a></li>
+          <li><a href="/discord" class="hover:underline">Join Discord</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-white font-semibold mb-2">Contact</h4>
+        <ul class="space-y-1">
+          <li><a href="/contact" class="hover:underline">Get in Touch</a></li>
+          <li><a href="/media" class="hover:underline">Media Inquiries</a></li>
+          <li><a href="/partnerships" class="hover:underline">Partnerships</a></li>
+          <li><a href="/careers" class="hover:underline">Careers</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="text-center text-xs mt-8 text-gray-500">
+      © {{ "now" | date: "%Y" }} {{ site.title }}. All rights reserved.
+    </div>
+  </footer>
+
+</body>
+</html>
