@@ -11,7 +11,11 @@
   <!-- Sticky Header -->
   <header class="sticky top-0 bg-white shadow z-50">
     <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
-      <div class="text-xl font-bold text-blue-900">{{ site.title }}</div>
+      <div id="logo-container" style="padding: 1rem;">
+            <a href="/" aria-label="Berkeley Center for RDI Logo">
+                <img src="/assets/images/Berkeley Center for RDI Logo.png" id="logo" aria-label="Berkeley Center for RDI Logo">
+            </a>
+      </div>
       <nav class="space-x-6 text-sm font-medium">
         <a href="/" class="hover:text-blue-600">Home</a>
         <a href="/research" class="hover:text-blue-600">Research</a>
@@ -150,7 +154,7 @@
       </div>
     </div>
     <div class="text-center text-xs mt-8 text-gray-500">
-      © {{ "now" | date: "%Y" }} {{ site.title }}. All rights reserved.
+      © {{ "now" | date: "%Y" }} UC Regents. All rights reserved.
     </div>
   </footer>
 
