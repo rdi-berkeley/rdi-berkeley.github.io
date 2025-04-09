@@ -8,26 +8,47 @@
 </head>
 <body class="text-gray-800">
 
-  <!-- Sticky Header -->
-  <header class="sticky top-0 bg-white shadow z-50">
-    <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
-      <div id="logo-container" style="padding: 1rem;">
-            <a href="/" aria-label="Berkeley Center for RDI Logo">
-                <img src="/assets/images/Berkeley Center for RDI Logo.png" id="logo" 
-                  aria-label="Berkeley Center for RDI Logo" class="h-10 w-auto">
-            </a>
-      </div>
-      <nav class="space-x-6 text-sm font-medium">
-        <a href="/" class="hover:text-blue-600">Home</a>
-        <a href="/research" class="hover:text-blue-900">Research</a>
-        <a href="/academics" class="hover:text-blue-900">Education</a>
-        <a href="/connectandlearn" class="hover:text-blue-900">Community</a>
-        <a href="/events" class="hover:text-blue-900">Events</a>
-        <a href="/people" class="hover:text-blue-900">About</a>
-        <a href="/contact" class="hover:text-blue-900">Contact</a>
-      </nav>
+<header class="sticky top-0 bg-white shadow z-50">
+  <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+    
+    <!-- Logo -->
+    <div id="logo-container" class="py-2">
+      <a href="/" aria-label="Berkeley Center for RDI Logo">
+        <img src="/assets/images/Berkeley Center for RDI Logo.png" alt="Berkeley RDI Logo" class="h-10 w-auto max-w-full">
+      </a>
     </div>
-  </header>
+
+    <!-- Hamburger Button (shown on mobile only) -->
+    <button id="menu-toggle" class="sm:hidden text-gray-600 focus:outline-none">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+
+    <!-- Desktop Nav Links -->
+    <nav id="nav-links" class="hidden sm:flex space-x-6 text-sm font-medium">
+      <a href="/" class="hover:text-blue-600">Home</a>
+      <a href="/research" class="hover:text-blue-900">Research</a>
+      <a href="/academics" class="hover:text-blue-900">Education</a>
+      <a href="/connectandlearn" class="hover:text-blue-900">Community</a>
+      <a href="/events" class="hover:text-blue-900">Events</a>
+      <a href="/people" class="hover:text-blue-900">About</a>
+      <a href="/contact" class="hover:text-blue-900">Contact</a>
+    </nav>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="sm:hidden hidden px-6 pb-4 space-y-2 text-sm font-medium">
+    <a href="/" class="block py-1">Home</a>
+    <a href="/research" class="block py-1">Research</a>
+    <a href="/academics" class="block py-1">Education</a>
+    <a href="/connectandlearn" class="block py-1">Community</a>
+    <a href="/events" class="block py-1">Events</a>
+    <a href="/people" class="block py-1">About</a>
+    <a href="/contact" class="block py-1">Contact</a>
+  </div>
+</header>
 
   <!-- Hero Section -->
   <section class="bg-blue-900 py-16 text-center px-4">
@@ -35,7 +56,7 @@
     <p class="max-w-2xl mx-auto text-lg text-white">
       The Berkeley Center for Responsible, Decentralized Intelligence (RDI) is a multidisciplinary initiative dedicated to advancing the science, technology, and education of decentralization and AI to empower a responsible digital economy.
     </p>
-    <div class="mt-8 space-x-4 flex flex-col sm:flex-row justify-center items-center">
+    <div class="mt-8 gap-4 flex flex-col sm:flex-row justify-center items-center">
       <a href="/research" class="bg-yellow-400 text-blue-900 border-2 border-yellow-400 px-8 py-3 rounded font-bold hover:bg-yellow-500">Explore Our Research</a>
       <a href="/events" class="bg-yellow-400 text-blue-900 border-2 border-yellow-400 px-8 py-3 rounded font-bold hover:bg-yellow-500">Explore Our Events</a>
       <a href="#community" class="bg-transparent text-white border-2 border-white px-8 py-3 rounded font-bold hover:bg-blue-800">Join Our Community</a>
@@ -169,12 +190,21 @@
   <section id="community" class="bg-blue-900 py-16 px-6 text-center">
     <h2 class="text-3xl text-white font-bold mb-4 text-white">Join Our Community</h2>
     <p class="max-w-3xl mx-auto mb-6 text-white">We invite researchers, students, industry practitioners, innovators and entrepreneurs to collaborate with us in shaping the future of responsible AI and decentralized intelligence.</p>
-    <div class="mt-8 space-x-4 flex flex-col sm:flex-row justify-center items-center">
+    <div class="mt-8 gap-4 flex flex-col sm:flex-row justify-center items-center">
       <a href="https://berkeley.us14.list-manage.com/subscribe?u=0d89bb5c8066a9533eb98759d&id=c0a5c3e877" class="bg-yellow-400 text-blue-900 px-8 py-3 font-bold rounded border-2 border-yellow-400 hover:bg-yellow-500">Subscribe to Newsletter</a>
       <a href="https://twitter.com/BerkeleyRDI" class="bg-yellow-400 text-blue-900 px-8 py-3 font-bold rounded border-2 border-yellow-400 hover:bg-yellow-500">Follow RDI on X/Twitter</a>
       <a href="https://discord.gg/NWVpQ9rBvd" class="bg-yellow-400 text-blue-900 px-8 py-3 font-bold rounded border-2 border-yellow-400 hover:bg-yellow-500">Join LLM Agents Discord</a>
     </div>
   </section>
+
+  <script> /*for mobile menu*/
+    const toggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    toggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
 
   <!-- Content Injected from index.md or other pages using this layout -->
   {{ content }}
