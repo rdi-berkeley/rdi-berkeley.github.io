@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Berkeley RDI</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@latest/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="text-gray-800">
 
@@ -19,95 +19,157 @@
       </div>
       <nav class="space-x-6 text-sm font-medium">
         <a href="/" class="hover:text-blue-600">Home</a>
-        <a href="/research" class="hover:text-blue-600">Research</a>
-        <a href="/education" class="hover:text-blue-600">Education</a>
-        <a href="/community" class="hover:text-blue-600">Community</a>
-        <a href="/events" class="hover:text-blue-600">Events</a>
-        <a href="/about" class="hover:text-blue-600">About</a>
-        <a href="/contact" class="hover:text-blue-600">Contact</a>
+        <a href="{{site.baseurl}}/research" class="hover:text-blue-900">Research</a>
+        <a href="/education" class="hover:text-blue-900">Education</a>
+        <a href="/community" class="hover:text-blue-900">Community</a>
+        <a href="{{site.baseurl}}/events" class="hover:text-blue-900">Events</a>
+        <a href="/about" class="hover:text-blue-900">About</a>
+        <a href="/contact" class="hover:text-blue-900">Contact</a>
       </nav>
     </div>
   </header>
 
   <!-- Hero Section -->
-  <section class="bg-gray-100 py-16 text-center px-4">
-    <h1 class="text-4xl font-bold text-blue-900 mb-4">Advancing Responsible, Decentralized Intelligence</h1>
-    <p class="max-w-2xl mx-auto text-lg">
+  <section class="bg-blue-900 py-16 text-center px-4">
+    <h1 class="text-4xl font-bold text-white mb-4">Advancing Responsible, Decentralized Intelligence</h1>
+    <p class="max-w-2xl mx-auto text-lg text-white">
       The Berkeley Center for Responsible, Decentralized Intelligence (RDI) is a multidisciplinary initiative dedicated to advancing the science, technology, and education of decentralization and AI to empower a responsible digital economy.
     </p>
     <div class="mt-8 space-x-4">
-      <a href="#" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700">Explore Our Programs</a>
-      <a href="#" class="bg-gray-300 text-gray-800 px-6 py-2 rounded-lg hover:bg-gray-400">Join the Community</a>
+      <a href="https://rdi.berkeley.edu/research/" class="bg-yellow-400 text-blue-900 border-2 border-yellow-400 px-8 py-3 rounded-lg font-bold hover:bg-yellow-500">Explore Our Research</a>
+      <a href="https://rdi.berkeley.edu/events" class="bg-yellow-400 text-blue-900 border-2 border-yellow-400 px-8 py-3 rounded-lg font-bold hover:bg-yellow-500">Explore Our Events</a>
+      <a href="#community" class="bg-transparent text-white border-2 border-white px-8 py-3 rounded-lg font-bold hover:bg-blue-800">Join the Community</a>
     </div>
   </section>
 
   <!-- Three Pillars Section -->
-  <section class="py-20 bg-white">
-    <div class="max-w-7xl mx-auto px-6">
-      <h2 class="text-3xl font-bold text-center mb-12">Our Three Pillars</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
-        <div>
-          <div class="text-4xl mb-2">🔬</div>
-          <h3 class="text-xl font-semibold mb-2">Research</h3>
-          <p>Advancing next-generation decentralized technologies and responsible AI, focusing on scalability, security, privacy, incentives, stability, and autonomy.</p>
-        </div>
-        <div>
-          <div class="text-4xl mb-2">🎓</div>
-          <h3 class="text-xl font-semibold mb-2">Education</h3>
-          <p>Pioneering MOOCs like Decentralized Finance and LLM Agents, empowering students globally with cutting-edge decentralized AI knowledge.</p>
-        </div>
-        <div>
-          <div class="text-4xl mb-2">🌐</div>
-          <h3 class="text-xl font-semibold mb-2">Community & Entrepreneurship</h3>
-          <p>Fostering a global hub of collaboration and innovation from the top-ranked UC Berkeley Computer Science ecosystem.</p>
-        </div>
-      </div>
+<section class="py-20 bg-white px-6">
+  <div class="max-w-6xl mx-auto text-center">
+    <h2 class="text-3xl font-bold mb-12 text-blue-900">Our Three Pillars</h2>
+
+    <div class="grid md:grid-cols-3 gap-8 text-left">
+      
+      <!-- 🧪 RESEARCH -->
+      <a href="https://rdi.berkeley.edu/research/" class="bg-gray-50 rounded-xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-transform duration-300 p-6 block">
+        <div class="text-4xl mb-4 text-center">🔬</div>
+        <h3 class="text-xl font-bold mb-3 text-blue-900">Research</h3>
+        <p class="text-gray-700">
+          Advancing next-generation decentralized technologies and responsible AI, focusing on fundamental challenges in scalability, usability, provable security guarantees, auditable privacy, incentive compatibility, systemic stability, and autonomous intelligence. Our work spans secure decentralized architectures, multi-agent systems, AI safety, and governance frameworks - creating robust foundations for trustworthy AI and decentralized systems.
+        </p>
+      </a>
+
+      <!-- 🎓 EDUCATION -->
+      <a href="https://rdi.berkeley.edu/events" class="bg-gray-50 rounded-xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-transform duration-300 p-6 block">
+        <div class="text-4xl mb-4 text-center">🎓</div>
+        <h3 class="text-xl font-bold mb-3 text-blue-900">Education</h3>
+        <p class="text-gray-700">
+          Pioneering educational initiatives like our LLM Agents MOOC series (a global community of 23k+ learners), and Decentralized Finance MOOC, empowering many thousands of students worldwide with cutting-edge knowledge and skills in AI and decentralized systems.
+        </p>
+      </a>
+
+      <!-- 🌐 COMMUNITY -->
+      <a href="#community" class="bg-gray-50 rounded-xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-transform duration-300 p-6 block">
+        <div class="text-4xl mb-4 text-center">🌐</div>
+        <h3 class="text-xl font-bold mb-3 text-blue-900">Community & Entrepreneurship</h3>
+        <p class="text-gray-700">
+          Building a global hub for innovation and collaboration, leveraging UC Berkeley's leadership as the #1 university in computer science graduate programs and a global leader in venture-funded startups.
+        </p>
+      </a>
+
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- Global Impact -->
-  <section class="bg-gray-100 py-16 px-6">
-    <div class="max-w-5xl mx-auto text-center">
-      <h2 class="text-3xl font-bold mb-6">Our Global Impact</h2>
-      <p class="mb-8">Our vibrant global community of learners, researchers, and innovators ensures responsible, ethical, and inclusive technology development.</p>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-lg font-semibold">
-        <div>21,000+<br><span class="text-sm font-normal">MOOC Learners</span></div>
-        <div>30+<br><span class="text-sm font-normal">Countries Represented</span></div>
-        <div>200k+<br><span class="text-sm font-normal">Lecture Views</span></div>
-        <div>9,000+<br><span class="text-sm font-normal">Discord Community</span></div>
+  <section class="py-20 bg-gray-100 px-6">
+  <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between">
+    
+    <!-- Left: Text & Title -->
+    <div class="md:w-1/2 mb-8 md:mb-0">
+      <h2 class="text-3xl font-bold text-blue-900 mb-4">Our Global Impact</h2>
+      <p class="text-lg text-gray-700">
+        Our commitment to advancing AI and decentralized technologies has created a vibrant global community of learners, researchers, and innovators. Building upon UC Berkeley's strong foundation, RDI serves as a hub for global innovation and collaboration.
+      </p>
+      <br>
+      <p class="text-lg text-gray-700">
+        We are committed to exploring new approaches for analyzing and understanding the societal impact of decentralized systems and AI, ensuring these technologies are used responsibly to protect individual welfare and privacy, promote fairness, inclusiveness, and ethics.
+      </p>
+    </div>
+    
+    <!-- Right: Numbers with Labels in 2x2 Grid -->
+    <div class="md:w-2/5 grid grid-cols-2 gap-8">
+      <!-- 1st Box -->
+      <div class="bg-white p-6 rounded-lg shadow-md text-center">
+        <p class="text-4xl font-bold text-blue-900">23k+</p>
+        <p class="text-sm text-gray-700">Registered Learners Worldwide for LLM Agents MOOC</p>
+      </div>
+      <!-- 2nd Box -->
+      <div class="bg-white p-6 rounded-lg shadow-md text-center">
+        <p class="text-4xl font-bold text-blue-900">10k+</p>
+        <p class="text-sm text-gray-700">Active Members on LLM Agents Discord</p>
+      </div>
+      <!-- 3rd Box -->
+      <div class="bg-white p-6 rounded-lg shadow-md text-center">
+        <p class="text-4xl font-bold text-blue-900">~3k</p>
+        <p class="text-sm text-gray-700">LLM Agents MOOC Hackathon (Fall 2024) Participants</p>
+      </div>
+      <!-- 4th Box -->
+      <div class="bg-white p-6 rounded-lg shadow-md text-center">
+        <p class="text-4xl font-bold text-blue-900">~300k</p>
+        <p class="text-sm text-gray-700">Lecture Views on LLM Agents</p>
       </div>
     </div>
-  </section>
 
-  <!-- Latest News -->
+  </div>
+</section>
+
+  <!-- Latest News & Events -->
   <section class="py-20 bg-white px-6">
     <div class="max-w-6xl mx-auto">
-      <h2 class="text-3xl font-bold text-center mb-12">Latest News & Events</h2>
-      <div class="space-y-8">
-        <div>
-          <h4 class="font-semibold text-lg">April 2, 2025</h4>
-          <p class="mb-1">LLM Agents MOOC Hackathon Draws Global Participation</p>
-          <a href="#" class="text-blue-600 hover:underline">Read more →</a>
+      <h2 class="text-3xl font-bold text-center mb-12 text-blue-900">Latest News & Events</h2>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- 🟦 CARD 1 -->
+        <div class="bg-white rounded-xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-transform duration-300 overflow-hidden">
+          <img src="https://rdi.berkeley.edu/agentx/assets/img/sponsors.png" alt="Hackathon" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <p class="text-sm text-gray-500 mb-2">March - June 2025 | Virtual, Open to All</p>
+            <h3 class="text-xl font-bold mb-2 text-blue-900">AgentX - LLM Agents MOOC Competition</h3>
+            <p class="text-gray-700 mb-4">Join the epicenter of innovation in LLM Agents. Whether you're exploring research frontiers or building the next Agentic AI startup, AgentX is your launchpad.</p>
+            <a href="https://rdi.berkeley.edu/agentx/" class="font-bold text-blue-900 hover:underline">Read more →</a>
+          </div>
         </div>
-        <div>
-          <h4 class="font-semibold text-lg">March 15, 2025</h4>
-          <p class="mb-1">New Research Initiative on AI Safety & Governance</p>
-          <a href="#" class="text-blue-600 hover:underline">Read more →</a>
+
+        <!-- 🟦 CARD 2 -->
+        <div class="bg-white rounded-xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-transform duration-300 overflow-hidden">
+          <img src="https://rdi.berkeley.edu/events/sbc-assets/images/agenticai-summitflyer.jpg" alt="AI Governance" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <p class="text-sm text-gray-500 mb-2">August 2, 2025 @UC Berkeley | In-person and Livestream, Open to All</p>
+            <h3 class="text-xl font-bold mb-2 text-blue-900">Agentic AI Summit</h3>
+            <p class="text-gray-700 mb-4">The Summit will bring together visionary leaders from academia, pioneering entrepreneurs, experts from leading AI organizations, VCs, and policymakers to explore, discuss, and collaboratively shape the exciting future of AI and Agentic AI. CFP and Startup Spotlight applications are now open.</p>
+            <a href="https://rdi.berkeley.edu/events/agentic-ai-summit" class="font-bold text-blue-900 hover:underline">Read more →</a>
+          </div>
         </div>
-        <div>
-          <h4 class="font-semibold text-lg">February 28, 2025</h4>
-          <p class="mb-1">Registration Open for AgentX Competition</p>
-          <a href="#" class="text-blue-600 hover:underline">Read more →</a>
+
+        <!-- 🟦 CARD 3 -->
+        <div class="bg-white rounded-xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-transform duration-300 overflow-hidden">
+          <img src="https://rdi.berkeley.edu/llm-agents-mooc/assets/llmagents-twittercard.png" alt="AgentX" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <p class="text-sm text-gray-500 mb-2">Jan to April 2025 | Virtual, Open to All</p>
+            <h3 class="text-xl font-bold mb-2 text-blue-900">Advanced LLM Agents MOOC</h3>
+            <p class="text-gray-700 mb-4">Building on the success of our LLM Agents MOOC from Fall 2024, we are excited to extend the MOOC in Spring 2025 to cover some more advanced topics including but not limited to 1) Reasoning & planning; 2) Multimodal Agents; 3) Coding agents, web agents; 4) AI for mathematics and theorem proving; 5) Agent safety & security, and more.</p>
+            <a href="https://llmagents-learning.org/sp25" class="font-bold text-blue-900 hover:underline">Read more →</a>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Join Community CTA -->
-  <section class="bg-blue-50 py-16 px-6 text-center">
-    <h2 class="text-3xl font-bold mb-4">Join Our Community</h2>
-    <p class="mb-6">Connect with researchers, innovators, students, and industry leaders working at the intersection of AI and decentralized technologies.</p>
-    <a href="#" class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">Subscribe to Newsletter</a>
+  <section id="community" class="bg-blue-900 py-16 px-6 text-center">
+    <h2 class="text-3xl text-white font-bold mb-4 text-white">Join Our Community</h2>
+    <p class="max-w-3xl mx-auto mb-6 text-white">We invite researchers, students, industry practitioners, innovators and entrepreneurs to collaborate with us in shaping the future of responsible AI and decentralized intelligence.</p>
+    <a href="#" class="bg-yellow-400 text-blue-900 px-8 py-3 font-bold rounded border-2 border-yellow-400 hover:bg-yellow-500">Subscribe to Newsletter</a>
   </section>
 
   <!-- Content Injected from index.md or other pages using this layout -->
@@ -127,7 +189,7 @@
         </div>
       </div>
       <div>
-        <h4 class="text-white font-semibold mb-2">Explore</h4>
+        <h4 class="text-white font-semibold mb-2 text-yellow-400">Explore</h4>
         <ul class="space-y-1">
           <li><a href="/research" class="hover:underline">Research Areas</a></li>
           <li><a href="/education" class="hover:underline">Education Programs</a></li>
@@ -136,7 +198,7 @@
         </ul>
       </div>
       <div>
-        <h4 class="text-white font-semibold mb-2">Resources</h4>
+        <h4 class="text-white font-semibold mb-2 text-yellow-400">Resources</h4>
         <ul class="space-y-1">
           <li><a href="/publications" class="hover:underline">Publications</a></li>
           <li><a href="/moocs" class="hover:underline">MOOCs</a></li>
@@ -145,7 +207,7 @@
         </ul>
       </div>
       <div>
-        <h4 class="text-white font-semibold mb-2">Contact</h4>
+        <h4 class="text-white font-semibold mb-2 text-yellow-400">Contact</h4>
         <ul class="space-y-1">
           <li><a href="/contact" class="hover:underline">Get in Touch</a></li>
           <li><a href="/media" class="hover:underline">Media Inquiries</a></li>
@@ -155,7 +217,7 @@
       </div>
     </div>
     <div class="text-center text-xs mt-8 text-gray-500">
-      © {{ "now" | date: "%Y" }} UC Regents. All rights reserved.
+      © {{ "now" | date: "%Y" }} Berkeley Center for Responsible, Decentralized Intelligence. All rights reserved.
     </div>
   </footer>
 
