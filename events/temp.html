@@ -1,12 +1,15 @@
 ---
 layout: default
-title: Temp Events Grid
 ---
 
-<h2>Events (Grid Layout)</h2>
+## Events
+
+Click a banner to view details about each event.
+
+<span class='join' style="text-decoration: underline; color:blue">Join our mailing list</span> to learn more!
 
 <div class="event-grid">
-  {% assign events = site.data.events | slice: 0, 24 %} <!-- Only the latest 24 events -->
+  {% assign events = site.data.events %}
   {% for row in events %}
     <div class="event-grid-item">
       <a href="{{ row.link }}" aria-label="Event">
@@ -17,17 +20,17 @@ title: Temp Events Grid
 </div>
 
 <style>
-.event-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-  padding: 20px 0;
-}
+  .event-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 20px 0;
+  }
 
-.event-grid-item img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
+  .event-grid-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
 </style>
