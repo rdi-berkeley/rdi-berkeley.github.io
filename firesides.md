@@ -20,7 +20,6 @@ layout: default
     <div>
         <h3 style='margin-bottom: 0px; font-weight: normal;'>Fireside chat series: the Future of DeFi
             <span class="playlist-label" style="margin-left:10px;">[<a href="https://www.youtube.com/playlist?list=PLS01nW3RtgoqeqHqOZ7NYdPR9CJRGZxf7">Playlist: 6 videos</a>]</span>
-            <span class="playlist-label" style="margin-left:10px;">[<a href="https://berkeleyrdi.buzzsprout.com">Podcast</a>]</span>
         </h3>
         <div class='video-playlist'>
             <div class='preview-wrapper'>
@@ -30,7 +29,6 @@ layout: default
                 <p>#1 Michael Egorov</p>
             </div>
             <div class="playlist-label">[<a href="https://www.youtube.com/watch?v=bNn0kCU7mrY&list=PLS01nW3RtgoqeqHqOZ7NYdPR9CJRGZxf7&index=1&t=1s">Video</a>]</div>
-            <div class="playlist-label">[<a href="https://berkeleyrdi.buzzsprout.com/1937063/10220805-the-future-of-defi-fireside-chat-1-michael-egorov">Podcast Episode</a>]</div>
         </div>
         <div class='video-playlist'>
             <div class='preview-wrapper'>
@@ -40,7 +38,6 @@ layout: default
                 <p>#2 Avichal Garg</p>
             </div>
             <div class="playlist-label">[<a href="https://www.youtube.com/watch?v=0zCko_ZgNMA&list=PLS01nW3RtgoqeqHqOZ7NYdPR9CJRGZxf7&index=2">Video</a>]</div>
-            <div class="playlist-label">[<a href="https://berkeleyrdi.buzzsprout.com/1937063/10221050-the-future-of-defi-fireside-chat-2-avichal-garg">Podcast Episode</a>]</div>
         </div>
         <div class='video-playlist'>
             <div class='preview-wrapper'>
@@ -50,7 +47,6 @@ layout: default
                 <p>#3 Jeremy Allaire</p>
             </div>
             <div class="playlist-label">[<a href="https://www.youtube.com/watch?v=xQ62PCRm1Zg&list=PLS01nW3RtgoqeqHqOZ7NYdPR9CJRGZxf7&index=3">Video</a>]</div>
-            <div class="playlist-label">[<a href="https://berkeleyrdi.buzzsprout.com/1937063/10221067-the-future-of-defi-fireside-chat-3-jeremy-allaire">Podcast Episode</a>]</div>
         </div>
         <div class='video-playlist'>
             <div class='preview-wrapper'>
@@ -60,7 +56,6 @@ layout: default
                 <p>#4 Kevin Chou</p>
             </div>
             <div class="playlist-label">[<a href="https://www.youtube.com/watch?v=Oh7CVZ2sadw&list=PLS01nW3RtgoqeqHqOZ7NYdPR9CJRGZxf7&index=4">Video</a>]</div>
-            <div class="playlist-label">[<a href="https://berkeleyrdi.buzzsprout.com/1937063/10221083-the-future-of-defi-fireside-chats-4-kevin-chou">Podcast Episode</a>]</div>
         </div>
         <div class='video-playlist'>
             <div class='preview-wrapper'>
@@ -70,7 +65,6 @@ layout: default
                 <p>#5 J. Christopher Giancarlo</p>
             </div>
             <div class="playlist-label">[<a href="https://www.youtube.com/watch?v=11kt7O_Ktr4&list=PLS01nW3RtgoqeqHqOZ7NYdPR9CJRGZxf7&index=5">Video</a>]</div>
-            <div class="playlist-label">[<a href="https://berkeleyrdi.buzzsprout.com/1937063/10242659-the-future-of-defi-fireside-chats-5-christopher-giancarlo">Podcast Episode</a>]</div>
         </div>
         <div class='video-playlist'>
             <div class='preview-wrapper'>
@@ -80,7 +74,6 @@ layout: default
                 <p>#6 Joseph Lubin</p>
             </div>
             <div class="playlist-label">[<a href="https://www.youtube.com/watch?v=Kwov2QRV8-o&list=PLS01nW3RtgoqeqHqOZ7NYdPR9CJRGZxf7&index=6">Video</a>]</div>
-            <div class="playlist-label">[<a href="https://berkeleyrdi.buzzsprout.com/1937063/10242663-the-future-of-defi-fireside-chat-6-joseph-lubin">Podcast Episode</a>]</div>
         </div>
         <div class='video-playlist'></div>
     </div>
