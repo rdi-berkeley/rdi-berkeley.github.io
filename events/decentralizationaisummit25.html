@@ -171,15 +171,14 @@
       <p><span style="font-weight: 700;">Sponsors:</span> Funding for SBC’25 conference is provided by -</p>
       <iframe id="sponsors"
               src="./sbc-assets/pdfs/DAI'25 website SBC & DeAI Sponsors 6_27_25.pdf" 
-              style="width: 100%; height: 100%;" 
-              scrolling="no">
+              style="width: 100%; border: none;">
       </iframe>
       <script>
-        document.getElementById('sponsors').onload = function () {
+        document.getElementById("sponsors").onload = function () {
           const iframeDoc = this.contentWindow.document;
-          iframeDoc.body.style.transform = 'scale(0.8)';
-          iframeDoc.body.style.transformOrigin = 'top left';
-          iframeDoc.body.style.width = '125%';  // adjust width to prevent content clipping
+          iframeDoc.body.style.transform = "scale(0.8)";
+          iframeDoc.body.style.transformOrigin = "top left";
+          iframeDoc.body.style.width = "125%";  // adjust width to prevent content clipping
         };
       </script>
 
