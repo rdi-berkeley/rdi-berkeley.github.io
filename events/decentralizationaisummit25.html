@@ -169,17 +169,30 @@
         for more details on the Science of Blockchain 2025 and other affiliated workshops.</p>
 
       <p><span style="font-weight: 700;">Sponsors:</span> Funding for SBC’25 conference is provided by -</p>
-      <iframe id="sponsors"
-              src="./sbc-assets/pdfs/DAI'25 website SBC & DeAI Sponsors 6_27_25.pdf" 
-              style="width: 100%; border: none;">
-      </iframe>
+      <canvas id="pdf-canvas" width="100%"></canvas>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
       <script>
-        document.getElementById("sponsors").onload = function () {
-          const iframeDoc = this.contentWindow.document;
-          iframeDoc.body.style.transform = "scale(0.8)";
-          iframeDoc.body.style.transformOrigin = "top left";
-          iframeDoc.body.style.width = "125%";  // adjust width to prevent content clipping
-        };
+        const url = "./sbc-assets/pdfs/DAI'25 website SBC & DeAI Sponsors 6_27_25.pdf";
+        
+        // Load the PDF
+        pdfjsLib.getDocument(url).promise.then(pdf => {
+          return pdf.getPage(1); // get the first page
+        }).then(page => {
+          const scale = 1.0;
+          const viewport = page.getViewport({ scale: scale });
+    
+          const canvas = document.getElementById("pdf-canvas");
+          const context = canvas.getContext("2d");
+          canvas.height = viewport.height;
+          canvas.width = viewport.width;
+    
+          const renderContext = {
+            canvasContext: context,
+            viewport: viewport
+          };
+    
+          page.render(renderContext);
+        });
       </script>
 
       <p>More details on schedule, speakers and sponsors will be announced in early July. Follow <a href="https://x.com/BerkeleyRDI">Berkeley RDI on Twitter/X</a> and join the 
