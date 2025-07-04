@@ -169,31 +169,19 @@
         for more details on the Science of Blockchain 2025 and other affiliated workshops.</p>
 
       <p><span style="font-weight: 700;">Sponsors:</span> Funding for SBC’25 conference is provided by -</p>
-      <canvas id="pdf-canvas" width="100%"></canvas>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-      <script>
-        const url = "./sbc-assets/pdfs/DAI'25 website SBC & DeAI Sponsors 6_27_25.pdf";
-        
-        // Load the PDF
-        pdfjsLib.getDocument(url).promise.then(pdf => {
-          return pdf.getPage(1); // get the first page
-        }).then(page => {
-          const scale = 1.0;
-          const viewport = page.getViewport({ scale: scale });
-    
-          const canvas = document.getElementById("pdf-canvas");
-          const context = canvas.getContext("2d");
-          canvas.height = viewport.height;
-          canvas.width = viewport.width;
-    
-          const renderContext = {
-            canvasContext: context,
-            viewport: viewport
-          };
-    
-          page.render(renderContext);
-        });
-      </script>
+      <div style="display: flex; flex-wrap: wrap; gap: 40px; align-items: center; justify-content: center;">
+        <a href="https://world.org/" target="_blank"><img src="assets/sponsors/eworld.png" alt="eworld" style="height: 100px;"></a>
+        <a href="https://www.circle.com/" target="_blank"><img src="assets/sponsors/circle.png" alt="Circle" style="height: 100px;"></a>
+        <a href="https://ripple.com/" target="_blank"><img src="assets/sponsors/ripple.png" alt="Ripple" style="height: 100px;"></a>
+        <a href="https://chain.link/" target="_blank"><img src="assets/sponsors/chainlink.png" alt="Chainlink" style="height: 100px;"></a>
+        <a href="https://saharaai.com/" target="_blank"><img src="assets/sponsors/saharaai.png" alt="Sahara AI" style="height: 100px;"></a>
+        <a href="https://aleo.org/" target="_blank"><img src="assets/sponsors/aleo.png" alt="Aleo" style="height: 100px;"></a>
+        <a href="https://esp.ethereum.foundation/" target="_blank"><img src="assets/sponsors/esp.png" alt="Ethereum Ecosystem Support Program" style="height: 100px;"></a>
+        <a href="https://starkware.co/" target="_blank"><img src="assets/sponsors/starkware.png" alt="Starkware" style="height: 100px;"></a>
+        <a href="https://tselab.stanford.edu/" target="_blank"><img src="assets/sponsors/stanford.png" alt="Stanford" style="height: 100px;"></a>
+        <a href="https://fractalbitcoin.io/" target="_blank"><img src="assets/sponsors/fractal.png" alt="Fractal Bitcoin" style="height: 100px;"></a>
+        <a href="https://polkadot.com/" target="_blank"><img src="assets/sponsors/polkadot.png" alt="Polka Dot" style="height: 100px;"></a>
+      </div>
 
       <p>More details on schedule, speakers and sponsors will be announced in early July. Follow <a href="https://x.com/BerkeleyRDI">Berkeley RDI on Twitter/X</a> and join the 
         <a href="https://berkeley.us14.list-manage.com/subscribe?u=0d89bb5c8066a9533eb98759d&id=c0a5c3e877">RDI mailing list</a> for all news/announcements related to this Summit.
