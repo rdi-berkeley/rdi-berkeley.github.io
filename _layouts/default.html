@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}" class="h-full">
+
+{%- include head.html -%}
+
+<body data-new-gr-c-s-check-loaded="14.1034.0" data-gr-ext-installed="">
+
+    {%- include nav.html -%}
+
+    <div class="features-wrapper constraint">
+
+        {{ content }}
+
+        {%- include footer.html -%}
+        
+    </div>
+<script async src=”https://siteimproveanalytics.com/js/siteanalyze_6294756.js”></script>
+</body>
+<script>
+    let join = document.querySelectorAll('.join');
+    let modal = document.getElementById('modal');
+    let subscribe = document.getElementById('subscribe');
+    let formclose = document.getElementById('formclose');
+    let signupForm = document.getElementById('mc-embedded-subscribe-form');
+
+    for (let itm of join) {
+        itm.addEventListener('click', openSubscribeForm);
+    }
+    formclose.addEventListener('click', closeSubscribeForm);
+
+    function openSubscribeForm() {
+      modal.hidden = false;
+      subscribe.hidden = false;
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeSubscribeForm() {
+      signupForm.reset();
+      modal.hidden = true;
+      subscribe.hidden = true;
+      document.body.style.overflow = 'scroll';
+    }
+</script>
+</html>

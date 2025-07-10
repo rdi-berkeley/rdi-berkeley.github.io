@@ -1,0 +1,208 @@
+- section_name: "CO-DIRECTOR"
+  people:
+    - name: Dawn Song
+      homepage: https://people.eecs.berkeley.edu/~dawnsong/
+      image_file: dawn.jpeg
+      subtitle: "AI, AI Safety and Security, Decentralization Technology"
+    - name: Christine Parlour
+      homepage: https://sites.google.com/berkeley.edu/thefinanceparlour/
+      image_file: christine.jpeg
+      subtitle: Finance, DeFi
+- section_name: "DEPUTY DIRECTOR"
+  people:
+    - name: Jocelyn Weber Phipps
+      homepage: https://www.linkedin.com/in/jocelynweberphipps/
+      image_file: jocelyn.jpg
+- section_name: "FACULTY"
+  people:
+    - name: Shafi Goldwasser
+      homepage: http://people.csail.mit.edu/shafi/
+      image_file: shafi.jpeg
+      subtitle: "Turing Award winner in Cryptography"
+    - name: Sanjam Garg
+      homepage: https://people.eecs.berkeley.edu/~sanjamg/
+      image_file: sanjam.jpg
+      subtitle: Cryptography
+    - name: Natacha Crooks
+      homepage: https://nacrooks.github.io/
+      image_file: natacha.jpg
+      subtitle: Decentralized Systems, Privacy
+    - name: Raluca Ada Popa
+      homepage: https://people.eecs.berkeley.edu/~raluca/
+      image_file: raluca.jpg
+      subtitle: Security & Privacy
+    - name: Sanjit Seshia
+      homepage: https://people.eecs.berkeley.edu/~sseshia/
+      image_file: sanjit.jpg
+      subtitle: Programming Systems, Formal Verification
+    - name: Koushik Sen
+      homepage: https://people.eecs.berkeley.edu/~ksen/
+      image_file: koushik.jpeg
+      subtitle: Programming Languages
+    - name: Joseph Hellerstein
+      homepage: https://dsf.berkeley.edu/jmh/
+      image_file: joe.png
+      subtitle: Databases, Distributed Computing
+    - name: Joseph Gonzalez
+      homepage: https://people.eecs.berkeley.edu/~jegonzal/
+      image_file: joseph.jpeg
+      subtitle: Distributed Learning
+    - name: Terrence Hendershott
+      homepage: http://faculty.haas.berkeley.edu/hender
+      image_file: terrence.jpg
+      subtitle: Finance, Banking
+    - name: Paul Gertler
+      homepage: https://www.paulgertler.com/
+      image_file: paul.jpg
+      subtitle: Economics
+    - name: Toby Stuart
+      homepage: http://faculty.haas.berkeley.edu/tstuart/bio.html
+      image_file: toby.jpg
+      subtitle: Finance
+    - name: Frank Partnoy
+      homepage: https://www.law.berkeley.edu/our-faculty/faculty-profiles/frank-partnoy
+      image_file: frank.jpg
+      subtitle: Law
+    - name: Rebecca Wexler
+      homepage: https://www.law.berkeley.edu/our-faculty/faculty-profiles/rebecca-wexler
+      image_file: rebecca.jpg
+      subtitle: Law
+    - name: Trevor Darrell
+      homepage: https://people.eecs.berkeley.edu/~trevor/
+      image_file: trevor.jpg
+      subtitle: Machine Learning, Decentralized Data Science, Metaverse
+    - name: Jiantao Jiao
+      homepage: https://people.eecs.berkeley.edu/~jiantao/
+      image_file: jiantao.png
+      subtitle: Machine Learning, Blockchain, Decentralized Data Science
+    - name: Arthur Gervais
+      homepage: https://arthurgervais.com/
+      image_file: arthur.jpg
+      subtitle: |
+        Affiliate Faculty, University College London,
+        Blockchain, DeFi
+    - name: Yupeng Zhang
+      homepage: https://zhangyp.web.illinois.edu/
+      image_file: zhang.jpg
+      subtitle: |
+        Assistant Professor, UIUC,
+        Cybersecurity and Applied Cryptography
+    - name: Xi Chen
+      homepage: https://pages.stern.nyu.edu/~xchen3/?_ga=2.105731206.401891539.1664949863-1427484683.1664949863
+      image_file: xichen.jpg
+      subtitle: |
+        Affiliate Faculty, New York University,
+        Tokenomics and DeFI, Data Analytics
+    - name: Ce Zhang
+      homepage: https://zhangce.github.io/
+      image_file: cezhang.jpeg
+      subtitle: |
+        Affiliate Faculty, ETH Zurich,
+        Decentralized Data Science and Machine Learning
+    - name: Bo Li
+      homepage: https://cs.illinois.edu/about/people/faculty/lbo
+      image_file: boli.jpg
+      subtitle: |
+        Affiliate Faculty, UIUC,
+        Decentralized Data Science and Machine Learning
+
+# - section_name: "STUDENT"
+#   people:
+#     - name: Xinyun Chen
+#       research_interest:
+#     - name: Jiaheng Zhang
+#       research_interest:
+#     - name: Tiancheng Xie
+#       research_interest:
+#     - name: Lun Wang
+#       research_interest:
+#     - name: Dan Hendrycks
+#       research_interest:
+#     - name: Siyuan Zhuang
+#       research_interest:
+#     - name: Yu Gai
+#       research_interest:
+#     - name: Xiaoyuan Liu
+#       research_interest:
+#     - name: Vivek Nair
+#       research_interest:
+#     - name: Deevashwer Rathee
+#       research_interest:
+#     - name: Justin Kang
+#       research_interest: distributed learning and optimization
+#     - name: David Chu
+#       research_interest: distributed protocol optimization
+#     - name: Shadaj Laddad
+#       research_interest: distributed programming
+#     - name: Conor Power
+#       research_interest: distributed programming
+#     - name: James Bartusek
+#       research_interest: cryptography
+#     - name: Jaiden Fairoze
+#       research_interest: cryptography
+#     - name: Jialin Li
+#       research_interest: cryptography
+#     - name: Guru Vamsi Policharla
+#       research_interest: cryptography
+#     - name: Yinuo Zhang
+#       research_interest: cryptography
+#     - name: Mayank Rathee
+#       research_interest: privacy preserving machine learning
+#     - name: Emma Dauterman
+#       research_interest: decentralized security systems
+#     - name: Vivian Fang
+#       research_interest: improving performance of cryptographic systems
+#     - name: Jean-Luc Watson
+#       research_interest: cryptographic systems on specialized hardware
+#     - name: Weikeng Chen
+#       research_interest: decentralized security
+#     - name: Yuncong Hu
+#       research_interest: decentralized secure ledgers
+#     - name: Sam Kumar
+#       research_interest: systems design for cryptographic systems
+#     - name: Samyu Yagati
+#       research_interest:
+#     - name: Neil Giridharan
+#       research_interest:
+- section_name: "STAFF AND AFFILIATES"
+  people:
+    - name: Karin H Bauer
+      homepage: https://www.linkedin.com/in/karinhbauer/
+      image_file: karinbauer.jpeg
+      subtitle: "Program Director"
+    - name: Samantha Guo
+      homepage: https://www.linkedin.com/in/samantha-guo-835056124/
+      image_file: samanthaguo.jpeg
+      subtitle: "Community Manager"
+    # - name: Emily Fischer-Bunker
+    #   homepage: https://www.linkedin.com/in/journeytowellness/
+    #   image_file: emilyfischer-bunker.jpg
+    #   subtitle: "Media Specialist"
+    # - name: Rohit Kanagal
+    #   homepage: https://www.linkedin.com/in/rohitkanagal/
+    #   image_file: rohitkanagal.jpg
+    #   subtitle: "Intern" 
+    # - name: Joseph Chen
+    #   homepage: https://www.linkedin.com/in/josephchen214/
+    #   image_file: josephchen.jpg
+    #   subtitle: "Intern"
+    # - name: Deejay Bui
+    #   homepage: http://www.linkedin.com/in/deejay-bui-587501239
+    #   image_file: deejaybui.jpg
+    #   subtitle: "Intern"
+    # - name: Alexis Turner
+    #   homepage: https://www.linkedin.com/in/josephchen214/
+    #   image_file: alexisturner.jpg
+    #   subtitle: "Intern"
+    # - name: Sarah Feng
+    #   homepage: https://www.linkedin.com/in/sarah-feng-85b00a1a3/ec2w8
+    #   image_file: sarahfeng.jpg
+    #   subtitle: "Intern"
+    # - name: Nadeen Mohamed
+    #   homepage: https://www.linkedin.com/in/josephchen214/
+    #   image_file: nadeenmohamed.jpg
+    #   subtitle: "Intern"
+    - name: Linda Kreitzman
+      homepage: https://www.linkedin.com/in/linda-k-8891ba/
+      image_file: linda.jpg
+      subtitle: "Industry Partnerships"
