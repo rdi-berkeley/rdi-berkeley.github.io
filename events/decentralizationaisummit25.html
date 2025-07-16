@@ -97,6 +97,19 @@
     pointer-events: none;
     padding: 4px 6px;
   }
+
+  @media (max-width: 768px) {
+    .sponsor-grid {
+      grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    .sponsors {
+      height: auto !important;
+    }
+
+    .sponsors img {
+      max-width: 80vw !important;
+    }
 </style>
 
 <div class="constraint">
@@ -225,7 +238,7 @@
         for more details on the Science of Blockchain 2025 and other affiliated workshops.</p>
 
       <p><span style="font-weight: 700;">Sponsors:</span> Funding for SBC’25 conference is provided by -</p>
-      <div style="display: grid; grid-template-columns: repeat(12, 1fr); place-items: center; gap: 10px;">
+      <div class="sponsor-grid" style="display: grid; grid-template-columns: repeat(12, 1fr); place-items: center; gap: 10px;">
         <!-- Top Row -->
         <a class="sponsors" href="https://world.org/" target="_blank"
            style="grid-row: 1; grid-column: 1 / span 3; display: flex; justify-content: center; align-items: center; height: 100px;">
