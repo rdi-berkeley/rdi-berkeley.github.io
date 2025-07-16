@@ -104,11 +104,12 @@
     }
 
     .sponsors {
-      height: auto !important;
-      padding: 12px 0; /* Add vertical spacing */
-      display: flex;
+      all: unset; /* Remove grid-row / grid-column from desktop */
+      display: flex !important;
       justify-content: center;
       align-items: center;
+      padding: 12px 0;
+      width: 100%;
     }
 
     .sponsors img {
@@ -116,6 +117,7 @@
       max-width: 140px;
       height: auto;
       object-fit: contain;
+      display: block;
     }
   }
 </style>
