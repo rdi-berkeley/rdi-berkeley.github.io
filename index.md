@@ -4,7 +4,7 @@ layout: home
 
 ## Our mission
 
-**Advance the science and technology at the intersection of responsible innovation, decentralization, and AI , to make it universally accessible and empower a responsible digital economy.**
+**Advance the science and technology at the intersection of responsible innovation, decentralization, and AI, to make it universally accessible and empower a responsible digital economy.**
 
 
 ---
