@@ -128,29 +128,46 @@
         </div>
       </div>
 
-      <div style="margin: 20px 0;">
-        <h3 style="color: #ff0000; font-weight: 700; font-size: 18px; margin-bottom: 10px;">Ticketing Update</h3>
-        <p style="font-size: 1rem; margin-bottom: 10px;">
-          <span style="color: #ff0000; font-weight: 700;">Tickets for the Agentic AI Summit are completely SOLD OUT.</span>
-        </p>
-        <p style="font-size: 1rem; margin-bottom: 0;">
-          There will be <span style="color: #ff0000; font-weight: 700;">no onsite registration or ticket sales.</span> Only registered attendees with a valid confirmation/ticket will be admitted. Thank you for your understanding!
-        </p>
-      </div>
+      <div style="text-align: center; margin: 2rem 0;">
+        <h3 style="color: #CB9445; margin-bottom: 1.5rem; font-size: 1.5rem;">🟢 Watch Live (Starting 9:15am PT Aug 2, 2025)</h3>
+        
+        <!-- Main Stage Buttons -->
+        <div style="margin-bottom: 1rem;">
+          <h4 style="color: #333; margin-bottom: 0.5rem; font-size: 1.1rem;">Main Stage</h4>
+          <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <button class="livestream-button" onclick="window.open('https://www.youtube.com/watch?v=c39fJ2WAj6A', '_blank')">
+              Morning Sessions
+            </button>
+            <button class="livestream-button" onclick="window.open('https://www.youtube.com/watch?v=uJXAZlZ0A2s', '_blank')">
+              Afternoon Sessions
+            </button>
+          </div>
+        </div>
 
-      <div
-        style="flex: 1; align-content: center; justify-content: center; display: flex; text-decoration: none; padding: 3px; margin-top: 0; margin-bottom: 1rem;">
-        <div style="display: flex; flex-direction: row; gap: 1rem;">
-          <!-- <button class="styled-button" onclick="location.href='https://forms.gle/QHkRUcsqWEGGTQaQ7'">
-            <div style="display: flex; flex-direction: column;">
-              <span style="font-size: 1.75rem;">In-Person Tickets Are Sold Out<br>JOIN WAITLIST</span> -->
-<!--               <span style="font-size: 1rem;">Subscribe to RDI Newsletter to Stay Updated</span> -->
-            <!-- </div> -->
-            <!-- <div style="margin-top: 0.75rem; font-size: 1rem; color: white; font-weight: 500;">
-                🔥 Space is limited, get your ticket ASAP 🔥
-              </div> -->
-          <!-- </button> -->
-          <button class="styled-button" onclick="location.href='https://lu.ma/agentic-ai-summit-livestream'">Register for Free Livestream Access</button>
+        <!-- Workshops Buttons -->
+        <div style="margin-bottom: 1rem;">
+          <h4 style="color: #333; margin-bottom: 0.5rem; font-size: 1.1rem;">Workshops</h4>
+          <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <button class="livestream-button" onclick="window.open('https://www.youtube.com/watch?v=5TFuDVvfnpg', '_blank')">
+              Morning Sessions
+            </button>
+            <button class="livestream-button" onclick="window.open('https://www.youtube.com/watch?v=_w5m3h9jY-w', '_blank')">
+              Afternoon Sessions
+            </button>
+          </div>
+        </div>
+
+        <!-- Frontier Stage Buttons -->
+        <div style="margin-bottom: 1rem;">
+          <h4 style="color: #333; margin-bottom: 0.5rem; font-size: 1.1rem;">Frontier Stage</h4>
+          <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <button class="livestream-button" onclick="window.open('https://www.youtube.com/watch?v=xKAdsuxLvCk', '_blank')">
+              Morning Sessions
+            </button>
+            <button class="livestream-button" onclick="window.open('https://www.youtube.com/watch?v=EBCF8hsb09g', '_blank')">
+              Afternoon Sessions
+            </button>
+          </div>
         </div>
       </div>
 
@@ -202,7 +219,7 @@
       }
     </style>
 
-    <br>
+    <!-- <br> -->
 
     <h1 style="font-weight: 500; color: #CB9445; text-align: center; font-size: 40px">Program Schedule</h1>
 
@@ -1158,6 +1175,27 @@
       
       .side-button:hover {
           background-color: #dcbf72;     /* Darker shade on hover */
+      }
+
+      .livestream-button {
+        padding: 8px 16px;            /* Compact padding */
+        border: solid 1px #CB9445;     /* Border with theme color */
+        border-radius: 6px;
+        cursor: pointer;               
+        transition: all 0.3s ease;    /* Smooth transition */
+        background-color: white; 
+        font-weight: 500; 
+        color: #CB9445; 
+        font-size: 0.9rem;
+        min-width: 120px;
+        text-decoration: none;
+      }
+      
+      .livestream-button:hover {
+          background-color: #CB9445;     /* Theme color on hover */
+          color: white;                   /* White text on hover */
+          transform: translateY(-1px);   /* Subtle lift effect */
+          box-shadow: 0 2px 8px rgba(203, 148, 69, 0.3);
       }
 
       /*SUMMIT HIGHLIGHTS*/
