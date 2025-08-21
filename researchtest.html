@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Research | Berkeley RDI</title>
+
+  <!-- Tailwind + site styles for the new header/hero/footer -->
   <link href="/assets/css/tailwind.min.css" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com/">
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
@@ -12,131 +14,639 @@
   <link rel="stylesheet" href="/assets/css/style.css">
 
   <style>
-    /* keep all your original custom CSS */
-    * { margin:0; padding:0; box-sizing:border-box; }
-    :root {
-      --primary-blue:#003262; --berkeley-gold:#FDB515; --light-blue:#3B7EA1;
-      --dark-gray:#2A2A2A; --light-gray:#F5F5F5; --white:#FFFFFF;
-      --gradient-1:linear-gradient(135deg,#667eea 0%,#764ba2 100%);
-      --gradient-2:linear-gradient(135deg,#3B7EA1 0%,#003262 100%);
+    /* === Your original custom CSS (kept) === */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-    body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif; line-height:1.6; color:var(--dark-gray); background:var(--white);}
-    /* ... keep all your research-card, grid, accordion, fade-in CSS here ... */
+
+    :root {
+      --primary-blue: #003262;
+      --berkeley-gold: #FDB515;
+      --light-blue: #3B7EA1;
+      --dark-gray: #2A2A2A;
+      --light-gray: #F5F5F5;
+      --white: #FFFFFF;
+      --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --gradient-2: linear-gradient(135deg, #3B7EA1 0%, #003262 100%);
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.6;
+      color: var(--dark-gray);
+      background: var(--white);
+    }
+
+    /* Header (legacy styles retained but header is replaced by Tailwind block) */
+    header {
+      background: var(--white);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--primary-blue);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--dark-gray);
+      transition: color 0.3s;
+      font-weight: 500;
+    }
+
+    .nav-links a:hover {
+      color: var(--berkeley-gold);
+    }
+
+    /* Hero Section (legacy styles retained; replaced by Tailwind hero) */
+    .hero {
+      background: var(--gradient-2);
+      color: var(--white);
+      padding: 5rem 2rem;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      animation: fadeInUp 0.8s ease;
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      max-width: 800px;
+      margin: 0 auto;
+      opacity: 0.95;
+      animation: fadeInUp 0.8s ease 0.2s backwards;
+    }
+
+    /* Main Content */
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    /* Research Thrusts Grid */
+    .research-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      margin: 4rem 0;
+    }
+
+    .research-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
+      border-top: 4px solid var(--berkeley-gold);
+    }
+
+    .research-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    }
+
+    .research-card h3 {
+      color: var(--primary-blue);
+      margin-bottom: 1rem;
+      font-size: 1.4rem;
+    }
+
+    .research-card p {
+      color: #666;
+      margin-bottom: 1rem;
+    }
+
+    .sub-areas {
+      list-style: none;
+      margin-top: 1rem;
+    }
+
+    .sub-areas li {
+      padding: 0.5rem 0;
+      border-left: 3px solid var(--light-blue);
+      padding-left: 1rem;
+      margin-bottom: 0.5rem;
+      transition: all 0.3s;
+    }
+
+    .sub-areas li:hover {
+      border-left-color: var(--berkeley-gold);
+      background: var(--light-gray);
+    }
+
+    /* Featured Section */
+    .featured-section {
+      background: var(--light-gray);
+      padding: 4rem 0;
+      margin: 4rem 0;
+    }
+
+    .featured-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .featured-item {
+      background: var(--white);
+      padding: 1.5rem;
+      border-radius: 8px;
+      border-left: 4px solid var(--light-blue);
+    }
+
+    .featured-item h4 {
+      color: var(--primary-blue);
+      margin-bottom: 0.5rem;
+    }
+
+    .tag {
+      display: inline-block;
+      background: var(--berkeley-gold);
+      color: var(--white);
+      padding: 0.2rem 0.6rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      margin-right: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Cross-cutting Initiatives */
+    .initiatives {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+
+    .initiative-card {
+      text-align: center;
+      padding: 2rem;
+      background: var(--white);
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    }
+
+    .initiative-icon {
+      width: 60px;
+      height: 60px;
+      margin: 0 auto 1rem;
+      background: var(--gradient-1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-size: 1.5rem;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      background: var(--gradient-2);
+      color: var(--white);
+      padding: 4rem 2rem;
+      text-align: center;
+      margin-top: 4rem;
+      border-radius: 12px;
+    }
+
+    .cta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .cta-item {
+      padding: 1.5rem;
+      background: rgba(255,255,255,0.1);
+      border-radius: 8px;
+      backdrop-filter: blur(10px);
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 2rem;
+      background: var(--berkeley-gold);
+      color: var(--white);
+      text-decoration: none;
+      border-radius: 25px;
+      transition: all 0.3s;
+      margin-top: 1rem;
+      font-weight: 600;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(253, 181, 21, 0.4);
+    }
+
+    /* Section Headers */
+    .section-header {
+      text-align: center;
+      margin: 4rem 0 2rem;
+    }
+
+    .section-header h2 {
+      font-size: 2.5rem;
+      color: var(--primary-blue);
+      margin-bottom: 1rem;
+    }
+
+    .section-header p {
+      color: #666;
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-in {
+      animation: fadeInUp 0.8s ease;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      .nav-links { flex-direction: column; gap: 1rem; }
+      .hero h1 { font-size: 2rem; }
+      .hero p { font-size: 1rem; }
+      .research-grid { grid-template-columns: 1fr; }
+      .section-header h2 { font-size: 1.8rem; }
+    }
+
+    /* Accordion for sub-areas */
+    .accordion { margin-top: 1rem; }
+    .accordion-header {
+      background: var(--light-gray);
+      padding: 0.8rem;
+      cursor: pointer;
+      border-radius: 4px;
+      margin-bottom: 0.5rem;
+      transition: background 0.3s;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .accordion-header:hover { background: #e0e0e0; }
+    .accordion-content {
+      display: none;
+      padding: 1rem;
+      background: #fafafa;
+      border-radius: 4px;
+      margin-bottom: 1rem;
+    }
+    .accordion-content.active { display: block; }
+    .arrow { transition: transform 0.3s; }
+    .arrow.active { transform: rotate(180deg); }
   </style>
 </head>
 <body class="text-gray-800">
 
-<!-- HEADER -->
-<header class="sticky top-0 bg-white shadow z-50">
-  <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
-    <div id="logo-container" class="py-2">
-      <a href="/" aria-label="Berkeley Center for RDI Logo">
-        <img src="/assets/images/Berkeley Center for RDI Logo.png" alt="Berkeley RDI Logo" class="h-10 w-auto max-w-full">
-      </a>
+  <!-- ====== NEW TAILWIND HEADER ====== -->
+  <header class="sticky top-0 bg-white shadow z-50">
+    <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+      <div id="logo-container" class="py-2">
+        <a href="/" aria-label="Berkeley Center for RDI Logo">
+          <img src="/assets/images/Berkeley Center for RDI Logo.png" alt="Berkeley RDI Logo" class="h-10 w-auto max-w-full">
+        </a>
+      </div>
+
+      <button id="menu-toggle" class="sm:hidden text-gray-600 focus:outline-none" aria-label="Toggle menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+
+      <nav id="nav-links" class="hidden sm:flex space-x-6 text-sm font-medium">
+        <a href="/" class="hover:text-blue-600">Home</a>
+        <a href="/research" class="hover:text-blue-900">Research</a>
+        <a href="/academics" class="hover:text-blue-900">Education</a>
+        <a href="/connectandlearn" class="hover:text-blue-900">Community</a>
+        <a href="/events" class="hover:text-blue-900">Events</a>
+        <a href="/people" class="hover:text-blue-900">About</a>
+      </nav>
     </div>
-    <button id="menu-toggle" class="sm:hidden text-gray-600 focus:outline-none">
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M4 6h16M4 12h16M4 18h16"/>
-      </svg>
-    </button>
-    <nav id="nav-links" class="hidden sm:flex space-x-6 text-sm font-medium">
-      <a href="/" class="hover:text-blue-600">Home</a>
-      <a href="/research" class="hover:text-blue-900">Research</a>
-      <a href="/academics" class="hover:text-blue-900">Education</a>
-      <a href="/connectandlearn" class="hover:text-blue-900">Community</a>
-      <a href="/events" class="hover:text-blue-900">Events</a>
-      <a href="/people" class="hover:text-blue-900">About</a>
-    </nav>
-  </div>
-  <div id="mobile-menu" class="sm:hidden hidden px-6 pb-4 space-y-2 text-sm font-medium">
-    <a href="/" class="block py-1">Home</a>
-    <a href="/research" class="block py-1">Research</a>
-    <a href="/academics" class="block py-1">Education</a>
-    <a href="/connectandlearn" class="block py-1">Community</a>
-    <a href="/events" class="block py-1">Events</a>
-    <a href="/people" class="block py-1">About</a>
-    <a href="/contact" class="block py-1">Contact</a>
-  </div>
-</header>
 
-<!-- HERO -->
-<section style="background-image: url('/assets/images/homepage-background.png')" class="bg-cover bg-center py-40 text-center px-4">
-  <h1 class="text-5xl font-bold text-white mb-4">Research @Berkeley RDI</h1>
-  <p class="max-w-2xl mx-auto text-lg text-white">
-    Advancing the Frontier of Agentic AI and Decentralized Intelligence
-  </p>
-  <div class="mt-8 gap-4 flex flex-col sm:flex-row justify-center items-center">
-    <a href="/research" class="bg-yellow-400 text-blue-900 border-2 border-yellow-400 px-8 py-3 rounded font-bold hover:bg-yellow-500">Explore Our Research</a>
-    <a href="/events" class="bg-yellow-400 text-blue-900 border-2 border-yellow-400 px-8 py-3 rounded font-bold hover:bg-yellow-500">Explore Our Events</a>
-    <a href="#community" class="bg-yellow-400 text-blue-900 border-2 border-yellow-400 px-8 py-3 rounded font-bold hover:bg-yellow-500">Join Our Community</a>
-  </div>
-</section>
+    <div id="mobile-menu" class="sm:hidden hidden px-6 pb-4 space-y-2 text-sm font-medium">
+      <a href="/" class="block py-1">Home</a>
+      <a href="/research" class="block py-1">Research</a>
+      <a href="/academics" class="block py-1">Education</a>
+      <a href="/connectandlearn" class="block py-1">Community</a>
+      <a href="/events" class="block py-1">Events</a>
+      <a href="/people" class="block py-1">About</a>
+      <a href="/contact" class="block py-1">Contact</a>
+    </div>
+  </header>
 
-<!-- MAIN CONTENT (your research grid, featured research, initiatives, CTA section, etc.) -->
-<div class="container">
-  <!-- keep all your research cards, featured highlights, cross-cutting initiatives, etc. here -->
-</div>
+  <!-- ====== NEW TAILWIND HERO ====== -->
+  <section style="background-image: url('/assets/images/homepage-background.png')" class="bg-cover bg-center py-40 text-center px-4">
+    <h1 class="text-5xl font-bold text-white mb-4">Research @Berkeley RDI</h1>
+    <p class="max-w-2xl mx-auto text-lg text-white">
+      Advancing the Frontier of Agentic AI and Decentralized Intelligence
+    </p>
+    <div class="mt-8 gap-4 flex flex-col sm:flex-row justify-center items-center">
+      <a href="/research" class="bg-yellow-400 text-blue-900 border-2 border-yellow-400 px-8 py-3 rounded font-bold hover:bg-yellow-500">Explore Our Research</a>
+      <a href="/events" class="bg-yellow-400 text-blue-900 border-2 border-yellow-400 px-8 py-3 rounded font-bold hover:bg-yellow-500">Explore Our Events</a>
+      <a href="#community" class="bg-yellow-400 text-blue-900 border-2 border-yellow-400 px-8 py-3 rounded font-bold hover:bg-yellow-500">Join Our Community</a>
+    </div>
+  </section>
 
-<!-- FOOTER -->
-<footer class="bg-gray-900 text-gray-300 text-sm py-10 px-6 mt-10">
-  <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-6">
-    <div>
-      <h4 class="text-white font-semibold mb-2">Berkeley RDI</h4>
-      <p>Advancing the science, technology, and education of decentralization and AI to empower a responsible digital economy.</p>
-      <div class="flex space-x-3 mt-4 text-xl">
-        <a href="https://twitter.com/BerkeleyRDI" class="hover:text-white transition text-gray-400">Twitter</a>
-        <a href="https://www.youtube.com/@BerkeleyRDI" class="hover:text-white transition text-gray-400">YouTube</a>
-        <a href="https://discord.gg/NWVpQ9rBvd" class="hover:text-white transition text-gray-400">Discord</a>
-        <a href="mailto:rdi@berkeley.edu" class="hover:text-white transition text-gray-400">Email</a>
+  <!-- ====== YOUR ORIGINAL MAIN CONTENT (UNCHANGED) ====== -->
+  <div class="container">
+    <!-- Core Research Thrusts -->
+    <div class="section-header">
+      <h2>Core Research Thrusts</h2>
+      <p>Pioneering the next generation of autonomous intelligent systems</p>
+    </div>
+
+    <div class="research-grid">
+      <!-- 1. Agentic AI Safety & Security -->
+      <div class="research-card">
+        <h3>1. Agentic AI Safety & Security</h3>
+        <p>Building trustworthy autonomous systems with robust security guarantees</p>
+        <div class="accordion">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span>View Research Areas</span>
+            <span class="arrow">▼</span>
+          </div>
+          <div class="accordion-content">
+            <ul class="sub-areas">
+              <li><strong>Foundational Capabilities:</strong> Self-supervised learning, meta-learning architectures</li>
+              <li><strong>Reasoning & Planning:</strong> Neurosymbolic approaches, hierarchical planning</li>
+              <li><strong>Reinforcement Learning:</strong> Safe exploration, value alignment</li>
+              <li><strong>Lifelong Learning:</strong> Continuous skill acquisition, self-improvement</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Multi-Agent Systems -->
+      <div class="research-card">
+        <h3>2. Multi-Agent Systems & Coordination</h3>
+        <p>Enabling collective intelligence through decentralized coordination</p>
+        <ul class="sub-areas">
+          <li>Game-theoretic frameworks</li>
+          <li>Decentralized consensus</li>
+          <li>Adversarial robustness</li>
+        </ul>
+      </div>
+
+      <!-- 3. Open Frameworks -->
+      <div class="research-card">
+        <h3>3. Open Frameworks & Infrastructure</h3>
+        <p>Democratizing access to agentic AI development</p>
+        <ul class="sub-areas">
+          <li>Modular agent architectures</li>
+          <li>Interoperability standards</li>
+          <li>Scalable deployment</li>
+        </ul>
+      </div>
+
+      <!-- 4. Application Domains -->
+      <div class="research-card">
+        <h3>4. Application Domains</h3>
+        <p>Real-world deployment across critical sectors</p>
+        <div class="accordion">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span>View Applications</span>
+            <span class="arrow">▼</span>
+          </div>
+          <div class="accordion-content">
+            <ul class="sub-areas">
+              <li><strong>Web Agents:</strong> Autonomous navigation & task completion</li>
+              <li><strong>Coding Agents:</strong> Program synthesis & secure generation</li>
+              <li><strong>Research Agents:</strong> Hypothesis generation & testing</li>
+              <li><strong>Finance:</strong> DeFi optimization & risk management</li>
+              <li><strong>Cybersecurity:</strong> Vulnerability discovery & defense</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. Personalized & Decentralized AI -->
+      <div class="research-card">
+        <h3>5. Personalized & Decentralized AI</h3>
+        <p>Sovereign control over personal AI agents</p>
+        <ul class="sub-areas">
+          <li>Federated learning</li>
+          <li>Privacy-preserving interactions</li>
+          <li>User-controlled ownership</li>
+        </ul>
+      </div>
+
+      <!-- 6. Benchmarks & Evaluation -->
+      <div class="research-card">
+        <h3>6. Benchmarks & Evaluation</h3>
+        <p>Rigorous standards for measuring agent capabilities</p>
+        <ul class="sub-areas">
+          <li>Comprehensive frameworks</li>
+          <li>Real-world benchmarks</li>
+          <li>Safety metrics</li>
+        </ul>
+      </div>
+
+      <!-- 7. Foundational Technologies -->
+      <div class="research-card">
+        <h3>7. Foundational Technologies</h3>
+        <p>Core infrastructure enabling secure autonomous systems</p>
+        <div class="accordion">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span>View Technologies</span>
+            <span class="arrow">▼</span>
+          </div>
+          <div class="accordion-content">
+            <ul class="sub-areas">
+              <li><strong>Cryptography & ZK:</strong> zkBridge, privacy-preserving computation</li>
+              <li><strong>Decentralization & DeFi:</strong> Trust-minimized infrastructure</li>
+              <li><strong>Metaverse:</strong> Privacy in virtual environments</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
-    <div>
-      <h4 class="text-white font-semibold mb-2 text-yellow-400">Explore</h4>
-      <ul class="space-y-1">
-        <li><a href="/research" class="hover:underline">Research</a></li>
-        <li><a href="/education" class="hover:underline">Education</a></li>
-        <li><a href="/events" class="hover:underline">Events</a></li>
-        <li><a href="/people" class="hover:underline">About Us</a></li>
-      </ul>
+
+    <!-- Featured Research -->
+    <div class="featured-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Featured Research Highlights</h2>
+          <p>Recent breakthroughs and ongoing projects</p>
+        </div>
+        <div class="featured-grid">
+          <div class="featured-item">
+            <span class="tag">Agentic AI</span>
+            <h4>Securing Autonomous Code Generation</h4>
+            <p>Novel verification methods for agent-generated code with formal correctness guarantees</p>
+          </div>
+          <div class="featured-item">
+            <span class="tag">Multi-Agent</span>
+            <h4>Emergent Coordination Protocols</h4>
+            <p>Self-organizing agent collectives that adapt to complex environments</p>
+          </div>
+          <div class="featured-item">
+            <span class="tag">Privacy</span>
+            <h4>Sovereign Agent Framework</h4>
+            <p>User-controlled agents with cryptographic privacy guarantees</p>
+          </div>
+          <div class="featured-item">
+            <span class="tag">Benchmarks</span>
+            <h4>AgentBench 2025</h4>
+            <p>Comprehensive evaluation suite for real-world agent capabilities</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cross-cutting Initiatives -->
+    <div class="section-header">
+      <h2>Cross-Cutting Initiatives</h2>
+      <p>Principles that guide all our research</p>
+    </div>
+    <div class="initiatives">
+      <div class="initiative-card">
+        <div class="initiative-icon">🔒</div>
+        <h3>Privacy & Security</h3>
+        <p>Privacy-by-design principles and robust security frameworks across all research</p>
+      </div>
+      <div class="initiative-card">
+        <div class="initiative-icon">🌍</div>
+        <h3>Open Science</h3>
+        <p>Commitment to open-source tools and reproducible research</p>
+      </div>
+      <div class="initiative-card">
+        <div class="initiative-icon">🚀</div>
+        <h3>Real-World Impact</h3>
+        <p>Bridging theory and practice through industry partnerships</p>
+      </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div id="community" class="cta-section">
+      <h2>Join Our Research Community</h2>
+      <div class="cta-grid">
+        <div class="cta-item">
+          <h3>For Researchers</h3>
+          <p>Collaborate on cutting-edge projects</p>
+          <a href="#" class="btn">Join Us</a>
+        </div>
+        <div class="cta-item">
+          <h3>For Industry</h3>
+          <p>Partner to develop scalable solutions</p>
+          <a href="#" class="btn">Partner</a>
+        </div>
+        <div class="cta-item">
+          <h3>For Students</h3>
+          <p>Work on transformative technologies</p>
+          <a href="#" class="btn">Apply</a>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="text-center text-xs mt-8 text-gray-500">
-    Copyright © {{ "now" | date: "%Y" }} UC Regents; all rights reserved
-  </div>
-</footer>
 
-<script>
-  // Accordion toggle
-  function toggleAccordion(header) {
-    const content = header.nextElementSibling;
-    const arrow = header.querySelector('.arrow');
-    content.classList.toggle('active');
-    arrow.classList.toggle('active');
-  }
+  <!-- ====== NEW TAILWIND FOOTER ====== -->
+  <footer class="bg-gray-900 text-gray-300 text-sm py-10 px-6 mt-10">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-6">
+      <div>
+        <h4 class="text-white font-semibold mb-2">Berkeley RDI</h4>
+        <p>Advancing the science, technology, and education of decentralization and AI to empower a responsible digital economy.</p>
+        <div class="flex space-x-3 mt-4 text-xl">
+          <a href="https://twitter.com/BerkeleyRDI" class="hover:text-white transition text-gray-400" aria-label="Twitter/X">Twitter</a>
+          <a href="https://www.youtube.com/@BerkeleyRDI" class="hover:text-white transition text-gray-400" aria-label="YouTube">YouTube</a>
+          <a href="https://discord.gg/NWVpQ9rBvd" class="hover:text-white transition text-gray-400" aria-label="Discord">Discord</a>
+          <a href="mailto:rdi@berkeley.edu" class="hover:text-white transition text-gray-400" aria-label="Email">Email</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="text-white font-semibold mb-2 text-yellow-400">Explore</h4>
+        <ul class="space-y-1">
+          <li><a href="/research" class="hover:underline">Research</a></li>
+          <li><a href="/education" class="hover:underline">Education</a></li>
+          <li><a href="/events" class="hover:underline">Events</a></li>
+          <li><a href="/people" class="hover:underline">About Us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="text-center text-xs mt-8 text-gray-500">
+      Copyright © {{ "now" | date: "%Y" }} UC Regents; all rights reserved
+    </div>
+  </footer>
 
-  // Smooth scroll
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e){
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute('href'));
-      if(target){ target.scrollIntoView({behavior:'smooth', block:'start'}); }
+  <!-- ====== Scripts (kept + mobile menu) ====== -->
+  <script>
+    // Accordion functionality
+    function toggleAccordion(header) {
+      const content = header.nextElementSibling;
+      const arrow = header.querySelector('.arrow');
+      content.classList.toggle('active');
+      arrow.classList.toggle('active');
+    }
+
+    // Smooth scroll for in-page anchors
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
     });
-  });
 
-  // IntersectionObserver fade-in
-  const observer = new IntersectionObserver(entries=>{
-    entries.forEach(entry=>{
-      if(entry.isIntersecting){ entry.target.classList.add('fade-in'); }
+    // Fade-in on scroll
+    const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('fade-in');
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.research-card, .featured-item, .initiative-card').forEach(el => {
+      observer.observe(el);
     });
-  },{threshold:0.1, rootMargin:'0px 0px -50px 0px'});
-  document.querySelectorAll('.research-card, .featured-item, .initiative-card').forEach(el=>observer.observe(el));
 
-  // Mobile menu toggle
-  const toggle = document.getElementById('menu-toggle');
-  const mobileMenu = document.getElementById('mobile-menu');
-  toggle.addEventListener('click',()=>{ mobileMenu.classList.toggle('hidden'); });
-</script>
-
+    // Mobile menu toggle
+    const toggleBtn = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (toggleBtn) {
+      toggleBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
+  </script>
 </body>
 </html>
