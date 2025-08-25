@@ -2,7 +2,7 @@
 layout: default
 ---
 
-## Other Events
+## Other Events v1.1
 
 Click a banner to view details about each event.
 
