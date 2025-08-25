@@ -1,4 +1,4 @@
-- section_name: "CO-DIRECTOR"
+- section_name: "Co-Director"
   people:
     - name: Dawn Song
       homepage: https://people.eecs.berkeley.edu/~dawnsong/
@@ -8,7 +8,7 @@
       homepage: https://sites.google.com/berkeley.edu/thefinanceparlour/
       image_file: christine.jpeg
       subtitle: Finance, DeFi
-- section_name: "FACULTY"
+- section_name: "Faculty"
   people:
     - name: Shafi Goldwasser
       homepage: http://people.csail.mit.edu/shafi/
@@ -159,23 +159,23 @@
 #       research_interest:
 #     - name: Neil Giridharan
 #       research_interest:
-- section_name: "CO-DIRECTOR AND STAFF"
+- section_name: "Staff"
   people:
     - name: Jocelyn Weber Phipps
       homepage: https://www.linkedin.com/in/jocelynweberphipps/
       image_file: jocelyn.jpg
-      subtitle: "Co-Director"
+      subtitle: "Deputy Director"
     - name: Vi Phan
       homepage: https://www.linkedin.com/in/samantha-guo-835056124/
-      image_file: placeholder.jpg
+      image_file: vi.png
       subtitle: "Operations"
     - name: Jennifer Liu
       homepage: https://www.linkedin.com/in/samantha-guo-835056124/
-      image_file: placeholder.jpg
+      image_file: jennifer.png
       subtitle: "Operations & Partnerships"
     - name: Samantha Guo
       homepage: https://www.linkedin.com/in/samantha-guo-835056124/
-      image_file: placeholder.jpg
+      image_file: samantha.png
       subtitle: "Operations"
     # - name: Emily Fischer-Bunker
     #   homepage: https://www.linkedin.com/in/journeytowellness/
