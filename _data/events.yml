@@ -1,20 +1,25 @@
 - link: https://rdi.berkeley.edu/events/agentic-ai-summit
   img: /assets/images/events/AgenticAISummitNEW.jpg
+  category: "main"
 
 - link: https://rdi.berkeley.edu/events/decentralizationaisummit25
   img: /assets/images/events/decentralizationaisummit25.jpg
+  category: "main"
 
 - link: https://rdi.berkeley.edu/SBC2025/
   img: /assets/images/events/sbc2025-banner.png
 
 - link: https://rdi.berkeley.edu/agentx/
   img: /assets/images/events/agentx-banner.jpg
+  category: "main"
 
 - link: https://rdi.berkeley.edu/llm-agents-hackathon/
   img: /assets/images/events/llm-agents-hackathon-2025-v2.png
+  category: "main"
 
 - link: https://rdi.berkeley.edu/events/decentralizationaisummit24
   img: /assets/images/events/decentralizationaisummit24.png
+  category: "main"
 
 - link: https://www.law.berkeley.edu/research/business/events/previous-events/events-2024/techvocacy-2024-emerging-tech-advocacy-summit/
   img: /assets/images/events/Techvocacy_2024.png
@@ -30,6 +35,7 @@
 
 - link: https://rdi.berkeley.edu/events/sbcberkeley
   img: /assets/images/events/8-27.png
+  category: "main"
 
 - link: https://rdi.berkeley.edu/events/zkpcareerfair
   img: /assets/images/events/zkpclosing.png
