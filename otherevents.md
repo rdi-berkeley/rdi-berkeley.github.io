@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: events
 ---
 
 ## Other Events v1.1
