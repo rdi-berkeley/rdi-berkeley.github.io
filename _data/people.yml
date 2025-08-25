@@ -8,11 +8,6 @@
       homepage: https://sites.google.com/berkeley.edu/thefinanceparlour/
       image_file: christine.jpeg
       subtitle: Finance, DeFi
-- section_name: "DEPUTY DIRECTOR"
-  people:
-    - name: Jocelyn Weber Phipps
-      homepage: https://www.linkedin.com/in/jocelynweberphipps/
-      image_file: jocelyn.jpg
 - section_name: "FACULTY"
   people:
     - name: Shafi Goldwasser
@@ -166,14 +161,21 @@
 #       research_interest:
 - section_name: "STAFF AND AFFILIATES"
   people:
-    - name: Karin H Bauer
-      homepage: https://www.linkedin.com/in/karinhbauer/
-      image_file: karinbauer.jpeg
-      subtitle: "Program Director"
+    - name: Jocelyn Weber Phipps
+      homepage: https://www.linkedin.com/in/jocelynweberphipps/
+      image_file: jocelyn.jpg
+    - name: Vi Phan
+      homepage: https://www.linkedin.com/in/samantha-guo-835056124/
+      image_file: placeholder.jpg
+      subtitle: "Operations"
+    - name: Jennifer Liu
+      homepage: https://www.linkedin.com/in/samantha-guo-835056124/
+      image_file: placeholder.jpg
+      subtitle: "Operations & Partnerships"
     - name: Samantha Guo
       homepage: https://www.linkedin.com/in/samantha-guo-835056124/
-      image_file: samanthaguo.jpeg
-      subtitle: "Community Manager"
+      image_file: placeholder.jpg
+      subtitle: "Operations"
     # - name: Emily Fischer-Bunker
     #   homepage: https://www.linkedin.com/in/journeytowellness/
     #   image_file: emilyfischer-bunker.jpg
@@ -202,7 +204,3 @@
     #   homepage: https://www.linkedin.com/in/josephchen214/
     #   image_file: nadeenmohamed.jpg
     #   subtitle: "Intern"
-    - name: Linda Kreitzman
-      homepage: https://www.linkedin.com/in/linda-k-8891ba/
-      image_file: linda.jpg
-      subtitle: "Industry Partnerships"
