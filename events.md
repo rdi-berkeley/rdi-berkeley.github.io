@@ -11,7 +11,7 @@ Click a banner to view details about each event.
 {% assign events = site.data.events | where: "category", "main" | sort: 'date' %}
 
 <div>
-    {% for row in site.data.events %}
+    {% for row in events %}
     <a href="{{ row.link }}" aria-label="Event"><img alt="Event Banner" src="{{ row.img }}" style="width: 100%; margin-top: 0.5rem; margin-bottom: 0.5rem;"></a>
         <!-- <a class="event-a" href="{{ row.link }}"><h2  style="font-weight: 700;">{{ row.row-title }}</h2></a>
         <h3  style="font-weight: 700;">{{ row.formatted-date }} {{ row.start }} - {{ row.end }} PT</h3>
