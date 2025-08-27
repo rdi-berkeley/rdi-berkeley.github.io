@@ -165,14 +165,18 @@
       homepage: https://www.linkedin.com/in/jocelynweberphipps/
       image_file: jocelyn.jpg
       subtitle: "Deputy Director"
-    - name: Vi Phan
-      homepage: https://www.linkedin.com/in/samantha-guo-835056124/
-      image_file: vi.png
-      subtitle: "Operations"
+    - name: Linda Lu
+      homepage: 
+      image_file: linda.png
+      subtitle: "Head of Strategic Initiatives"
     - name: Jennifer Liu
       homepage: https://www.linkedin.com/in/samantha-guo-835056124/
       image_file: jennifer.png
       subtitle: "Operations & Partnerships"
+    - name: Vi Phan
+      homepage: https://www.linkedin.com/in/samantha-guo-835056124/
+      image_file: vi.png
+      subtitle: "Operations"
     - name: Samantha Guo
       homepage: https://www.linkedin.com/in/samantha-guo-835056124/
       image_file: samantha.png
