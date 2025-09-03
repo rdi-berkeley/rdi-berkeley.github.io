@@ -5,8 +5,6 @@ layout: people
 <div id="faculty-container" class="font-sans pb-20 mt-3">
   {% for section in site.data.people %}
   <div class="px-5 w-full mb-12">
-
-    <br>
     
     <!-- Blue Section Header -->
     <h2 class="text-2xl font-bold text-white bg-blue-900 py-2 px-4 rounded-md text-center mb-8">
@@ -35,6 +33,7 @@ layout: people
         <!-- Name + Subtitle -->
         <div class="faculty-caption">
           <a href="{{ people.homepage }}" class="block leading-tight">
+            <br>
             <div class="faculty-name font-semibold text-base sm:text-lg">
               {{ people.name | replace_first: " ", "<br>" }}
             </div>
