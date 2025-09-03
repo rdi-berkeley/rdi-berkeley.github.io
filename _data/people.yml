@@ -7,7 +7,7 @@
     - name: Christine Parlour
       homepage: https://sites.google.com/berkeley.edu/thefinanceparlour/
       image_file: christine.jpeg
-      subtitle: Finance, DeFi
+      subtitle: Finance
 - section_name: "Faculty"
   people:
     - name: Shafi Goldwasser
@@ -65,17 +65,17 @@
     - name: Trevor Darrell
       homepage: https://people.eecs.berkeley.edu/~trevor/
       image_file: trevor.jpg
-      subtitle: Machine Learning, Decentralized Data Science, Metaverse
+      subtitle: AI/ML
     - name: Jiantao Jiao
       homepage: https://people.eecs.berkeley.edu/~jiantao/
       image_file: jiantao.png
-      subtitle: Machine Learning, Blockchain, Decentralized Data Science
+      subtitle: AI/ML
     - name: Arthur Gervais
       homepage: https://arthurgervais.com/
       image_file: arthur.jpg
       subtitle: |
         Affiliate Faculty, University College London,
-        Blockchain, DeFi
+        Decentralization Technology
     - name: Yupeng Zhang
       homepage: https://zhangyp.web.illinois.edu/
       image_file: zhang.jpg
@@ -86,8 +86,8 @@
       homepage: https://pages.stern.nyu.edu/~xchen3/?_ga=2.105731206.401891539.1664949863-1427484683.1664949863
       image_file: xichen.jpg
       subtitle: |
-        Affiliate Faculty, New York University,
-        Tokenomics and DeFI, Data Analytics
+        Affiliate Faculty, New York University, 
+        Machine Learning and Decentralization Technology
     - name: Ce Zhang
       homepage: https://zhangce.github.io/
       image_file: cezhang.jpeg
@@ -99,7 +99,7 @@
       image_file: boli.jpg
       subtitle: |
         Affiliate Faculty, UIUC,
-        Decentralized Data Science and Machine Learning
+        AI Security
 
 # - section_name: "STUDENT"
 #   people:
