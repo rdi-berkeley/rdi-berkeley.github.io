@@ -2,10 +2,6 @@
 layout: events
 ---
 
-Click a banner to view details about each event.
-
-<span class='join' style="text-decoration: underline; color:blue">Join our mailing list</span> to learn more!
-
 {% assign events = site.data.events | where: "category", "main" %}
 
 <div>
