@@ -87,3 +87,11 @@ layout: events
     <!--End mc_embed_signup-->
 
   </div>
+
+    
+
+ <section class="py-8 px-6 text-center">
+  <a href="/otherevents" class="bg-yellow-400 text-blue-900 px-8 py-3 font-bold rounded border-2 border-yellow-400 hover:bg-yellow-500 inline-block transition-colors duration-200">
+    Click Here for Other Past Events
+  </a>
+</section>
