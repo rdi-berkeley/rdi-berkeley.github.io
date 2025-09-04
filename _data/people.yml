@@ -173,13 +173,13 @@
       homepage: https://www.linkedin.com/in/samantha-guo-835056124/
       image_file: jennifer.png
       subtitle: "Operations & Partnerships"
-    - name: Vi Phan
-      homepage: https://www.linkedin.com/in/samantha-guo-835056124/
-      image_file: vi.png
-      subtitle: "Operations"
     - name: Samantha Guo
       homepage: https://www.linkedin.com/in/samantha-guo-835056124/
       image_file: samantha.png
+      subtitle: "Operations"
+    - name: Vi Phan
+      homepage: https://www.linkedin.com/in/samantha-guo-835056124/
+      image_file: vi.png
       subtitle: "Operations"
     # - name: Emily Fischer-Bunker
     #   homepage: https://www.linkedin.com/in/journeytowellness/
