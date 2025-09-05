@@ -1,5 +1,5 @@
 ---
-layout: events
+layout: otherevents
 ---
 
 {% assign events = site.data.events | where_exp: "e", "e.category != 'main'" | sort: 'date' %}
