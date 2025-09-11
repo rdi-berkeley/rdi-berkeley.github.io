@@ -36,19 +36,22 @@
       transform: translateY(-2px);
     }
     
-    .course-item {
+   .course-item {
       background: #f9fafb;
       border: 1px solid #e5e7eb;
       border-radius: 0.5rem;
       padding: 1rem;
       transition: all 0.3s ease;
       cursor: pointer;
+      display: block;
+      text-decoration: none;
     }
     
     .course-item:hover {
       border-color: #1e3a8a;
       background: white;
       transform: translateY(-1px);
+      text-decoration: none;
     }
     
     .stats-box {
@@ -135,7 +138,6 @@
     </div>
   </div>
 </section>
-
 <!-- Course Categories Section -->
 <section class="py-20 bg-gray-100 px-6">
   <div class="max-w-6xl mx-auto">
@@ -146,7 +148,6 @@
       <!-- AI and Agentic AI -->
       <div class="course-category p-8">
         <div class="flex items-center mb-6">
-          <div class="text-3xl mr-4">🤖</div>
           <div>
             <h3 class="text-2xl font-bold text-blue-900 mb-2">AI and Agentic AI</h3>
             <p class="text-gray-700">Cutting-edge courses on AI agents, LLMs, and responsible AI development</p>
@@ -204,7 +205,6 @@
       <!-- Cryptography & Security -->
       <div class="course-category p-8">
         <div class="flex items-center mb-6">
-          <div class="text-3xl mr-4">🔐</div>
           <div>
             <h3 class="text-2xl font-bold text-blue-900 mb-2">Cryptography & Security</h3>
             <p class="text-gray-700">Foundational and advanced courses in cryptography and systems security</p>
@@ -320,12 +320,9 @@
 
       <!-- FinTech -->
       <div class="course-category p-8">
-        <div class="flex items-center mb-6">
-          <div class="text-3xl mr-4">💼</div>
-          <div>
-            <h3 class="text-2xl font-bold text-blue-900 mb-2">FinTech</h3>
-            <p class="text-gray-700">Cross-disciplinary courses connecting technology with finance and business</p>
-          </div>
+        <div class="mb-6">
+          <h3 class="text-2xl font-bold text-blue-900 mb-2">FinTech</h3>
+          <p class="text-gray-700">Cross-disciplinary courses connecting technology with finance and business</p>
         </div>
         <div class="grid gap-3">
           <div class="course-item">
