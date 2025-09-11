@@ -44,15 +44,16 @@
       transition: all 0.3s ease;
       cursor: pointer;
       display: block;
-      text-decoration: none;
+      text-decoration: none; /* ensure no underline */
+      color: inherit;        /* inherit text color */
     }
-    
     .course-item:hover {
       border-color: #1e3a8a;
       background: white;
       transform: translateY(-1px);
       text-decoration: none;
     }
+
     
     .stats-box {
       background: white;
@@ -138,6 +139,8 @@
     </div>
   </div>
 </section>
+
+
 <!-- Course Categories Section -->
 <section class="py-20 bg-gray-100 px-6">
   <div class="max-w-6xl mx-auto">
@@ -154,51 +157,51 @@
           </div>
         </div>
         <div class="grid gap-3">
-          <div class="course-item">
+          <a href="https://agenticai-learning.org/f25" class="course-item">
             <div class="flex flex-wrap items-center">
-              <a href="https://agenticai-learning.org/f25" class="font-bold text-blue-900 mr-3 hover:underline">Agentic AI MOOC</a>
+              <span class="font-bold text-blue-900 mr-3">Agentic AI MOOC</span>
             </div>
-          </div>
-          <div class="course-item">
+          </a>
+          <a href="https://rdi.berkeley.edu/agentic-ai/f25" class="course-item">
             <div class="flex flex-wrap items-center">
               <span class="font-bold text-blue-900 mr-3">CS294/194-196:</span>
-              <a href="https://rdi.berkeley.edu/agentic-ai/f25" class="text-gray-800 hover:underline">Agentic AI</a>
+              <span class="text-gray-800">Agentic AI</span>
             </div>
-          </div>
-          <div class="course-item">
+          </a>
+          <a href="https://agenticai-learning.org/sp25" class="course-item">
             <div class="flex flex-wrap items-center">
-              <a href="https://agenticai-learning.org/sp25" class="font-bold text-blue-900 mr-3 hover:underline">Advanced Large Language Model Agents MOOC</a>
+              <span class="font-bold text-blue-900 mr-3">Advanced Large Language Model Agents MOOC</span>
             </div>
-          </div>
-          <div class="course-item">
+          </a>
+          <a href="https://rdi.berkeley.edu/adv-llm-agents/sp25" class="course-item">
             <div class="flex flex-wrap items-center">
               <span class="font-bold text-blue-900 mr-3">CS 194/294-280:</span>
-              <a href="https://rdi.berkeley.edu/adv-llm-agents/sp25" class="text-gray-800 hover:underline">Advanced Large Language Model Agents</a>
+              <span class="text-gray-800">Advanced Large Language Model Agents</span>
             </div>
-          </div>
-          <div class="course-item">
+          </a>
+          <a href="https://agenticai-learning.org/f24" class="course-item">
             <div class="flex flex-wrap items-center">
-              <a href="https://agenticai-learning.org/f24" class="font-bold text-blue-900 mr-3 hover:underline">Large Language Model Agents MOOC</a>
+              <span class="font-bold text-blue-900 mr-3">Large Language Model Agents MOOC</span>
             </div>
-          </div>
-          <div class="course-item">
+          </a>
+          <a href="https://rdi.berkeley.edu/llm-agents/f24" class="course-item">
             <div class="flex flex-wrap items-center">
               <span class="font-bold text-blue-900 mr-3">CS 194/294-196:</span>
-              <a href="https://rdi.berkeley.edu/llm-agents/f24" class="text-gray-800 hover:underline">Large Language Model Agents</a>
+              <span class="text-gray-800">Large Language Model Agents</span>
             </div>
-          </div>
-          <div class="course-item">
+          </a>
+          <a href="https://rdi.berkeley.edu/understanding_llms/s24" class="course-item">
             <div class="flex flex-wrap items-center">
               <span class="font-bold text-blue-900 mr-3">CS 294/194-267:</span>
-              <a href="https://rdi.berkeley.edu/understanding_llms/s24" class="text-gray-800 hover:underline">Understanding Large Language Models: Foundations and Safety</a>
+              <span class="text-gray-800">Understanding Large Language Models: Foundations and Safety</span>
             </div>
-          </div>
-          <div class="course-item">
+          </a>
+          <a href="https://rdi.berkeley.edu/responsible-genai/f23" class="course-item">
             <div class="flex flex-wrap items-center">
               <span class="font-bold text-blue-900 mr-3">CS294-196/CS194-196:</span>
-              <a href="https://rdi.berkeley.edu/responsible-genai/f23" class="text-gray-800 hover:underline">Responsible GenAI and Decentralized Intelligence</a>
+              <span class="text-gray-800">Responsible GenAI and Decentralized Intelligence</span>
             </div>
-          </div>
+          </a>
         </div>
       </div>
 
@@ -211,60 +214,60 @@
           </div>
         </div>
         <div class="grid gap-3">
-          <div class="course-item">
+          <a href="https://zk-learning.org/" class="course-item">
             <div class="flex flex-wrap items-center">
               <span class="font-bold text-blue-900 mr-3">CS294/194-238:</span>
-              <a href="https://zk-learning.org/" class="text-gray-800 hover:underline">Zero Knowledge Proof</a>
+              <span class="text-gray-800">Zero Knowledge Proof</span>
             </div>
-          </div>
-          <div class="course-item">
+          </a>
+          <a href="https://people.eecs.berkeley.edu/~sanjamg/teaching/cs171-spring21" class="course-item">
             <div class="flex flex-wrap items-center">
               <span class="font-bold text-blue-900 mr-3">CS 171:</span>
-              <a href="https://people.eecs.berkeley.edu/~sanjamg/teaching/cs171-spring21" class="text-gray-800 hover:underline">Introduction to Cryptography</a>
+              <span class="text-gray-800">Introduction to Cryptography</span>
             </div>
-          </div>
-          <div class="course-item">
+          </a>
+          <a href="https://www2.eecs.berkeley.edu/Courses/CS294/" class="course-item">
             <div class="flex flex-wrap items-center">
               <span class="font-bold text-blue-900 mr-3">CS 294:</span>
-              <a href="https://www2.eecs.berkeley.edu/Courses/CS294/" class="text-gray-800 hover:underline">Advanced Cryptography</a>
+              <span class="text-gray-800">Advanced Cryptography</span>
             </div>
-          </div>
-          <div class="course-item">
+          </a>
+          <a href="https://cs161.org/" class="course-item">
             <div class="flex flex-wrap items-center">
               <span class="font-bold text-blue-900 mr-3">CS 161:</span>
-              <a href="https://cs161.org/" class="text-gray-800 hover:underline">Introduction to Computer Security</a>
+              <span class="text-gray-800">Introduction to Computer Security</span>
             </div>
-          </div>
-          <div class="course-item">
+          </a>
+          <a href="https://inst.eecs.berkeley.edu/~cs261/fa18/" class="course-item">
             <div class="flex flex-wrap items-center">
               <span class="font-bold text-blue-900 mr-3">CS 261:</span>
-              <a href="https://inst.eecs.berkeley.edu/~cs261/fa18/" class="text-gray-800 hover:underline">Systems Security</a>
+              <span class="text-gray-800">Systems Security</span>
             </div>
-          </div>
-          <div class="course-item">
+          </a>
+          <a href="https://inst.eecs.berkeley.edu/~cs294-171/fa21" class="course-item">
             <div class="flex flex-wrap items-center">
               <span class="font-bold text-blue-900 mr-3">CS 294:</span>
-              <a href="https://inst.eecs.berkeley.edu/~cs294-171/fa21" class="text-gray-800 hover:underline">Privacy-Preserving Systems</a>
+              <span class="text-gray-800">Privacy-Preserving Systems</span>
             </div>
-          </div>
-          <div class="course-item">
+          </a>
+          <a href="https://inst.eecs.berkeley.edu/~cs294-163/fa19/" class="course-item">
             <div class="flex flex-wrap items-center">
               <span class="font-bold text-blue-900 mr-3">CS 294:</span>
-              <a href="https://inst.eecs.berkeley.edu/~cs294-163/fa19/" class="text-gray-800 hover:underline">Decentralized Security: Theory and Systems</a>
+              <span class="text-gray-800">Decentralized Security: Theory and Systems</span>
             </div>
-          </div>
-          <div class="course-item">
+          </a>
+          <a href="https://people.eecs.berkeley.edu/~sseshia/219c/" class="course-item">
             <div class="flex flex-wrap items-center">
               <span class="font-bold text-blue-900 mr-3">EECS 219C:</span>
-              <a href="https://people.eecs.berkeley.edu/~sseshia/219c/" class="text-gray-800 hover:underline">Formal Methods: Specification, Verification, and Synthesis</a>
+              <span class="text-gray-800">Formal Methods: Specification, Verification, and Synthesis</span>
             </div>
-          </div>
-          <div class="course-item">
+          </a>
+          <a href="https://berkeley-secure-hardware.github.io/cs294-156-f18/" class="course-item">
             <div class="flex flex-wrap items-center">
               <span class="font-bold text-blue-900 mr-3">CS 294:</span>
-              <a href="https://berkeley-secure-hardware.github.io/cs294-156-f18/" class="text-gray-800 hover:underline">Advanced Topics on Secure Hardware</a>
+              <span class="text-gray-800">Advanced Topics on Secure Hardware</span>
             </div>
-          </div>
+          </a>
         </div>
       </div>
 
@@ -278,43 +281,43 @@
           </div>
         </div>
         <div class="grid gap-3">
-          <div class="course-item">
+          <a href="https://rdi.berkeley.edu/berkeley-defi/" class="course-item">
             <div class="flex flex-wrap items-center">
               <span class="font-bold text-blue-900 mr-3">CS 294/194-177:</span>
-              <a href="https://rdi.berkeley.edu/berkeley-defi/" class="text-gray-800 hover:underline">Decentralized Finance</a>
+              <span class="text-gray-800">Decentralized Finance</span>
             </div>
-          </div>
-          <div class="course-item">
+          </a>
+          <a href="https://rdi.berkeley.edu/entrepreneurship-in-web3/f22" class="course-item">
             <div class="flex flex-wrap items-center">
               <span class="font-bold text-blue-900 mr-3">CS294-224/CS194-224:</span>
-              <a href="https://rdi.berkeley.edu/entrepreneurship-in-web3/f22" class="text-gray-800 hover:underline">Entrepreneurship In Web3</a>
+              <span class="text-gray-800">Entrepreneurship In Web3</span>
             </div>
-          </div>
-          <div class="course-item">
+          </a>
+          <a href="https://www.law.berkeley.edu/php-programs/courses/coursePage.php?cID=33984&termCode=B&termYear=2024" class="course-item">
             <div class="flex flex-wrap items-center">
               <span class="font-bold text-blue-900 mr-3">Law 247.61:</span>
-              <a href="https://www.law.berkeley.edu/php-programs/courses/coursePage.php?cID=33984&termCode=B&termYear=2024" class="text-gray-800 hover:underline">Regulation and Policy of Crypto and Web3</a>
+              <span class="text-gray-800">Regulation and Policy of Crypto and Web3</span>
               <span class="text-sm text-gray-600 italic ml-2">(Berkeley Law)</span>
             </div>
-          </div>
-          <div class="course-item">
+          </a>
+          <a href="https://berkeley-desys.github.io/s22" class="course-item">
             <div class="flex flex-wrap items-center">
               <span class="font-bold text-blue-900 mr-3">CS 294/194-196:</span>
-              <a href="https://berkeley-desys.github.io/s22" class="text-gray-800 hover:underline">Decentralized Systems</a>
+              <span class="text-gray-800">Decentralized Systems</span>
             </div>
-          </div>
-          <div class="course-item">
+          </a>
+          <a href="https://berkeley-blockchain.github.io/cs294-144-s19/" class="course-item">
             <div class="flex flex-wrap items-center">
               <span class="font-bold text-blue-900 mr-3">CS 294-144:</span>
-              <a href="https://berkeley-blockchain.github.io/cs294-144-s19/" class="text-gray-800 hover:underline">Blockchain, Cryptoeconomics, and the Future of Technology, Business and Law</a>
+              <span class="text-gray-800">Blockchain, Cryptoeconomics, and the Future of Technology, Business and Law</span>
             </div>
-          </div>
-          <div class="course-item">
+          </a>
+          <a href="https://berkeley-blockchain.github.io/cs294-151-f18/" class="course-item">
             <div class="flex flex-wrap items-center">
               <span class="font-bold text-blue-900 mr-3">CS 294-151:</span>
-              <a href="https://berkeley-blockchain.github.io/cs294-151-f18/" class="text-gray-800 hover:underline">Blockchain and CryptoEconomics</a>
+              <span class="text-gray-800">Blockchain and CryptoEconomics</span>
             </div>
-          </div>
+          </a>
         </div>
       </div>
 
@@ -325,24 +328,25 @@
           <p class="text-gray-700">Cross-disciplinary courses connecting technology with finance and business</p>
         </div>
         <div class="grid gap-3">
-          <div class="course-item">
+          <a href="https://courses.haas.berkeley.edu/descriptions/Descriptions/EWMBA237-1_Spring19.htm" class="course-item">
             <div class="flex flex-wrap items-center">
               <span class="font-bold text-blue-900 mr-3">MBA/EWMBA 237:</span>
-              <a href="https://courses.haas.berkeley.edu/descriptions/Descriptions/EWMBA237-1_Spring19.htm" class="text-gray-800 hover:underline">FinTech</a>
+              <span class="text-gray-800">FinTech</span>
             </div>
-          </div>
-          <div class="course-item">
+          </a>
+          <a href="https://classes.berkeley.edu/content/2020-Spring-UGBA-137-001-LEC-001" class="course-item">
             <div class="flex flex-wrap items-center">
               <span class="font-bold text-blue-900 mr-3">UGBA 137:</span>
-              <a href="https://classes.berkeley.edu/content/2020-Spring-UGBA-137-001-LEC-001" class="text-gray-800 hover:underline">FinTech</a>
+              <span class="text-gray-800">FinTech</span>
             </div>
-          </div>
+          </a>
         </div>
       </div>
 
     </div>
   </div>
 </section>
+
 
 <!-- Stats Section (matching homepage style) -->
 <section class="py-20 bg-white px-6">
