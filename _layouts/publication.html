@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Research Publications - Berkeley RDI</title>
+  <link href="/assets/css/tailwind.min.css" rel="stylesheet">
+  <style>
+    /* Custom styles matching your education page */
+    .hero-bg {
+      background-image: url('/assets/images/homepage-background.png');
+    }
+    
+    .paper-card {
+      background: white;
+      border-radius: 0.75rem;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      transition: all 0.3s ease;
+      border: 1px solid #e5e7eb;
+    }
+    
+    .paper-card:hover {
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      transform: translateY(-2px);
+    }
+    
+    .category-filter {
+      background: #f9fafb;
+      border: 2px solid #e5e7eb;
+      border-radius: 0.5rem;
+      padding: 0.75rem 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .category-filter:hover {
+      background: #f3f4f6;
+      border-color: #d1d5db;
+    }
+    
+    .category-filter.active {
+      background: #1e3a8a;
+      color: white;
+      border-color: #1e3a8a;
+    }
+    
+    .category-checkbox {
+      width: 18px;
+      height: 18px;
+      border: 2px solid #d1d5db;
+      border-radius: 3px;
+      position: relative;
+      transition: all 0.2s ease;
+    }
+    
+    .category-filter.active .category-checkbox {
+      background: white;
+      border-color: white;
+    }
+    
+    .category-filter.active .category-checkbox::after {
+      content: '✓';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #1e3a8a;
+      font-weight: bold;
+      font-size: 12px;
+    }
+    
+    .tag {
+      background: #e5e7eb;
+      color: #374151;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
+    
+    .tag.highlight {
+      background: #fbbf24;
+      color: #1e3a8a;
+      font-weight: 600;
+    }
+    
+    .research-badge {
+      background: #8b5cf6;
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      display: inline-block;
+      margin-bottom: 0.5rem;
+    }
+    
+    .stats-section {
+      background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
+    }
+
+    .hidden {
+      display: none !important;
+    }
+  </style>
+</head>
+<body class="text-gray-800">
+
+<!-- Header (matching your education page) -->
+<header class="sticky top-0 bg-white shadow z-50">
+  <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+    
+    <!-- Logo -->
+    <div id="logo-container" class="py-2">
+      <a href="/" aria-label="Berkeley Center for RDI Logo">
+        <img src="/assets/images/Berkeley Center for RDI Logo.png" alt="Berkeley RDI Logo" class="h-10 w-auto max-w-full">
+      </a>
+    </div>
+    
+    <!-- Hamburger Button (shown on mobile only) -->
+    <button id="menu-toggle" class="sm:hidden text-gray-600 focus:outline-none">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+    
+    <!-- Desktop Nav Links -->
+    <nav id="nav-links" class="hidden sm:flex space-x-6 text-sm font-medium">
+      <a href="/" class="hover:text-blue-600">Home</a>
+      <a href="/research" class="hover:text-blue-900 text-blue-900 font-semibold">Research</a>
+      <a href="/education" class="hover:text-blue-900">Education</a>
+      <a href="/events" class="hover:text-blue-900">Events</a>
+      <a href="/people" class="hover:text-blue-900">About</a>
+    </nav>
+  </div>
+  
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="sm:hidden hidden px-6 pb-4 space-y-2 text-sm font-medium">
+    <a href="/" class="block py-1">Home</a>
+    <a href="/research" class="block py-1 text-blue-900 font-semibold">Research</a>
+    <a href="/education" class="block py-1">Education</a>
+    <a href="/events" class="block py-1">Events</a>
+    <a href="/people" class="block py-1">About</a>
+  </div>
+</header>
+
+<!-- Hero Section -->
+<section class="hero-bg bg-cover bg-center py-32 text-center px-4">
+  <h1 class="text-5xl font-bold text-white mb-4">Research Publications</h1>
+  <p class="max-w-3xl mx-auto text-lg text-white">
+    Advancing the frontiers of AI safety, decentralized technologies, and responsible artificial intelligence through cutting-edge research
+  </p>
+</section>
+
+<!-- Main Content -->
+<section class="py-16 bg-gray-50 px-6">
+  <div class="max-w-7xl mx-auto">
+    <div class="lg:flex lg:gap-8">
+      
+      <!-- Sidebar with Filters -->
+      <div class="lg:w-1/4 mb-8 lg:mb-0">
+        <div class="bg-white p-6 rounded-lg shadow">
+          <h3 class="text-lg font-bold text-gray-900 mb-4">Filter by Topics</h3>
+          <div class="space-y-3" id="category-filters">
+            <!-- Categories will be populated by JavaScript -->
+          </div>
+          
+          <div class="mt-6 pt-6 border-t border-gray-200">
+            <button id="clear-filters" class="w-full bg-gray-100 text-gray-700 px-4 py-2 rounded hover:bg-gray-200 transition">
+              Clear All Filters
+            </button>
+          </div>
+          
+          <div class="mt-4 text-sm text-gray-600">
+            <div id="results-count">Showing all papers</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Papers Grid -->
+      <div class="lg:w-3/4">
+        <div class="grid gap-6" id="papers-container">
+          <!-- Papers will be populated by JavaScript -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Stats Section -->
+<section class="stats-section py-16 px-6">
+  <div class="max-w-6xl mx-auto text-center text-white">
+    <h2 class="text-3xl font-bold mb-8">Research Impact</h2>
+    
+    <div class="grid md:grid-cols-4 gap-8">
+      <div>
+        <p class="text-4xl font-bold mb-2" id="total-papers">0</p>
+        <p class="text-sm">Published Papers</p>
+      </div>
+      <div>
+        <p class="text-4xl font-bold mb-2">15+</p>
+        <p class="text-sm">Research Areas</p>
+      </div>
+      <div>
+        <p class="text-4xl font-bold mb-2">50+</p>
+        <p class="text-sm">Collaborators</p>
+      </div>
+      <div>
+        <p class="text-4xl font-bold mb-2">10+</p>
+        <p class="text-sm">Top-Tier Venues</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer (matching your style) -->
+<footer class="bg-gray-900 text-gray-300 text-sm py-10 px-6">
+  <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-6">
+    <div>
+      <h4 class="text-white font-semibold mb-2">Berkeley RDI</h4>
+      <p>Advancing the science, technology, and education of decentralization and AI to empower a responsible digital economy.</p>
+      <div class="flex space-x-3 mt-4 text-xl">
+        <!-- Social media links would go here -->
+      </div>
+    </div>
+    <div>
+      <h4 class="text-white font-semibold mb-2 text-yellow-400">Explore</h4>
+      <ul class="space-y-1">
+        <li><a href="/research" class="hover:underline">Research</a></li>
+        <li><a href="/education" class="hover:underline">Education</a></li>
+        <li><a href="/events" class="hover:underline">Events</a></li>
+        <li><a href="/people" class="hover:underline">About Us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="text-center text-xs mt-8 text-gray-500">
+    Copyright © 2025 UC Regents; all rights reserved
+  </div>
+</footer>
+
+<script>
+// Paper data
+const papers = [
+  {
+    title: "CyberGym: Evaluating AI Agents' Cybersecurity Capabilities with Real-World Vulnerabilities at Scale",
+    authors: "Zhun Wang*, Tianneng Shi*, Jingxuan He, Matthew Cai, Jialin Zhang, Dawn Song",
+    venue: "",
+    year: "2025",
+    tags: ["AI for Cybersecurity", "AI Cybersecurity Capability Evaluation", "Automated Vulnerability Discovery", "Agentic AI Applications", "Coding Agents"]
+  },
+  {
+    title: "BountyBench: Dollar Impact of AI Agent Attackers and Defenders on Real-World Cybersecurity Systems",
+    authors: "Andy K. Zhang, Joey Ji, Celeste Menders, Riya Dulepet, Thomas Qin, Ron Y. Wang, Junrong Wu, Kyleen Liao, Jiliang Li, Jinghan Hu, Sara Hong, Nardos Demilew, Shivatmica Murgai, Jason Tran, Nishka Kacheria, Ethan Ho, Denis Liu, Lauren McLane, Olivia Bruvik, Dai-Rong Han, Seungwoo Kim, Akhil Vyas, Cuiyuanxiu Chen, Ryan Li, Weiran Xu, Jonathan Z. Ye, Prerit Choudhary, Siddharth M. Bhatia, Vikram Sivashankar, Yuxuan Bao, Dawn Song, Dan Boneh, Daniel E. Ho, Percy Liang",
+    venue: "",
+    year: "2025",
+    tags: ["AI for Cybersecurity", "AI Cybersecurity Capability Evaluation", "Automated Vulnerability Discovery", "Agentic AI Applications", "Coding Agents"]
+  },
+  {
+    title: "Position: Political Neutrality in AI Is Impossible- But Here Is How to Approximate It",
+    authors: "Jillian Fisher, Ruth Elisabeth Appel, Chan Young Park, Yujin Potter, Liwei Jiang, Taylor Sorensen, Shangbin Feng, Yulia Tsvetkov, Margaret Roberts, Jennifer Pan, Dawn Song, Yejin Choi",
+    venue: "The International Conference on Machine Learning (ICML)",
+    year: "2025",
+    tags: ["AI Safety and Security"]
+  },
+  {
+    title: "GuardAgent: Safeguard LLM Agents via Knowledge-Enabled Reasoning",
+    authors: "Zhen Xiang*, Linzhi Zheng*, Yanjie Li, Junyuan Hong, Qinbin Li, Han Xie, Jiawei Zhang, Zidi Xiong, Chulin Xie, Carl Yang, Dawn Song, Bo Li",
+    venue: "The International Conference on Machine Learning (ICML)",
+    year: "2025",
+    tags: ["AI Safety and Security", "Oversight, Alignment, and Control"]
+  },
+  {
+    title: "Improving LLM Safety Alignment with Dual-Objective Optimization",
+    authors: "Xuandong Zhao*, Will Cai*, Tianneng Shi, David Huang, Licong Lin, Song Mei, Dawn Song",
+    venue: "The International Conference on Machine Learning (ICML)",
+    year: "2025",
+    tags: ["AI Safety and Security", "Oversight, Alignment, and Control"]
+  },
+  {
+    title: "Position: In-House Evaluation Is Not Enough. Towards Robust Third-Party Evaluation and Flaw Disclosure for General-Purpose AI",
+    authors: "Shayne Longpre, Kevin Klyman, Ruth Elisabeth Appel, Sayash Kapoor, Rishi Bommasani, Michelle Sahar, Sean McGregor, Avijit Ghosh, Borhane Blili-Hamelin, Nathan Butters, Alondra Nelson, Amit Elazari, Andrew Sellars, Casey Ellis, Dane Sherrets, Dawn Song, Harley Geiger, Ilona Cohen, Lauren McIlvenny, Madhulika Srikumar, Mark Jaycox, Markus Anderljung, Nadine Johnson, Nicholas Carlini, Nicolas Miailhe, Nik Marda, Peter Henderson, Rebecca Portnoff, Rebecca Weiss, Victoria Westerhoff, Yacine Jernite, Rumman Chowdhury, Percy Liang, Arvind Narayanan",
+    venue: "The International Conference on Machine Learning (ICML)",
+    year: "2025",
+    tags: ["AI Safety and Security"]
+  },
+  {
+    title: "SWT-Bench: Testing and Validating Real-World Bug-Fixes with Code Agents",
+    authors: "Niels Mündler, Mark Niklas Müller, Jingxuan He, Martin Vechev",
+    venue: "Neural Information Processing Systems (NeurIPS)",
+    year: "2024",
+    tags: ["AI for Cybersecurity", "AI Cybersecurity Capability Evaluation", "Automated Vulnerability Discovery", "Cyber Deception and Active Defense", "Agentic AI Applications", "Coding Agents"]
+  },
+  {
+    title: "SoK: Watermarking for AI-Generated Content",
+    authors: "Xuandong Zhao, Sam Gunn, Miranda Christ, Jaiden Fairoze, Andres Fabrega, Nicholas Carlini, Sanjam Garg, Sanghyun Hong, Milad Nasr, Florian Tramèr, Somesh Jha, Lei Li, Yu‑Xiang Wang, Dawn Song",
+    venue: "IEEE Symposium on Security and Privacy (S&P)",
+    year: "2025",
+    tags: ["AI Safety and Security"]
+  },
+  {
+    title: "DataSentinel: A Game‑Theoretic Detection of Prompt Injection Attacks",
+    authors: "Yupei Liu, Yuqi Jia, Jinyuan Jia, Dawn Song, Neil Zhenqiang Gong",
+    venue: "IEEE Symposium on Security and Privacy (S&P). Distinguished Paper Award",
+    year: "2025",
+    tags: ["AI Safety and Security", "Robustness and Adversarial Resilience"]
+  },
+  {
+    title: "An Undetectable Watermark for Generative Image Models",
+    authors: "Sam Gunn*, Xuandong Zhao*, Dawn Song",
+    venue: "International Conference on Learning Representations (ICLR)",
+    year: "2025",
+    tags: ["AI Safety and Security"]
+  },
+  {
+    title: "MMDT: Decoding the Trustworthiness and Safety of Multimodal Foundation Models",
+    authors: "Chejian Xu*, Jiawei Zhang*, Zhaorun Chen*, Chulin Xie*, Mintong Kang*, Yujin Potter*, Zhun Wang*, Zhuowen Yuan*, Alexander Xiong, Zidi Xiong, Chenhui Zhang, Lingzhi Yuan, Yi Zeng, Peiyang Xu, Chengquan Guo, Andy Zhou, Jeffrey Ziwei Tan, Xuandong Zhao, Francesco Pinto, Zhen Xiang, Yu Gai, Zinan Lin, Dan Hendrycks, Bo Li, Dawn Song",
+    venue: "International Conference on Learning Representations (ICLR)",
+    year: "2025",
+    tags: ["AI Safety and Security", "Oversight, Alignment, and Control", "Robustness and Adversarial Resilience"]
+  },
+  {
+    title: "Multimodal Situational Safety",
+    authors: "Kaiwen Zhou*, Chengzhi Liu*, Xuandong Zhao, Anderson Compalas, Dawn Song, Xin Eric Wang",
+    venue: "International Conference on Learning Representations (ICLR)",
+    year: "2025",
+    tags: ["AI Safety and Security", "Oversight, Alignment, and Control"]
+  },
+  {
+    title: "Capturing the Temporal Dependence of Training Data Influence",
+    authors: "Jiachen T. Wang, Dawn Song, James Zou, Prateek Mittal, Ruoxi Jia",
+    venue: "International Conference on Learning Representations (ICLR)",
+    year: "2025",
+    tags: ["Agentic AI Foundation", "Reinforcement Learning"]
+  },
+  {
+    title: "Data Shapley in One Training Run",
+    authors: "Jiachen T. Wang, Prateek Mittal, Dawn Song, Ruoxi Jia",
+    venue: "International Conference on Learning Representations (ICLR)",
+    year: "2025",
+    tags: ["Agentic AI Foundation", "Reinforcement Learning"]
+  },
+  {
+    title: "AIR-Bench 2024: A Safety Benchmark based on Regulation and Policies Specified Risk Categories",
+    authors: "Yi Zeng, Yu Yang, Andy Zhou, Jeffrey Ziwei Tan, Yuheng Tu, Yifan Mai, Kevin Klyman, Minzhou Pan, Ruoxi Jia, Dawn Song, Percy Liang, Bo Li",
+    venue: "International Conference on Learning Representations (ICLR)",
+    year: "2025",
+    tags: ["AI Safety and Security", "Oversight, Alignment, and Control"]
+  },
+  {
+    title: "CodeHalu: Investigating Code Hallucinations in LLMs via Execution-based Verification",
+    authors: "Yuchen Tian*, Weixiang Yan*, Qian Yang, Xuandong Zhao, Qian Chen, Wen Wang, Ziyang Luo, Lei Ma, Dawn Song",
+    venue: "Annual AAAI Conference on Artificial Intelligence (AAAI)",
+    year: "2025",
+    tags: ["AI for Program Synthesis and Secure Code", "Program Synthesis and Automated Code Generation", "Agentic AI Applications", "Coding Agents"]
+  },
+  {
+    title: "Boosting Alignment for Post-Unlearning Text-to-Image Generative Models",
+    authors: "Myeongseob Ko*, Henry Li*, Zhun Wang, Jonathan Patsenker, Jiachen T. Wang, Qinbin Li, Ming Jin, Dawn Song, Ruoxi Jia",
+    venue: "Advances in Neural Information Processing Systems (NeurIPS)",
+    year: "2024",
+    tags: ["AI Safety and Security", "Oversight, Alignment, and Control"]
+  },
+  {
+    title: "AgentPoison: Red-teaming LLM Agents via Poisoning Memory or Knowledge Bases",
+    authors: "Zhaorun Chen, Zhen Xiang, Chaowei Xiao, Dawn Song, Bo Li",
+    venue: "Advances in Neural Information Processing Systems (NeurIPS)",
+    year: "2024",
+    tags: ["AI Safety and Security", "Robustness and Adversarial Resilience"]
+  },
+  {
+    title: "GREATS: Online Selection of High-Quality Data for LLM Training in Every Iteration",
+    authors: "Jiachen T. Wang, Tong Wu, Dawn Song, Prateek Mittal, Ruoxi Jia",
+    venue: "Advances in Neural Information Processing Systems (NeurIPS)",
+    year: "2024",
+    tags: ["Agentic AI Foundation", "Reinforcement Learning"]
+  },
+  {
+    title: "Data Free Backdoor Attacks",
+    authors: "Bochuan Cao, Jinyuan Jia, Chuxuan Hu, Wenbo Guo, Zhen Xiang, Jinghui Chen, Bo Li, Dawn Song",
+    venue: "Advances in Neural Information Processing Systems (NeurIPS)",
+    year: "2024",
+    tags: ["AI Safety and Security", "Robustness and Adversarial Resilience"]
+  },
+  {
+    title: "RedCode: Risky Code Execution and Generation Benchmark for Code Agents",
+    authors: "Chengquan Guo*, Xun Liu*, Chulin Xie*, Andy Zhou, Yi Zeng, Zinan Lin, Dawn Song, Bo Li",
+    venue: "Advances in Neural Information Processing Systems (NeurIPS)",
+    year: "2024",
+    tags: ["AI for Program Synthesis and Secure Code", "Program Synthesis and Automated Code Generation"]
+  },
+  {
+    title: "Hidden Persuaders: LLMs' Political Leaning and Their Influence on Voters",
+    authors: "Yujin Potter, Shiyang Lai, Junsol Kim, James Evans, Dawn Song",
+    venue: "Conference on Empirical Methods in Natural Language Processing (EMNLP)",
+    year: "2024",
+    tags: ["AI Safety and Security"]
+  },
+  {
+    title: "LLM-PBE: Assessing Data Privacy in Large Language Models",
+    authors: "Qinbin Li, Junyuan Hong, Chulin Xie, Jeffrey Tan, Rachel Xin, Junyi Hou, Xavier Yin, Zhun Wang, Dan Hendrycks, Zhangyang Wang, Bo Li, Bingsheng He, Dawn Song",
+    venue: "International Conference on Very Large Data Bases (VLDB) Best Paper Award Finalist",
+    year: "2024",
+    tags: ["AI Safety and Security", "Privacy"]
+  },
+  {
+    title: "Mempool Privacy via Batched Threshold Encryption: Attacks and Defenses",
+    authors: "Arka Rai Choudhuri, Sanjam Garg, Julien Piet, Guru-Vamsi Policharla",
+    venue: "USENIX Security Symposium",
+    year: "2024",
+    tags: ["Decentralization Technology", "DeFi", "Applied Cryptography"]
+  },
+  {
+    title: "Instruction Tuning for Secure Code Generation",
+    authors: "Jingxuan He*, Mark Vero*, Gabriela Krasnopolska, Martin Vechev",
+    venue: "International Conference on Machine Learning (ICML)",
+    year: "2024",
+    tags: ["AI for Program Synthesis and Secure Code", "Secure Code Generation and Verification", "Program Synthesis and Automated Code Generation", "Agentic AI Applications", "Coding Agents"]
+  },
+  {
+    title: "DecodingTrust: A Comprehensive Assessment of Trustworthiness in GPT Models",
+    authors: "Boxin Wang, Weixin Chen, Hengzhi Pei, Chulin Xie, Mintong Kang, Chenhui Zhang, Chejian Xu, Zidi Xiong, Ritik Dutta, Rylan Schaeffer, Sang T. Truong, Simran Arora, Mantas Mazeika, Dan Hendrycks, Zinan Lin, Yu Cheng, Sanmi Koyejo, Dawn Song, Bo Li",
+    venue: "Advances in Neural Information Processing Systems (NeurIPS) Outstanding Paper Award",
+    year: "2023",
+    tags: ["AI Safety and Security", "Robustness and Adversarial Resilience", "Oversight, Alignment, and Control"]
+  }
+];
+
+// Extract unique categories
+const allCategories = new Set();
+papers.forEach(paper => {
+  paper.tags.forEach(tag => allCategories.add(tag));
+});
+
+const categories = Array.from(allCategories).sort();
+let activeFilters = new Set();
+
+// Initialize the page
+function init() {
+  document.getElementById('total-papers').textContent = papers.length;
+  renderFilters();
+  renderPapers();
+  updateResultsCount();
+}
+
+// Render category filters
+function renderFilters() {
+  const container = document.getElementById('category-filters');
+  
+  categories.forEach(category => {
+    const filterDiv = document.createElement('div');
+    filterDiv.className = 'category-filter';
+    filterDiv.dataset.category = category;
+    filterDiv.innerHTML = `
+      <span class="text-sm font-medium">${category}</span>
+      <div class="category-checkbox"></div>
+    `;
+    
+    filterDiv.addEventListener('click', () => toggleFilter(category));
+    container.appendChild(filterDiv);
+  });
+}
+
+// Toggle filter
+function toggleFilter(category) {
+  const filterElement = document.querySelector(`[data-category="${category}"]`);
+  
+  if (activeFilters.has(category)) {
+    activeFilters.delete(category);
+    filterElement.classList.remove('active');
+  } else {
+    activeFilters.add(category);
+    filterElement.classList.add('active');
+  }
+  
+  renderPapers();
+  updateResultsCount();
+}
+
+// Clear all filters
+function clearAllFilters() {
+  activeFilters.clear();
+  document.querySelectorAll('.category-filter').forEach(filter => {
+    filter.classList.remove('active');
+  });
+  renderPapers();
+  updateResultsCount();
+}
+
+// Render papers
+function renderPapers() {
+  const container = document.getElementById('papers-container');
+  container.innerHTML = '';
+  
+  const filteredPapers = papers.filter(paper => {
+    if (activeFilters.size === 0) return true;
+    return paper.tags.some(tag => activeFilters.has(tag));
+  });
+  
+  filteredPapers.forEach(paper => {
+    const paperDiv = document.createElement('div');
+    paperDiv.className = 'paper-card p-6';
+    
+    const tagsHtml = paper.tags.map(tag => {
+      const isHighlighted = activeFilters.has(tag);
+      return `<span class="tag ${isHighlighted ? 'highlight' : ''}">${tag}</span>`;
+    }).join('');
+    
+    paperDiv.innerHTML = `
+      <div class="research-badge">RESEARCH</div>
+      <h3 class="text-xl font-bold text-gray-900 mb-3 leading-tight">${paper.title}</h3>
+      <p class="text-gray-700 text-sm mb-3">${paper.authors}</p>
+      ${paper.venue ? `<p class="text-blue-600 font-medium text-sm mb-4">${paper.venue} • ${paper.year}</p>` : `<p class="text-blue-600 font-medium text-sm mb-4">${paper.year}</p>`}
+      <div class="flex flex-wrap gap-2">
+        ${tagsHtml}
+      </div>
+    `;
+    
+    container.appendChild(paperDiv);
+  });
+  
+  if (filteredPapers.length === 0) {
+    container.innerHTML = `
+      <div class="col-span-full text-center py-12">
+        <p class="text-gray-500 text-lg">No papers found matching the selected filters.</p>
+        <button onclick="clearAllFilters()" class="mt-4 bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition">
+          Clear Filters
+        </button>
+      </div>
+    `;
+  }
+}
+
+// Update results count
+function updateResultsCount() {
+  const filteredCount = papers.filter(paper => {
+    if (activeFilters.size === 0) return true;
+    return paper.tags.some(tag => activeFilters.has(tag));
+  }).length;
+  
+  const countElement = document.getElementById('results-count');
+  if (activeFilters.size === 0) {
+    countElement.textContent = `Showing all ${papers.length} papers`;
+  } else {
+    countElement.textContent = `Showing ${filteredCount} of ${papers.length} papers`;
+  }
+}
+
+// Event listeners
+document.getElementById('clear-filters').addEventListener('click', clearAllFilters);
+
+// Mobile menu toggle
+const toggle = document.getElementById('menu-toggle');
+const mobileMenu = document.getElementById('mobile-menu');
+toggle.addEventListener('click', () => {
+  mobileMenu.classList.toggle('hidden');
+});
+
+// Initialize the page
+init();
+</script>
+
+</body>
+</html>
