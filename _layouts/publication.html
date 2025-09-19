@@ -114,6 +114,11 @@
     .paper-link:hover .paper-title {
       color: #1e3a8a;
     }
+
+    .paper-card:focus-within {
+      outline: none;
+    }
+    
   </style>
 </head>
 <body class="text-gray-800">
@@ -1356,34 +1361,45 @@ function clearAllFilters() {
 function renderPapers() {
   const container = document.getElementById('papers-container');
   container.innerHTML = '';
-  
+
   const filteredPapers = papers.filter(paper => {
     if (activeFilters.size === 0) return true;
     return paper.tags.some(tag => activeFilters.has(tag));
   });
-  
+
   filteredPapers.forEach(paper => {
-    const paperDiv = document.createElement('div');
-    paperDiv.className = 'paper-card p-6';
-    
+    // wrapper is <a> if URL exists; otherwise a <div>
+    const wrapperEl = document.createElement(paper.url ? 'a' : 'div');
+    if (paper.url) {
+      wrapperEl.href = paper.url;
+      wrapperEl.target = '_blank';
+      wrapperEl.rel = 'noopener';
+      wrapperEl.className = 'paper-link block';
+      wrapperEl.setAttribute('aria-label', `${paper.title} (${paper.year})`);
+    }
+
+    const cardEl = document.createElement('div');
+    cardEl.className = `paper-card p-6 ${paper.url ? 'cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-600 rounded-lg' : ''}`;
+
     const tagsHtml = paper.tags.map(tag => {
       const isHighlighted = activeFilters.has(tag);
       return `<span class="tag ${isHighlighted ? 'highlight' : ''}">${tag}</span>`;
     }).join('');
-    
-    paperDiv.innerHTML = `
+
+    cardEl.innerHTML = `
       <div class="research-badge">RESEARCH</div>
-      <h3 class="text-xl font-bold text-gray-900 mb-3 leading-tight">${paper.title}</h3>
+      <h3 class="paper-title text-xl font-bold text-gray-900 mb-3 leading-tight">${paper.title}</h3>
       <p class="text-gray-700 text-sm mb-3">${paper.authors}</p>
       ${paper.venue ? `<p class="text-blue-600 font-medium text-sm mb-4">${paper.venue} • ${paper.year}</p>` : `<p class="text-blue-600 font-medium text-sm mb-4">${paper.year}</p>`}
       <div class="flex flex-wrap gap-2">
         ${tagsHtml}
       </div>
     `;
-    
-    container.appendChild(paperDiv);
+
+    wrapperEl.appendChild(cardEl);
+    container.appendChild(wrapperEl);
   });
-  
+
   if (filteredPapers.length === 0) {
     container.innerHTML = `
       <div class="col-span-full text-center py-12">
@@ -1393,21 +1409,6 @@ function renderPapers() {
         </button>
       </div>
     `;
-  }
-}
-
-// Update results count
-function updateResultsCount() {
-  const filteredCount = papers.filter(paper => {
-    if (activeFilters.size === 0) return true;
-    return paper.tags.some(tag => activeFilters.has(tag));
-  }).length;
-  
-  const countElement = document.getElementById('results-count');
-  if (activeFilters.size === 0) {
-    countElement.textContent = `Showing all ${papers.length} papers`;
-  } else {
-    countElement.textContent = `Showing ${filteredCount} of ${papers.length} papers`;
   }
 }
 
