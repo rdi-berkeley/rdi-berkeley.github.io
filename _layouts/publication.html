@@ -1398,6 +1398,21 @@ function renderPapers() {
   }
 }
 
+// Update results count
+function updateResultsCount() {
+  const filteredCount = papers.filter(paper => {
+    if (activeFilters.size === 0) return true;
+    return paper.tags.some(tag => activeFilters.has(tag));
+  }).length;
+  
+  const countElement = document.getElementById('results-count');
+  if (activeFilters.size === 0) {
+    countElement.textContent = `Showing all ${papers.length} papers`;
+  } else {
+    countElement.textContent = `Showing ${filteredCount} of ${papers.length} papers`;
+  }
+}
+
 // Event listeners
 document.getElementById('clear-filters').addEventListener('click', clearAllFilters);
 
