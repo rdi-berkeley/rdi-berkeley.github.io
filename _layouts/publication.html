@@ -1540,7 +1540,7 @@ function renderPagination() {
 }
 
 // Change page
-function changePage(page) {
+function changePage(page, event) {
   if (event) {
     event.preventDefault();
   }
@@ -1549,8 +1549,26 @@ function changePage(page) {
   updateResultsCount();
   renderPagination();
   
-  // Instant jump to top
-  window.scrollTo(0, 0);
+  // Quick scroll to top (fast animation)
+  const currentScroll = window.scrollY;
+  const duration = 300; // 0.3 seconds
+  const startTime = performance.now();
+  
+  function animateScroll(currentTime) {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    
+    // Easing function for smooth deceleration
+    const easeOut = 1 - Math.pow(1 - progress, 3);
+    
+    window.scrollTo(0, currentScroll * (1 - easeOut));
+    
+    if (progress < 1) {
+      requestAnimationFrame(animateScroll);
+    }
+  }
+  
+  requestAnimationFrame(animateScroll);
 }
 
 // Event listeners
