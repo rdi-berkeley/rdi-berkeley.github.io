@@ -1538,17 +1538,16 @@ function renderPagination() {
   container.innerHTML = paginationHtml;
 }
 
-// Change page
 function changePage(page) {
   currentPage = page;
   renderPapers();
   updateResultsCount();
   renderPagination();
   
-  // Scroll to top of papers section
-  document.getElementById('papers-container').scrollIntoView({
-    behavior: 'smooth',
-    block: 'start'
+  // Gentle scroll to keep pagination visible
+  window.scrollTo({
+    top: window.scrollY - 50,
+    behavior: 'smooth'
   });
 }
 
