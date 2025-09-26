@@ -1541,10 +1541,16 @@ function renderPagination() {
 
 // Change page
 function changePage(page) {
+  if (event) {
+    event.preventDefault();
+  }
   currentPage = page;
   renderPapers();
   updateResultsCount();
   renderPagination();
+  
+  // Instant jump to top
+  window.scrollTo(0, 0);
 }
 
 // Event listeners
