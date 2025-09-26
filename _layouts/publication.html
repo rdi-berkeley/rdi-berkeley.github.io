@@ -1543,12 +1543,6 @@ function changePage(page) {
   renderPapers();
   updateResultsCount();
   renderPagination();
-  
-  // Gentle scroll to keep pagination visible
-  window.scrollTo({
-    top: window.scrollY - 50,
-    behavior: 'smooth'
-  });
 }
 
 // Event listeners
