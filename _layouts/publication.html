@@ -196,6 +196,11 @@
         <div class="grid gap-6" id="papers-container">
           <!-- Papers will be populated by JavaScript -->
         </div>
+        
+        <!-- Pagination -->
+        <div id="pagination-container" class="mt-8">
+          <!-- Pagination will be populated by JavaScript -->
+        </div>
       </div>
     </div>
   </div>
@@ -238,8 +243,10 @@
 </footer>
 
 <script>
-// Complete Berkeley RDI Papers Database
+// ===== PASTE YOUR PAPERS DATABASE HERE =====
+// Replace the empty array below with your complete papers database
 const papers = [
+ 
   // 1
   {
     title: "CyberGym: Evaluating AI Agents' Cybersecurity Capabilities with Real-World Vulnerabilities at Scale",
@@ -1277,7 +1284,6 @@ const papers = [
   }
 ];
 
-
 // Extract unique categories
 const allCategories = new Set();
 papers.forEach(paper => {
@@ -1287,11 +1293,16 @@ papers.forEach(paper => {
 const categories = Array.from(allCategories).sort();
 let activeFilters = new Set();
 
+// Pagination variables (30 papers per page for production)
+const PAPERS_PER_PAGE = 30;
+let currentPage = 1;
+
 // Initialize the page
 function init() {
   renderFilters();
   renderPapers();
   updateResultsCount();
+  renderPagination();
 }
 
 // Render category filters
@@ -1324,18 +1335,22 @@ function toggleFilter(category) {
     filterElement.classList.add('active');
   }
   
+  currentPage = 1; // Reset to first page when filtering
   renderPapers();
   updateResultsCount();
+  renderPagination();
 }
 
 // Clear all filters
 function clearAllFilters() {
   activeFilters.clear();
+  currentPage = 1;
   document.querySelectorAll('.category-filter').forEach(filter => {
     filter.classList.remove('active');
   });
   renderPapers();
   updateResultsCount();
+  renderPagination();
 }
 
 // Render papers
@@ -1348,7 +1363,13 @@ function renderPapers() {
     return paper.tags.some(tag => activeFilters.has(tag));
   });
 
-  filteredPapers.forEach(paper => {
+  // Calculate pagination
+  const totalPages = Math.ceil(filteredPapers.length / PAPERS_PER_PAGE);
+  const startIndex = (currentPage - 1) * PAPERS_PER_PAGE;
+  const endIndex = startIndex + PAPERS_PER_PAGE;
+  const papersToShow = filteredPapers.slice(startIndex, endIndex);
+
+  papersToShow.forEach(paper => {
     // wrapper is <a> if URL exists; otherwise a <div>
     const wrapperEl = document.createElement(paper.url ? 'a' : 'div');
     if (paper.url) {
@@ -1395,17 +1416,140 @@ function renderPapers() {
 
 // Update results count
 function updateResultsCount() {
-  const filteredCount = papers.filter(paper => {
+  const filteredPapers = papers.filter(paper => {
     if (activeFilters.size === 0) return true;
     return paper.tags.some(tag => activeFilters.has(tag));
-  }).length;
+  });
   
+  const totalCount = filteredPapers.length;
   const countElement = document.getElementById('results-count');
-  if (activeFilters.size === 0) {
-    countElement.textContent = `Showing all ${papers.length} papers`;
+  
+  if (totalCount <= PAPERS_PER_PAGE) {
+    if (activeFilters.size === 0) {
+      countElement.textContent = `Showing all ${totalCount} papers`;
+    } else {
+      countElement.textContent = `Showing ${totalCount} of ${papers.length} papers`;
+    }
   } else {
-    countElement.textContent = `Showing ${filteredCount} of ${papers.length} papers`;
+    const startIndex = (currentPage - 1) * PAPERS_PER_PAGE + 1;
+    const endIndex = Math.min(currentPage * PAPERS_PER_PAGE, totalCount);
+    
+    if (activeFilters.size === 0) {
+      countElement.textContent = `Showing ${startIndex}-${endIndex} of ${totalCount} papers`;
+    } else {
+      countElement.textContent = `Showing ${startIndex}-${endIndex} of ${totalCount} filtered papers (${papers.length} total)`;
+    }
   }
+}
+
+// Render pagination
+function renderPagination() {
+  const container = document.getElementById('pagination-container');
+  
+  const filteredPapers = papers.filter(paper => {
+    if (activeFilters.size === 0) return true;
+    return paper.tags.some(tag => activeFilters.has(tag));
+  });
+  
+  const totalPages = Math.ceil(filteredPapers.length / PAPERS_PER_PAGE);
+  
+  // Hide pagination if not needed
+  if (totalPages <= 1) {
+    container.innerHTML = '';
+    return;
+  }
+  
+  let paginationHtml = '<div class="flex justify-center items-center space-x-2">';
+  
+  // Previous button
+  if (currentPage > 1) {
+    paginationHtml += `
+      <button onclick="changePage(${currentPage - 1})" class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-l-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500">
+        Previous
+      </button>
+    `;
+  } else {
+    paginationHtml += `
+      <button disabled class="px-4 py-2 text-sm font-medium text-gray-400 bg-gray-100 border border-gray-300 rounded-l-md cursor-not-allowed">
+        Previous
+      </button>
+    `;
+  }
+  
+  // Page numbers
+  const startPage = Math.max(1, currentPage - 2);
+  const endPage = Math.min(totalPages, currentPage + 2);
+  
+  if (startPage > 1) {
+    paginationHtml += `
+      <button onclick="changePage(1)" class="px-3 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500">
+        1
+      </button>
+    `;
+    if (startPage > 2) {
+      paginationHtml += '<span class="px-3 py-2 text-sm font-medium text-gray-700">...</span>';
+    }
+  }
+  
+  for (let i = startPage; i <= endPage; i++) {
+    if (i === currentPage) {
+      paginationHtml += `
+        <button class="px-3 py-2 text-sm font-medium text-white bg-blue-600 border border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          ${i}
+        </button>
+      `;
+    } else {
+      paginationHtml += `
+        <button onclick="changePage(${i})" class="px-3 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          ${i}
+        </button>
+      `;
+    }
+  }
+  
+  if (endPage < totalPages) {
+    if (endPage < totalPages - 1) {
+      paginationHtml += '<span class="px-3 py-2 text-sm font-medium text-gray-700">...</span>';
+    }
+    paginationHtml += `
+      <button onclick="changePage(${totalPages})" class="px-3 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500">
+        ${totalPages}
+      </button>
+    `;
+  }
+  
+  // Next button
+  if (currentPage < totalPages) {
+    paginationHtml += `
+      <button onclick="changePage(${currentPage + 1})" class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-r-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500">
+        Next
+      </button>
+    `;
+  } else {
+    paginationHtml += `
+      <button disabled class="px-4 py-2 text-sm font-medium text-gray-400 bg-gray-100 border border-gray-300 rounded-r-md cursor-not-allowed">
+        Next
+      </button>
+    `;
+  }
+  
+  paginationHtml += '</div>';
+  
+  container.innerHTML = paginationHtml;
+}
+
+// Change page
+function changePage(page) {
+  currentPage = page;
+  renderPapers();
+  updateResultsCount();
+  renderPagination();
+  
+  // Scroll to top of papers section
+  document.getElementById('papers-container').scrollIntoView({
+    behavior: 'smooth',
+    block: 'start'
+  });
 }
 
 // Event listeners
