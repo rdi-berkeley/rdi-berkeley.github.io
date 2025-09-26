@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1293,7 +1294,8 @@ papers.forEach(paper => {
 const categories = Array.from(allCategories).sort();
 let activeFilters = new Set();
 
-const PAPERS_PER_PAGE = 15;
+// Pagination variables (30 papers per page for production)
+const PAPERS_PER_PAGE = 30;
 let currentPage = 1;
 
 // Initialize the page
@@ -1463,7 +1465,7 @@ function renderPagination() {
   // Previous button
   if (currentPage > 1) {
     paginationHtml += `
-      <button onclick="changePage(${currentPage - 1})" class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-l-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500">
+      <button onclick="changePage(${currentPage - 1}, event)" class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-l-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500">
         Previous
       </button>
     `;
@@ -1481,7 +1483,7 @@ function renderPagination() {
   
   if (startPage > 1) {
     paginationHtml += `
-      <button onclick="changePage(1)" class="px-3 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500">
+      <button onclick="changePage(1, event)" class="px-3 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500">
         1
       </button>
     `;
@@ -1499,7 +1501,7 @@ function renderPagination() {
       `;
     } else {
       paginationHtml += `
-        <button onclick="changePage(${i})" class="px-3 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <button onclick="changePage(${i}, event)" class="px-3 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500">
           ${i}
         </button>
       `;
@@ -1511,7 +1513,7 @@ function renderPagination() {
       paginationHtml += '<span class="px-3 py-2 text-sm font-medium text-gray-700">...</span>';
     }
     paginationHtml += `
-      <button onclick="changePage(${totalPages})" class="px-3 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500">
+      <button onclick="changePage(${totalPages}, event)" class="px-3 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500">
         ${totalPages}
       </button>
     `;
@@ -1520,7 +1522,7 @@ function renderPagination() {
   // Next button
   if (currentPage < totalPages) {
     paginationHtml += `
-      <button onclick="changePage(${currentPage + 1})" class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-r-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500">
+      <button onclick="changePage(${currentPage + 1}, event)" class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-r-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500">
         Next
       </button>
     `;
@@ -1537,11 +1539,18 @@ function renderPagination() {
   container.innerHTML = paginationHtml;
 }
 
+// Change page
 function changePage(page) {
   currentPage = page;
   renderPapers();
   updateResultsCount();
   renderPagination();
+  
+  // Gentle scroll to keep pagination visible
+  window.scrollTo({
+    top: window.scrollY - 50,
+    behavior: 'smooth'
+  });
 }
 
 // Event listeners
