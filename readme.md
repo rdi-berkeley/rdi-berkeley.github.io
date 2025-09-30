@@ -122,7 +122,33 @@ Also **please do not delete the CNAME in the root directory**, which would cause
        {% endfor %}
    </div>
    ```
+### How to Add/Update Publications
 
+1. **Update the YAML data file**
+Go to `/_data/publication.yml` and add a new entry at the **top** of the file (most recent first).
+
+2. **Entry Format**
+```
+- title: "Full Title of the Paper"
+  url: "https://arxiv.org/abs/XXXX.XXXXX"
+  authors: "Author1*, Author2*, Author3, Author4"
+  venue: "Conference/Journal Name"
+  year: YYYY
+  tags:
+    - "Category 1"
+    - "Category 2"
+```
+   > Example
+```
+      title: "CyberGym: Evaluating AI Agents' Cybersecurity Capabilities"
+      url: "https://arxiv.org/abs/2506.02548"
+      authors: "Zhun Wang*, Tianneng Shi*, Jingxuan He, Dawn Song"
+      venue: "Neural Information Processing Systems (NeurIPS)"
+      year: 2025
+      tags:
+        - "AI for Cybersecurity"
+        - "Agentic AI Applications"
+```
 ### Other changes
 
 Please contact xiaoyuanliu \<AT\> berkeley \<DOT\> edu for further support.
