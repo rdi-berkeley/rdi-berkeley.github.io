@@ -124,7 +124,7 @@ Also **please do not delete the CNAME in the root directory**, which would cause
    ```
 ### How to Add/Update Publications
 
-1. **Update the YAML data file**
+1. **Update the YAML data file**:
 Go to `/_data/publication.yml` and add a new entry at the **top** of the file (most recent first).
 
 2. **Entry Format**
