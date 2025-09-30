@@ -140,14 +140,14 @@ Go to `/_data/publication.yml` and add a new entry at the **top** of the file (m
 ```
    > Example
 ```
-      title: "CyberGym: Evaluating AI Agents' Cybersecurity Capabilities"
-      url: "https://arxiv.org/abs/2506.02548"
-      authors: "Zhun Wang*, Tianneng Shi*, Jingxuan He, Dawn Song"
-      venue: "Neural Information Processing Systems (NeurIPS)"
-      year: 2025
-      tags:
-        - "AI for Cybersecurity"
-        - "Agentic AI Applications"
+- title: "CyberGym: Evaluating AI Agents' Cybersecurity Capabilities"
+  url: "https://arxiv.org/abs/2506.02548"
+  authors: "Zhun Wang*, Tianneng Shi*, Jingxuan He, Dawn Song"
+  venue: "Neural Information Processing Systems (NeurIPS)"
+  year: 2025
+  tags:
+    - "AI for Cybersecurity"
+    - "Agentic AI Applications"
 ```
 ### Other changes
 
