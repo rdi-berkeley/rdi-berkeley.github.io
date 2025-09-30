@@ -1,574 +1,453 @@
 <!DOCTYPE html>
-<html lang="en" class="h-full">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Research | Berkeley RDI</title>
-
-  <!-- Tailwind CSS -->
+  <title>Education - Berkeley RDI</title>
   <link href="/assets/css/tailwind.min.css" rel="stylesheet">
-
   <style>
-    /* === Your original custom CSS (kept) === */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    /* Custom styles to match homepage exactly */
+    .hero-bg {
+      background-image: url('/assets/images/homepage-background.png');
     }
-
-    :root {
-      --primary-blue: #003262;
-      --berkeley-gold: #FDB515;
-      --light-blue: #3B7EA1;
-      --dark-gray: #2A2A2A;
-      --light-gray: #F5F5F5;
-      --white: #FFFFFF;
-      --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      --gradient-2: linear-gradient(135deg, #3B7EA1 0%, #003262 100%);
+    
+    .pillar-card {
+      background: #f9fafb;
+      border-radius: 0.75rem;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      transition: all 0.3s ease;
     }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-      line-height: 1.6;
-      color: var(--dark-gray);
-      background: var(--white);
+    
+    .pillar-card:hover {
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      transform: translateY(-4px);
     }
-
-    /* Header (legacy styles - DISABLED, using Tailwind instead) */
-    /* header {
-      background: var(--white);
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+    
+    .course-category {
+      background: white;
+      border-radius: 0.75rem;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      transition: all 0.3s ease;
+      border: 1px solid #e5e7eb;
     }
-
-    nav {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: var(--primary-blue);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: var(--dark-gray);
-      transition: color 0.3s;
-      font-weight: 500;
-    }
-
-    .nav-links a:hover {
-      color: var(--berkeley-gold);
-    } */
-
-    /* Hero Section (legacy styles retained; replaced by Tailwind hero) */
-    .hero {
-      background: var(--gradient-2);
-      color: var(--white);
-      padding: 5rem 2rem;
-      text-align: center;
-    }
-
-    .hero h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      animation: fadeInUp 0.8s ease;
-    }
-
-    .hero p {
-      font-size: 1.3rem;
-      max-width: 800px;
-      margin: 0 auto;
-      opacity: 0.95;
-      animation: fadeInUp 0.8s ease 0.2s backwards;
-    }
-
-    /* Main Content */
-    .container {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 2rem;
-    }
-
-    /* Research Thrusts Grid */
-    .research-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 2rem;
-      margin: 4rem 0;
-    }
-
-    .research-card {
-      background: var(--white);
-      border-radius: 12px;
-      padding: 2rem;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-      transition: transform 0.3s, box-shadow 0.3s;
-      border-top: 4px solid var(--berkeley-gold);
-    }
-
-    .research-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
-    }
-
-    .research-card h3 {
-      color: var(--primary-blue);
-      margin-bottom: 1rem;
-      font-size: 1.4rem;
-    }
-
-    .research-card p {
-      color: #666;
-      margin-bottom: 1rem;
-    }
-
-    .sub-areas {
-      list-style: none;
-      margin-top: 1rem;
-    }
-
-    .sub-areas li {
-      padding: 0.5rem 0;
-      border-left: 3px solid var(--light-blue);
-      padding-left: 1rem;
-      margin-bottom: 0.5rem;
-      transition: all 0.3s;
-    }
-
-    .sub-areas li:hover {
-      border-left-color: var(--berkeley-gold);
-      background: var(--light-gray);
-    }
-
-    /* Featured Section */
-    .featured-section {
-      background: var(--light-gray);
-      padding: 4rem 0;
-      margin: 4rem 0;
-    }
-
-    .featured-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-
-    .featured-item {
-      background: var(--white);
-      padding: 1.5rem;
-      border-radius: 8px;
-      border-left: 4px solid var(--light-blue);
-    }
-
-    .featured-item h4 {
-      color: var(--primary-blue);
-      margin-bottom: 0.5rem;
-    }
-
-    .tag {
-      display: inline-block;
-      background: var(--berkeley-gold);
-      color: var(--white);
-      padding: 0.2rem 0.6rem;
-      border-radius: 20px;
-      font-size: 0.85rem;
-      margin-right: 0.5rem;
-      margin-bottom: 0.5rem;
-    }
-
-    /* Cross-cutting Initiatives */
-    .initiatives {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin: 3rem 0;
-    }
-
-    .initiative-card {
-      text-align: center;
-      padding: 2rem;
-      background: var(--white);
-      border-radius: 8px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-    }
-
-    .initiative-icon {
-      width: 60px;
-      height: 60px;
-      margin: 0 auto 1rem;
-      background: var(--gradient-1);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--white);
-      font-size: 1.5rem;
-    }
-
-    /* CTA Section */
-    .cta-section {
-      background: var(--gradient-2);
-      color: var(--white);
-      padding: 4rem 2rem;
-      text-align: center;
-      margin-top: 4rem;
-      border-radius: 12px;
-    }
-
-    .cta-section h2 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .cta-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-
-    .cta-item {
-      padding: 1.5rem;
-      background: rgba(255,255,255,0.1);
-      border-radius: 8px;
-      backdrop-filter: blur(10px);
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 0.8rem 2rem;
-      background: var(--berkeley-gold);
-      color: var(--white);
-      text-decoration: none;
-      border-radius: 25px;
-      transition: all 0.3s;
-      margin-top: 1rem;
-      font-weight: 600;
-    }
-
-    .btn:hover {
+    
+    .course-category:hover {
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
       transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(253, 181, 21, 0.4);
     }
-
-    /* Section Headers */
-    .section-header {
-      text-align: center;
-      margin: 4rem 0 2rem;
-    }
-
-    .section-header h2 {
-      font-size: 2.5rem;
-      color: var(--primary-blue);
-      margin-bottom: 1rem;
-    }
-
-    .section-header p {
-      color: #666;
-      font-size: 1.1rem;
-      max-width: 700px;
-      margin: 0 auto;
-    }
-
-    /* Animations */
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .fade-in {
-      animation: fadeInUp 0.8s ease;
-    }
-
-    /* Mobile Responsive */
-    @media (max-width: 768px) {
-      .nav-links { flex-direction: column; gap: 1rem; }
-      .hero h1 { font-size: 2rem; }
-      .hero p { font-size: 1rem; }
-      .research-grid { grid-template-columns: 1fr; }
-      .section-header h2 { font-size: 1.8rem; }
-    }
-
-    /* Accordion for sub-areas */
-    .accordion { margin-top: 1rem; }
-    .accordion-header {
-      background: var(--light-gray);
-      padding: 0.8rem;
-      cursor: pointer;
-      border-radius: 4px;
-      margin-bottom: 0.5rem;
-      transition: background 0.3s;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .accordion-header:hover { background: #e0e0e0; }
-    .accordion-content {
-      display: none;
+    
+   .course-item {
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 0.5rem;
       padding: 1rem;
-      background: #fafafa;
-      border-radius: 4px;
-      margin-bottom: 1rem;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      display: block;
+      text-decoration: none; /* ensure no underline */
+      color: inherit;        /* inherit text color */
     }
-    .accordion-content.active { display: block; }
-    .arrow { transition: transform 0.3s; }
-    .arrow.active { transform: rotate(180deg); }
+    .course-item:hover {
+      border-color: #1e3a8a;
+      background: white;
+      transform: translateY(-1px);
+      text-decoration: none;
+    }
+
+    
+    .stats-box {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      text-align: center;
+    }
   </style>
 </head>
 <body class="text-gray-800">
 
-<div class="constraint">
-    <div id="header">
-        <div id="logo-container" style="padding: 1rem;">
-            <a href="/" aria-label="Berkeley Center for RDI Logo">
-                <img src="/assets/images/Berkeley Center for RDI Logo.png" id="logo" aria-label="Berkeley Center for RDI Logo">
-            </a>
-        </div>
-        <div id="nav-container">
-            <div id="nav-links" style="font-size: 11pt; vertical-align: middle;">
-                <a href="/" class="nav-url">
-                    Home
-                </a>
-                <span class="seperator">|</span>
-                <a href="/research" class="nav-url">
-                    Research
-                </a>
-                <span class="seperator">|</span>
-                <a href="/people" class="nav-url">
-                    People
-                </a>
-                <span class="seperator">|</span>
-                <a href="/education" class="nav-url">
-                    Education
-                </a>
-                <span class="seperator">|</span>
-                <a href="/connectandlearn" class="nav-url">
-                    Connect/Learn
-                </a>
-                <span class="seperator">|</span>
-                <a href="/events" class="nav-url">
-                    Events
-                </a>
-                <span class="seperator">|</span>
-                <a href="https://twitter.com/BerkeleyRDI?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @BerkeleyRDI</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-            </div>
-        </div>
-    </div>
-</div>
-
-  <!-- ====== NEW TAILWIND HERO ====== -->
-  <section style="background-image: url('/assets/images/homepage-background.png')" class="bg-cover bg-center py-40 text-center px-4">
-    <h1 class="text-5xl font-bold text-white mb-4">Research @Berkeley RDI</h1>
-    <p class="max-w-2xl mx-auto text-lg text-white">
-      Advancing the Frontier of Agentic AI and Decentralized Intelligence
-    </p>
-  </section>
-
-  <!-- ====== YOUR ORIGINAL MAIN CONTENT (UPDATED) ====== -->
-  <div class="container">
-    <!-- Core Research Thrusts -->
-    <div class="section-header">
-      <h2>Core Research Thrusts</h2>
-      <p>Pioneering the next generation of AI and Agentic AI</p>
+<!-- Header (matching homepage) -->
+<header class="sticky top-0 bg-white shadow z-50">
+  <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+    
+    <!-- Logo -->
+    <div id="logo-container" class="py-2">
+      <a href="/" aria-label="Berkeley Center for RDI Logo">
+        <img src="/assets/images/Berkeley Center for RDI Logo.png" alt="Berkeley RDI Logo" class="h-10 w-auto max-w-full">
+      </a>
     </div>
 
-    <div class="research-grid">
-      <!-- 1. Agentic AI Foundation -->
-      <div class="research-card">
-        <h3>Agentic AI Foundation</h3>
-        <ul class="sub-areas">
-          <li>Reasoning and Planning</li>
-          <li>Reinforcement Learning</li>
-          <li>Lifelong Learning and Self-Improvement</li>
-        </ul>
-      </div>
+    <!-- Hamburger Button (shown on mobile only) -->
+    <button id="menu-toggle" class="sm:hidden text-gray-600 focus:outline-none">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
 
-      <!-- 2. AI Safety and Security -->
-      <div class="research-card">
-        <h3>AI Safety and Security</h3>
-        <ul class="sub-areas">
-          <li>Robustness and Adversarial Resilience</li>
-          <li>Oversight, Alignment, and Control</li>
-          <li>Interpretability and Monitoring</li>
-          <li>Privacy</li>
-        </ul>
-      </div>
+    <!-- Desktop Nav Links -->
+    <nav id="nav-links" class="hidden sm:flex space-x-6 text-sm font-medium">
+      <a href="/" class="hover:text-blue-600">Home</a>
+      <a href="/research" class="hover:text-blue-900">Research</a>
+      <a href="/education" class="hover:text-blue-900">Education</a>
+      <a href="/events" class="hover:text-blue-900">Events</a>
+      <a href="/people" class="hover:text-blue-900">About</a>
+    </nav>
+  </div>
 
-      <!-- 3. Agentic AI Applications -->
-      <div class="research-card">
-        <h3>Agentic AI Applications</h3>
-        <ul class="sub-areas">
-          <li>Web Agents</li>
-          <li>Coding Agents</li>
-          <li>Deep Research Agents</li>
-          <li>Multi-Agent Systems</li>
-        </ul>
-      </div>
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="sm:hidden hidden px-6 pb-4 space-y-2 text-sm font-medium">
+    <a href="/" class="block py-1">Home</a>
+    <a href="/research" class="block py-1">Research</a>
+    <a href="/education" class="block py-1">Education</a>
+    <a href="/events" class="block py-1">Events</a>
+    <a href="/people" class="block py-1">About</a>
+    <a href="/contact" class="block py-1">Contact</a>
+  </div>
+</header>
 
-      <!-- 4. AI for Cybersecurity -->
-      <div class="research-card">
-        <h3>AI for Cybersecurity</h3>
-        <ul class="sub-areas">
-          <li>AI Cybersecurity Capability Evaluation</li>
-          <li>Threat Detection and Intrusion Prevention</li>
-          <li>Automated Vulnerability Discovery</li>
-          <li>Cyber Deception and Active Defense</li>
-        </ul>
-      </div>
+<!-- Hero Section (matching homepage style) -->
+<section class="hero-bg bg-cover bg-center py-40 text-center px-4">
+  <h1 class="text-5xl font-bold text-white mb-4">Education @Berkeley RDI</h1>
+  <p class="max-w-3xl mx-auto text-lg text-white">
+    Pioneering educational initiatives empowering students worldwide with cutting-edge knowledge in AI, Agentic AI, and decentralized technologies
+  </p>
+  <div class="mt-8 gap-4 flex flex-col sm:flex-row justify-center items-center">
+    <a href="https://agenticai-learning.org/f25" class="bg-yellow-400 text-blue-900 border-2 border-yellow-400 px-8 py-3 rounded font-bold hover:bg-yellow-500">Join Agentic AI MOOC</a>
+  </div>
+</section>
 
-      <!-- 5. AI for Program Synthesis and Secure Code -->
-      <div class="research-card">
-        <h3>AI for Program Synthesis and Secure Code</h3>
-        <ul class="sub-areas">
-          <li>Program Synthesis and Automated Code Generation</li>
-          <li>Secure Code Generation and Verification</li>
-          <li>AI-Driven Formal Methods (static analysis, correctness proofs)</li>
-        </ul>
-      </div>
-
-      <!-- 6. Decentralization Technology -->
-      <div class="research-card">
-        <h3>Decentralization Technology</h3>
-        <ul class="sub-areas">
-          <li>Zero-Knowledge Proofs</li>
-          <li>DeFi</li>
-          <li>Applied Cryptography</li>
-          <li>Metaverse and Synthetic Worlds</li>
-          <li>Privacy</li>
-        </ul>
+<!-- Featured Program Section -->
+<section class="py-20 bg-white px-6">
+  <div class="max-w-6xl mx-auto text-center">
+    <h2 class="text-3xl font-bold mb-12 text-blue-900">Featured Program</h2>
+    
+    <div class="max-w-2xl mx-auto">
+      <div class="pillar-card p-8">
+        <div class="inline-block bg-yellow-400 text-blue-900 px-4 py-1 rounded-full text-sm font-bold mb-4">
+          25,000+ Learners
+        </div>
+        <h3 class="text-2xl font-bold mb-4 text-blue-900">Agentic AI MOOC</h3>
+        <p class="text-gray-700 text-lg leading-relaxed">
+          Join our flagship MOOC series with a global community of learners exploring the frontiers of AI and Agentic AI.
+        </p>
+        <div class="mt-6">
+          <a href="https://agenticai-learning.org/f25" class="bg-blue-900 text-white px-6 py-3 rounded font-bold hover:bg-blue-800 transition">
+            Join Now →
+          </a>
+        </div>
       </div>
     </div>
   </div>
-  
-  <!-- Join Our Community -->
-  <section id="community" class="bg-blue-900 py-16 px-6 text-center">
-    <h2 class="text-3xl text-white font-bold mb-4 text-white">Join Our Community</h2>
-    <p class="max-w-3xl mx-auto mb-6 text-white">We invite researchers, students, industry practitioners, innovators and entrepreneurs to collaborate with us in shaping the future of responsible AI and decentralized intelligence.</p>
-    <div class="mt-8 gap-4 flex flex-col sm:flex-row justify-center items-center">
-      <a href="https://berkeleyrdi.substack.com/" class="bg-yellow-400 text-blue-900 px-8 py-3 font-bold rounded border-2 border-yellow-400 hover:bg-yellow-500">Subscribe to Newsletter</a>
-      <a href="https://twitter.com/BerkeleyRDI" class="bg-yellow-400 text-blue-900 px-8 py-3 font-bold rounded border-2 border-yellow-400 hover:bg-yellow-500">Follow RDI on X/Twitter</a>
-      <a href="https://discord.gg/NWVpQ9rBvd" class="bg-yellow-400 text-blue-900 px-8 py-3 font-bold rounded border-2 border-yellow-400 hover:bg-yellow-500">Join LLM Agents Discord</a>
-    </div>
-  </section>
+</section>
 
-    <!-- Footer -->
-  <footer class="bg-gray-900 text-gray-300 text-sm py-10 px-6">
-    <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-6">
-      <div>
-        <h4 class="text-white font-semibold mb-2">Berkeley RDI</h4>
-        <p>Advancing the science, technology, and education of decentralization and AI to empower a responsible digital economy.</p>
-        <div class="flex space-x-3 mt-4 text-xl">
-          <!-- Twitter -->
-          <a href="https://twitter.com/BerkeleyRDI" class="hover:text-white transition text-gray-400">
-            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="16" fill="currentColor" class="bi bi-twitter-x" viewBox="0 0 16 16">
-              <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/>
-            </svg>
+
+<!-- Course Categories Section -->
+<section class="py-20 bg-gray-100 px-6">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-3xl font-bold text-center mb-12 text-blue-900">Academic Offerings</h2>
+
+    <div class="grid gap-8">
+      
+      <!-- AI and Agentic AI -->
+      <div class="course-category p-8">
+        <div class="flex items-center mb-6">
+          <div>
+            <h3 class="text-2xl font-bold text-blue-900 mb-2">AI and Agentic AI</h3>
+          </div>
+        </div>
+        <div class="grid gap-3">
+          <a href="https://agenticai-learning.org/f25" class="course-item">
+            <div class="flex flex-wrap items-center">
+              <span class="font-bold text-blue-900 mr-3">Agentic AI MOOC, Fall 2025</span>
+            </div>
           </a>
-          <!-- Youtube -->
-          <a href="https://www.youtube.com/@BerkeleyRDI" class="hover:text-white transition text-gray-400">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="16" fill="currentColor" class="bi bi-youtube" viewBox="0 0 16 16">
-              <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.01 2.01 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.01 2.01 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31 31 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.01 2.01 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A100 100 0 0 1 7.858 2zM6.4 5.209v4.818l4.157-2.408z"/>
-            </svg>
+          <a href="https://agenticai-learning.org/sp25" class="course-item">
+            <div class="flex flex-wrap items-center">
+              <span class="font-bold text-blue-900 mr-3">Advanced Large Language Model Agents MOOC, Spring 2025</span>
+            </div>
           </a>
-          <!-- Discord -->
-          <a href="https://discord.gg/NWVpQ9rBvd" class="hover:text-white transition text-gray-400">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="16" fill="currentColor" class="bi bi-discord" viewBox="0 0 16 16">
-              <path d="M13.545 2.907a13.2 13.2 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.2 12.2 0 0 0-3.658 0 8 8 0 0 0-.412-.833.05.05 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.04.04 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032q.003.022.021.037a13.3 13.3 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019q.463-.63.818-1.329a.05.05 0 0 0-.01-.059l-.018-.011a9 9 0 0 1-1.248-.595.05.05 0 0 1-.02-.066l.015-.019q.127-.095.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.05.05 0 0 1 .053.007q.121.1.248.195a.05.05 0 0 1-.004.085 8 8 0 0 1-1.249.594.05.05 0 0 0-.03.03.05.05 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.2 13.2 0 0 0 4.001-2.02.05.05 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.03.03 0 0 0-.02-.019m-8.198 7.307c-.789 0-1.438-.724-1.438-1.612s.637-1.613 1.438-1.613c.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612m5.316 0c-.788 0-1.438-.724-1.438-1.612s.637-1.613 1.438-1.613c.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612"/>
-            </svg>
+          <a href="https://agenticai-learning.org/f24" class="course-item">
+            <div class="flex flex-wrap items-center">
+              <span class="font-bold text-blue-900 mr-3">Large Language Model Agents MOOC, Fall 2024</span>
+            </div>
           </a>
-          <!-- Mail -->
-          <a href="mailto:rdi@berkeley.edu" class="hover:text-white transition text-gray-400">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="16" fill="currentColor" class="bi bi-envelope-fill" viewBox="0 0 16 16">
-              <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414zM0 4.697v7.104l5.803-3.558zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586zm3.436-.586L16 11.801V4.697z"/>
-            </svg>
+          <a href="https://rdi.berkeley.edu/agentic-ai/f25" class="course-item">
+            <div class="flex flex-wrap items-center">
+              <span class="font-bold text-blue-900 mr-3">CS294/194-196:</span>
+              <span class="text-gray-800">Agentic AI, Fall 2025</span>
+            </div>
+          </a>
+          <a href="https://rdi.berkeley.edu/adv-llm-agents/sp25" class="course-item">
+            <div class="flex flex-wrap items-center">
+              <span class="font-bold text-blue-900 mr-3">CS 294/194-280:</span>
+              <span class="text-gray-800">Advanced Large Language Model Agents, Spring 2025</span>
+            </div>
+          </a>
+          <a href="https://rdi.berkeley.edu/llm-agents/f24" class="course-item">
+            <div class="flex flex-wrap items-center">
+              <span class="font-bold text-blue-900 mr-3">CS 294/194-196:</span>
+              <span class="text-gray-800">Large Language Model Agents, Fall 2024</span>
+            </div>
+          </a>
+          <a href="https://rdi.berkeley.edu/understanding_llms/s24" class="course-item">
+            <div class="flex flex-wrap items-center">
+              <span class="font-bold text-blue-900 mr-3">CS 294/194-267:</span>
+              <span class="text-gray-800">Understanding Large Language Models: Foundations and Safety, Spring 2024</span>
+            </div>
+          </a>
+          <a href="https://rdi.berkeley.edu/responsible-genai/f23" class="course-item">
+            <div class="flex flex-wrap items-center">
+              <span class="font-bold text-blue-900 mr-3">CS294-196/CS194-196:</span>
+              <span class="text-gray-800">Responsible GenAI and Decentralized Intelligence, Fall 2023</span>
+            </div>
+          </a>
+          <a href="https://inst.eecs.berkeley.edu/~cs188/sp22/" class="course-item">
+            <div class="flex flex-wrap items-center">
+              <span class="font-bold text-blue-900 mr-3">CS188:</span>
+              <span class="text-gray-800">Introduction to Artificial Intelligence, Spring 2022  </span>
+            </div>
           </a>
         </div>
       </div>
-      <div>
-        <h4 class="text-white font-semibold mb-2 text-yellow-400">Explore</h4>
-        <ul class="space-y-1">
-          <li><a href="/research" class="hover:underline">Research</a></li>
-          <li><a href="/education" class="hover:underline">Education</a></li>
-          <li><a href="/events" class="hover:underline">Events</a></li>
-          <li><a href="/people" class="hover:underline">About Us</a></li>
-        </ul>
+
+      <!-- Cryptography & Security -->
+      <div class="course-category p-8">
+        <div class="flex items-center mb-6">
+          <div>
+            <h3 class="text-2xl font-bold text-blue-900 mb-2">Cryptography & Security</h3>
+          </div>
+        </div>
+        <div class="grid gap-3">
+          <a href="https://rdi.berkeley.edu/zk-learning/" class="course-item">
+            <div class="flex flex-wrap items-center">
+              <span class="font-bold text-blue-900 mr-3">Zero Knowledge Proofs MOOC, Spring 2023</span>
+            </div>
+          </a>
+          <a href="https://rdi.berkeley.edu/course/zkp/s23" class="course-item">
+            <div class="flex flex-wrap items-center">
+              <span class="font-bold text-blue-900 mr-3">CS294/194-238:</span>
+              <span class="text-gray-800">Zero Knowledge Proof, Spring 2023</span>
+            </div>
+          </a>
+          <a href="https://people.eecs.berkeley.edu/~sanjamg/teaching/cs171-spring21" class="course-item">
+            <div class="flex flex-wrap items-center">
+              <span class="font-bold text-blue-900 mr-3">CS 171:</span>
+              <span class="text-gray-800">Introduction to Cryptography, Spring 2021</span>
+            </div>
+          </a>
+          <a href="https://cs161.org/" class="course-item">
+            <div class="flex flex-wrap items-center">
+              <span class="font-bold text-blue-900 mr-3">CS 161:</span>
+              <span class="text-gray-800">Computer Security, Fall 2025</span>
+            </div>
+          </a>
+          <a href="https://inst.eecs.berkeley.edu/~cs261/fa18/" class="course-item">
+            <div class="flex flex-wrap items-center">
+              <span class="font-bold text-blue-900 mr-3">CS 261:</span>
+              <span class="text-gray-800">Security in Computer Systems, Fall 2023</span>
+            </div>
+          </a>
+          <a href="https://inst.eecs.berkeley.edu/~cs294-171/fa21" class="course-item">
+            <div class="flex flex-wrap items-center">
+              <span class="font-bold text-blue-900 mr-3">CS 294-171:</span>
+              <span class="text-gray-800">Privacy-Preserving Systems, Fall 2021</span>
+            </div>
+          </a>
+          <a href="https://inst.eecs.berkeley.edu/~cs294-163/fa19/" class="course-item">
+            <div class="flex flex-wrap items-center">
+              <span class="font-bold text-blue-900 mr-3">CS 294-163:</span>
+              <span class="text-gray-800">Decentralized Security: Theory and Systems, Fall 2019</span>
+            </div>
+          </a>
+          <a href="https://people.eecs.berkeley.edu/~sseshia/219c/" class="course-item">
+            <div class="flex flex-wrap items-center">
+              <span class="font-bold text-blue-900 mr-3">EECS 219C:</span>
+              <span class="text-gray-800">Formal Methods: Specification, Verification, and Synthesis, Spring 2025</span>
+            </div>
+          </a>
+          <a href="https://berkeley-secure-hardware.github.io/cs294-156-f18/" class="course-item">
+            <div class="flex flex-wrap items-center">
+              <span class="font-bold text-blue-900 mr-3">CS 294-156:</span>
+              <span class="text-gray-800">Advanced Topics on Secure Hardware, Fall 2018</span>
+            </div>
+          </a>
+        </div>
       </div>
-      <!-- <div>
-        <h4 class="text-white font-semibold mb-2 text-yellow-400">Resources</h4>
-        <ul class="space-y-1">
-          <li><a href="/publications" class="hover:underline">Publications</a></li>
-          <li><a href="/moocs" class="hover:underline">MOOCs</a></li>
-          <li><a href="/videos" class="hover:underline">Lecture Videos</a></li>
-          <li><a href="https://discord.gg/NWVpQ9rBvd" class="hover:underline">Join Discord</a></li>
-        </ul>
+
+      <!-- Blockchain & Decentralized Technologies -->
+      <div class="course-category p-8">
+        <div class="flex items-center mb-6">
+          <div>
+            <h3 class="text-2xl font-bold text-blue-900 mb-2">Decentralized Technologies</h3>
+          </div>
+        </div>
+        <div class="grid gap-3">
+          <a href="https://defi-learning.org/f22" class="course-item">
+            <div class="flex flex-wrap items-center">
+              <span class="font-bold text-blue-900 mr-3">Decentralized Finance MOOC, Fall 2022</span>
+            </div>
+          </a>
+          <a href="https://web3-startups.org/" class="course-item">
+            <div class="flex flex-wrap items-center">
+              <span class="font-bold text-blue-900 mr-3">Entreprenuership in Web3 MOOC, Fall 2022</span>
+            </div>
+          </a>
+          <a href="https://rdi.berkeley.edu/berkeley-defi/" class="course-item">
+            <div class="flex flex-wrap items-center">
+              <span class="font-bold text-blue-900 mr-3">CS 294/194-177:</span>
+              <span class="text-gray-800">Decentralized Finance, Fall 2025</span>
+            </div>
+          </a>
+          <a href="https://rdi.berkeley.edu/entrepreneurship-in-web3/f22" class="course-item">
+            <div class="flex flex-wrap items-center">
+              <span class="font-bold text-blue-900 mr-3">CS294/194-224:</span>
+              <span class="text-gray-800">Entrepreneurship In Web3, Fall 2022</span>
+            </div>
+          </a>
+          <a href="https://www.law.berkeley.edu/php-programs/courses/coursePage.php?cID=33984&termCode=B&termYear=2024" class="course-item">
+            <div class="flex flex-wrap items-center">
+              <span class="font-bold text-blue-900 mr-3">Law 247.61 sec. 001:</span>
+              <span class="text-gray-800">Regulation and Policy of Crypto and Web3, Spring 2024</span>
+              <span class="text-sm text-gray-600 italic ml-2"> (Offered by Berkeley Law)</span>
+            </div>
+          </a>
+          <a href="https://berkeley-desys.github.io/s22" class="course-item">
+            <div class="flex flex-wrap items-center">
+              <span class="font-bold text-blue-900 mr-3">CS 294/194-196:</span>
+              <span class="text-gray-800">Decentralized Systems, Spring 2022</span>
+            </div>
+          </a>
+          <a href="https://berkeley-blockchain.github.io/cs294-144-s19/" class="course-item">
+            <div class="flex flex-wrap items-center">
+              <span class="font-bold text-blue-900 mr-3">CS 294-144:</span>
+              <span class="text-gray-800">Blockchain, Cryptoeconomics, and the Future of Technology, Business and Law, Spring 2019</span>
+            </div>
+          </a>
+          <a href="https://berkeley-blockchain.github.io/cs294-151-f18/" class="course-item">
+            <div class="flex flex-wrap items-center">
+              <span class="font-bold text-blue-900 mr-3">CS 294-151:</span>
+              <span class="text-gray-800">Blockchain and CryptoEconomics, Fall 2018</span>
+            </div>
+          </a>
+        </div>
       </div>
-      <div>
-        <h4 class="text-white font-semibold mb-2 text-yellow-400">Contact</h4>
-        <ul class="space-y-1">
-          <li><a href="/contact" class="hover:underline">Get in Touch</a></li>
-          <li><a href="/media" class="hover:underline">Media Inquiries</a></li>
-          <li><a href="/partnerships" class="hover:underline">Partnerships</a></li>
-          <li><a href="/careers" class="hover:underline">Careers</a></li>
-        </ul>
-      </div> -->
+
+      <!-- FinTech -->
+      <div class="course-category p-8">
+        <div class="mb-6">
+          <h3 class="text-2xl font-bold text-blue-900 mb-2">FinTech</h3>
+        </div>
+        <div class="grid gap-3">
+          <a href="https://courses.haas.berkeley.edu/descriptions/Descriptions/EWMBA237-1_Spring19.htm" class="course-item">
+            <div class="flex flex-wrap items-center">
+              <span class="font-bold text-blue-900 mr-3">MBA/EWMBA 237:</span>
+              <span class="text-gray-800">FinTech</span>
+            </div>
+          </a>
+          <a href="https://classes.berkeley.edu/content/2020-Spring-UGBA-137-001-LEC-001" class="course-item">
+            <div class="flex flex-wrap items-center">
+              <span class="font-bold text-blue-900 mr-3">UGBA 137:</span>
+              <span class="text-gray-800">FinTech</span>
+            </div>
+          </a>
+        </div>
+      </div>
+
     </div>
-    <div class="text-center text-xs mt-8 text-gray-500">
-      Copyright © {{ "now" | date: "%Y" }} UC Regents; all rights reserved
+  </div>
+</section>
+
+
+<!-- Stats Section (matching homepage style) -->
+<section class="py-20 bg-white px-6">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-3xl font-bold text-center mb-12 text-blue-900">Our Educational Impact</h2>
+    
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="stats-box">
+        <p class="text-4xl font-bold text-blue-900 mb-2">6</p>
+        <p class="text-sm text-gray-700">MOOCs Offered</p>
+      </div>
+      <div class="stats-box">
+        <p class="text-4xl font-bold text-blue-900 mb-2">30,000+</p>
+        <p class="text-sm text-gray-700">Global Learners</p>
+      </div>
+      
+      <div class="stats-box">
+        <p class="text-4xl font-bold text-blue-900 mb-2">100+</p>
+        <p class="text-sm text-gray-700">Countries Reached</p>
+      </div>
     </div>
-  </footer>
+  </div>
+</section>
 
+<!-- Join Our Community -->
+<section id="community" class="bg-blue-900 py-16 px-6 text-center">
+  <h2 class="text-3xl text-white font-bold mb-4 text-white">Join Our Community</h2>
+  <p class="max-w-3xl mx-auto mb-6 text-white">We invite researchers, students, industry practitioners, innovators and entrepreneurs to collaborate with us in shaping the future of responsible AI and decentralized intelligence.</p>
+  <div class="mt-8 gap-4 flex flex-col sm:flex-row justify-center items-center">
+    <a href="https://berkeleyrdi.substack.com/" class="bg-yellow-400 text-blue-900 px-8 py-3 font-bold rounded border-2 border-yellow-400 hover:bg-yellow-500">Subscribe to Newsletter</a>
+    <a href="https://twitter.com/BerkeleyRDI" class="bg-yellow-400 text-blue-900 px-8 py-3 font-bold rounded border-2 border-yellow-400 hover:bg-yellow-500">Follow RDI on X/Twitter</a>
+    <a href="https://discord.gg/NWVpQ9rBvd" class="bg-yellow-400 text-blue-900 px-8 py-3 font-bold rounded border-2 border-yellow-400 hover:bg-yellow-500">Join LLM Agents Discord</a>
+  </div>
+</section>
+  
+<!-- Footer (matching homepage) -->
+<footer class="bg-gray-900 text-gray-300 text-sm py-10 px-6">
+  <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-6">
+    <div>
+      <h4 class="text-white font-semibold mb-2">Berkeley RDI</h4>
+      <p>Advancing the science, technology, and education of decentralization and AI to empower a responsible digital economy.</p>
+      <div class="flex space-x-3 mt-4 text-xl">
+        <!-- Twitter -->
+        <a href="https://twitter.com/BerkeleyRDI" class="hover:text-white transition text-gray-400">
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="16" fill="currentColor" class="bi bi-twitter-x" viewBox="0 0 16 16">
+            <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/>
+          </svg>
+        </a>
+        <!-- Youtube -->
+        <a href="https://www.youtube.com/@BerkeleyRDI" class="hover:text-white transition text-gray-400">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="16" fill="currentColor" class="bi bi-youtube" viewBox="0 0 16 16">
+            <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.01 2.01 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.01 2.01 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31 31 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.01 2.01 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A100 100 0 0 1 7.858 2zM6.4 5.209v4.818l4.157-2.408z"/>
+          </svg>
+        </a>
+        <!-- Discord -->
+        <a href="https://discord.gg/NWVpQ9rBvd" class="hover:text-white transition text-gray-400">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="16" fill="currentColor" class="bi bi-discord" viewBox="0 0 16 16">
+            <path d="M13.545 2.907a13.2 13.2 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.2 12.2 0 0 0-3.658 0 8 8 0 0 0-.412-.833.05.05 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.04.04 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032q.003.022.021.037a13.3 13.3 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019q.463-.63.818-1.329a.05.05 0 0 0-.01-.059l-.018-.011a9 9 0 0 1-1.248-.595.05.05 0 0 1-.02-.066l.015-.019q.127-.095.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.05.05 0 0 1 .053.007q.121.1.248.195a.05.05 0 0 1-.004.085 8 8 0 0 1-1.249.594.05.05 0 0 0-.03.03.05.05 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.2 13.2 0 0 0 4.001-2.02.05.05 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.03.03 0 0 0-.02-.019m-8.198 7.307c-.789 0-1.438-.724-1.438-1.612s.637-1.613 1.438-1.613c.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612m5.316 0c-.788 0-1.438-.724-1.438-1.612s.637-1.613 1.438-1.613c.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612"/>
+          </svg>
+        </a>
+        <!-- Mail -->
+        <a href="mailto:rdi@berkeley.edu" class="hover:text-white transition text-gray-400">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="16" fill="currentColor" class="bi bi-envelope-fill" viewBox="0 0 16 16">
+            <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414zM0 4.697v7.104l5.803-3.558zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586zm3.436-.586L16 11.801V4.697z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+    <div>
+      <h4 class="text-white font-semibold mb-2 text-yellow-400">Explore</h4>
+      <ul class="space-y-1">
+        <li><a href="/research" class="hover:underline">Research</a></li>
+<li><a href="/education" class="hover:underline">Education</a></li>
+<li><a href="/events" class="hover:underline">Events</a></li>
+<li><a href="/people" class="hover:underline">About Us</a></li>
+</ul>
+</div>
+  </div>
+  <div class="text-center text-xs mt-8 text-gray-500">
+    Copyright © 2025 UC Regents; all rights reserved
+  </div>
+</footer>
+<script>
+  // Mobile menu toggle
+  const toggle = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
 
-  <!-- ====== Scripts (kept + mobile menu) ====== -->
-  <script>
-    // Accordion functionality
-    function toggleAccordion(header) {
-      const content = header.nextElementSibling;
-      const arrow = header.querySelector('.arrow');
-      content.classList.toggle('active');
-      arrow.classList.toggle('active');
-    }
-
-    // Smooth scroll for in-page anchors
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          e.preventDefault();
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }
-      });
-    });
-
-    // Fade-in on scroll
-    const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('fade-in');
-      });
-    }, observerOptions);
-
-    document.querySelectorAll('.research-card, .featured-item, .initiative-card').forEach(el => {
-      observer.observe(el);
-    });
-  </script>
+  toggle.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+  });
+</script>
 </body>
 </html>
