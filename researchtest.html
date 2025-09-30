@@ -333,40 +333,45 @@
 </head>
 <body class="text-gray-800">
 
-  <!-- ====== NEW TAILWIND HEADER ====== -->
-  <header class="sticky top-0 bg-white shadow z-50">
-    <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
-      <div id="logo-container" class="py-2">
-        <a href="/" aria-label="Berkeley Center for RDI Logo">
-          <img src="/assets/images/Berkeley Center for RDI Logo.png" alt="Berkeley RDI Logo" class="h-10 w-auto max-w-full">
-        </a>
-      </div>
+<header class="sticky top-0 bg-white shadow z-50">
+  <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
 
-      <button id="menu-toggle" class="sm:hidden text-gray-600 focus:outline-none" aria-label="Toggle menu">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M4 6h16M4 12h16M4 18h16"/>
-        </svg>
-      </button>
-
-      <nav id="nav-links" class="hidden sm:flex space-x-6 text-sm font-medium">
-        <a href="/" class="hover:text-blue-600">Home</a>
-        <a href="/research" class="hover:text-blue-900">Research</a>
-        <a href="/education" class="hover:text-blue-900">Education</a>
-        <a href="/events" class="hover:text-blue-900">Events</a>
-        <a href="/people" class="hover:text-blue-900">About</a>
-      </nav>
+    <!-- Logo -->
+    <div id="logo-container" class="py-2">
+      <a href="/" aria-label="Berkeley Center for RDI Logo">
+        <img src="/assets/images/Berkeley Center for RDI Logo.png" alt="Berkeley RDI Logo" class="h-10 w-auto max-w-full">
+      </a>
     </div>
 
-    <div id="mobile-menu" class="sm:hidden hidden px-6 pb-4 space-y-2 text-sm font-medium">
-      <a href="/" class="block py-1">Home</a>
-      <a href="/research" class="block py-1">Research</a>
-      <a href="/education" class="block py-1">Education</a>
-      <a href="/events" class="block py-1">Events</a>
-      <a href="/people" class="block py-1">About</a>
-      <a href="/contact" class="block py-1">Contact</a>
-    </div>
-  </header>
+    <!-- Hamburger Button (shown on mobile only) -->
+    <button id="menu-toggle" class="sm:hidden text-gray-600 focus:outline-none">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+
+    <!-- Desktop Nav Links -->
+    <nav id="nav-links" class="hidden sm:flex space-x-6 text-sm font-medium">
+      <a href="/" class="hover:text-blue-600">Home</a>
+      <a href="/research" class="hover:text-blue-900">Research</a>
+      <a href="/education" class="hover:text-blue-900">Education</a>
+      <a href="/events" class="hover:text-blue-900">Events</a>
+      <a href="/people" class="hover:text-blue-900">About</a>
+      <!-- <a href="/contact" class="hover:text-blue-900">Contact</a> -->
+    </nav>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="sm:hidden hidden px-6 pb-4 space-y-2 text-sm font-medium">
+    <a href="/" class="block py-1">Home</a>
+    <a href="/research" class="block py-1">Research</a>
+    <a href="/education" class="block py-1">Education</a>
+    <a href="/events" class="block py-1">Events</a>
+    <a href="/people" class="block py-1">About</a>
+    <a href="/contact" class="block py-1">Contact</a>
+  </div>
+</header>
 
   <!-- ====== NEW TAILWIND HERO ====== -->
   <section style="background-image: url('/assets/images/homepage-background.png')" class="bg-cover bg-center py-40 text-center px-4">
@@ -567,13 +572,12 @@
     });
 
     // Mobile menu toggle
-    const toggleBtn = document.getElementById('menu-toggle');
+    const toggle = document.getElementById('menu-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
-    if (toggleBtn) {
-      toggleBtn.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-      });
-    }
+
+    toggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
   </script>
 </body>
 </html>
