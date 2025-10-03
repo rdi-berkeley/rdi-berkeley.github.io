@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}" class="h-full">
+
+{%- include head.html -%}
+
+<body data-new-gr-c-s-check-loaded="14.1034.0" data-gr-ext-installed="">
+
+    {%- include nav.html -%}
+
+    <div class="constraint">
+        <article class="blog-post">
+            <div style="max-width: 900px; margin: 0 auto; padding: 2rem 1rem;">
+                {{ content }}
+            </div>
+        </article>
+
+        {%- include footer.html -%}
+    </div>
+
+<style>
+.blog-post {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.7;
+    color: #333;
+}
+
+.blog-post h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 2rem 0 1rem;
+    line-height: 1.2;
+    color: #003262;
+}
+
+.blog-post h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 2rem 0 1rem;
+    color: #003262;
+}
+
+.blog-post h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 1.5rem 0 0.75rem;
+    color: #003262;
+}
+
+.blog-post h4 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 1.25rem 0 0.5rem;
+    color: #003262;
+}
+
+.blog-post p {
+    margin: 1rem 0;
+    font-size: 1.1rem;
+}
+
+.blog-post img {
+    max-width: 80%;
+    height: auto;
+    margin: 2rem auto;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.blog-post ul, .blog-post ol {
+    margin: 1rem 0;
+    padding-left: 2rem;
+}
+
+.blog-post li {
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
+}
+
+.blog-post a {
+    color: #003262;
+    text-decoration: underline;
+}
+
+.blog-post a:hover {
+    color: #FDB515;
+}
+
+.blog-post code {
+    background-color: #f4f4f4;
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9em;
+}
+
+.blog-post pre {
+    background-color: #f4f4f4;
+    padding: 1rem;
+    border-radius: 5px;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+}
+
+.blog-post pre code {
+    background-color: transparent;
+    padding: 0;
+}
+
+.blog-post blockquote {
+    border-left: 4px solid #FDB515;
+    padding-left: 1.5rem;
+    margin: 1.5rem 0;
+    color: #555;
+    font-style: italic;
+}
+
+.blog-post .author-info {
+    font-size: 1rem;
+    color: #666;
+    margin: 1rem 0 2rem;
+    line-height: 1.6;
+}
+
+.blog-post .metadata {
+    font-size: 0.95rem;
+    color: #888;
+    margin: 1rem 0;
+    padding: 1rem;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+}
+
+.blog-post .cover-image {
+    width: 100%;
+    max-width: 100%;
+    object-fit: cover;
+    /* margin: 2rem 0; */
+    border-radius: 8px;
+}
+
+.blog-post strong {
+    font-weight: 600;
+    color: #000;
+}
+</style>
+
+<script async src="https://siteimproveanalytics.com/js/siteanalyze_6294756.js"></script>
+</body>
+</html>
+
