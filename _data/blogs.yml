@@ -1,3 +1,10 @@
+- link: /blog/rl-grokking-recipe
+  img: /assets/images/blog/grokking_cover.png
+  title: "RL Grokking Recipe: How Can We Enable LLMs to Solve Previously Unsolvable Tasks with RL?"
+  date: "2025-09-21"
+  description: "Discover how reinforcement learning can teach large language models new algorithms through a two-phase reward schedule, achieving grokking-like phase transitions in synthetic programming tasks."
+  category: "main"
+
 - link: /blog/agentic-ai-summit-2025
   img: /assets/images/events/AgenticAISummitNEW.jpg
   title: "Agentic AI Summit 2025"

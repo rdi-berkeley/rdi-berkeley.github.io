@@ -149,6 +149,81 @@ Go to `/_data/publication.yml` and add a new entry at the **top** of the file (m
     - "AI for Cybersecurity"
     - "Agentic AI Applications"
 ```
+
+### How to Add/Update Blog Posts
+
+There are two ways to add blog posts depending on the format:
+
+#### Option 1: Markdown Blog Post (Recommended)
+
+1. **Create the blog post file**: Go to the `/blog` folder and create a new file with the format `blog-title.md` (ex. `rl-grokking-recipe.md`).
+
+2. **Add front matter and content**: At the top of the file, add the Jekyll front matter, then write your blog content in Markdown:
+
+   ```markdown
+   ---
+   layout: blog
+   title: "Your Blog Post Title"
+   ---
+
+   <img src="/assets/images/blog/your-cover-image.png" alt="Cover Image" class="cover-image" style="height: 300px">
+
+   # Your Blog Post Title
+
+   <div class="author-info">
+   <strong>Author Name¹, Co-Author²</strong><br>
+   ¹ University · ² Institution
+   </div>
+
+   <div class="metadata">
+   <strong>💡 Summary:</strong> Brief description of the blog post.
+   <br><br>
+   <strong>Link:</strong> <a href="https://example.com" target="_blank">https://example.com</a>
+   <br><br>
+   <em>(Est. reading time)</em>
+   </div>
+
+   ## Your Content Here
+
+   Write your blog post content using Markdown...
+   ```
+
+3. **Upload images**: If your blog includes images, upload them to `/assets/images/blog/` folder. Reference them in your markdown as `/assets/images/blog/image-name.png`.
+
+4. **Add to the blogs listing**: Go to `/_data/blogs.yml` and add a new entry at the **top** of the file (most recent first):
+
+   ```yaml
+   - link: /blog/your-blog-title
+     img: /assets/images/blog/your-cover-image.png
+     title: "Your Blog Post Title"
+     date: "2025-MM-DD"
+     description: "A brief description of your blog post that appears on the blogs page."
+     category: "main"
+   ```
+
+#### Option 2: HTML Blog Post (For Newsletter/Email Templates)
+
+1. **Create the blog post file**: Go to the `/blog` folder and create a new file with the format `blog-title.html` (ex. `agentic-ai-summit-2025.html`).
+
+2. **Add your HTML content**: Paste your complete HTML content (this works well for converted email newsletters or richly formatted content).
+
+3. **Add to the blogs listing**: Same as Option 1 - go to `/_data/blogs.yml` and add the entry:
+
+   ```yaml
+   - link: /blog/your-blog-title
+     img: /assets/images/blog/your-cover-image.png
+     title: "Your Blog Post Title"
+     date: "2025-MM-DD"
+     description: "A brief description of your blog post."
+     category: "main"
+   ```
+
+#### Notes:
+- Blog posts appear on the `/blog` page automatically when added to `blogs.yml` with `category: "main"`
+- Images on the blog listing page are displayed at 60% width with rounded corners and hover effects
+- The blog post itself (when opened) uses the full content width with proper styling
+- More recent blog posts (by date) should be added at the top of `blogs.yml`
+
 ### Other changes
 
 Please contact xiaoyuanliu \<AT\> berkeley \<DOT\> edu for further support.
