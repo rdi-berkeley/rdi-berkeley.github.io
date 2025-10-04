@@ -11,7 +11,7 @@ layout: blog-listing
             <div class="relative w-full" style="padding-bottom: 100%;">
                 <div class="absolute inset-0 bg-white rounded-lg shadow hover:shadow-xl transition-shadow duration-300 overflow-hidden flex flex-col">
                     <div class="relative overflow-hidden bg-gray-100" style="height: 70%;">
-                        <img alt="{{ row.title }}" src="{{ row.img }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <img alt="{{ row.title }}" src="{{ row.img }}" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-4 flex flex-col justify-center" style="height: 30%;">
                         <h3 class="font-semibold text-sm text-gray-900 mb-1 line-clamp-2 group-hover:text-blue-600 transition-colors">{{ row.title }}</h3>
