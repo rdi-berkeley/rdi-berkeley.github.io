@@ -1,5 +1,5 @@
 - link: /blog/rl-grokking-recipe
-  img: /assets/images/blog/grokking_cover.png
+  img: /assets/images/blog/grokking_cover_thumb.png
   title: "RL Grokking Recipe: How Can We Enable LLMs to Solve Previously Unsolvable Tasks with RL?"
   date: "2025-10-02"
   description: "Discover how reinforcement learning can teach large language models new algorithms through a two-phase reward schedule, achieving grokking-like phase transitions in synthetic programming tasks."
