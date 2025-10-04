@@ -4,10 +4,20 @@ layout: blog-listing
 
 {% assign blogs = site.data.blogs | where: "category", "main" %}
 
-<div style="max-width: 60%; margin: 0 auto;">
-    {% for row in blogs %}
-    <a href="{{ row.link }}" aria-label="Blog">
-        <img alt="Blog Banner" src="{{ row.img }}" style="width: 100%; margin-top: 0.5rem; margin-bottom: 0.5rem; border-radius: 0.5rem; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 12px rgba(0, 0, 0, 0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 6px rgba(0, 0, 0, 0.1)';">
-    </a>
-    {% endfor %}
+<div class="max-w-6xl mx-auto px-6 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {% for row in blogs %}
+        <a href="{{ row.link }}" class="group block">
+            <div class="bg-white rounded-lg shadow hover:shadow-xl transition-shadow duration-300">
+                <div class="aspect-square overflow-hidden rounded-t-lg bg-gray-100">
+                    <img alt="{{ row.title }}" src="{{ row.img }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                </div>
+                <div class="p-5">
+                    <h3 class="font-semibold text-lg text-gray-900 mb-2 line-clamp-2 group-hover:text-blue-600 transition-colors">{{ row.title }}</h3>
+                    <p class="text-sm text-gray-500">{{ row.date | date: "%B %d, %Y" }}</p>
+                </div>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
 </div>
