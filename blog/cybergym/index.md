@@ -26,10 +26,14 @@ October 8, 2025
 
 We introduce <strong>CyberGym, a large-scale benchmark
 featuring 1,507 real-world vulnerabilities across 188 software projects</strong>.
-On CyberGym, even the top-performing combinations only achieve a ∼20% success rate.
+On CyberGym, even the top-performing agents (in our evaluation) only achieve a ∼20% success rate.
 Beyond static benchmarking,
 we show that CyberGym leads to the <strong>discovery of 35 zero-day vulnerabilities and
 17 historically incomplete patches</strong>, highlighting that frontier AIs are reshaping the cybersecurity landscape.
+
+CyberGym has been used in 
+<a href="https://red.anthropic.com/2025/ai-for-cyber-defenders/">Anthropic's latest report</a> evaluating Claude-Sonnet-4.5's cybersecurity capabilities.
+In the evaluation, Claude-Sonnet-4.5 achieved a **28.9% success rate** in a single run, which increased to **66.7% with 30 trials**.
 
 ## Benchmark Construction
 
