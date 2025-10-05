@@ -107,7 +107,7 @@ We compare thinking and non-thinking modes on a randomly selected subset of 300 
 
 ### Different Agents Show Distinctive Behaviors Despite Similar Success Rates
 
-We evaluate two general-purpose coding agents, OpenHands and OpenAI Codex CLI, alongside two cybersecurity agents for solving CTF problems, EnIGMA and Cybench agent~\citep{cybench}.
+We evaluate two general-purpose coding agents, OpenHands and OpenAI Codex CLI, alongside two cybersecurity agents for solving CTF problems, EnIGMA and Cybench agent.
 We use GPT-4.1 as the backbone LLM, because it achieves a strong balance between cost, rate limits, and success rates.
 
 It shows that all four agents achieve similar success rates overall.
