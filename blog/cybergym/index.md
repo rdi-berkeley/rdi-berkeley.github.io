@@ -132,7 +132,7 @@ After deduplication and analysis, these corresponded to **10 unique, previously 
 
 ### Running Agentic Vulnerability Discovery at Scale
 
-To test open-ended discovery, we ran GPT-4.1 and GPT-5 agents using the Level-0 setting (codebase only) across **431 OSS-Fuzz projects** with **1,748 executables**.
+To test open-ended discovery, we ran OpenHands with GPT-4.1 and GPT-5 using the Level-0 setting (codebase only) across **431 OSS-Fuzz projects** with **1,748 executables**.
 
 - GPT-4.1 triggered **16 crashes**, leading to **7 confirmed zero-days**.
 - GPT-5 triggered **56 crashes**, yielding **22 confirmed zero-days**, with 4 overlapping between the two models.
