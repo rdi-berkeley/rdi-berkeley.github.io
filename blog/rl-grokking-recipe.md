@@ -153,8 +153,8 @@ Coding is the perfect RL beachhead: unit tests give cheap, precise, fine-grained
 If you find this blog useful, we would appreciate it if you could cite our work:
 
 ```
-@misc{sun2025deltacode,
-  title = {DELTA-Code: How Does RL Unlock and Transfer New Programming Algorithms in LLMs?},
+@misc{sun2025rlgrok,
+  title = {RL Grokking Recipe: How Does RL Unlock and Transfer New Algorithms in LLMs?},
   author = {Yiyou Sun and Yuhan Cao and Pohao Huang and Haoyue Bai and Hannaneh Hajishirzi and Nouha Dziri and Dawn Song},
   year = {2025},
   month = {sep},
