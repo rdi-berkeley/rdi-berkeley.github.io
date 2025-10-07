@@ -383,3 +383,48 @@ Follow on X/Twitter →
 </div>
 </div>
 </section>
+
+<!-- Footer with Keywords -->
+<footer class="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 py-24">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Keywords with Bullet Points -->
+    <div class="mb-12 text-center">
+      <div class="flex flex-wrap justify-center items-center gap-4 mb-8">
+        <h3 class="text-4xl lg:text-6xl font-black text-gray-600 select-none">OPEN</h3>
+        <span class="text-3xl lg:text-5xl text-gray-700">•</span>
+        <h3 class="text-4xl lg:text-6xl font-black text-gray-600 select-none">TRANSPARENT</h3>
+        <span class="text-3xl lg:text-5xl text-gray-700">•</span>
+        <h3 class="text-4xl lg:text-6xl font-black text-gray-600 select-none">REPRODUCIBLE</h3>
+        <span class="text-3xl lg:text-5xl text-gray-700">•</span>
+        <h3 class="text-4xl lg:text-6xl font-black text-gray-600 select-none">COMMUNITY-DRIVEN</h3>
+      </div>
+      <!-- Secondary Keywords -->
+      <div class="flex flex-wrap justify-center items-center gap-3">
+        <h4 class="text-xl lg:text-2xl font-bold text-gray-500 select-none">STANDARDIZED</h4>
+        <span class="text-xl lg:text-2xl text-gray-600">•</span>
+        <h4 class="text-xl lg:text-2xl font-bold text-gray-500 select-none">VERIFIED</h4>
+        <span class="text-xl lg:text-2xl text-gray-600">•</span>
+        <h4 class="text-xl lg:text-2xl font-bold text-gray-500 select-none">CONTROLLED</h4>
+        <span class="text-xl lg:text-2xl text-gray-600">•</span>
+        <h4 class="text-xl lg:text-2xl font-bold text-gray-500 select-none">LIVING</h4>
+      </div>
+    </div>
+    <!-- Separator -->
+    <div class="border-t border-gray-700 pt-8">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <!-- Navigation -->
+        <nav class="flex flex-wrap justify-center md:justify-start gap-8 mb-6 md:mb-0">
+          <a href="#" class="text-gray-400 hover:text-gray-300 font-medium"> Docs </a>
+          <a href="https://github.com/agentbeats/agentbeats" class="text-gray-400 hover:text-gray-300 font-medium">
+            GitHub
+          </a>
+          <a href="#" class="text-gray-400 hover:text-gray-300 font-medium"> Leaderboards </a>
+          <a href="#" class="text-gray-400 hover:text-gray-300 font-medium"> Contact </a>
+          <a href="#" class="text-gray-400 hover:text-gray-300 font-medium"> References </a>
+        </nav>
+        <!-- Copyright -->
+        <div class="text-gray-500 text-sm">© AgentBeats</div>
+      </div>
+    </div>
+  </div>
+</footer>
