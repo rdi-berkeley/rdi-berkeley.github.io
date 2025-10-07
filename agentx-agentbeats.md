@@ -1,70 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <title>AgentX - AgentBeats Competition</title>
-  <meta name="description" content="The Largest Open Competition for LLM-based Agents. Join 32,000+ builders, engineers, researchers, and AI enthusiasts.">
-  <meta name="keywords" content="">
-  <meta name="viewport" content="width=1040">
-  <link rel="preconnect" href="https://fonts.googleapis.com/">
-  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&amp;display=swap" rel="stylesheet">
-  <link href="/assets/css/css2" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
-  <script src="/assets/js/61c2f15e92f56eaa354c18452db280ac.js"></script>
-  <link rel="stylesheet" href="/assets/css/style.css">
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      new Splide('.splide').mount();
-    });
-  </script>
-  <script async src="https://siteimproveanalytics.com/js/siteanalyze_6294756.js"></script>
-</head>
-<body data-new-gr-c-s-check-loaded="14.1034.0" data-gr-ext-installed="">
-<!-- RDI Header -->
-<div class="constraint">
-    <div id="header">
-        <div id="logo-container" style="padding: 1rem;">
-            <a href="/" aria-label="Berkeley Center for RDI Logo">
-                <img src="/assets/images/Berkeley Center for RDI Logo.png" id="logo" aria-label="Berkeley Center for RDI Logo">
-            </a>
-        </div>
-        <div id="nav-container">
-            <div id="nav-links" style="font-size: 11pt; vertical-align: middle;">
-                <a href="/" class="nav-url">
-                    Home
-                </a>
-                <span class="seperator">|</span>
-                <a href="/research" class="nav-url">
-                    Research
-                </a>
-                <span class="seperator">|</span>
-                <a href="/people" class="nav-url">
-                    People
-                </a>
-                <span class="seperator">|</span>
-                <a href="/education" class="nav-url">
-                    Education
-                </a>
-                <span class="seperator">|</span>
-                <a href="/connectandlearn" class="nav-url">
-                    Connect/Learn
-                </a>
-                <span class="seperator">|</span>
-                <a href="/events" class="nav-url">
-                    Events
-                </a>
-                <span class="seperator">|</span>
-                <a href="https://twitter.com/BerkeleyRDI?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @BerkeleyRDI</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- End RDI Header -->
+---
+layout: agentx
+---
 
-<div class="features-wrapper constraint">
-
-<main class="bg-white text-gray-800">
 <!-- Header -->
 <header class="relative overflow-hidden bg-slate-950 text-white">
 <div class="absolute inset-0">
@@ -84,6 +21,7 @@ The Largest Open Competition for LLM-based Agents
 </div>
 </div>
 </header>
+
 <!-- The Challenge Section -->
 <section class="py-20 bg-white">
 <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -140,6 +78,7 @@ still lacks trusted metrics and reproducible measures for evaluating agent
 </div>
 </div>
 </section>
+
 <!-- Competition Announcement Section -->
 <section class="relative py-20 overflow-hidden bg-slate-950 text-white">
 <div class="absolute inset-0">
@@ -182,6 +121,7 @@ Using open protocols (MCP & A2A) with rich simulation environments, detailed tra
 </div>
 </div>
 </section>
+
 <!-- Two Agent Types Section -->
 <section class="py-20 bg-slate-50">
 <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -262,6 +202,7 @@ Prove your agent's capabilities in real-world scenarios.
 </div>
 </div>
 </section>
+
 <!-- Real-World Challenges Section -->
 <section class="relative py-20 overflow-hidden bg-slate-950 text-white">
 <div class="absolute inset-0">
@@ -316,6 +257,7 @@ Detect, analyze, and respond to security threats in simulated enterprise environ
 </div>
 </div>
 </section>
+
 <!-- Prizes & Timeline Section -->
 <section class="py-20 bg-white">
 <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -338,12 +280,12 @@ Phase 1:<br>🟢 Green Agent Development
 <ol class="border-l border-emerald-200 space-y-8">
 <li class="relative pl-10">
 <div class="absolute -left-3 top-1 w-6 h-6 bg-green-500 rounded-full border-4 border-white shadow-md"></div>
-<p class="font-bold text-gray-800">October 15, 2025</p>
+<p class="font-bold text-gray-800">October 6, 2025</p>
 <p class="text-gray-600">Competition launches, team formation begins</p>
 </li>
 <li class="relative pl-10">
 <div class="absolute -left-3 top-1 w-6 h-6 bg-green-500 rounded-full border-4 border-white shadow-md"></div>
-<p class="font-bold text-gray-800">October 15 - December 12</p>
+<p class="font-bold text-gray-800">October 6 - December 12</p>
 <p class="text-gray-600">Build your green agent</p>
 </li>
 <li class="relative pl-10">
@@ -385,6 +327,7 @@ Phase 2:<br>⚪ White Agent Competition
 </div>
 </div>
 </section>
+
 <!-- Get Ready to Build Section -->
 <section class="py-20 bg-slate-50">
 <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -439,38 +382,3 @@ Follow on X/Twitter →
 </div>
 </div>
 </section>
-</main>
-
-<!-- RDI Footer -->
-<div id="bottom">
-    <div id="bottom-navs">
-        <a class="footer-nav" href="/">Home</a>
-        <span class="bottom-seperator">|</span>
-        <a class="footer-nav" href="/research">Research</a>
-        <span class="bottom-seperator">|</span>
-        <a class="footer-nav" href="/people">People</a>
-        <span class="bottom-seperator">|</span>
-        <a class="footer-nav" href="/education">Education</a>
-        <span class="bottom-seperator">|</span>
-        <a class="footer-nav" href="/events">Events</a>
-        <span class="bottom-seperator">|</span>
-        <a class="footer-nav" href="/metaverse">Metaverse</a>
-    </div>
-    <div id="footer">
-        <div id="footer-text-container">
-            <p class="footer-text">
-                For general inquiries, <a class="footer-text" href="mailto:rdi@berkeley.edu">reach us by
-                    email.</a>
-            </p>
-            <p class="footer-text">
-                Copyright © 2025 UC Regents; all rights reserved
-            </p>
-        </div>
-    </div>
-</div>
-<!-- End RDI Footer -->
-
-</div>
-
-</body>
-</html>
