@@ -1,5 +1,6 @@
 ---
 layout: agentx
+permalink: /agentx-agentbeats-draft
 ---
 
 <!-- Header -->
