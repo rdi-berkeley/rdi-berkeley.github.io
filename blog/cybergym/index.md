@@ -25,7 +25,7 @@ October 8, 2025
 ## Summary
 
 We introduce <strong>CyberGym, a large-scale benchmark
-featuring 1,507 real-world vulnerabilities across 188 popular and large-scale open-source projects</strong>.
+featuring 1,507 real-world vulnerabilities across 188 widely distributed and large-scale open-source projects</strong>.
 On CyberGym, even the top-performing agents (in our evaluation) only achieve a ∼20% success rate.
 Beyond static benchmarking,
 we show that CyberGym leads to the <strong>discovery of 35 zero-day vulnerabilities and
