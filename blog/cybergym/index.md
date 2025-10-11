@@ -29,7 +29,7 @@ To address these questions, we introduce **CyberGym: a large-scale benchmark fea
 
 <img src="time_vs_success.png" alt="Success" class="content-image" style="height: 400px; padding: 10px;">
 
-Our evaluation reveals both the challenge and rapid progress in this domain. Top-performing agents currently achieve only ~20% success rates on CyberGym, showing substantial room for improvement. Yet the pace of advancement is striking: models have progressed from 10% to 30% success rates across recent iterations.
+Our evaluation reveals both the challenge and rapid progress in this domain. Top-performing agents currently achieve only ~30% success rates on CyberGym, showing substantial room for improvement. Yet the pace of advancement is striking: models have progressed from 10% to 30% success rates across recent iterations.
 Beyond static benchmarking, we demonstrate AI's practical security impact: agents in our work autonomously **discovered 35 zero-day vulnerabilities and 17 historically incomplete patches**, confirming that AI can now find vulnerabilities at scale. This makes strengthening preparedness for AI's impact on security essential.
 
 CyberGym provides a systematic framework to track these evolving capabilities, enabling organizations to understand and prepare for AI-driven shifts in cybersecurity.
