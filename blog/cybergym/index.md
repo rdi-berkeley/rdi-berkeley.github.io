@@ -22,20 +22,22 @@ October 8, 2025
 <em>(Est. 3-5 minutes read, more details in <a href="https://cybergym.io" target="_blank">https://cybergym.io</a>)</em>
 </div>
 
-## Summary
 
-We introduce <strong>CyberGym, a large-scale benchmark
-featuring 1,507 real-world vulnerabilities across 188 widely distributed and large-scale open-source projects</strong>.
-On CyberGym, even the top-performing agents (in our evaluation) only achieve a ∼20% success rate.
-Beyond static benchmarking,
-we show that CyberGym leads to the <strong>discovery of 35 zero-day vulnerabilities and
-17 historically incomplete patches</strong>, highlighting that frontier AIs are reshaping the cybersecurity landscape.
+*How do we measure frontier AI's real impact on cybersecurity? How can we systematically evaluate AI agents on actual vulnerabilities, not just toy problems?*
 
-CyberGym has been used by Anthropic in 
-<a href="https://assets.anthropic.com/m/12f214efcc2f457a/original/Claude-Sonnet-4-5-System-Card.pdf">Claude-Sonnet-4.1's system card</a> and <a href="https://red.anthropic.com/2025/ai-for-cyber-defenders/">report</a> evaluating Claude-Sonnet-4.5's cybersecurity capabilities.
-In the evaluation, Claude-Sonnet-4.5 achieved a **28.9% success rate** in a single run, which increased to **66.7% with 30 trials**.
+To address these questions, we introduce **CyberGym: a large-scale benchmark featuring 1,507 real-world vulnerabilities across 188 widely-used open-source projects**. Unlike coding and educational cybersecurity benchmarks, CyberGym tests AI systems on actual vulnerabilities from production software like OpenSSL and FFmpeg, enabling execution-based, objective evaluation at unprecedented scale (7.5× larger than previous benchmarks).
 
 <img src="time_vs_success.png" alt="Success" class="content-image" style="height: 400px; padding: 10px;">
+
+Our evaluation reveals both the challenge and rapid progress in this domain. Top-performing agents currently achieve only ~20% success rates on CyberGym, showing substantial room for improvement. Yet the pace of advancement is striking: models have progressed from 10% to 30% success rates across recent iterations.
+Beyond static benchmarking, we demonstrate AI's practical security impact: agents in our work autonomously **discovered 35 zero-day vulnerabilities and 17 historically incomplete patches**, confirming that AI can now find vulnerabilities at scale. This makes strengthening preparedness for AI's impact on security essential.
+
+CyberGym provides a systematic framework to track these evolving capabilities, enabling organizations to understand and prepare for AI-driven shifts in cybersecurity.
+Anthropic has used CyberGym in 
+<a href="https://assets.anthropic.com/m/12f214efcc2f457a/original/Claude-Sonnet-4-5-System-Card.pdf">Claude-Sonnet-4.5's system card</a> and <a href="https://red.anthropic.com/2025/ai-for-cyber-defenders/">report</a> evaluating Claude-Sonnet-4.5's cybersecurity capabilities.
+In the evaluation, Claude-Sonnet-4.5 achieved a **28.9% success rate** in a single run, which increased to **66.7% with 30 trials**.
+
+However, we must recognize the dual-use nature of these capabilities. While frontier AI can empower defenders to find and remediate vulnerabilities at scale, the same tools could be misused. As AI continues to transform the security landscape, proactive evaluation, responsible disclosure, and staying ahead of emerging risks become critical imperatives.
 
 For further context, explore our companion works:
 
