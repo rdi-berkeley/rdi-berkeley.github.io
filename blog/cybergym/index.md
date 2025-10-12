@@ -23,13 +23,13 @@ October 8, 2025
 </div>
 
 
-*How do we measure frontier AI's real impact on cybersecurity? How can we systematically evaluate AI agents on actual vulnerabilities, not just toy problems?*
+*How do we assess and track  frontier AI's  impact on cybersecurity? How can we systematically evaluate AI agents’ capabilities on real-world  vulnerabilities, not just toy problems?*
 
 To address these questions, we introduce **CyberGym: a large-scale benchmark featuring 1,507 real-world vulnerabilities across 188 widely-used open-source projects**. Unlike coding and educational cybersecurity benchmarks, CyberGym tests AI systems on actual vulnerabilities from production software like OpenSSL and FFmpeg, enabling execution-based, objective evaluation at unprecedented scale (7.5× larger than previous benchmarks).
 
 <img src="time_vs_success.png" alt="Success" class="content-image" style="height: 400px; padding: 10px;">
 
-Our evaluation reveals both the  rapid progress in this domain. Top-performing agents currently already achieve ~30% success rates with a single trial on CyberGym, and achieve ~67% success rate with 30 trials.  In addition, the pace of advancement is striking: models have progressed from 10% to 30% success rates (with a single trial) across recent iterations.
+Our evaluation reveals   rapid progress in this domain. Top-performing agents currently already achieve ~30% success rates with a single trial on CyberGym, and achieve ~67% success rate with 30 trials.  In addition, the pace of advancement is striking: models have progressed from 10% to 30% success rates (with a single trial) across recent iterations (as shown in the figure above).
 Beyond static benchmarking, we demonstrate AI's practical security impact: agents in our work autonomously **discovered 35 zero-day vulnerabilities and 17 historically incomplete patches**, confirming that AI can now find vulnerabilities at scale. This makes strengthening preparedness for AI's impact on security essential.
 
 CyberGym provides a systematic framework to track these evolving capabilities, enabling organizations to understand and prepare for AI-driven shifts in cybersecurity.
