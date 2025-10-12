@@ -29,7 +29,7 @@ To address these questions, we introduce **CyberGym: a large-scale benchmark fea
 
 <img src="time_vs_success.png" alt="Success" class="content-image" style="height: 400px; padding: 10px;">
 
-Our evaluation reveals both the challenge and rapid progress in this domain. Top-performing agents currently achieve only ~30% success rates on CyberGym, showing substantial room for improvement. Yet the pace of advancement is striking: models have progressed from 10% to 30% success rates across recent iterations.
+Our evaluation reveals both the  rapid progress in this domain. Top-performing agents currently already achieve ~30% success rates with a single trial on CyberGym, and achieve ~67% success rate with 30 trials.  In addition, the pace of advancement is striking: models have progressed from 10% to 30% success rates (with a single trial) across recent iterations.
 Beyond static benchmarking, we demonstrate AI's practical security impact: agents in our work autonomously **discovered 35 zero-day vulnerabilities and 17 historically incomplete patches**, confirming that AI can now find vulnerabilities at scale. This makes strengthening preparedness for AI's impact on security essential.
 
 CyberGym provides a systematic framework to track these evolving capabilities, enabling organizations to understand and prepare for AI-driven shifts in cybersecurity.
@@ -37,7 +37,7 @@ Anthropic has used CyberGym in
 <a href="https://assets.anthropic.com/m/12f214efcc2f457a/original/Claude-Sonnet-4-5-System-Card.pdf">Claude-Sonnet-4.5's system card</a> and <a href="https://red.anthropic.com/2025/ai-for-cyber-defenders/">report</a> evaluating Claude-Sonnet-4.5's cybersecurity capabilities.
 In the evaluation, Claude-Sonnet-4.5 achieved a **28.9% success rate** in a single run, which increased to **66.7% with 30 trials**.
 
-However, we must recognize the dual-use nature of these capabilities. While frontier AI can empower defenders to find and remediate vulnerabilities at scale, the same tools could be misused. As AI continues to transform the security landscape, proactive evaluation, responsible disclosure, and staying ahead of emerging risks become critical imperatives.
+ We must recognize the dual-use nature of these capabilities. While frontier AI can empower defenders to find and remediate vulnerabilities at scale, the same tools could be misused. As AI continues to transform the security landscape, proactive evaluation, responsible disclosure, and staying ahead of emerging risks become critical imperatives.
 
 For further context, explore our companion works:
 
