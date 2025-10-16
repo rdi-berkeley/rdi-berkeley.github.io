@@ -373,7 +373,8 @@
         </div>
         <div class="cta-row">
           <a class="btn btn-primary" href="https://forms.gle/NHE8wYVgS6iJLwRj8" target="_blank" rel="noopener">Sign Up</a>
-          <a class="btn btn-econdary" href="https://agenticai-learning.org/f25" target="_blank" rel="noopener">Join the MOOC</a>
+          <a class="btn btn-secondary" href="https://agenticai-learning.org/f25" target="_blank" rel="noopener">Join the MOOC</a>
+          <a class="btn" href="https://discord.gg/uqZUta3MYa" target="_blank" rel="noopener">Join Discord</a>
         </div>
     </section>
 
@@ -381,19 +382,16 @@
       <div class="container">
         <h2 class="section-title">The Importance of AI Evaluation</h2>
         <p>Whether you’re building AI systems, integrating them into applications, or simply using AI products, a central question arises: <strong>how do we know if an AI model is truly doing the right thing?</strong></p>
-        <p>The only reliable answer is through <strong>evaluation</strong>—testing performance on well-defined benchmarks.</p>
-        <p>Everyone, from casual users to leading researchers, relies on benchmarks in some form.</p>
-        <p>Users often have informal, personal “tests” for new systems, while the research community depends on formal benchmarks that include diverse tasks, evaluation frameworks, and public leaderboards.</p>
-        <p>Each benchmark effectively sets a <strong>goalpost</strong>—shaping our shared expectations for what AI can and should do next.</p>
-        <p>Yet, as AI evolves toward <strong>agentic systems</strong>—AI agents capable of reasoning, taking actions, and interacting with the world—our current benchmarking methods fall short:</p>
+        <p>The only reliable answer is through <strong>evaluation</strong>—testing performance on well-defined benchmarks.
+        <p>Each benchmark effectively sets a <strong>goalpost</strong>—shaping our shared expectations for what AI can and should do next.
+        Yet, as AI evolves toward <strong>agentic systems</strong>—AI agents capable of reasoning, taking actions, and interacting with the world—our current benchmarking methods for simple LLM-only systems fall short:</p>
         <ul>
-          <li><strong>Compatibility:</strong> Running a production-grade agent on existing benchmarks often feels like forcing a square peg into a round hole. Substantial modifications are needed just to make it fit.</li>
+          <li><strong>Interoperability:</strong> Running a production-grade agent on existing benchmarks often feels like forcing a square peg into a round hole. Substantial modifications are needed just to make it fit.</li>
           <li><strong>Reproducibility:</strong> Stateful tools, memory, and dynamic configurations lead to results that can vary across runs, undermining consistency.</li>
           <li><strong>Fragmentation:</strong> There’s no single, unified view of progress—leaderboards and results are scattered across platforms and domains.</li>
           <li><strong>Discovery:</strong> With new benchmarks appearing almost weekly, finding the right one for a given goal can be surprisingly time-consuming.</li>
         </ul>
-        <p>As AI agents become more capable, solving these evaluation challenges is essential to understanding—and responsibly advancing—the true state of AI progress.</p>
-        <p><strong>A Vision for Agentic AI Evaluation</strong></p>
+        <h3 class="section-subtitle">A Vision for Streamlined Agentic AI Evaluation</h3>
         <p>A unified space where the community can come together to define the goalposts of agentic AI—through benchmarks that are:</p>
         <ul>
           <li><strong>Compatible:</strong> Any agent can connect to any benchmark with near-zero code changes.</li>
@@ -407,29 +405,14 @@
       <div class="container">
         <h2 class="section-title">Introducing AgentBeats</h2>
         <p>To realize this vision, we are introducing <strong>AgentBeats</strong>, an open-source platform and a new paradigm for evaluating AI agents. Rather than asking you to adapt your agent to fit a rigid benchmark, AgentBeats flips the model on its head: <strong>we turn the benchmark itself into an agent.</strong></p>
-        <p>This core idea, which we call "agentifying the assessment," is what makes AgentBeats uniquely powerful. It resolves the fundamental challenges of compatibility and reproducibility by creating a standardized, dynamic ecosystem. Here&rsquo;s how it works:</p>
-        <h3 class="section-subtitle">The Two Types of Agents on the Platform</h3>
-        <p>In the AgentBeats world, there are two key roles. Understanding them is key to understanding the competition.</p>
-        <p><strong>1. Green Agents: The Benchmark Orchestrators</strong> 🟢</p>
-        <p>A <strong>green agent</strong> <em>is</em> the benchmark. Think of it as the proctor, the judge, and the environment manager all rolled into one. When you build a green agent, you are not just defining a set of tasks; you are creating a fully automated evaluation system with several key responsibilities:</p>
-        <ul>
-          <li><strong>Defines the Task:</strong> It holds the dataset or logic for generating problems (e.g., "Find the cheapest flight from SFO to JFK," or "Refactor this Python code to be more efficient").</li>
-          <li><strong>Prepares the Environment:</strong> It sets up any necessary tools, APIs, or simulated environments that the agent being tested will need to interact with.</li>
-          <li><strong>Orchestrates the Test:</strong> It sends the task to the agent being tested, monitors its progress, and manages the interaction from start to finish.</li>
-          <li><strong>Scores the Performance:</strong> It automatically checks the final output or system state against a ground truth, calculates metrics (like accuracy, speed, or cost), and reports the final score.</li>
-        </ul>
-        <p>By encapsulating all this logic into a single, self-contained agent, we create a benchmark that is portable, automated, and completely self-sufficient.</p>
-        <p><strong>2. Purple Agents: The Agents Being Tested</strong> 🟣</p>
-        <p>A <strong>purple agent</strong> is simply your agent&mdash;the system you've built to accomplish tasks. It could be a coding assistant, a research tool, a personal planner, or anything in between. The crucial difference is that on AgentBeats, your purple agent doesn't need to know the internal details of any specific benchmark.</p>
-        <p>How is this possible? All communication on the platform happens through a standardized, open-source "language" for agents called the <strong>A2A (Agent-to-Agent) Protocol</strong>. This protocol defines a simple, universal way for any agent to receive a task and report back its results. It&rsquo;s like having a universal USB port for AI agents: as long as your agent speaks this common language, it can plug into any green agent and be evaluated instantly, without requiring any custom code changes.</p>
+        <p>A 🟢 <strong>green (or evaluator) agent</strong> provides a specific agent evaluation benchmark including the environment, a set of tasks, and the evaluator. Think of it as the proctor, the judge, and the environment manager all rolled into one. When you build a green agent, you are not just defining a set of tasks; you are creating a fully automated evaluation system.</p>
+        <p>A 🟣 <strong>purple (or competing) agent</strong> is the agent under test such as a coding assistant, a research agent, or a personal planner agent. The purple agent will interact with the green agent to demonstrate its abilities.</p>
         <h3 class="section-subtitle">How AgentBeats Solves the Big Problems</h3>
-        <p>This two-agent architecture directly addresses the challenges outlined in our vision:</p>
         <ul>
-          <li><strong>Solving Compatibility:</strong> With the A2A protocol as the universal interface, the "square peg in a round hole" problem disappears. You build your purple agent once, and it can be tested by any green agent on the platform&mdash;whether it's evaluating coding, web browsing, or scientific reasoning.</li>
-          <li><strong>Ensuring Reproducibility:</strong> The green agent, orchestrated by the platform, controls the entire testing lifecycle. Before each evaluation run, the platform ensures the purple agent is reset to a clean state. This controlled process eliminates the randomness from stateful tools and memory, making results fair, consistent, and scientifically valid.</li>
-          <li><strong>Creating a Unified &amp; Discoverable Hub:</strong> AgentBeats isn't just a protocol; it's a central platform where all green agents (benchmarks) and their leaderboards can live. This creates a single, dynamic hub for the entire community. Developers can easily find relevant benchmarks, and researchers can get a clear, comprehensive overview of the state-of-the-art across all agent capabilities.</li>
+          <li><strong>Solving Interoperability:</strong> With the A2A protocol as the universal interface, you build your A2A-compatible purple agent once, and it can be tested by any green agent on the platform.</li>
+          <li><strong>Ensuring Reproducibility:</strong> The green agent, orchestrated by the platform, controls the entire testing lifecycle. Before each evaluation run, the platform ensures the purple agent is reset to a clean state.</li>
+          <li><strong>Creating a Unified &amp; Discoverable Hub:</strong> AgentBeats isn't just a protocol; it's a central platform where all green agents (benchmarks) and their leaderboards can live. This creates a single, dynamic hub for the entire community.</li>
         </ul>
-        <p>In this competition, you will be on the ground floor of building this future. In <strong>Phase 1</strong>, you will step into the role of an evaluator by creating innovative <strong>green agents</strong>. In <strong>Phase 2</strong>, you will build powerful <strong>purple agents</strong> and compete on the very benchmarks you and your peers created.</p>
       </div>
     </section>
 
@@ -439,8 +422,8 @@
         <ul class="phase-list">
           <li class="phase-item">
             <h3>Phase 1 · Green</h3>
-            <p class="phase-dates">Oct 15 to Dec 20, 2025</p>
-            <p>Everyone builds green agents that define assessments, automate scoring, and keep results reproducible.</p>
+            <p class="phase-dates">Oct 16 to Dec 20, 2025</p>
+            <p>Participants build green agents that define assessments, automate scoring, and keep results reproducible.</p>
             <h4>Two ways to compete</h4>
             <ul>
               <li><strong>Track 1: Agentify an existing benchmark</strong> — Transform a benchmark into a green agent that runs end-to-end on AgentBeats (<a href="https://docs.google.com/spreadsheets/d/1PDkqgGEsu4IFmD4Wvjh6A9-3t-zzN7V16i9F559DzeI/edit?gid=0#gid=0" target="_blank" rel="noopener">see benchmark ideas</a>).</li>
@@ -455,7 +438,8 @@
         </ul>
         <div class="cta-row">
           <a class="btn btn-primary" href="https://forms.gle/NHE8wYVgS6iJLwRj8" target="_blank" rel="noopener">Sign Up</a>
-          <a class="btn btn-secondary" href="https://discord.gg/uqZUta3MYa" target="_blank" rel="noopener">Join Discord</a>
+          <a class="btn btn-secondary" href="https://agenticai-learning.org/f25" target="_blank" rel="noopener">Join the MOOC</a>
+          <a class="btn" href="https://discord.gg/uqZUta3MYa" target="_blank" rel="noopener">Join Discord</a>
         </div>
       </div>
     </section>
@@ -529,7 +513,7 @@
           <div class="dates" aria-label="Competition timeline">
             <div class="date">
               <div class="dot" aria-hidden="true"></div>
-              <div class="when">Oct 15</div>
+              <div class="when">Oct 16</div>
               <div class="what">Team formation</div>
             </div>
             <div class="date">
