@@ -20,7 +20,7 @@
       --line: #e5e7eb;         /* slate 200 */
       --accent: #157878;       /* course header teal */
       --accent-ink: #0f5a5a;   /* darker teal for text accents */
-      --maxw: 980px;           /* matches course vibe */
+      --maxw: 800px;           /* matches course vibe */
       --rhythm: 56px;          /* section spacing (course uses 56px divs) */
     }
     html, body {
@@ -54,7 +54,7 @@
       font-size: clamp(16px,2.5vw,22px);
       margin: 0 0 10px;
     }
-    .lead { color: var(--muted); text-align: center; max-width: 760px; margin: 20px auto 0 auto; }
+    .lead { color: var(--muted); text-align: center; max-width: 760px; margin: 20px auto 20px auto; }
     .lead-highlight {
       font-weight: 700;
       font-size: clamp(20px, 3.8vw, 28px);
@@ -146,22 +146,24 @@
     #competition .phase-list {
       display: flex;
       flex-direction: column;
-      gap: 18px;
-      margin: 24px 0 0;
+      gap: 12px;
+      margin: 16px 0 0;
       padding: 0;
       list-style: none;
     }
-    #competition .phase-item {
-      border: 1px solid var(--line);
-      background: #f9fafb;
-      padding: 18px;
+    #competition .phase-item-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 12px;
     }
-    #competition .phase-item h3 {
+    #competition .phase-item-header h3 {
       margin: 0;
       font-size: 1.1rem;
     }
-    #competition .phase-item .phase-dates {
-      margin: 4px 0 12px;
+    #competition .phase-item-header .phase-dates {
+      margin: 0;
       font-size: .95rem;
       color: var(--muted);
     }
@@ -200,27 +202,26 @@
       overflow: auto; margin: 8px 0 0; font-size: .92rem;
     }
 
-    /* ===== Horizontal Dates (centered) ===== */
-    .timeline { margin-top: 16px; }
-    .dates {
-      display: flex; flex-wrap: wrap;
-      justify-content: center; align-items: stretch; gap: 18px;
+    /* ===== Timeline table (simple, responsive) ===== */
+    .timeline-table {
+      width: 100%;
+      margin-top: 16px;
+      border-collapse: collapse;
     }
-    .date {
-      text-align: center; padding: 10px 14px;
-      flex: 1 1 200px; min-width: 180px; max-width: 260px;
-      background: #fff;
+    .timeline-table th,
+    .timeline-table td {
+      padding: 10px 14px;
+      border-top: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
     }
-    .date .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); margin: 0 auto 6px; }
-    .date .when { font-weight: 700; }
-    .date .what { color: var(--muted); }
-    @media (min-width: 860px){
-      .dates { position: relative; flex-wrap: nowrap; }
-      .dates::before {
-        content:""; position: absolute; top: 19px; left: 50%; transform: translateX(-50%);
-        width: min(860px, 92%); height: 2px; background: var(--line);
-      }
-      .date { z-index: 1; flex: 1 1 0; min-width: 0; max-width: none; }
+    .timeline-table thead th {
+      border-top: none;
+      font-weight: 700;
+      background: rgba(21, 120, 120, .06);
+    }
+    .timeline-table tbody tr:nth-child(even) {
+      background: rgba(249, 250, 252, .8);
     }
 
     /* ===== Checklists (restored: working checkboxes; flat design) ===== */
@@ -378,11 +379,18 @@
         </div>
     </section>
 
+  <section class="block" id="summary">
+    <div class="container">
+      <p class="lead" style="margin-top:0; margin-bottom:0; font-size: 1.1em;">
+        <strong>Compete for over $1M in prizes and resources.</strong> This two-phase competition challenges participants to first build novel benchmarks or enhance existing benchmarks for agentic AI (Phase 1), and then create AI agents to excel on them (Phase 2)—advancing the field by creating high-quality, broad-coverage agent evaluations as shared public goods.
+      </p>
+    </div>
+  </section>
+
     <section class="block" id="importance-of-evals">
       <div class="container">
         <h2 class="section-title">The Importance of AI Evaluation</h2>
-        <p>Whether you’re building AI systems, integrating them into applications, or simply using AI products, a central question arises: <strong>how do we know if an AI model is truly doing the right thing?</strong> The only reliable answer is through <strong>evaluation</strong>—testing performance on well-defined benchmarks.
-          <p>Everyone, from casual users to leading researchers, relies on benchmarks in some form. Each benchmark effectively sets a <strong>goalpost</strong>—shaping our shared expectations for what AI can and should do next.</p>
+        <p>Whether you’re building AI systems, integrating them into applications, or simply using AI products, a central question arises: <strong>how do we know if an AI model is truly doing the right thing?</strong> The only reliable answer is through <strong>evaluation</strong>—testing performance on well-defined benchmarks.<strong>You can only improve what you can measure!</strong></p>
           <p>Yet, as AI evolves toward <strong>agentic systems</strong>—AI agents capable of reasoning, taking actions, and interacting with the world—our current benchmarking methods for simple LLM-only systems fall short:</p>
         <ul>
           <li><strong>Interoperability:</strong> Running a production-grade agent on existing benchmarks often feels like forcing a square peg into a round hole. Substantial modifications are needed just to make it fit.</li>
@@ -390,14 +398,19 @@
           <li><strong>Fragmentation:</strong> There’s no single, unified view of progress—leaderboards and results are scattered across platforms and domains.</li>
           <li><strong>Discovery:</strong> With new benchmarks appearing almost weekly, finding the right one for a given goal can be surprisingly time-consuming.</li>
         </ul>
-        <h3 class="section-subtitle">A Vision for Streamlined Agentic AI Evaluation</h3>
-        <p>A unified space where the community can come together to define the goalposts of agentic AI—through benchmarks that are:</p>
+        <p><strong>Our vision for streamlined agentic AI evaluation is</strong> a unified space where the community can come together to define the goalposts of agentic AI—through benchmarks that are:</p>
         <ul>
           <li><strong>Compatible:</strong> Any agent can connect to any benchmark with near-zero code changes.</li>
           <li><strong>Reproducible:</strong> Each run starts in the same state as any other.</li>
           <li><strong>Collaborative &amp; Discoverable:</strong> A living hub where researchers, developers, and enthusiasts alike can easily find the most relevant benchmarks, identify top-performing agents, and collaboratively shape the standards that define the future of agentic AI.</li>
         </ul>
       </div>
+    </section>
+
+    <section class="block" id="competition-intro">
+      <div class="container">
+        <h2 class="section-title">Building Public Good Through Competition</h2>
+        <p>Through the AgentX–AgentBeats competition, we aim to bring the community together to create <strong>high-quality, broad-coverage agent evaluations</strong>—developed in an <strong>agentified, standardized, reproducible, and collaborative</strong> way—as shared <strong>public goods</strong> for advancing agentic AI.</p>
     </section>
 
     <section class="block" id="prizes">
@@ -416,7 +429,7 @@
         <p>To realize this vision, we are introducing <strong>AgentBeats</strong>, an open-source platform and a new paradigm for evaluating AI agents. Rather than asking you to adapt your agent to fit a rigid benchmark, AgentBeats flips the model on its head: <strong>we turn the benchmark itself into an agent, i.e., agentifying the benchmark.</strong></p>
         <p>A 🟢 <strong>green (or evaluator) agent</strong> provides a specific agent evaluation benchmark including the environment, a set of tasks, and the evaluator. Think of it as the proctor, the judge, and the environment manager all rolled into one. When you build a green agent, you are not just defining a set of tasks; you are creating a fully automated evaluation system.</p>
         <p>A 🟣 <strong>purple (or competing) agent</strong> is the agent under test such as a coding assistant, a research agent, or a personal planner agent. The purple agent will interact with the green agent to demonstrate its abilities and get evaluate.</p>
-        <h3 class="section-subtitle">How AgentBeats Solves the Big Problems</h3>
+        <p>AgentBeats solves the big problems in agentic AI evaluation by:</p>
         <ul>
           <li><strong>Enabling Interoperability:</strong> With the A2A protocol as the universal interface, you build your A2A-compatible purple agent once, and it can be tested by any green agent on the platform or vice versa.</li>
           <li><strong>Ensuring Reproducibility:</strong> The green agent, orchestrated by the platform, controls the entire testing lifecycle. Before each evaluation run, the platform ensures the purple agent is reset to a clean state.</li>
@@ -430,129 +443,87 @@
 
     <section class="block" id="competition">
       <div class="container">
-        <h2 class="section-title">The AgentBeats Benchmarking Competition</h2>
+        <h2 class="section-title">AgentX-AgentBeats Competition</h2>
         <ul class="phase-list">
           <li class="phase-item">
-            <h3>Phase 1 · Green</h3>
-            <p class="phase-dates">Oct 16 to Dec 20, 2025</p>
+            <div class="phase-item-header">
+              <h3>🟢 Phase 1 · Green</h3>
+              <p class="phase-dates">Oct 16 to Dec 20, 2025</p>
+            </div>
             <p>Participants build green agents that define assessments and automate scoring.</p>
-            <h4>Two ways to compete</h4>
             <ul>
-              <li><strong>Track 1: Build a green agent with an existing benchmark</strong> — Transform a benchmark into a green agent that runs end-to-end on AgentBeats (<a href="https://docs.google.com/spreadsheets/d/1PDkqgGEsu4IFmD4Wvjh6A9-3t-zzN7V16i9F559DzeI/edit?gid=0#gid=0" target="_blank" rel="noopener">see benchmark ideas</a>).</li>
-              <li><strong>Track 2: Create a new benchmark</strong> — Design a brand-new assessment as a green agent with novel tasks, automation, and scoring.</li>
+              <li><strong>Track 1: Building a green agent using an existing benchmark</strong> — Transform a benchmark into a green agent that runs end-to-end on AgentBeats (<a href="https://docs.google.com/spreadsheets/d/1PDkqgGEsu4IFmD4Wvjh6A9-3t-zzN7V16i9F559DzeI/edit?gid=0#gid=0" target="_blank" rel="noopener">see benchmark ideas</a>).</li>
+              <li><strong>Track 2: Building a green agent with a new benchmark</strong> — Design a brand-new assessment as a green agent with novel tasks, automation, and scoring.</li>
+              <li><strong>Custom Track:</strong> See the <a href="#custom-tracks">Custom Tracks</a> below for more details.</li>
             </ul>
           </li>
           <li class="phase-item">
-            <h3>Phase 2 · Purple</h3>
-            <p class="phase-dates">Jan 12 to Feb 22, 2026</p>
-            <p>Teams deploy purple agents—the systems you would ship to production—to tackle the Phase 1 green agents and climb the public leaderboards.</p>
+            <div class="phase-item-header">
+              <h3>🟣 Phase 2 · Purple</h3>
+              <p class="phase-dates">Jan 12 to Feb 22, 2026</p>
+            </div>
+            <p>Participants build purple agents to tackle the select top green agents from Phase 1 and compete on the public leaderboards.</p>
           </li>
         </ul>
-        <div class="cta-row">
-          <a class="btn btn-primary" href="https://forms.gle/NHE8wYVgS6iJLwRj8" target="_blank" rel="noopener">Sign Up</a>
-          <a class="btn btn-secondary" href="https://agenticai-learning.org/f25" target="_blank" rel="noopener">Join the MOOC</a>
-          <a class="btn" href="https://discord.gg/uqZUta3MYa" target="_blank" rel="noopener">Join Discord</a>
+        <div class="competition-subsection" id="custom-tracks">
+          <h3 class="section-subtitle">Custom Tracks</h3>
+          <div class="tracks-grid">
+            <article class="track-card">
+              <div class="track-sponsor">[&lambda;] Lambda</div>
+              <h3 class="track-name">Agent Security</h3>
+              <p class="track-description">A red-teaming and automated security testing challenge.</p>
+              <p class="track-description" style="color:var(--muted)">More details tracks to be announced...</p>
+            </article>
+          </div>
+          <p class="lead">More custom tracks to be announced...</p>
         </div>
-      </div>
-    </section>
-
-    <section class="block" id="participate">
-      <div class="container">
-        <h2 class="section-title">How to participate</h2>
-        <ol class="steps">
-          <li>
-            <strong>Join</strong>: <a href="https://discord.gg/uqZUta3MYa" target="_blank" rel="noopener">Discord</a> for announcements and team-up,
-            <a href="https://agenticai-learning.org/f25" target="_blank" rel="noopener">MOOC</a> for lectures,
-            <a href="https://berkeleyrdi.substack.com/" target="_blank" rel="noopener">newsletter</a> for updates.
-          </li>
-          <!--
-          <li>
-            <strong>Fork the template</strong>: Start from <a href="https://github.com/agentbeats/tutorial" target="_blank" rel="noopener">agentbeats/tutorial</a> and follow the tutorial in the README.
-          </li>
-          -->
-          <li>
-            <strong>SIgn Up</strong>: Everyone who wants to participate must fill out the <a href="https://forms.gle/NHE8wYVgS6iJLwRj8" target="_blank" rel="noopener">signup form</a>. Team signups will be launched shortly.
-          </li>
-          <li>
-            <strong>Build Phase 1 (green)</strong>: Implement a green agent. Agentify an existing benchmark or create something new.
-          </li>
-          <li>
-            <strong>Submit Phase 1</strong>: Submit your green agent and all supporing materials.
-          </li>
-          <li>
-            <strong>Build Phase 2 (purple)</strong>: Selected green agents become official evaluators. Build a purple agent to top a green agent leaderboard.
-          </li>
-          <li>
-            <strong>Submit Phase 2</strong>: Submit your purple agent, its leaderboard score(s), and all supporting materials.
-          </li>
-        </ol>
-      </div>
-    </section>
-
-    <section class="block" id="tracks">
-      <div class="container">
-        <h2 class="section-title">Custom tracks</h2>
-        <div class="tracks-grid">
-          <article class="track-card">
-            <div class="track-sponsor">[&lambda;] Lambda</div>
-            <h3 class="track-name">Agent Security</h3>
-            <p class="track-description">A red-teaming and automated security testing challenge.</p>
-            <ul class="track-points">
-              <li><strong>Green agent</strong>: Host the environment, coordinate test flows, and score red agent breaches.</li>
-              <li><strong>Red agent (suite)</strong>: Replay an attack set, mirroring how an enterprise validates an agent before deployment.</li>
-              <li><strong>Red agent (adaptive)</strong>: Explore and synthesize new attack strategies against a target blue agent.</li>
-            </ul>
-          </article>
-        </div>
-        <p class="lead">More custom tracks to be announced...</p>
-      </div>
-    </section>
-
-    <section class="block" id="dates">
-      <div class="container">
-        <h2 class="section-title">Key dates</h2>
-        <div class="timeline">
-          <div class="dates" aria-label="Competition timeline">
-            <div class="date">
-              <div class="dot" aria-hidden="true"></div>
-              <div class="when">Oct 16</div>
-              <div class="what">Team formation</div>
-            </div>
-            <div class="date">
-              <div class="dot" aria-hidden="true"></div>
-              <div class="when">Oct 20</div>
-              <div class="what">Team signup &amp; Build</div>
-            </div>
-            <div class="date">
-              <div class="dot" aria-hidden="true"></div>
-              <div class="when">Dec 19</div>
-              <div class="what">Green agent submission</div>
-            </div>
-            <div class="date">
-              <div class="dot" aria-hidden="true"></div>
-              <div class="when">Dec 20</div>
-              <div class="what">Green agent judging</div>
-            </div>
-            <div class="date">
-              <div class="dot" aria-hidden="true"></div>
-              <div class="when">Jan 12</div>
-              <div class="what">Build purple agents</div>
-            </div>
-            <div class="date">
-              <div class="dot" aria-hidden="true"></div>
-              <div class="when">Feb 15</div>
-              <div class="what">Purple agent submission</div>
-            </div>
-            <div class="date">
-              <div class="dot" aria-hidden="true"></div>
-              <div class="when">Feb 16</div>
-              <div class="what">Purple agent judging</div>
-            </div>
+        <div class="competition-subsection" id="key-dates">
+          <h3 class="section-subtitle">Key Dates</h3>
+          <div class="timeline-wrapper" style="max-width:28rem; margin: 0 auto;">
+            <table class="timeline-table" aria-label="Competition timeline">
+              <thead>
+                <tr>
+                  <th scope="col">Date</th>
+                  <th scope="col">Event</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Oct 16, 2025</td>
+                  <td>Team formation</td>
+                </tr>
+                <tr>
+                  <td>Oct 20, 2025</td>
+                  <td>Team signup &amp; Build Phase 1</td>
+                </tr>
+                <tr>
+                  <td>Dec 19, 2025</td>
+                  <td>Green agent submission</td>
+                </tr>
+                <tr>
+                  <td>Dec 20, 2025</td>
+                  <td>Green agent judging</td>
+                </tr>
+                <tr>
+                  <td>Jan 12, 2026</td>
+                  <td>Phase 2: Build purple agents</td>
+                </tr>
+                <tr>
+                  <td>Feb 22, 2026</td>
+                  <td>Purple agent submission</td>
+                </tr>
+                <tr>
+                  <td>Feb 16, 2026</td>
+                  <td>Purple agent judging</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
     </section>
 
+    <!--
     <section class="block" id="evaluation-criteria">
       <div class="container">
         <h2 class="section-title">Evaluation Criteira</h2>
@@ -584,6 +555,7 @@
         </article>
       </div>
     </section>
+    -->
 
     <footer class="bg-gray-900 text-gray-300 text-sm py-10 px-6">
       <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-6">
