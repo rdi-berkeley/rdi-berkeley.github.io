@@ -325,6 +325,67 @@
       font-size: .95rem;
     }
 
+    /* ===== Prizes ===== */
+    .prize-grid {
+      display: grid;
+      gap: 16px;
+      margin-top: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+    .prize-card {
+      border: 1px solid var(--line);
+      background: #f9fafb;
+      padding: 16px;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: .97rem;
+      line-height: 1.5;
+    }
+    .prize-card h3 {
+      margin: 0;
+      font-size: 1.08rem;
+      color: var(--accent-ink);
+    }
+    .prize-card p {
+      margin: 0;
+    }
+    .prize-card ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+    .prize-card li {
+      margin: 2px 0;
+    }
+
+    /* ===== Resources ===== */
+    .resource-grid {
+      display: grid;
+      gap: 16px;
+      margin-top: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+    .resource-card {
+      border: 1px solid var(--line);
+      background: #fff;
+      padding: 16px;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: .97rem;
+      line-height: 1.5;
+    }
+    .resource-card h3 {
+      margin: 0;
+      font-size: 1.08rem;
+      color: var(--accent-ink);
+    }
+    .resource-card p {
+      margin: 0;
+    }
+
     /* ===== Footer (homepage shared styles) ===== */
     .bg-gray-900 { background: #111827; }
     .text-gray-300 { color: #d1d5db; }
@@ -420,12 +481,70 @@
         <p>Through the AgentX–AgentBeats competition, we aim to bring the community together to create <strong>high-quality, broad-coverage, realistic agent evaluations</strong>—developed in an <strong>agentified, standardized, reproducible, and collaborative</strong> way—as shared <strong>public goods</strong> for advancing agentic AI.</p>
     </section>
 
-    <section class="block" id="prizes">
+    <section class="block" id="sponsors">
       <div class="container">
-        <h2 class="section-title">Prizes & Sponsors</h2>
-        <p class="lead-highlight">Over $1M in prizes and resources</p>
+        <h2 class="section-title">Sponsors</h2>
         <div class="media">
           <img src="./assets/images/agentx-agentbeats-competition-sponsors.png" alt="AgentX AgentBeats competition sponsors">
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="resources">
+      <div class="container">
+        <h2 class="section-title">Resources</h2>
+        <div class="resource-grid">
+          <article class="resource-card">
+            <h3>Lambda</h3>
+            <p>$400 cloud credits to every individual or team</p>
+          </article>
+          <article class="resource-card">
+            <h3>Nebius</h3>
+            <p>$50 inference credits to every individual or team</p>
+          </article>
+          <article class="resource-card">
+            <h3>More to be announced</h3>
+            <p>Additional resources will be announced soon.</p>
+          </article>
+        </div>
+      </div>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://forms.gle/BU2aBZama6Mfg7eX8" target="_blank" rel="noopener">Get Resources</a>
+      </div>
+    </section>
+
+    <section class="block" id="prizes">
+      <div class="container">
+        <h2 class="section-title">Prizes</h2>
+        <div class="prize-grid">
+          <article class="prize-card">
+            <h3>DeepMind</h3>
+            <p>Up to $50k prize pool in GCP/Gemini credits to be shared among the winning teams.</p>
+          </article>
+          <article class="prize-card">
+            <h3>Lambda</h3>
+            <p>$750 in cloud credits for each winning team.</p>
+          </article>
+          <article class="prize-card">
+            <h3>Nebius</h3>
+            <p>Up to $50k prize pool in inference credits to be shared among the winning teams.</p>
+          </article>
+          <article class="prize-card">
+            <h3>Amazon</h3>
+            <p>Up to $10k prize pool in AWS credits to be shared among the winning teams.</p>
+          </article>
+          <article class="prize-card">
+            <h3>Snowflake</h3>
+            <p>Each winning team member who is currently a student will receive:</p>
+            <ul>
+              <li>Free access to Snowflake software for 6 months</li>
+              <li>60 Snowflake credits (worth $240 — $4 per credit)</li>
+            </ul>
+          </article>
+          <article class="prize-card">
+            <h3>More to be announced</h3>
+            <p>Additional prize partners will be announced soon.</p>
+          </article>
         </div>
       </div>
     </section>
