@@ -1,0 +1,441 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Berkeley Xcelerator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The Launchpad for Next-Generation AI & Agentic AI Startups">
+  <meta property="og:image" content="https://rdi.berkeley.edu/logos/image_720.png">
+  <meta name="twitter:image" content="https://rdi.berkeley.edu/logos/image_720.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===== Base (flat, course-adjacent) ===== */
+    :root{
+      --bg: #ffffff;
+      --ink: #1f2937;          /* dark slate */
+      --muted: #4b5563;        /* slate 600 */
+      --line: #e5e7eb;         /* slate 200 */
+      --accent: #157878;       /* course header teal */
+      --accent-ink: #0f5a5a;   /* darker teal for text accents */
+      --link: #0d6efd;         /* brighter blue for anchors */
+      --maxw: 800px;           /* matches course vibe */
+      --rhythm: 56px;          /* section spacing (course uses 56px divs) */
+    }
+    html, body {
+      margin: 0; padding: 0; background: var(--bg); color: var(--ink);
+      font: 16px/1.65 "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+    a { color: var(--link); text-decoration: none; }
+    a:hover,
+    a:focus-visible { color: #0a58ca; text-decoration: underline; }
+    .container { max-width: var(--maxw); margin: 0 auto; padding: 0 18px; }
+    .sr-only{ position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0; }
+
+    /* ===== Banner ===== */
+    .banner img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    /* ===== Section structure ===== */
+    .main-content { padding: 0; }
+    section.block { padding: 40px 0; border-bottom: 1px solid var(--line); }
+    section.block:last-of-type { border-bottom: none; }
+    .section-title {
+      text-align: center;
+      font-weight: 700;
+      font-size: clamp(20px,3vw,26px);
+      margin: 0 0 10px;
+    }
+    .section-subtitle {
+      text-align: center;
+      font-weight: 500;
+      font-size: clamp(16px,2.5vw,22px);
+      margin: 0 0 10px;
+    }
+    .lead { color: var(--muted); text-align: center; max-width: 760px; margin: 20px auto 20px auto; }
+    .lead-highlight {
+      font-weight: 700;
+      font-size: clamp(20px, 3.8vw, 28px);
+      color: #FDB515;
+      margin-top: 18px;
+      text-align: center;
+    }
+
+    /* ===== Hero Section ===== */
+    #hero {
+      background: linear-gradient(135deg, #003262 0%, #0f5a5a 100%);
+      color: white;
+      padding: 60px 0;
+      text-align: center;
+    }
+    #hero h1 {
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 700;
+      margin: 0 0 16px;
+      color: #FDB515;
+    }
+    #hero .subtitle {
+      font-size: clamp(18px, 3vw, 24px);
+      margin: 0 0 32px;
+      color: rgba(255, 255, 255, 0.95);
+    }
+
+    /* ===== Partner Logos ===== */
+    .partner-logos {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin: 32px 0;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 24px;
+      border-radius: 12px;
+    }
+    .partner-logos img {
+      height: 70px;
+      width: auto;
+      background: white;
+      padding: 12px;
+      border-radius: 8px;
+    }
+    @media (max-width: 640px) {
+      .partner-logos img {
+        height: 50px;
+        padding: 8px;
+      }
+    }
+
+    /* ===== Stats Grid ===== */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px;
+      margin: 24px 0;
+    }
+    .stat-card {
+      text-align: center;
+      padding: 20px;
+      background: #f9fafb;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+    }
+    .stat-number {
+      font-size: clamp(28px, 4vw, 36px);
+      font-weight: 700;
+      color: var(--accent-ink);
+      margin: 0 0 8px;
+    }
+    .stat-label {
+      font-size: 14px;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    /* ===== Value Props Grid ===== */
+    .value-grid {
+      display: grid;
+      gap: 24px;
+      margin-top: 32px;
+    }
+    .value-card {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fff;
+      padding: 28px;
+      border-left: 4px solid var(--accent);
+    }
+    .value-card h3 {
+      margin: 0 0 12px;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--accent-ink);
+    }
+    .value-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ===== CTA row ===== */
+    .cta-row {
+      margin-top: 32px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 28px;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      background: #f3f4f6;
+      color: var(--ink);
+      font-weight: 700;
+      letter-spacing: .01em;
+      box-shadow: 0 2px 6px rgba(31, 41, 55, .12);
+      transition: background .2s ease, color .2s ease, border-color .2s ease, box-shadow .2s ease;
+    }
+    .btn:not(.btn-primary):not(.btn-secondary):hover,
+    .btn:not(.btn-primary):not(.btn-secondary):focus-visible {
+      background: #e7eff5;
+      border-color: var(--accent-ink);
+      box-shadow: 0 4px 12px rgba(31, 41, 55, .18);
+    }
+    .btn-primary {
+      background: var(--accent-ink);
+      border-color: var(--accent-ink);
+      color: #fff;
+      box-shadow: 0 6px 16px rgba(21, 120, 120, .25);
+    }
+    .btn-primary:hover,
+    .btn-primary:focus-visible {
+      background: #0b5353;
+      border-color: #0b5353;
+      box-shadow: 0 8px 20px rgba(11, 83, 83, .28);
+    }
+    .btn-secondary {
+      background: transparent;
+      border-color: var(--accent-ink);
+      color: var(--accent-ink);
+      box-shadow: none;
+    }
+    .btn-secondary:hover,
+    .btn-secondary:focus-visible {
+      background: rgba(21, 120, 120, .08);
+      color: var(--accent-ink);
+    }
+
+    /* ===== Highlight Box ===== */
+    .highlight-box {
+      background: #fffbeb;
+      border: 2px solid #FDB515;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 24px 0;
+      text-align: center;
+    }
+    .highlight-box p {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    /* ===== Partners placeholder ===== */
+    .partners-placeholder {
+      background: #f9fafb;
+      border: 2px dashed var(--line);
+      border-radius: 12px;
+      padding: 60px 20px;
+      text-align: center;
+      color: var(--muted);
+      font-style: italic;
+      margin: 24px 0;
+    }
+
+    /* ===== Footer (homepage shared styles) ===== */
+    .bg-gray-900 { background: #111827; }
+    .text-gray-300 { color: #d1d5db; }
+    .text-sm { font-size: .875rem; }
+    .py-10 { padding-top: 40px; padding-bottom: 40px; }
+    .px-6 { padding-left: 24px; padding-right: 24px; }
+    .max-w-7xl { max-width: 80rem; }
+    .mx-auto { margin-left: auto; margin-right: auto; }
+    .grid { display: grid; }
+    .gap-6 { gap: 24px; }
+    @media (min-width: 768px){
+      .md\:grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    }
+    .text-white { color: #ffffff; }
+    .font-semibold { font-weight: 600; }
+    .mb-2 { margin-bottom: 8px; }
+    .text-yellow-400 { color: #facc15; }
+    .space-y-1 > :not([hidden]) ~ :not([hidden]) { margin-top: 4px; }
+    .footer-list { list-style: none; margin: 0; padding: 0; }
+    .flex { display: flex; }
+    .space-x-3 > :not([hidden]) ~ :not([hidden]) { margin-left: 12px; }
+    .mt-4 { margin-top: 16px; }
+    .text-xl { font-size: 1.25rem; }
+    .text-gray-400 { color: #9ca3af; }
+    .text-gray-400:visited { color: #9ca3af; }
+    footer a { color: inherit; text-decoration: none; }
+    footer a:visited { color: inherit; }
+    .text-center { text-align: center; }
+    .text-xs { font-size: .75rem; }
+    .mt-8 { margin-top: 32px; }
+    .text-gray-500 { color: #6b7280; }
+  </style>
+</head>
+
+<body>
+  <a class="sr-only" href="#content">Skip to the content.</a>
+
+  <!-- Hero Banner -->
+  <section class="banner">
+    <img src="logos/image_720.png" alt="Berkeley Xcelerator banner">
+  </section>
+
+  <section class="main-content" id="content">
+
+    <!-- Hero Section -->
+    <section id="hero">
+      <div class="container">
+        <h1>Berkeley Xcelerator</h1>
+        <p class="subtitle">The Launchpad for Next-Generation AI & Agentic AI Startups</p>
+
+        <!-- Partner Logos -->
+        <div style="margin-top: 40px;">
+          <p style="text-align: center; color: rgba(255, 255, 255, 0.8); font-size: 14px; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px;">A Joint Initiative Of</p>
+          <div class="partner-logos">
+            <img src="assets/images/rdi-logo.png" alt="Berkeley RDI">
+            <img src="assets/images/haas.svg" alt="Haas School of Business">
+            <img src="assets/images/scet.png" alt="SCET - Sutardja Center for Entrepreneurship & Technology">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Berkeley Xcelerator -->
+    <section class="block" id="why-xcelerator">
+      <div class="container">
+        <h2 class="section-title">Why Berkeley Xcelerator</h2>
+        <p style="text-align: center; max-width: 720px; margin: 0 auto 24px;">
+          The Berkeley Xcelerator is a joint initiative of Berkeley RDI, Haas School of Business, and SCET designed to help founders develop breakthrough ideas into scalable, venture-backable companies.
+        </p>
+
+        <div class="highlight-box">
+          <p>Unlike traditional accelerators, the Berkeley Xcelerator is completely non-dilutive and free for selected startups.</p>
+        </div>
+
+        <h3 class="section-subtitle" style="margin-top: 40px;">Track Record (3 years)</h3>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <p class="stat-number">110+</p>
+            <p class="stat-label">Global teams incubated across AI, cybersecurity, and decentralized tech</p>
+          </div>
+          <div class="stat-card">
+            <p class="stat-number">$650M+</p>
+            <p class="stat-label">Follow-on funding from venture and strategic investors</p>
+          </div>
+          <div class="stat-card">
+            <p class="stat-number">100+</p>
+            <p class="stat-label">Countries represented in founder network</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Offerings -->
+    <section class="block" id="offerings">
+      <div class="container">
+        <h2 class="section-title">What We Offer</h2>
+        <div class="value-grid">
+          <div class="value-card">
+            <h3>Unparalleled Research Access</h3>
+            <p>Direct connection to Berkeley frontier research in Agentic AI Foundation, AI Safety & Security, and related domains.</p>
+          </div>
+          <div class="value-card">
+            <h3>Elite Mentorship & Advisors</h3>
+            <p>Faculty, entrepreneurs, executives, and venture investors providing guidance and support.</p>
+          </div>
+          <div class="value-card">
+            <h3>Global Innovation Community</h3>
+            <p>Access to 32,000+ builders, developers, and researchers worldwide.</p>
+          </div>
+          <div class="value-card">
+            <h3>Market Visibility & Validation</h3>
+            <p>Showcase your startup at flagship summits and demo days to investors and industry leaders.</p>
+          </div>
+          <div class="value-card">
+            <h3>Cloud & GPU Resources</h3>
+            <p>Credits and compute support from hyperscalers to power your development.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Partners -->
+    <section class="block" id="partners">
+      <div class="container">
+        <h2 class="section-title">Our Partners</h2>
+        <p class="lead">
+          We collaborate with venture capital, corporate, cloud, and GPU partners to provide comprehensive support for our startups.
+        </p>
+        <div class="partners-placeholder">
+          Partner logos will be added here
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="block" id="cta">
+      <div class="container">
+        <h2 class="section-title">Join the Berkeley Xcelerator</h2>
+        <p class="lead">
+          The Berkeley Xcelerator is where cutting-edge research meets entrepreneurial execution. Transform your breakthrough AI ideas into venture-backable companies with the support of Berkeley's world-class resources.
+        </p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#apply">Apply Now</a>
+          <a class="btn btn-secondary" href="#learn-more">Learn More</a>
+        </div>
+      </div>
+    </section>
+
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-300 text-sm py-10 px-6">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-6">
+      <div>
+        <h4 class="text-white font-semibold mb-2">Berkeley RDI</h4>
+        <p>Advancing the science, technology, and education of decentralization and AI to empower a responsible digital economy.</p>
+        <div class="flex space-x-3 mt-4 text-xl">
+          <a href="https://twitter.com/BerkeleyRDI" class="hover:text-white text-gray-400" aria-label="Berkeley RDI on X">
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="16" fill="currentColor" class="bi bi-twitter-x" viewBox="0 0 16 16">
+              <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/>
+            </svg>
+          </a>
+          <a href="https://www.youtube.com/@BerkeleyRDI" class="hover:text-white text-gray-400" aria-label="Berkeley RDI on YouTube">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="16" fill="currentColor" class="bi bi-youtube" viewBox="0 0 16 16">
+              <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.01 2.01 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.01 2.01 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31 31 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.01 2.01 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A100 100 0 0 1 7.858 2zM6.4 5.209v4.818l4.157-2.408z"/>
+            </svg>
+          </a>
+          <a href="https://discord.gg/NWVpQ9rBvd" class="hover:text-white text-gray-400" aria-label="Berkeley RDI on Discord">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="16" fill="currentColor" class="bi bi-discord" viewBox="0 0 16 16">
+              <path d="M13.545 2.907a13.2 13.2 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.2 12.2 0 0 0-3.658 0 8 8 0 0 0-.412-.833.05.05 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.04.04 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032q.003.022.021.037a13.3 13.3 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019q.463-.63.818-1.329a.05.05 0 0 0-.01-.059l-.018-.011a9 9 0 0 1-1.248-.595.05.05 0 0 1-.02-.066l.015-.019q.127-.095.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.05.05 0 0 1 .053.007q.121.1.248.195a.05.05 0 0 1-.004.085 8 8 0 0 1-1.249.594.05.05 0 0 0-.03.30.05.05 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.2 13.2 0 0 0 4.001-2.02.05.05 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.03.03 0 0 0-.02-.019m-8.198 7.307c-.789 0-1.438-.724-1.438-1.612s.637-1.613 1.438-1.613c.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612m5.316 0c-.788 0-1.438-.724-1.438-1.612s.637-1.613 1.438-1.613c.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612"/>
+            </svg>
+          </a>
+          <a href="mailto:rdi@berkeley.edu" class="hover:text-white text-gray-400" aria-label="Email Berkeley RDI">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="16" fill="currentColor" class="bi bi-envelope-fill" viewBox="0 0 16 16">
+              <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414zM0 4.697v7.104l5.803-3.558zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586zm3.436-.586L16 11.801V4.697z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <h4 class="text-white font-semibold mb-2 text-yellow-400">Explore</h4>
+        <ul class="space-y-1 footer-list">
+          <li><a href="/research" class="hover:underline">Research</a></li>
+          <li><a href="/education" class="hover:underline">Education</a></li>
+          <li><a href="/events" class="hover:underline">Events</a></li>
+          <li><a href="/blog" class="hover:underline">Blog</a></li>
+          <li><a href="/people" class="hover:underline">About Us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="text-center text-xs mt-8 text-gray-500">
+      Copyright © <span id="footer-year">2025</span> UC Regents; all rights reserved
+    </div>
+  </footer>
+
+</body>
+</html>
