@@ -188,68 +188,6 @@
             line-height: 1.6;
             font-size: 14px;
         }
-
-        .cta-section {
-            text-align: center;
-            margin: 60px 0;
-            padding: 40px;
-            background: #f9fafb;
-            border-radius: 12px;
-        }
-
-        .cta-section p {
-            color: #4b5563;
-            max-width: 700px;
-            margin: 0 auto 32px;
-            font-size: 16px;
-            line-height: 1.6;
-        }
-
-        .cta-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 14px 28px;
-            border-radius: 6px;
-            font-weight: 600;
-            font-size: 16px;
-            text-decoration: none;
-            transition: all 0.2s ease;
-            cursor: pointer;
-        }
-
-        .btn-primary {
-            background: #0f5a5a;
-            color: white;
-            border: 2px solid #0f5a5a;
-        }
-
-        .btn-primary:hover {
-            background: #0b4646;
-            border-color: #0b4646;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(15, 90, 90, 0.3);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: #0f5a5a;
-            border: 2px solid #0f5a5a;
-        }
-
-        .btn-secondary:hover {
-            background: #0f5a5a;
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(15, 90, 90, 0.2);
-        }
     </style>
 </head>
 
@@ -376,19 +314,17 @@
             </div>
         </section>
 
-        <!-- Call to Action -->
-        <section class="cta-section">
-            <h2 class="section-title" style="margin-bottom: 16px;">Join the Berkeley Xcelerator</h2>
-            <p>
-                The Berkeley Xcelerator is where cutting-edge research meets entrepreneurial execution. Transform your breakthrough AI ideas into venture-backable companies with the support of Berkeley's world-class resources.
-            </p>
-            <div class="cta-buttons">
-                <a href="#apply" class="btn btn-primary">Apply Now</a>
-                <a href="#learn-more" class="btn btn-secondary">Learn More</a>
-            </div>
-        </section>
-
     </div>
+
+    <!-- Join the Berkeley Xcelerator -->
+    <section id="xcelerator-cta" class="bg-blue-900 py-16 px-6 text-center">
+        <h2 class="text-3xl text-white font-bold mb-4">Join the Berkeley Xcelerator</h2>
+        <p class="max-w-3xl mx-auto mb-6 text-white">The Berkeley Xcelerator is where cutting-edge research meets entrepreneurial execution. Transform your breakthrough AI ideas into venture-backable companies with the support of Berkeley's world-class resources.</p>
+        <div class="mt-8 gap-4 flex flex-col sm:flex-row justify-center items-center">
+            <a href="#apply" class="bg-yellow-400 text-blue-900 px-8 py-3 font-bold rounded border-2 border-yellow-400 hover:bg-yellow-500">Apply Now</a>
+            <a href="#learn-more" class="bg-yellow-400 text-blue-900 px-8 py-3 font-bold rounded border-2 border-yellow-400 hover:bg-yellow-500">Learn More</a>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer class="bg-gray-900 text-gray-300 text-sm py-10 px-6">
