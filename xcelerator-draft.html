@@ -18,13 +18,16 @@
     <style>
         /* Additional styles specific to Xcelerator page */
         .hero-section {
-            background: linear-gradient(135deg, #003262 0%, #0f5a5a 100%);
+            background-image: url('/assets/images/homepage-background.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             color: white;
             padding: 60px 0;
             text-align: center;
             margin-left: -10vw;
             margin-right: -10vw;
-            margin-top: 20px;
+            margin-top: 0;
             margin-bottom: 40px;
         }
 
@@ -194,42 +197,45 @@
 <body data-new-gr-c-s-check-loaded="14.1034.0" data-gr-ext-installed="">
 
     <!-- Header Navigation -->
-    <div class="constraint">
-        <div id="header">
-            <div id="logo-container" style="padding: 1rem;">
+    <header class="sticky top-0 bg-white shadow z-50">
+        <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+
+            <!-- Logo -->
+            <div id="logo-container" class="py-2">
                 <a href="/" aria-label="Berkeley Center for RDI Logo">
-                    <img src="/assets/images/Berkeley Center for RDI Logo.png" id="logo" aria-label="Berkeley Center for RDI Logo">
+                    <img src="/assets/images/Berkeley Center for RDI Logo.png" alt="Berkeley RDI Logo" class="h-10 w-auto max-w-full">
                 </a>
             </div>
-            <div id="nav-container">
-                <div id="nav-links" style="font-size: 11pt; vertical-align: middle;">
-                    <a href="/" class="nav-url">
-                        Home
-                    </a>
-                    <span class="seperator">|</span>
-                    <a href="/research" class="nav-url">
-                        Research
-                    </a>
-                    <span class="seperator">|</span>
-                    <a href="/people" class="nav-url">
-                        People
-                    </a>
-                    <span class="seperator">|</span>
-                    <a href="/education" class="nav-url">
-                        Education
-                    </a>
-                    <span class="seperator">|</span>
-                    <a href="/connectandlearn" class="nav-url">
-                        Connect/Learn
-                    </a>
-                    <span class="seperator">|</span>
-                    <a href="/events" class="nav-url">
-                        Events
-                    </a>
-                </div>
-            </div>
+
+            <!-- Hamburger Button (shown on mobile only) -->
+            <button id="menu-toggle" class="sm:hidden text-gray-600 focus:outline-none" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+
+            <!-- Desktop Nav Links -->
+            <nav id="nav-links" class="hidden sm:flex space-x-6 text-sm font-medium">
+                <a href="/" class="hover:text-blue-600">Home</a>
+                <a href="/research" class="hover:text-blue-900">Research</a>
+                <a href="/education" class="hover:text-blue-900">Education</a>
+                <a href="/events" class="hover:text-blue-900">Events</a>
+                <a href="/blog" class="hover:text-blue-900">Blog</a>
+                <a href="/people" class="hover:text-blue-900">About</a>
+            </nav>
         </div>
-    </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="sm:hidden hidden px-6 pb-4 space-y-2 text-sm font-medium">
+            <a href="/" class="block py-1">Home</a>
+            <a href="/research" class="block py-1">Research</a>
+            <a href="/education" class="block py-1">Education</a>
+            <a href="/events" class="block py-1">Events</a>
+            <a href="/blog" class="block py-1">Blog</a>
+            <a href="/people" class="block py-1">About</a>
+        </div>
+    </header>
 
     <div class="features-wrapper constraint">
 
@@ -237,7 +243,7 @@
         <section class="hero-section">
             <div style="padding: 0 10vw;">
                 <h1>Berkeley Xcelerator</h1>
-                <p class="subtitle">The Launchpad for Next-Generation AI & Agentic AI Startups</p>
+                <p class="subtitle">The Berkeley Center for Responsible, Decentralized Intelligence (RDI) is building the global hub for innovation in AI and Agentic AI. At the heart of this mission is the Berkeley Xcelerator — a joint initiative of Berkeley RDI, the Haas School of Business, and the Sutardja Center for Entrepreneurship & Technology (SCET) — designed to help founders turn breakthrough ideas into scalable, venture‑backable companies that shape the future of intelligent systems.</p>
 
                 <!-- Partner Logos -->
                 <div style="margin-top: 40px;">
@@ -268,7 +274,7 @@
                 <p>Unlike traditional accelerators, the Berkeley Xcelerator is completely non-dilutive and free for selected startups.</p>
             </div>
 
-            <h3 style="font-size: 22px; font-weight: 600; text-align: center; margin-top: 40px; margin-bottom: 16px; color: #003262;">Track Record (3 years)</h3>
+            <h3 style="font-size: 22px; font-weight: 600; text-align: center; margin-top: 40px; margin-bottom: 16px; color: #003262;">In just three years, Berkeley RDI has:</h3>
             <div class="stats-grid">
                 <div class="stat-card">
                     <p class="stat-number">110+</p>
@@ -291,23 +297,41 @@
             <div class="value-grid">
                 <div class="value-card">
                     <h3>Unparalleled Research Access</h3>
-                    <p>Direct connection to Berkeley frontier research in Agentic AI Foundation, AI Safety & Security, and related domains.</p>
+                    <p>Plug directly into Berkeley's frontier research at the intersection of Agentic AI Foundation, AI Safety & Security, and related domains, giving companies an early advantage grounded in scientific excellence.</p>
                 </div>
                 <div class="value-card">
                     <h3>Elite Mentorship & Advisors</h3>
-                    <p>Faculty, entrepreneurs, executives, and venture investors providing guidance and support.</p>
+                    <p>Founders receive guidance from renowned faculty, serial entrepreneurs, industry leaders, and top venture investors with experience scaling successful companies.</p>
                 </div>
                 <div class="value-card">
                     <h3>Global Innovation Community</h3>
-                    <p>Access to 32,000+ builders, developers, and researchers worldwide.</p>
+                    <p>Startups access Berkeley RDI's network of 32,000+ builders, developers, researchers, and founders worldwide collaborating on responsible AI advancement.</p>
                 </div>
                 <div class="value-card">
                     <h3>Market Visibility & Validation</h3>
-                    <p>Showcase your startup at flagship summits and demo days to investors and industry leaders.</p>
+                    <p>Companies showcase their work at summits and demo days to build credibility with investors, customers, and enterprise partners.</p>
                 </div>
                 <div class="value-card">
                     <h3>Cloud & GPU Resources</h3>
-                    <p>Credits and compute support from hyperscalers to power your development.</p>
+                    <p>Participants receive cloud credits, GPU access, and computational support from major hyperscalers, enabling efficient model development and deployment.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Partners -->
+        <section class="content-section">
+            <h2 class="section-title">Our Partners</h2>
+            <div style="margin-top: 40px;">
+                <div class="partner-logos" style="background: white; padding: 40px 20px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
+                    <a href="https://rdi.berkeley.edu/" class="partner-logo-link" target="_blank" rel="noopener" aria-label="Berkeley RDI">
+                        <img src="/assets/images/Berkeley Center for RDI Logo.png" alt="Berkeley RDI">
+                    </a>
+                    <a href="https://haas.berkeley.edu/" class="partner-logo-link" target="_blank" rel="noopener" aria-label="Haas School of Business">
+                        <img src="/assets/images/haas.png" alt="Haas School of Business">
+                    </a>
+                    <a href="https://scet.berkeley.edu/" class="partner-logo-link" target="_blank" rel="noopener" aria-label="SCET">
+                        <img src="/assets/images/SCET.jpg" alt="SCET - Sutardja Center for Entrepreneurship & Technology">
+                    </a>
                 </div>
             </div>
         </section>
@@ -317,7 +341,7 @@
     <!-- Join the Berkeley Xcelerator -->
     <section id="xcelerator-cta" class="bg-blue-900 py-16 px-6 text-center">
         <h2 class="text-3xl text-white font-bold mb-4">Join the Berkeley Xcelerator</h2>
-        <p class="max-w-3xl mx-auto mb-6 text-white">The Berkeley Xcelerator is where cutting-edge research meets entrepreneurial execution. Transform your breakthrough AI ideas into venture-backable companies with the support of Berkeley's world-class resources.</p>
+        <p class="max-w-3xl mx-auto mb-6 text-white" style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis;">The Berkeley Xcelerator is where cutting-edge research meets entrepreneurial execution. Transform your breakthrough AI ideas into venture-backable companies with the support of Berkeley's world-class resources.</p>
         <div class="mt-8 gap-4 flex flex-col sm:flex-row justify-center items-center">
             <a href="#apply" class="bg-yellow-400 text-blue-900 px-8 py-3 font-bold rounded border-2 border-yellow-400 hover:bg-yellow-500">Apply Now</a>
             <a href="#learn-more" class="bg-yellow-400 text-blue-900 px-8 py-3 font-bold rounded border-2 border-yellow-400 hover:bg-yellow-500">Learn More</a>
@@ -372,6 +396,15 @@
             Copyright © 2025 UC Regents; all rights reserved
         </div>
     </footer>
+
+    <script>
+        // Mobile menu toggle
+        const toggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        toggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
 
 </body>
 </html>
