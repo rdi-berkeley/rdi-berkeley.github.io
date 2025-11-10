@@ -128,20 +128,40 @@
     }
 
     /* ===== Badges (phase chips) ===== */
-    .badges { margin: 12px 0 6px; display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; }
+    .badges {
+      margin: 12px 0 6px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
     .badge {
       display: inline-flex;
-      align-items: center;
-      gap: .35rem;
-      padding: 4px 14px;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 2px;
+      padding: 6px 18px;
       border-radius: 999px;
       border: none;
       font-size: .78rem;
       font-weight: 600;
-      letter-spacing: .08em;
-      text-transform: uppercase;
+      letter-spacing: normal;
+      text-transform: none;
       color: var(--accent-ink);
       background: rgba(21, 120, 120, .12);
+      line-height: 1.2;
+    }
+    .badge-title {
+      display: block;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .badge-sponsor {
+      display: block;
+      font-size: .72rem;
+      letter-spacing: .02em;
+      color: var(--muted);
+      text-transform: none;
     }
     .badge b { color: inherit; }
 
@@ -592,20 +612,53 @@
                 <li>
                   <strong>For existing or new benchmarks, choose an agent type</strong>
                   <div class="badges" aria-label="Evaluation tracks" style="justify-content:flex-start; margin-top:8px">
-                    <span class="badge">Coding Agent</span>
-                    <span class="badge">Web Agent</span>
-                    <span class="badge">Computer Use Agent</span>
-                    <span class="badge">Research Agent</span>
-                    <span class="badge">Software Testing Agent</span>
-                    <span class="badge">Game Agent</span>
-                    <span class="badge">DeFi Agent</span>
-                    <span class="badge">Cybersecurity Agent</span>
-                    <span class="badge">Healthcare Agent</span>
-                    <span class="badge">Finance Agent</span>
-                    <span class="badge">Legal Domain Agent</span>
-                    <span class="badge">Agent Safety</span>
-                    <span class="badge">Multi-agent Evaluation</span>
-                    <span class="badge">Other Agent</span>
+                    <span class="badge">
+                      <span class="badge-title">Agent Safety</span>
+                      <span class="badge-sponsor">Sponsored by Lambda</span>
+                    </span>
+                    <span class="badge">
+                      <span class="badge-title">Coding Agent</span>
+                      <span class="badge-sponsor">Sponsored by Nebius</span>
+                    </span>
+                    <span class="badge">
+                      <span class="badge-title">Healthcare Agent</span>
+                      <span class="badge-sponsor">Sponsored by Nebius</span>
+                    </span>
+                  </div>
+                  <div class="badges" aria-label="Evaluation tracks" style="justify-content:flex-start; margin-top:15px">
+                    <span class="badge">
+                      <span class="badge-title">Web Agent</span>
+                    </span>
+                    <span class="badge">
+                      <span class="badge-title">Computer Use Agent</span>
+                    </span>
+                    <span class="badge">
+                      <span class="badge-title">Research Agent</span>
+                    </span>
+                    <span class="badge">
+                      <span class="badge-title">Software Testing Agent</span>
+                    </span>
+                    <span class="badge">
+                      <span class="badge-title">Game Agent</span>
+                    </span>
+                    <span class="badge">
+                      <span class="badge-title">DeFi Agent</span>
+                    </span>
+                    <span class="badge">
+                      <span class="badge-title">Cybersecurity Agent</span>
+                    </span>
+                    <span class="badge">
+                      <span class="badge-title">Finance Agent</span>
+                    </span>
+                    <span class="badge">
+                      <span class="badge-title">Legal Domain Agent</span>
+                    </span>
+                    <span class="badge">
+                      <span class="badge-title">Multi-agent Evaluation</span>
+                    </span>
+                    <span class="badge">
+                      <span class="badge-title">Other Agent</span>
+                    </span>
                   </div>
                 </li>
                 <li>
