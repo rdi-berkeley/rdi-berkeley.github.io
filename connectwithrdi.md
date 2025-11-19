@@ -78,7 +78,7 @@ Use these QR codes to connect with us <br><br>
         method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank"
         novalidate>
         <div id="mc_embed_signup_scroll">
-          <img src="assets/images/Berkeley Center for RDI Logo.png" alt="Berkeley RDI"
+          <img src="assets/images/rdi_logo_vertical_720.png" alt="Berkeley RDI"
             style="width: 550px; height: auto; margin-top: -10px; margin-bottom: 10px;">
           <h2>Subscribe to Our Mailing List</h2>
           <div class="indicates-required" style="margin-top: -15px;"><span class="asterisk">*</span> indicates required</div>
