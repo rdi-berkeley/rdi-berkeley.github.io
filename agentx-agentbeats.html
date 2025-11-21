@@ -731,6 +731,68 @@
           </div>
           <p class="lead">More custom tracks to be announced...</p>
         </div>
+      </div>
+      <hr style="margin: 40px 0; border: none; border-top: 1px solid var(--line);">
+      <div class="container">
+        <div class="competition-subsection" id="submission-judging">
+          <h3 class="section-subtitle">Submission Guidelines (Phase 1 - Green Agent)</h3>
+          <h4 style="font-weight: 600; margin-top: 20px; margin-bottom: 10px;">Submission Requirements</h4>
+          <ul style="margin-top: 10px;">
+            <li><strong>Abstract</strong>: Brief description of the tasks your green agent evaluates</li>
+            <li><strong>Public GitHub repository</strong>: Complete source code and README describing how to run the green agent</li>
+            <li><strong>Baseline purple agent(s)</strong>: A2A-compatible purple/competition agent(s) showing how the benchmark is evaluated</li>
+            <li><strong>Docker image</strong>: Packaged green agent that runs end-to-end without manual intervention</li>
+            <li><strong>AgentBeats registration</strong>: Register your green agent and baseline purple agent(s) on the AgentBeats developer platform (coming soon–stay tuned!)</li>
+            <li><strong>Demo video</strong>: Up to 3 minutes demonstrating your green agent</li>
+          </ul>
+          <h4 style="font-weight: 600; margin-top: 20px; margin-bottom: 10px;">Judging Criteria</h4>
+          <ul style="margin-top: 10px;">
+            <li><strong>Technical Correctness, Implementation Quality and Documentation</strong>
+              <ul style="margin-top: 6px; margin-bottom: 6px;">
+                <li>Clean, well-documented code with clear README with overview, setup, and usage instructions</li>
+                <li>Docker image builds and runs without issues</li>
+                <li>Reasonable resource requirements (compute, memory, time)</li>
+                <li>Robust error handling and logging</li>
+                <li>Correct task logic and scoring</li>
+              </ul>
+            </li>
+            <li><strong>Reproducibility</strong>: Is the benchmark consistent and easy for any A2A‑compatible agent to run?
+              <ul style="margin-top: 6px; margin-bottom: 6px;">
+                <li>Consistent results across runs with the same agents</li>
+              </ul>
+            </li>
+            <li><strong>Benchmark Design Quality</strong>: How meaningful and well‑designed are the tasks and evaluation?
+              <ul style="margin-top: 6px; margin-bottom: 6px;">
+                <li>Tasks are realistic, meaningful, and representative of real-world agent capabilities</li>
+                <li>Clear difficulty progression or diverse skill assessment</li>
+                <li>Tasks genuinely test agentic capabilities (e.g., reasoning, planning, multi-step execution) or safety/security issues</li>
+                <li>Avoids trivial tasks or those easily solved by simple heuristics</li>
+              </ul>
+            </li>
+            <li><strong>Evaluation Methodology</strong>
+              <ul style="margin-top: 6px; margin-bottom: 6px;">
+                <li>Clear, objective, and justifiable scoring criteria</li>
+                <li>Automated evaluation where possible</li>
+                <li>Appropriate metrics for the task type</li>
+                <li>Goes beyond binary pass/fail to provide nuanced evaluation</li>
+                <li>Captures multiple dimensions of agent performance (accuracy, efficiency, safety, etc.)</li>
+              </ul>
+            </li>
+            <li><strong>Innovation &amp; Impact</strong>
+              <ul style="margin-top: 6px; margin-bottom: 6px;">
+                <li>Original contribution to the evaluation landscape</li>
+                <li>For agentifying existing benchmark: extensions beyond simple agentification</li>
+                <li>For new benchmarks: addresses gaps in existing evaluation coverage</li>
+                <li>Creative approach to difficult-to-evaluate capabilities</li>
+                <li>Clear use case and target audience</li>
+                <li>Complementary to (not redundant with) existing benchmarks</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <hr style="margin: 40px 0; border: none; border-top: 1px solid var(--line);">
+      <div class="container">
         <div class="competition-subsection" id="key-dates">
           <h3 class="section-subtitle">Key Dates</h3>
           <div class="timeline-wrapper" style="max-width:28rem; margin: 0 auto;">
