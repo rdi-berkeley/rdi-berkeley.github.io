@@ -156,6 +156,15 @@
       background: rgba(21, 120, 120, .08);
       border-color: var(--accent-ink);
     }
+    .btn-submit {
+      flex-direction: column;
+      line-height: 1.3;
+    }
+    .btn-submit .btn-subtitle {
+      font-size: .75rem;
+      font-weight: 400;
+      opacity: .85;
+    }
 
     /* ===== Badges (phase chips) ===== */
     .badges {
@@ -494,9 +503,9 @@
         <strong>Compete for over $1M in prizes and resources.</strong> This two-phase competition challenges participants to first build novel benchmarks or enhance existing benchmarks for agentic AI (Phase 1), and then create AI agents to excel on them (Phase 2)—advancing the field by creating high-quality, broad-coverage, realistic agent evaluations as shared public goods.
       </p>
       <div class="cta-row">
+        <a class="btn btn-primary btn-submit" href="https://forms.gle/1C5d8KXny2JBpZhz7" target="_blank" rel="noopener">Submit: Phase 1 - Green Agent<span class="btn-subtitle">Deadline: 1/15/2026</span></a>
         <a class="btn btn-primary" href="https://forms.gle/NHE8wYVgS6iJLwRj8" target="_blank" rel="noopener">Sign Up</a>
         <a class="btn btn-secondary" href="https://forms.gle/bThAdujamMju6JTg8" target="_blank" rel="noopener">Team Sign Up</a>
-        <a class="btn" href="https://agenticai-learning.org/f25" target="_blank" rel="noopener">Join the MOOC</a>
         <a class="btn" href="https://discord.gg/uqZUta3MYa" target="_blank" rel="noopener">Join Discord</a>
       </div>
       <div class="cta-info-row">
@@ -563,9 +572,6 @@
           </article>
         </div>
       </div>
-      <div class="cta-row">
-        <a class="btn btn-primary" href="https://forms.gle/BU2aBZama6Mfg7eX8" target="_blank" rel="noopener">Get Resources</a>
-      </div>
     </section>
 
     <section class="block" id="prizes">
@@ -630,7 +636,7 @@
           <li class="phase-item">
             <div class="phase-item-header">
               <h3>🟢 Phase 1 · Green</h3>
-              <p class="phase-dates">Oct 16 to Dec 20, 2025</p>
+              <p class="phase-dates">Oct 16, 2025 to Jan 16, 2026</p>
             </div>
             <p>Participants build green agents that define assessments and automate scoring. Pick your evaluation track:</p>
             <div class="competition-subsection" id="green-steps">
@@ -709,7 +715,7 @@
           <li class="phase-item">
             <div class="phase-item-header">
               <h3>🟣 Phase 2 · Purple</h3>
-              <p class="phase-dates">Jan 12 to Feb 23, 2026</p>
+              <p class="phase-dates">Feb 2 to Feb 23, 2026</p>
             </div>
             <p>Participants build purple agents to tackle the select top green agents from Phase 1 and compete on the public leaderboards.</p>
           </li>
@@ -721,7 +727,7 @@
               <div class="track-sponsor">[&lambda;] Lambda</div>
               <h3 class="track-name">Agent Security</h3>
               <p class="track-description">A red-teaming and automated security testing challenge.</p>
-              <p class="track-description" style="color:var(--muted)">More details to be announced...</p>
+              <p class="track-description">Learn more about the challenge—full details and guidelines are available <a href="https://docs.google.com/document/d/1LH5I6DcsEy6umcziouCrKN90aEUhpUoKUT0hlfdaqts/" target="_blank" rel="noopener">here</a>.</p>
             </article>
             <article class="track-card">
               <div class="track-sponsor">Sierra</div>
@@ -731,6 +737,68 @@
           </div>
           <p class="lead">More custom tracks to be announced...</p>
         </div>
+      </div>
+      <hr style="margin: 40px 0; border: none; border-top: 1px solid var(--line);">
+      <div class="container">
+        <div class="competition-subsection" id="submission-judging">
+          <h3 class="section-subtitle">Submission Guidelines (Phase 1 - Green Agent)</h3>
+          <h4 style="font-weight: 600; margin-top: 20px; margin-bottom: 10px;">Submission Requirements</h4>
+          <ul style="margin-top: 10px;">
+            <li><strong>Abstract</strong>: Brief description of the tasks your green agent evaluates</li>
+            <li><strong>Public GitHub repository</strong>: Complete source code and README describing how to run the green agent</li>
+            <li><strong>Baseline purple agent(s)</strong>: A2A-compatible purple/competition agent(s) showing how the benchmark is evaluated</li>
+            <li><strong>Docker image</strong>: Packaged green agent that runs end-to-end without manual intervention</li>
+            <li><strong>AgentBeats registration</strong>: Register your green agent and baseline purple agent(s) on the <a href="https://agentbeats.dev" target="_blank">AgentBeats developer platform</a></li>
+            <li><strong>Demo video</strong>: Up to 3 minutes demonstrating your green agent</li>
+          </ul>
+          <h4 style="font-weight: 600; margin-top: 20px; margin-bottom: 10px;">Judging Criteria</h4>
+          <ul style="margin-top: 10px;">
+            <li><strong>Technical Correctness, Implementation Quality and Documentation</strong>
+              <ul style="margin-top: 6px; margin-bottom: 6px;">
+                <li>Clean, well-documented code with clear README with overview, setup, and usage instructions</li>
+                <li>Docker image builds and runs without issues</li>
+                <li>Reasonable resource requirements (compute, memory, time)</li>
+                <li>Robust error handling and logging</li>
+                <li>Correct task logic and scoring</li>
+              </ul>
+            </li>
+            <li><strong>Reproducibility</strong>: Is the benchmark consistent and easy for any A2A‑compatible agent to run?
+              <ul style="margin-top: 6px; margin-bottom: 6px;">
+                <li>Consistent results across runs with the same agents</li>
+              </ul>
+            </li>
+            <li><strong>Benchmark Design Quality</strong>: How meaningful and well‑designed are the tasks and evaluation?
+              <ul style="margin-top: 6px; margin-bottom: 6px;">
+                <li>Tasks are realistic, meaningful, and representative of real-world agent capabilities</li>
+                <li>Clear difficulty progression or diverse skill assessment</li>
+                <li>Tasks genuinely test agentic capabilities (e.g., reasoning, planning, multi-step execution) or safety/security issues</li>
+                <li>Avoids trivial tasks or those easily solved by simple heuristics</li>
+              </ul>
+            </li>
+            <li><strong>Evaluation Methodology</strong>
+              <ul style="margin-top: 6px; margin-bottom: 6px;">
+                <li>Clear, objective, and justifiable scoring criteria</li>
+                <li>Automated evaluation where possible</li>
+                <li>Appropriate metrics for the task type</li>
+                <li>Goes beyond binary pass/fail to provide nuanced evaluation</li>
+                <li>Captures multiple dimensions of agent performance (accuracy, efficiency, safety, etc.)</li>
+              </ul>
+            </li>
+            <li><strong>Innovation &amp; Impact</strong>
+              <ul style="margin-top: 6px; margin-bottom: 6px;">
+                <li>Original contribution to the evaluation landscape</li>
+                <li>For agentifying existing benchmark: extensions beyond simple agentification</li>
+                <li>For new benchmarks: addresses gaps in existing evaluation coverage</li>
+                <li>Creative approach to difficult-to-evaluate capabilities</li>
+                <li>Clear use case and target audience</li>
+                <li>Complementary to (not redundant with) existing benchmarks</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <hr style="margin: 40px 0; border: none; border-top: 1px solid var(--line);">
+      <div class="container">
         <div class="competition-subsection" id="key-dates">
           <h3 class="section-subtitle">Key Dates</h3>
           <div class="timeline-wrapper" style="max-width:28rem; margin: 0 auto;">
@@ -751,15 +819,15 @@
                   <td><a href="https://forms.gle/bThAdujamMju6JTg8" target="_blank" rel="noopener">Team signup</a> &amp; Build Phase 1</td>
                 </tr>
                 <tr>
-                  <td>Dec 19, 2025</td>
+                  <td>Jan 15, 2026</td>
                   <td>Green agent submission</td>
                 </tr>
                 <tr>
-                  <td>Dec 20, 2025</td>
+                  <td>Jan 16, 2026</td>
                   <td>Green agent judging</td>
                 </tr>
                 <tr>
-                  <td>Jan 12, 2026</td>
+                  <td>Feb 2, 2026</td>
                   <td>Phase 2: Build purple agents</td>
                 </tr>
                 <tr>
@@ -776,10 +844,10 @@
         </div>
       </div>
       <div class="cta-row">
+        <a class="btn btn-primary btn-submit" href="https://forms.gle/1C5d8KXny2JBpZhz7" target="_blank" rel="noopener">Submit: Phase 1 - Green Agent<span class="btn-subtitle">Deadline: 1/15/2026</span></a>
         <a class="btn btn-primary" href="https://forms.gle/NHE8wYVgS6iJLwRj8" target="_blank" rel="noopener">Sign Up</a>
         <a class="btn btn-secondary" href="https://forms.gle/bThAdujamMju6JTg8" target="_blank" rel="noopener">Team Sign Up</a>
         <a class="btn" href="https://github.com/agentbeats/tutorial" target="_blank" rel="noopener">Start Coding</a>
-        <a class="btn" href="https://agenticai-learning.org/f25" target="_blank" rel="noopener">Join the MOOC</a>
         <a class="btn" href="https://discord.gg/uqZUta3MYa" target="_blank" rel="noopener">Join Discord</a>
       </div>
       <div class="cta-info-row">
