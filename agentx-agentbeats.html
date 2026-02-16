@@ -419,6 +419,22 @@
     }
 
     /* ===== Resources ===== */
+    .res-tabs {
+      display: flex; justify-content: center; gap: 10px;
+      margin-top: 10px; margin-bottom: 0;
+    }
+    .res-tab {
+      padding: 8px 20px; cursor: pointer;
+      border: none; border-radius: 999px;
+      background: rgba(21,120,120,.12); color: var(--accent-ink);
+      font-weight: 600; font-size: .85rem;
+      transition: background .2s, color .2s;
+      user-select: none;
+    }
+    .res-tab:hover { background: rgba(21,120,120,.22); }
+    .res-tab.active { background: var(--accent); color: #fff; }
+    .res-phase { display: none; }
+    .res-phase.active { display: block; }
     .resource-grid {
       display: grid;
       gap: 16px;
@@ -556,19 +572,37 @@
     <section class="block" id="resources">
       <div class="container">
         <h2 class="section-title">Resources</h2>
-        <div class="resource-grid">
-          <article class="resource-card">
-            <h3>Lambda</h3>
-            <p>$400 cloud credits to every individual or team</p>
-          </article>
-          <article class="resource-card">
-            <h3>Nebius</h3>
-            <p>$50 inference credits to every individual or team</p>
-          </article>
-          <article class="resource-card">
-            <h3>More to be announced</h3>
-            <p>Additional resources will be announced soon.</p>
-          </article>
+        <div class="res-tabs">
+          <span class="res-tab" onclick="resShowTab(0)">Phase 1 (concluded)</span>
+          <span class="res-tab active" onclick="resShowTab(1)">Phase 2</span>
+        </div>
+        <div class="res-phase" data-res="0">
+          <div class="resource-grid">
+            <article class="resource-card">
+              <h3>Lambda</h3>
+              <p>$400 cloud credits to every individual or team</p>
+            </article>
+            <article class="resource-card">
+              <h3>Nebius</h3>
+              <p>$50 inference credits to every individual or team</p>
+            </article>
+          </div>
+        </div>
+        <div class="res-phase active" data-res="1">
+          <div class="resource-grid">
+            <article class="resource-card">
+              <h3>Lambda</h3>
+              <p>$100 cloud credits to every individual or team</p>
+            </article>
+            <article class="resource-card">
+              <h3>Nebius</h3>
+              <p>$50 inference credits to every individual or team</p>
+            </article>
+            <article class="resource-card">
+              <h3>More to be announced</h3>
+              <p>Additional resources will be announced soon.</p>
+            </article>
+          </div>
         </div>
       </div>
     </section>
@@ -964,5 +998,11 @@
 
   </section>
 
+  <script>
+    function resShowTab(i) {
+      document.querySelectorAll('.res-tab').forEach((t, idx) => t.classList.toggle('active', idx === i));
+      document.querySelectorAll('.res-phase').forEach((p, idx) => p.classList.toggle('active', idx === i));
+    }
+  </script>
 </body>
 </html>
