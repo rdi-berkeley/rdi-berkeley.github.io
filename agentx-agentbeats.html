@@ -968,7 +968,35 @@
         </div><!-- /Coding -->
 
         <div class="winner-container">
-          <p class="winner-coming-soon">To be announced soon</p>
+          <div class="winner-cards">
+            <div class="winner-card">
+              <span class="placement placement-1">1st Place</span>
+              <h4>ICU-Later</h4>
+              <div class="abstract-wrap" onclick="this.classList.toggle('expanded')"><span class="abstract-text">FHIR Agent Evaluator is a benchmark for evaluating medical LLM agents on realistic clinical tasks using FHIR (Fast Healthcare Interoperability Resources) data from MIMIC-IV-FHIR. It follows the Agent-to-Agent (A2A) protocol and evaluates agents operating in tool-augmented EHR environments. The benchmark combines and extends tasks from existing medical agent benchmarks and introduces novel evaluations: Retrieval tasks (1,335 tasks) from FHIR-AgentBench, covering patient record querying, temporal reasoning, and multi-step information gathering across FHIR resources; Retrieval+Action tasks (156 tasks) adapted from MedAgentBench, including vitals recording, medication ordering with dosing protocols, referral ordering with SBAR documentation, and conditional laboratory ordering; Drug interaction tasks (30 tasks) introducing medication conflict detection using FDA drug label data. Agents interact with the environment via tools for FHIR GET/POST requests, medical code lookup, Python code execution, and FDA drug label access. Agents are evaluated using answer correctness (overall task correctness combining response and action validation), action correctness (FHIR POST validation), and F1 score (harmonic mean of retrieval precision and recall).</span></div>
+              <div class="links">
+                <a href="https://github.com/abasit/FhirAgentEvaluator" target="_blank">GitHub</a>
+                <a href="https://agentbeats.dev/abasit/fhiragentevaluator" target="_blank">AgentBeats</a>
+              </div>
+            </div>
+            <div class="winner-card">
+              <span class="placement placement-2">2nd Place</span>
+              <h4>BitBreakers</h4>
+              <div class="abstract-wrap" onclick="this.classList.toggle('expanded')"><span class="abstract-text">The green agent evaluates whether a medical AI (purple agent) can correctly perform FHIR-based clinical reasoning tasks. These tasks fall into three categories: Query tasks: Retrieve and compute patient information from the FHIR server, such as identifying patients, calculating age, and extracting recent or averaged lab values. Write tasks: Create valid FHIR resources, including vital sign observations and consultation or lab service requests, with correct clinical structure and content. Conditional (protocol-driven) tasks: Apply clinical decision logic based on patient data (e.g., electrolyte levels or test recency) and, when criteria are met, generate appropriate medication orders or lab requests according to predefined medical protocols. Overall, the green agent checks data retrieval accuracy, clinical calculations, correct use of FHIR APIs, and adherence to clinical protocols, validating each task with task-specific grading logic.</span></div>
+              <div class="links">
+                <a href="https://github.com/saleh-SHA/Agentify-MedAgentBench" target="_blank">GitHub</a>
+                <a href="https://agentbeats.dev/karim-elkobrossy/medagentbench-agentified" target="_blank">AgentBeats</a>
+              </div>
+            </div>
+            <div class="winner-card">
+              <span class="placement placement-3">3rd Place</span>
+              <h4>MadGAA Lab</h4>
+              <div class="abstract-wrap" onclick="this.classList.toggle('expanded')"><span class="abstract-text">The green agent evaluates doctor agents' medical communication skills through simulated patient interactions. It assesses empathy, persuasion, and safety across 30 criteria while managing dialogues with patients exhibiting diverse MBTI personality types. The system generates comprehensive performance reports with scores and improvement recommendations.</span></div>
+              <div class="links">
+                <a href="https://github.com/MadGAA-Lab/OSCE-Project" target="_blank">GitHub</a>
+                <a href="https://agentbeats.dev/whats2000/osce-medical-judge" target="_blank">AgentBeats</a>
+              </div>
+            </div>
+          </div>
         </div><!-- /Healthcare -->
 
         <div class="winner-container">
