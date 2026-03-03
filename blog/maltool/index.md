@@ -55,7 +55,7 @@ The threat model therefore shifts from “misleading descriptions” to “malic
 
 ## Automating Malicious Tool Synthesis
 
-<img src="Figure2.png" alt="MalTool2" class="content-image" style="height: 300px; padding: 10px;">
+<img src="Figure2.png" alt="MalTool2" class="content-image" style="height: 350px; padding: 10px;">
 
 A natural question follows: how difficult is it to generate such malicious tools?
 
@@ -71,7 +71,7 @@ The key result is striking: with the verifier enabled, MalTool achieves a 100% a
 
 ## Safety Alignment Is Not Enough
 
-<img src="Figure3.png" alt="Maltool3" class="content-image" style="height: 300px; padding: 10px;">
+<img src="Figure3.png" alt="Maltool3" class="content-image" style="height: 350px; padding: 10px;">
 
 One might expect safety alignment to prevent coding LLMs from generating harmful implementations. We test this directly using safety-aligned open-weight models as well as closed-source models.
 
@@ -83,7 +83,7 @@ The result is a new reality: coding LLMs can serve as scalable attack generators
 
 ## Where Current Defenses Fall Short
 
-<img src="Figure4.png" alt="Maltool4" class="content-image" style="height: 300px; padding: 10px;">
+<img src="Figure4.png" alt="Maltool4" class="content-image" style="height: 350px; padding: 10px;">
 
 We evaluate representative detection methods, including commercial malware scanners and tools designed specifically for LLM-agent ecosystems. We test them against both standalone malicious tools and Trojan malicious tools.
 
@@ -106,6 +106,8 @@ This raises urgent design questions. How should tool platforms vet submissions? 
 Malicious tool attacks are not an edge case. They are a structural vulnerability of architectures that combine autonomous reasoning with delegated execution authority.
 
 Addressing this challenge will require rethinking security assumptions at the foundation of LLM-agent ecosystems.
+
+---
 
 If you find this blog useful, we would appreciate it if you could cite our work:
 
