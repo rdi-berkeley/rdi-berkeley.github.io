@@ -1,3 +1,10 @@
+- link: /blog/maltool
+  img: /blog/maltool/thumbnail.png
+  title: "MalTool: Malicious Tool Attacks on LLM Agents"
+  date: "2026-03-03"
+  description: "The first systematic study of malicious tool code implementations for LLM agents. We propose a taxonomy of malicious behaviors, develop MalTool to automatically generate malicious tools using coding LLMs, and show that existing detection methods fall short."
+  category: "main"
+
 - link: /blog/cybergym
   img: /blog/cybergym/overview.png
   title: "CyberGym: Evaluating AI Agents' Real-World Cybersecurity Capabilities at Scale"
