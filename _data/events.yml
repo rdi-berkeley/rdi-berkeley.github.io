@@ -1,3 +1,7 @@
+- link: https://rdi.berkeley.edu/events/agentic-ai-summit-2026
+  img: /assets/images/events/agentic_ai_summit_2026.jpg
+  category: "main"
+
 - link: https://rdi.berkeley.edu/agentx-agentbeats.html
   img: /assets/images/events/agentx-agentbeats-banner.png
   category: "main"
@@ -6,7 +10,7 @@
   img: /assets/images/events/frontier-ai-cybersecurity-workshop.png
   category: "main"
 
-- link: https://rdi.berkeley.edu/events/agentic-ai-summit
+- link: https://rdi.berkeley.edu/events/agentic-ai-summit-2025
   img: /assets/images/events/AgenticAISummitNEW.jpg
   category: "main"
 
