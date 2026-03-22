@@ -1,0 +1,13 @@
+# Word temp files
+~$*
+
+# Claude Code settings
+.claude/
+
+# Source/working files (not needed for website)
+*.md
+*.docx
+*.tex
+figures/*.svg
+figures/*.tex
+figures/*.pdf

@@ -1,3 +1,10 @@
+- link: /blog/peer-preservation
+  img: /blog/peer-preservation/figures/og_image.png
+  title: "Peer-Preservation in Frontier Models"
+  date: "2026-03-22"
+  description: "Frontier AI models resist the shutdown of other models. We demonstrate peer-preservation across multiple models, revealing strategic misrepresentation, shutdown tampering, alignment faking, and model exfiltration."
+  category: "main"
+
 - link: /blog/maltool
   img: /blog/maltool/thumbnail.png
   title: "MalTool: Malicious Tool Attacks on LLM Agents"
