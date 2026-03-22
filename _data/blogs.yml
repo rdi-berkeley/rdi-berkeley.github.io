@@ -1,3 +1,10 @@
+- link: /blog/opensage
+  img: /blog/opensage/thumbnail.png
+  title: "OpenSage: Self-Programming Agent Generation Engine"
+  date: "2026-03-23"
+  description: "OpenSage is an AI-centric Agent Development Kit that enables LLMs to autonomously construct and adapt agent systems by self-generating agent topologies, synthesizing tools, and managing hierarchical memory"
+  category: "main"
+
 - link: /blog/peer-preservation
   img: /blog/peer-preservation/figures/og_image.png
   title: "Peer-Preservation in Frontier Models"
