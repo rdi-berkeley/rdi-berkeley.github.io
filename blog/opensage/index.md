@@ -33,7 +33,7 @@ March 23, 2026
 </div>
 
 
-## From human-centric to AI-Centric Agent Development
+## From Human-centric to AI-Centric Agent Development
 
 AI agents are experiencing explosive growth, but their construction still relies heavily on human expertise. Current state-of-the-art ADKs, including Google ADK, OpenAI ADK, Claude ADK, OpenHands, and LangChain, provide basic infrastructure but require developers to manually design three core architectural components:
 
