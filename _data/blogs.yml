@@ -1,3 +1,10 @@
+- link: /blog/self-sovereign-agent
+  img: /assets/images/blog/self-sovereign-agent-intro.png
+  title: "Self-Sovereign Agent"
+  date: "2026-03-16"
+  description: "A governance-oriented analysis of self-sovereign agents, introducing the economic, replication, and adaptation loops that could let AI systems sustain and extend their own operation."
+  category: "main"
+
 - link: /blog/opensage
   img: /blog/opensage/thumbnail.png
   title: "OpenSage: Self-Programming Agent Generation Engine"
