@@ -3,14 +3,13 @@ layout: blog
 title: "Self-Sovereign Agent"
 ---
 
-<img src="/assets/images/blog/self-sovereign-agent-intro.png" alt="Self-Sovereign Agent overview" class="cover-image" style="height: 100%; padding: 15px 15px 15px 30px;">
+<img src="./self-sovereign-agent-intro.png" alt="Self-Sovereign Agent overview" class="cover-image" style="height: 100%; padding: 15px 15px 15px 30px;">
 
 # Self-Sovereign Agent
 
 <div class="author-info">
 <strong>Wenjie Qu, Xuandong Zhao, Jiaheng Zhang, Dawn Song</strong><br>
 National University of Singapore, UC Berkeley<br>
-March 16, 2026<br>
 <em>(Est. 4-6 minutes read, more details in <a href="https://self-sovereign-agent.github.io/" target="_blank" rel="noopener noreferrer">https://self-sovereign-agent.github.io/</a>)</em>
 </div>
 
@@ -32,7 +31,7 @@ As shown in the header image, the technical core of a self-sovereign agent consi
 
 The agent is no longer sustained because a human continues paying for it. Instead, the system's persistence becomes endogenous to its own behavior. Taken together, these loops imply a shift from AI as a delegated program to a **persistent digital actor that operates on its own behalf**.
 
-<img src="/assets/images/blog/self-sovereign-agent-roadmap.png" alt="Upgrade path of a self-sovereign agent" class="content-image">
+<img src="./self-sovereign-agent-roadmap.png" alt="Upgrade path of a self-sovereign agent" class="content-image">
 
 ### Self-sovereignty is best understood as a staged roadmap
 
