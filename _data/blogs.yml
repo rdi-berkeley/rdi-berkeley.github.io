@@ -1,7 +1,7 @@
 - link: /blog/self-sovereign-agent
-  img: /assets/images/blog/self-sovereign-agent-intro.png
+  img: /blog/self-sovereign-agent/self-sovereign-agent-intro.png
   title: "Self-Sovereign Agent"
-  date: "2026-03-16"
+  date: "2026-03-24"
   description: "Self-sovereign agents are a new type of LLM agents that can sustain their own operation and autonomously replicate themselves."
   category: "main"
 
