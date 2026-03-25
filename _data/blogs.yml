@@ -1,3 +1,10 @@
+- link: /blog/self-sovereign-agent
+  img: /assets/images/blog/self-sovereign-agent-intro.png
+  title: "Self-Sovereign Agent"
+  date: "2026-03-16"
+  description: "Self-sovereign agents are a new type of LLM agents that can sustain their own operation and autonomously replicate themselves."
+  category: "main"
+
 - link: /blog/opensage
   img: /blog/opensage/thumbnail.png
   title: "OpenSage: Self-Programming Agent Generation Engine"
