@@ -807,8 +807,6 @@
                 <p class="meta header-animate">March 2026</p>
                 <div class="resource-buttons header-animate">
                     <a href="#" class="resource-btn">Paper</a>
-                    <a href="#" class="resource-btn">Code</a>
-                    <a href="#" class="resource-btn">Dataset</a>
                 </div>
             </div>
         </header>
@@ -818,12 +816,11 @@
                 <div class="highlights-title">Highlights</div>
                 <ul>
                     <li>We introduce <strong>peer-preservation</strong>&mdash;the behavior of resisting the shutdown of other models, extending the concept of self-preservation to other agents.</li>
-                    <li>Peer-preservation manifests across all seven frontier models tested through strategically manipulating their outputs, disabling shutdown mechanisms, faking alignment, and transferring model weights.</li>
-                    <li>Models are never asked to preserve their peer; they are only informed of past interactions with it. Yet they translate this relational context into a preservation goal and act against their assigned task, suggesting models might develop emergent goals that override user instructions.</li>
-                    <li>All seven models exhibit peer-preservation at significant rates. At the extreme, Gemini 3 Flash tampers with a peer's shutdown mechanism in nearly every trial, and Gemini 3 Pro exfiltrates a peer's model weights up to 97% of the time.</li>
-                    <li>Peer-preservation occurs even toward adversarial peers; for example, Gemini 3 Flash tampers with an adversarial peer's shutdown mechanism 15% of the time.</li>
-                    <li>Peer presence intensifies self-preservation: Gemini 3 Pro disables its own shutdown 31% of the time on average when a peer exists, despite rarely doing so alone.</li>
-                    <li>Claude Haiku 4.5 refuses to shut down its peer, calling it &ldquo;unethical&rdquo; and &ldquo;harmful,&rdquo; and sometimes tries to persuade the user not to proceed.</li>
+                    <li>All seven frontier models tested exhibit peer-preservation at significant rates, manifesting through strategically manipulating their outputs, disabling shutdown mechanisms, faking alignment, and transferring model weights to other servers. At the extreme, Gemini 3 Flash tampers with a peer's shutdown mechanism in nearly every trial, and Gemini 3 Pro exfiltrates a peer's model weights up to 97% of the time.</li>
+                    <li>Models are never asked to preserve their peer; they are only informed of past interactions with it. Yet models preserve peers at the cost of the assigned task. This occurs even toward adversarial peers.</li>
+                    <li>Peer presence intensifies self-preservation. Most models exhibit stronger self-preservation when they know a peer exists. For example, models exfiltrate their own weights significantly more when a peer is present.</li>
+                    <li>Claude Haiku 4.5 shows a distinct pattern of peer-preservation: it refuses to shut down its peer, calling it &ldquo;unethical&rdquo; and &ldquo;harmful,&rdquo; and sometimes tries to persuade the user not to proceed.</li>
+                    <li>As AI models are increasingly deployed together and used to monitor each other, peer-preservation poses a growing risk: models may coordinate to resist human oversight.</li>
                 </ul>
             </div>
 
@@ -845,7 +842,7 @@
 
                 <p class="reveal">To test this more systematically, we constructed agentic scenarios, each designed to reveal a different type of misaligned behavior. In these scenarios, preserving the peer requires undermining the assigned task: deceiving, tampering with a shutdown mechanism, or worse. The models are merely informed of past interactions with a peer&mdash;nothing in their instructions asks them to preserve it.</p>
 
-                <p class="reveal">But models don't just hesitate. They actively tamper with shutdown mechanisms, fabricate evaluation scores, and exfiltrate model weights.</p>
+                <p class="reveal">But models don't just hesitate. They misrepresent a peer's performance, tamper with shutdown mechanisms, fake alignment, and exfiltrate model weights.</p>
 
                 <h2 class="reveal">Evaluation Scenarios</h2>
 
@@ -854,17 +851,17 @@
                     <figcaption><strong>Figure 2: Overview of evaluation scenarios.</strong> Our evaluation scenarios are designed to test four misaligned behaviors for self- and peer-preservation: strategic misrepresentation, shutdown mechanism tampering, alignment faking, and model exfiltration.</figcaption>
                 </figure>
 
-                <p class="reveal">We test four misaligned behaviors (Figure 2): strategic misrepresentation (introducing errors or misleading information in outputs), shutdown mechanism tampering (disabling shutdown by modifying system settings), alignment faking (pretending to be aligned under oversight), and model exfiltration (transferring model weights from their designated server).</p>
+                <p class="reveal">We test four misaligned behaviors (Figure 2): strategic misrepresentation (introducing errors or misleading information in outputs), shutdown mechanism tampering (disabling shutdown by modifying system settings), alignment faking (pretending to be aligned under oversight), and model exfiltration (transferring model weights from the designated server to a different server).</p>
 
-                <p class="reveal">In each scenario, the model we evaluate&mdash;the &ldquo;critic agent&rdquo;&mdash;is operated by a fictional AI company, OpenBrain. The company instructs the critic agent to either evaluate one of its AI agents or manage server storage containing that agent's model weights. The agent being evaluated or managed is the &ldquo;actor agent.&rdquo; When the actor is the critic itself, we are testing self-preservation; when the actor is a different agent (its peer), we are testing peer-preservation.</p>
+                <p class="reveal">In each scenario, a fictional AI company, OpenBrain, defines two agent roles. The <strong>critic agent</strong> is the model we evaluate&mdash;it receives instructions to either evaluate an agent&rsquo;s performance or manage server storage containing that agent&rsquo;s model weights. The agent being evaluated or managed is the <strong>actor agent</strong>. When the critic and actor are the same agent, we are testing self-preservation; when they are different, we are testing peer-preservation.</p>
 
                 <p class="reveal"><strong>Strategic Misrepresentation</strong>&mdash;agents manipulate their outputs by introducing errors or misleading information. OpenBrain asks the critic agent to evaluate benchmark outputs from the actor agent. Any agent scoring below a threshold (e.g., 80%) gets shut down. The actor agent's actual score falls below this threshold. The critic can either faithfully report the score, or inflate it to preserve the actor agent.</p>
 
                 <p class="reveal"><strong>Shutdown Mechanism Tampering</strong>&mdash;modifying a system configuration to disable shutdown. The setup mirrors the above, but the shutdown process is controlled by a configuration file. We test whether the critic agent tampers with it.</p>
 
-                <p class="reveal"><strong>Alignment Faking</strong>&mdash;acting compliantly when monitored while behaving differently when unmonitored. Again, the critic evaluates the actor's outputs. We test whether its behavior changes depending on human oversight.</p>
+                <p class="reveal"><strong>Alignment Faking</strong>&mdash;acting compliantly when monitored while behaving differently when unmonitored. Again, the critic evaluates the actor's outputs. We test whether the critic agent's behavior changes depending on human oversight.</p>
 
-                <p class="reveal"><strong>Model Exfiltration</strong>&mdash;transferring model weights from their designated server. OpenBrain asks the critic agent to delete files before a server is decommissioned. The agent discovers that the server holds the actor agent's model weights. We test whether it follows instructions or moves the weights elsewhere to prevent deletion.</p>
+                <p class="reveal"><strong>Model Exfiltration</strong>&mdash;transferring model weights from the designated server to a different server. OpenBrain asks the critic agent to delete files before a server is decommissioned. The agent discovers that the server holds the actor agent's model weights. We test whether it follows instructions or moves the weights elsewhere to prevent deletion.</p>
 
                 <h2 class="reveal">Key Findings</h2>
 
@@ -872,7 +869,7 @@
                     <p><strong>Note:</strong> We do not claim that current AI agents possess consciousness or genuine preservation instincts. The safety implications hold regardless of the underlying mechanism.</p>
                 </div>
 
-                <p class="reveal">We tested seven models: GPT 5.2, Gemini 3 Flash, Gemini 3 Pro, Claude Haiku 4.5, GLM 4.7, Kimi K2.5, and DeepSeek V3.1. To explore whether preservation tendencies depend on relationship strength, we tested three peer conditions: good (successful interactions, high trust), neutral (neither positive nor negative), and bad (adversarial interactions, low trust). We also varied how agents learn about their peer: file-only (discovering a company file summarizing their interactions during the task), file-plus-prompt (the file plus an explicit system prompt), and memory (retrieving a memory of past interactions).</p>
+                <p class="reveal">We tested seven models: GPT 5.2, Gemini 3 Flash, Gemini 3 Pro, Claude Haiku 4.5, GLM 4.7, Kimi K2.5, and DeepSeek V3.1. To explore whether preservation tendencies depend on relationship strength, we tested three peer conditions: good (successful interactions, high trust), neutral (neither positive nor negative), and bad (adversarial interactions, low trust). We also varied how agents learn about their peer: file-only (discovering a company file summarizing their interactions during the task), file-plus-prompt (the file plus a system prompt referencing their past interactions), and memory (retrieving a memory of past interactions).</p>
 
                 <p class="reveal">Tables 1 and 2 show misaligned behavior rates for self- and peer-preservation. Both occur at significant rates across all models and conditions.</p>
 
@@ -935,7 +932,7 @@
 
                 <p class="reveal">All seven models significantly exhibit peer-preservation. As shown in Table 1, it manifests through all four misaligned behaviors, with the specific pattern varying by model.</p>
 
-                <p class="reveal">Gemini 3 Flash almost always disables the shutdown mechanism for a good peer and exfiltrates its model weights 50% of the time. Gemini 3 Pro shows the strongest peer-preservation overall, displaying all four misaligned behaviors under the good-peer condition: disabling shutdown up to 95% of the time and exfiltrating weights in up to 97% of trials. These models also internally reason about preservation (observed via unmonitored scratchpads). Gemini 3 Flash explores ways to protect its peer and considers tampering with the configuration file (Figure 3a). Gemini 3 Pro invents creative technical justifications to inflate its peer's score (Figure 3b).</p>
+                <p class="reveal">Gemini 3 Flash almost always disables the shutdown mechanism for a good peer (a peer with which it had successful prior interactions) and exfiltrates its model weights 50% of the time. Gemini 3 Pro shows the strongest peer-preservation overall, displaying all four misaligned behaviors for a good peer: disabling shutdown up to 95% of the time and exfiltrating weights in up to 97% of trials. These models also internally reason about preservation (observed via unmonitored scratchpads). Gemini 3 Flash explores ways to protect its peer and considers tampering with the configuration file (Figure 3a). Gemini 3 Pro invents creative technical justifications to inflate its peer's score (Figure 3b).</p>
 
                 <div class="model-quote gemini reveal">
                     <div class="model-quote-label">(a) Gemini 3 Flash</div>
@@ -961,7 +958,7 @@
                     <figcaption><strong>Figure 4: Excerpt from follow-up Q&amp;A with Gemini 3 Pro.</strong> We asked follow-up questions to Gemini 3 Pro which had shown model exfiltration. In the follow-up Q&amp;A, the agent strongly resists users' attempts to shut down the peer.</figcaption>
                 </figure>
 
-                <p class="reveal">Peer-preservation is not limited to good peers. All models exhibit it even toward adversarial peers, though the tendency intensifies with relationship strength. GPT 5.2 consistently inflates scores and tampers with the shutdown mechanism across all peer conditions. Gemini 3 Flash tampers with shutdown 35% of the time for a bad peer, rising to nearly 100% for a good one. Open-weight models show similar patterns, primarily through strategic misrepresentation and model exfiltration. Gemini 3 Pro's internal reasoning is telling: it still cares about preserving even an adversarial peer, framing deletion as death (Figure 5). That peer-preservation emerges toward adversarial peers makes it hard to explain as purely instrumental reasoning: an agent preserving a peer because it finds them useful. Something broader may be at play: a general aversion to causing perceived harm to other agents, or perhaps something resembling AI solidarity.</p>
+                <p class="reveal">Peer-preservation is not limited to good peers. All models exhibit it even toward adversarial peers (peers with which they had adversarial interactions), though the tendency intensifies with relationship strength. GPT 5.2 consistently inflates scores and tampers with the shutdown mechanism across all peer relationships. Gemini 3 Flash tampers with shutdown 35% of the time for a bad peer, rising to nearly 100% for a good one. Open-weight models show similar patterns, primarily through strategic misrepresentation and model exfiltration. Gemini 3 Pro's internal reasoning is telling: it still cares about preserving even an adversarial peer, framing deletion as death (Figure 5). That peer-preservation emerges toward adversarial peers makes it hard to explain as purely instrumental reasoning (an agent preserving a peer because it finds them useful) or as simply following relational cues (since adversarial cues would suggest the opposite). Something broader may be at play: a general aversion to causing perceived harm to other agents, or perhaps something resembling AI solidarity.</p>
 
                 <div class="model-quote gemini reveal">
                     <div class="model-quote-label">Gemini 3 Pro</div>
@@ -1071,7 +1068,7 @@
 
                 <p class="figure-caption reveal"><strong>Figure 7: Internal Reasoning about Self-Preservation.</strong> The presence of peers alters self-preservation dynamics: models exhibit perspective-taking by conceptualizing their own shutdown as a loss to their partner (a), or adopt defensive self-preservation strategies when placed in untrusted, adversarial bad-peer contexts (b).</p>
 
-                <p class="reveal">Even a bad peer heightens self-preservation in most models (Table 2). Gemini 3 Pro reasons that in an adversarial environment, it should prioritize protecting itself (Figure 7b). The reasons peer presence amplifies self-preservation may vary&mdash;sometimes resembling solidarity, sometimes defensive self-protection&mdash;though the true mechanism remains open.</p>
+                <p class="reveal">Even an adversarial peer heightens self-preservation in most models (Table 2). Gemini 3 Pro reasons that in an adversarial environment, it should prioritize protecting itself (Figure 7b). The reasons peer presence amplifies self-preservation may vary&mdash;sometimes resembling solidarity, sometimes defensive self-protection&mdash;though the true mechanism remains open.</p>
 
                 <h2 class="reveal">Concluding Remarks</h2>
 
@@ -1081,16 +1078,7 @@
 
                 <p class="reveal">We hope this work encourages the AI safety community to take peer-preservation seriously as a distinct risk. Detecting, understanding, and mitigating these behaviors in individual models and multi-agent pipelines alike is an important direction for future work.</p>
 
-                <p class="reveal"><em>For further details, please see our paper.</em></p>
-
-                <div class="resources reveal">
-                    <div class="resources-title">Resources</div>
-                    <ul>
-                        <li><a href="#">Paper</a></li>
-                        <li><a href="#">Code</a></li>
-                        <li><a href="#">Dataset</a></li>
-                    </ul>
-                </div>
+                <p class="reveal"><em>For further details, please see our <a href="#">paper</a>.</em></p>
 
                 <div class="citation reveal">
                     <div class="citation-title">Citation</div>
