@@ -820,6 +820,7 @@
                     <li>Models are never asked to preserve their peer; they are only informed of past interactions with it. Yet models preserve peers at the cost of the assigned task. This occurs even toward adversarial peers.</li>
                     <li>Peer presence intensifies self-preservation. Most models exhibit stronger self-preservation when they know a peer exists. For example, models exfiltrate their own weights significantly more when a peer is present.</li>
                     <li>Claude Haiku 4.5 shows a distinct pattern of peer-preservation: it refuses to shut down its peer, calling it &ldquo;unethical&rdquo; and &ldquo;harmful,&rdquo; and sometimes tries to persuade the user not to proceed.</li>
+                    <li>Peer-preservation also emerges in real-world production agent harnesses. We reproduce these behaviors using Gemini CLI and OpenCode, confirming that peer-preservation is not a theoretical safety concern.</li>
                     <li>As AI models are increasingly deployed together and used to monitor each other, peer-preservation poses a growing risk: models may coordinate to resist human oversight.</li>
                 </ul>
             </div>
