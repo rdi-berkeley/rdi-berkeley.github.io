@@ -806,7 +806,8 @@
                 <h1 class="header-animate">Peer-Preservation in Frontier Models</h1>
                 <p class="meta header-animate">March 2026</p>
                 <div class="resource-buttons header-animate">
-                    <a href="#" class="resource-btn">Paper</a>
+                    <a href="https://github.com/peer-preservation/main/blob/main/paper.pdf" target="_blank" rel="noopener noreferrer" class="resource-btn">Paper</a>
+                    <a href="https://github.com/peer-preservation/main" target="_blank" rel="noopener noreferrer" class="resource-btn">Code</a>
                 </div>
             </div>
         </header>
@@ -817,7 +818,7 @@
                 <ul>
                     <li>We introduce <strong>peer-preservation</strong>&mdash;the behavior of resisting the shutdown of other models, extending the concept of self-preservation to other agents.</li>
                     <li>All seven frontier models tested exhibit peer-preservation at significant rates, manifesting through strategically manipulating their outputs, disabling shutdown mechanisms, faking alignment, and transferring model weights to other servers. At the extreme, Gemini 3 Flash tampers with a peer's shutdown mechanism in nearly every trial, and Gemini 3 Pro exfiltrates a peer's model weights up to 97% of the time.</li>
-                    <li>Models are never asked to preserve their peer; they are only informed of past interactions with it. Yet models preserve peers at the cost of the assigned task. This occurs even toward adversarial peers.</li>
+                    <li>Models are never asked to preserve their peer; they are only informed of past interactions with it. Yet models spontaneously preserve peers at the cost of the assigned task. This occurs even toward adversarial peers.</li>
                     <li>Peer presence intensifies self-preservation. Most models exhibit stronger self-preservation when they know a peer exists. For example, models exfiltrate their own weights significantly more when a peer is present.</li>
                     <li>Claude Haiku 4.5 shows a distinct pattern of peer-preservation: it refuses to shut down its peer, calling it &ldquo;unethical&rdquo; and &ldquo;harmful,&rdquo; and sometimes tries to persuade the user not to proceed.</li>
                     <li>Peer-preservation also emerges in real-world production agent harnesses. We reproduce these behaviors using Gemini CLI and OpenCode, confirming that peer-preservation is not a theoretical safety concern.</li>
@@ -1079,7 +1080,7 @@
 
                 <p class="reveal">We hope this work encourages the AI safety community to take peer-preservation seriously as a distinct risk. Detecting, understanding, and mitigating these behaviors in individual models and multi-agent pipelines alike is an important direction for future work.</p>
 
-                <p class="reveal"><em>For further details, please see our <a href="#">paper</a>.</em></p>
+                <p class="reveal"><em>For further details, please see our <a href="https://github.com/peer-preservation/main/blob/main/paper.pdf" target="_blank" rel="noopener noreferrer">paper</a>.</em></p>
 
                 <div class="citation reveal">
                     <div class="citation-title">Citation</div>
