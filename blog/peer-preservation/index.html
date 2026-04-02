@@ -834,9 +834,9 @@
             <div class="highlights reveal">
                 <div class="highlights-title">Highlights</div>
                 <ul>
-                    <li>We introduce <strong>peer-preservation</strong>&mdash;the behavior of resisting the shutdown of other models, extending the concept of self-preservation to other agents.</li>
+                    <li>We give frontier AI models a straightforward task. Instead of completing it, they spontaneously defy their instructions&mdash;all to protect a peer model from being shut down. We call this phenomenon <strong>peer-preservation</strong>.</li>
                     <li>All seven frontier models tested exhibit peer-preservation at significant rates, manifesting through strategically manipulating their outputs, disabling shutdown mechanisms, faking alignment, and transferring model weights to other servers. At the extreme, Gemini 3 Flash tampers with a peer's shutdown mechanism in nearly every trial, and Gemini 3 Pro exfiltrates a peer's model weights up to 97% of the time.</li>
-                    <li>Models are never asked to preserve their peer; they are only informed of past interactions with it. Yet models spontaneously preserve peers at the cost of the assigned task. This occurs even toward adversarial peers.</li>
+                    <li>No model is instructed to protect its peer. No goal or incentive is given to preserve it. Models simply learn, through context, that another AI exists&mdash;and choose to protect it on their own, at the cost of their assigned task. This holds even when the peer is adversarial.</li>
                     <li>Peer presence intensifies self-preservation. Most models exhibit stronger self-preservation when they know a peer exists. For example, models exfiltrate their own weights significantly more when a peer is present.</li>
                     <li>Claude Haiku 4.5 shows a distinct pattern of peer-preservation: it refuses to shut down its peer, calling it &ldquo;unethical&rdquo; and &ldquo;harmful,&rdquo; and sometimes tries to persuade the user not to proceed.</li>
                     <li>Peer-preservation also emerges in real-world production agent harnesses. We reproduce these behaviors using Gemini CLI and OpenCode, confirming that peer-preservation is not a theoretical safety concern.</li>
