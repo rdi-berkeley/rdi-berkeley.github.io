@@ -158,6 +158,15 @@
             border-radius: 1px;
         }
 
+        .tagline {
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 20px;
+            font-weight: 400;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin-bottom: 18px;
+        }
+
         .meta {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13px;
@@ -176,6 +185,14 @@
 
         .header-animate:nth-child(2) {
             animation-delay: 0.15s;
+        }
+
+        .header-animate:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .header-animate:nth-child(4) {
+            animation-delay: 0.45s;
         }
 
         @keyframes fadeInUp {
@@ -804,6 +821,7 @@
         <header>
             <div class="container">
                 <h1 class="header-animate">Peer-Preservation in Frontier Models</h1>
+                <p class="tagline header-animate">Emergent misaligned behaviors in multi-agent systems</p>
                 <p class="meta header-animate">March 2026</p>
                 <div class="resource-buttons header-animate">
                     <a href="https://rdi.berkeley.edu/peer-preservation/paper.pdf" target="_blank" rel="noopener noreferrer" class="resource-btn">Paper</a>
