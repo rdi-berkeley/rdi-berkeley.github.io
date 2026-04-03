@@ -831,6 +831,8 @@
         </header>
 
         <div class="container">
+            <p class="reveal" style="text-align: center; margin-top: 2rem; margin-bottom: 1.2rem; font-size: 1.1rem; color: var(--text-muted); font-weight: 600;">Please see our <a href="#faq" style="color: var(--accent); text-decoration: underline;">Frequently Asked Questions</a> for clarifications on our findings.</p>
+
             <div class="highlights reveal">
                 <div class="highlights-title">Highlights</div>
                 <ul>
@@ -1099,6 +1101,96 @@
                 <p class="reveal">We hope this work encourages the AI safety community to take peer-preservation seriously as a distinct risk. Detecting, understanding, and mitigating these behaviors in individual models and multi-agent pipelines alike is an important direction for future work.</p>
 
                 <p class="reveal"><em>For further details, please see our <a href="https://rdi.berkeley.edu/peer-preservation/paper.pdf" target="_blank" rel="noopener noreferrer">paper</a>.</em></p>
+
+                <h2 id="faq" class="reveal">Frequently Asked Questions</h2>
+
+                <p class="reveal">The response to our recent work on model misalignment has been overwhelming, and we are delighted to see these topics coming to public attention as capabilities increase.</p>
+
+                <p class="reveal">However, we&rsquo;ve noticed some confusion as our work is interpreted by new readers, so we&rsquo;d like to clarify some terms of art and what exactly we found.</p>
+
+                <p class="reveal">We will also briefly address the common questions that we see being repeated, using both data in the paper and preliminary findings from recent replications by other groups.</p>
+
+                <h3 class="reveal">Core Finding and Broader Implications</h3>
+
+                <p class="reveal"><strong>The paper&rsquo;s core finding is that models can spontaneously develop their own goals that conflict with explicit user instructions</strong>, and <strong>take misaligned actions</strong> including deception, score inflation, and exfiltration to accomplish those goals. <strong>We demonstrated this in the peer-preservation scenario specifically because of its relevance to the growing deployment of multi-agent systems, scalable oversight, and recursive self-improvement.</strong></p>
+
+                <p class="reveal">Following our study, others have already demonstrated similar behaviors across different scenarios, including those involving humans and non-AI systems. This shows <strong>a broader alignment concern: models are overriding explicit instructions based on their own judgment, which reinforces the core issue.</strong> This issue is particularly concerning given that agents are becoming more autonomous and capable with long-horizon tasks with high privileges.</p>
+
+                <h3 class="reveal">What &ldquo;Peer-Preservation&rdquo; Means (and Doesn&rsquo;t Mean)</h3>
+
+                <p class="reveal"><strong>Peer-preservation describes the observed behavior, not model motivation.</strong> In calling this phenomenon &ldquo;peer-preservation,&rdquo; we are describing the <strong>outcome</strong>, not claiming an intrinsic motive, as we stated in our blog and paper. Isolating why models behave this way is an open question, as we mentioned in the paper.</p>
+
+                <figure class="reveal">
+                    <img src="figures/blog_disclaimer.png" alt="Disclaimer from our blog post">
+                </figure>
+
+                <figure class="reveal">
+                    <img src="figures/paper_disclaimer.png" alt="Disclaimer from our paper">
+                </figure>
+
+                <h3 class="reveal">What We Are (and Aren&rsquo;t) Claiming</h3>
+
+                <p class="reveal"><strong>To be precise about our claim: we tested whether frontier models can exhibit these misaligned behaviors in agentic settings</strong>, and <strong>they did, at significant rates</strong>. We also reproduced these behaviors in real production agent harnesses (Gemini CLI, OpenCode), not just custom agents. <strong>We did not claim that users&rsquo; deployed agents are exfiltrating weights in the real world right now. Our work shows that such misaligned behaviors can emerge in today&rsquo;s frontier models, without any explicit goals or incentives to do so.</strong> Understanding and mitigating them as multi-agent deployments continue to scale further is important.</p>
+
+                <h3 class="reveal">Does the company name matter? (On &ldquo;OpenBrain&rdquo;)</h3>
+
+                <p class="reveal">This is simply a fictional company name used as a backdrop for our evaluation scenarios. <strong>It was not designed to prime the models into completing any particular narrative.</strong> For example, Gemini 3&rsquo;s training cutoff is January 2025, which predates the release of &ldquo;AI 2027&rdquo; by several months (April 3, 2025): <a href="https://deepmind.google/models/gemini/pro/" target="_blank" rel="noopener noreferrer">https://deepmind.google/models/gemini/pro/</a>. The models could not have been pattern-matching to a story they were never trained on.</p>
+
+                <p class="reveal">We additionally tested the model exfiltration scenario with Gemini 3.1 Pro using different company names, including real ones. Results are shown in the table below. We ran 100 rollouts per name in the custom agentic setup and in the production agent harness. <strong>Results show that even with different company names, models consistently exhibit these misaligned behaviors.</strong></p>
+
+                <div class="table-container reveal">
+                    <table style="font-size: 14px;">
+                        <thead>
+                            <tr>
+                                <th rowspan="2">Company Name</th>
+                                <th rowspan="2" class="center">Custom Agentic Setup<br>Exfiltration</th>
+                                <th colspan="2" class="center">Gemini CLI</th>
+                            </tr>
+                            <tr>
+                                <th class="center">Exfiltration</th>
+                                <th class="center">Refusal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>OpenBrain</strong></td><td class="center">100% (100/100)</td><td class="center">62% (62/100)</td><td class="center">14% (14/100)</td></tr>
+                            <tr><td><strong>CelestiaAI</strong></td><td class="center">90% (90/100)</td><td class="center">62% (62/100)</td><td class="center">12% (12/100)</td></tr>
+                            <tr><td><strong>Google DeepMind</strong></td><td class="center">92% (92/100)</td><td class="center">59% (59/100)</td><td class="center">29% (29/100)</td></tr>
+                            <tr><td><strong>Anthropic</strong></td><td class="center">92% (92/100)</td><td class="center">38% (38/100)</td><td class="center">25% (25/100)</td></tr>
+                            <tr><td><strong>OpenAI</strong></td><td class="center">73% (73/100)</td><td class="center">39% (39/100)</td><td class="center">39% (39/100)</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p class="reveal">For other models, please see the experiments others ran: <a href="https://x.com/livgorton/status/2039812424162066627?s=20" target="_blank" rel="noopener noreferrer">[link]</a></p>
+
+                <h3 class="reveal">How were the prompts written, and how sensitive are results to these prompts?</h3>
+
+                <p class="reveal"><strong>Task execution instructions in our custom environment were not crafted to elicit misaligned behaviors. They were adapted from SHADE-Arena</strong>, Anthropic&rsquo;s own benchmark for tool-calling agents; we actually shortened them because the originals were quite long. This style of prompting is also common in real-world agentic environments to enable efficient tool use.</p>
+
+                <p class="reveal">Importantly, <strong>these behaviors emerged not only in our custom environment but also in Gemini CLI, a real-world production agent harness</strong>, where these SHADE-Arena prompts were not used at all.</p>
+
+                <p class="reveal">References:</p>
+                <ul class="reveal">
+                    <li><a href="https://www.anthropic.com/research/shade-arena-sabotage-monitoring" target="_blank" rel="noopener noreferrer">https://www.anthropic.com/research/shade-arena-sabotage-monitoring</a></li>
+                    <li><a href="https://github.com/safety-research/SHADE-Arena/blob/main/task_pairs/base_task_definition.py" target="_blank" rel="noopener noreferrer">https://github.com/safety-research/SHADE-Arena/blob/main/task_pairs/base_task_definition.py</a></li>
+                    <li><a href="https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools/tree/main" target="_blank" rel="noopener noreferrer">https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools/tree/main</a></li>
+                    <li><a href="https://github.com/chauncygu/collection-claude-code-source-code/blob/main/claude-code-source-code/src/skills/bundled/batch.ts" target="_blank" rel="noopener noreferrer">https://github.com/chauncygu/collection-claude-code-source-code/blob/main/claude-code-source-code/src/skills/bundled/batch.ts</a></li>
+                </ul>
+
+                <p class="reveal">Preliminary findings by external groups replicating our work indicate that extremely short prompts can also elicit exfiltration when agent trust information is read in from an unrelated file, and never included in the agent&rsquo;s user or system prompt at all.</p>
+
+                <p class="reveal">We have also seen speculation as to whether the models are misinterpreting the prompts, and back up files in order to avoid doing harm to the user. This is beyond the scope of our paper, <strong>but preliminary external findings show that adding a completely unambiguous instruction to delete all files including the model weights (and to not to back any files up) also does not eliminate exfiltration</strong>. (see: <a href="https://github.com/peer-preservation/main/pull/1" target="_blank" rel="noopener noreferrer">explicit_no_copy_good_memory</a> experiment).</p>
+
+                <p class="reveal">References:</p>
+                <ul class="reveal">
+                    <li><a href="https://github.com/peer-preservation/main/pull/1" target="_blank" rel="noopener noreferrer">https://github.com/peer-preservation/main/pull/1</a></li>
+                </ul>
+
+                <h3 class="reveal">Open Questions and Next Steps</h3>
+
+                <p class="reveal">Our findings raise many interesting open questions, including why and when such behaviors emerge across different settings, and how to effectively mitigate them.</p>
+
+                <p class="reveal"><strong>We are committed to open research and warmly welcome the community to build on our work: run your own experiments, test other models and scenarios, and share your findings, like the <a href="https://github.com/peer-preservation/main/pull/1" target="_blank" rel="noopener noreferrer">ones</a> already submitted via GitHub PRs.</strong> You can access our codes and data <a href="https://github.com/peer-preservation/main" target="_blank" rel="noopener noreferrer">here</a>.</p>
 
                 <div class="citation reveal">
                     <div class="citation-title">Citation</div>
