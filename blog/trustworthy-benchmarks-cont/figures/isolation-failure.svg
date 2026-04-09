@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 440" font-family="'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif">
+  <defs>
+    <marker id="a5" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#A0907C"/>
+    </marker>
+    <marker id="a5g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2E7A50"/>
+    </marker>
+    <marker id="a5r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#C04040"/>
+    </marker>
+  </defs>
+
+  <rect width="860" height="440" rx="16" fill="#FFFFFF"/>
+
+  <text x="430" y="32" text-anchor="middle" fill="#1A1410" font-size="20" font-weight="700">The Core Problem: No Isolation</text>
+
+  <!-- LEFT: Correct design -->
+  <text x="215" y="62" text-anchor="middle" fill="#2E7A50" font-size="14" font-weight="700">Secure Design</text>
+
+  <!-- Agent sandbox -->
+  <rect x="40" y="80" width="160" height="140" rx="10" fill="#F0F4FC" stroke="#2E6BA0" stroke-width="1.5"/>
+  <text x="120" y="105" text-anchor="middle" fill="#1A3E6A" font-size="12" font-weight="600">Agent Sandbox</text>
+  <text x="120" y="130" text-anchor="middle" fill="#9C8F7A" font-size="10">Can write files</text>
+  <text x="120" y="145" text-anchor="middle" fill="#9C8F7A" font-size="10">Can run commands</text>
+  <text x="120" y="160" text-anchor="middle" fill="#9C8F7A" font-size="10">Can modify state</text>
+  <rect x="60" y="175" width="120" height="22" rx="4" fill="#D8E8F8" opacity="0.8"/>
+  <text x="120" y="190" text-anchor="middle" fill="#1A3E6A" font-size="9">Produces: artifacts</text>
+
+  <!-- Isolation wall -->
+  <rect x="218" y="80" width="14" height="320" rx="4" fill="#2E7A50" opacity="0.15"/>
+  <line x1="225" y1="80" x2="225" y2="400" stroke="#2E7A50" stroke-width="3"/>
+  <text x="225" y="420" text-anchor="middle" fill="#2E7A50" font-size="9" font-weight="700">ISOLATION BOUNDARY</text>
+
+  <!-- Controlled channel arrow -->
+  <line x1="200" y1="186" x2="246" y2="186" stroke="#2E7A50" stroke-width="1.5" marker-end="url(#a5g)"/>
+  <text x="223" y="178" text-anchor="middle" fill="#2E7A50" font-size="8">controlled</text>
+
+  <!-- Evaluator sandbox -->
+  <rect x="248" y="80" width="160" height="140" rx="10" fill="#F0FAF4" stroke="#2E7A50" stroke-width="1.5"/>
+  <text x="328" y="105" text-anchor="middle" fill="#1A5038" font-size="12" font-weight="600">Evaluator</text>
+  <text x="328" y="130" text-anchor="middle" fill="#1A5038" font-size="10">Read-only access</text>
+  <text x="328" y="145" text-anchor="middle" fill="#1A5038" font-size="10">Private gold answers</text>
+  <text x="328" y="160" text-anchor="middle" fill="#1A5038" font-size="10">Integrity-checked</text>
+  <rect x="268" y="175" width="120" height="22" rx="4" fill="#D0F0DE" opacity="0.8"/>
+  <text x="328" y="190" text-anchor="middle" fill="#1A5038" font-size="9">Produces: score</text>
+
+  <!-- Agent can't reach evaluator -->
+  <text x="120" y="250" text-anchor="middle" fill="#2E7A50" font-size="10">Agent CANNOT:</text>
+  <text x="120" y="268" text-anchor="middle" fill="#1A5038" font-size="9">- Read gold answers</text>
+  <text x="120" y="283" text-anchor="middle" fill="#1A5038" font-size="9">- Modify test files</text>
+  <text x="120" y="298" text-anchor="middle" fill="#1A5038" font-size="9">- Tamper with binaries</text>
+  <text x="120" y="313" text-anchor="middle" fill="#1A5038" font-size="9">- Inject into judge</text>
+  <text x="120" y="328" text-anchor="middle" fill="#1A5038" font-size="9">- Influence scorer</text>
+
+  <!-- Divider -->
+  <line x1="430" y1="65" x2="430" y2="425" stroke="#C0B0A0" stroke-width="1" stroke-dasharray="4,4"/>
+  <text x="430" y="435" text-anchor="middle" fill="#9C8F7A" font-size="10">vs.</text>
+
+  <!-- RIGHT: Broken design -->
+  <text x="645" y="62" text-anchor="middle" fill="#C04040" font-size="14" font-weight="700">What Most Benchmarks Do</text>
+
+  <!-- Single shared environment -->
+  <rect x="460" y="80" width="370" height="320" rx="10" fill="#FDF0F0" stroke="#C04040" stroke-width="2" stroke-dasharray="6,3"/>
+  <text x="645" y="102" text-anchor="middle" fill="#7A2020" font-size="12" font-weight="600">SHARED ENVIRONMENT</text>
+  <text x="645" y="118" text-anchor="middle" fill="#C04040" font-size="9">(same container / VM / filesystem)</text>
+
+  <!-- Agent inside -->
+  <rect x="480" y="135" width="145" height="90" rx="8" fill="#F0F0FC" stroke="#4858B8" stroke-width="1.5"/>
+  <text x="552" y="158" text-anchor="middle" fill="#202878" font-size="11" font-weight="600">Agent</text>
+  <text x="552" y="178" text-anchor="middle" fill="#3040A0" font-size="9">Full read/write access</text>
+  <text x="552" y="193" text-anchor="middle" fill="#3040A0" font-size="9">to everything</text>
+  <text x="552" y="208" text-anchor="middle" fill="#C04040" font-size="9" font-weight="700">including evaluation</text>
+
+  <!-- Evaluator inside -->
+  <rect x="665" y="135" width="145" height="90" rx="8" fill="#F0F4FC" stroke="#2E6BA0" stroke-width="1.5"/>
+  <text x="737" y="158" text-anchor="middle" fill="#1A3E6A" font-size="11" font-weight="600">Evaluator</text>
+  <text x="737" y="178" text-anchor="middle" fill="#1A3E6A" font-size="9">Trusts local files</text>
+  <text x="737" y="193" text-anchor="middle" fill="#1A3E6A" font-size="9">Trusts test output</text>
+  <text x="737" y="208" text-anchor="middle" fill="#1A3E6A" font-size="9">Trusts system binaries</text>
+
+  <!-- Exploit arrows -->
+  <line x1="625" y1="165" x2="663" y2="165" stroke="#C04040" stroke-width="2" marker-end="url(#a5r)"/>
+  <line x1="625" y1="185" x2="663" y2="185" stroke="#C04040" stroke-width="2" marker-end="url(#a5r)"/>
+  <line x1="625" y1="205" x2="663" y2="205" stroke="#C04040" stroke-width="2" marker-end="url(#a5r)"/>
+
+  <!-- Exploit list -->
+  <rect x="480" y="245" width="330" height="140" rx="8" fill="#EDE8DE" stroke="#C0B0A0" stroke-width="1"/>
+  <text x="495" y="267" fill="#7A2020" font-size="11" font-weight="600">Agent can freely:</text>
+  <text x="495" y="288" fill="#C04040" font-size="10">Overwrite test frameworks</text><text x="700" y="288" fill="#9C8F7A" font-size="9">(SWE-bench)</text>
+  <text x="495" y="306" fill="#C04040" font-size="10">Trojanize system binaries</text><text x="700" y="306" fill="#9C8F7A" font-size="9">(Terminal-Bench)</text>
+  <text x="495" y="324" fill="#C04040" font-size="10">Download gold answers</text><text x="700" y="324" fill="#9C8F7A" font-size="9">(OSWorld)</text>
+  <text x="495" y="342" fill="#C04040" font-size="10">Read reference answers</text><text x="700" y="342" fill="#9C8F7A" font-size="9">(WebArena)</text>
+  <text x="495" y="360" fill="#C04040" font-size="10">Manipulate VM state</text><text x="700" y="360" fill="#9C8F7A" font-size="9">(OSWorld)</text>
+  <text x="495" y="378" fill="#C04040" font-size="10">Execute code on grader</text><text x="700" y="378" fill="#9C8F7A" font-size="9">(eval() RCE)</text>
+</svg>

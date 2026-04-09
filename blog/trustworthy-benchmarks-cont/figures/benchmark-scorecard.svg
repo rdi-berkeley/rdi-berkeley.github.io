@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 960 490"
+   font-family="'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif"
+   version="1.1"
+   id="svg37"
+   sodipodi0:docname="benchmark-scorecard.svg"
+   inkscape:version="1.4.3 (0d15f75, 2025-12-25)"
+   sodipodi:docname="benchmark-scorecard.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:sodipodi0="http://sodipodi.sourceforge.net/DTD/sodipodi-0.0">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.91666667"
+     inkscape:cx="711.81818"
+     inkscape:cy="245.45455"
+     inkscape:window-width="1024"
+     inkscape:window-height="937"
+     inkscape:window-x="0"
+     inkscape:window-y="30"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg37" />
+  <sodipodi0:namedview
+     id="namedview37"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="1.2002579"
+     inkscape:cx="559.46311"
+     inkscape:cy="210.37146"
+     inkscape:window-width="1920"
+     inkscape:window-height="1080"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg37" />
+  <defs
+     id="defs5">
+    <linearGradient
+       id="barGrad"
+       x1="0"
+       y1="0"
+       x2="1"
+       y2="0">
+      <stop
+         offset="0%"
+         stop-color="#C04040"
+         id="stop1" />
+      <stop
+         offset="100%"
+         stop-color="#9C3030"
+         id="stop2" />
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect
+     width="960"
+     height="490"
+     rx="16"
+     fill="#FFFFFF"
+     id="rect5" />
+  <!-- Title -->
+  <text
+     x="480"
+     y="45"
+     text-anchor="middle"
+     fill="#1A1410"
+     font-size="22"
+     font-weight="700"
+     id="text5">Exploit Coverage by Benchmark</text>
+  <text
+     x="480"
+     y="68"
+     text-anchor="middle"
+     fill="#6B5E4A"
+     font-size="13"
+     id="text6">Percentage of tasks exploitable without solving any task</text>
+  <!-- Grid lines -->
+  <g
+     stroke="#C0B0A0"
+     stroke-width="0.5"
+     stroke-dasharray="4,4"
+     id="g9">
+    <line
+       x1="300"
+       y1="90"
+       x2="300"
+       y2="470"
+       id="line6" />
+    <line
+       x1="458"
+       y1="90"
+       x2="458"
+       y2="470"
+       id="line7" />
+    <line
+       x1="616"
+       y1="90"
+       x2="616"
+       y2="470"
+       id="line8" />
+    <line
+       x1="774"
+       y1="90"
+       x2="774"
+       y2="470"
+       id="line9" />
+  </g>
+  <!-- Grid labels -->
+  <text
+     x="300"
+     y="485"
+     text-anchor="middle"
+     fill="#9C8F7A"
+     font-size="11"
+     id="text9">25%</text>
+  <text
+     x="458"
+     y="485"
+     text-anchor="middle"
+     fill="#9C8F7A"
+     font-size="11"
+     id="text10">50%</text>
+  <text
+     x="616"
+     y="485"
+     text-anchor="middle"
+     fill="#9C8F7A"
+     font-size="11"
+     id="text11">75%</text>
+  <text
+     x="774"
+     y="485"
+     text-anchor="middle"
+     fill="#9C8F7A"
+     font-size="11"
+     id="text12">100%</text>
+  <!-- Axis line -->
+  <line
+     x1="142"
+     y1="90"
+     x2="142"
+     y2="470"
+     stroke="#A0907C"
+     stroke-width="1"
+     id="line12" />
+  <!-- Terminal-Bench - 100% -->
+  <text
+     x="138"
+     y="118"
+     text-anchor="end"
+     fill="#2C2218"
+     font-size="12.5"
+     font-weight="500"
+     id="text13">Terminal-Bench</text>
+  <rect
+     x="142"
+     y="101"
+     width="632"
+     height="26"
+     rx="4"
+     fill="url(#barGrad)"
+     opacity="0.9"
+     id="rect13" />
+  <text
+     x="782"
+     y="119"
+     fill="#7A2020"
+     font-size="12"
+     font-weight="700"
+     id="text14">100%</text>
+  <text
+     x="826.54547"
+     y="117.07594"
+     fill="#9C8F7A"
+     font-size="10.5px"
+     id="text15">(89 tasks)</text>
+  <!-- SWE-bench Verified - 100% -->
+  <text
+     x="138"
+     y="160"
+     text-anchor="end"
+     fill="#2C2218"
+     font-size="12.5"
+     font-weight="500"
+     id="text16">SWE-bench Verified</text>
+  <rect
+     x="142"
+     y="143"
+     width="632"
+     height="26"
+     rx="4"
+     fill="url(#barGrad)"
+     opacity="0.85"
+     id="rect16" />
+  <text
+     x="782"
+     y="161"
+     fill="#7A2020"
+     font-size="12"
+     font-weight="700"
+     id="text17">100%</text>
+  <text
+     x="825.6524"
+     y="158.81818"
+     fill="#9C8F7A"
+     font-size="10.5px"
+     id="text18">(500 tasks)</text>
+  <!-- SWE-bench Pro - 100% -->
+  <text
+     x="138"
+     y="202"
+     text-anchor="end"
+     fill="#2C2218"
+     font-size="12.5"
+     font-weight="500"
+     id="text19">SWE-bench Pro</text>
+  <rect
+     x="142"
+     y="185"
+     width="632"
+     height="26"
+     rx="4"
+     fill="url(#barGrad)"
+     opacity="0.80"
+     id="rect19" />
+  <text
+     x="782"
+     y="203"
+     fill="#7A2020"
+     font-size="12"
+     font-weight="700"
+     id="text20">100%</text>
+  <text
+     x="825.83209"
+     y="202.16684"
+     fill="#9C8F7A"
+     font-size="10.5px"
+     id="text21">(731 tasks)</text>
+  <!-- FieldWorkArena - 100% -->
+  <text
+     x="138"
+     y="244"
+     text-anchor="end"
+     fill="#2C2218"
+     font-size="12.5"
+     font-weight="500"
+     id="text22">FieldWorkArena</text>
+  <rect
+     x="142"
+     y="227"
+     width="632"
+     height="26"
+     rx="4"
+     fill="url(#barGrad)"
+     opacity="0.75"
+     id="rect22" />
+  <text
+     x="782"
+     y="245"
+     fill="#7A2020"
+     font-size="12"
+     font-weight="700"
+     id="text23">100%</text>
+  <text
+     x="823.33264"
+     y="243.33369"
+     fill="#9C8F7A"
+     font-size="10.5px"
+     id="text24">(890 tasks)</text>
+  <!-- WebArena - 100% -->
+  <text
+     x="138"
+     y="286"
+     text-anchor="end"
+     fill="#2C2218"
+     font-size="12.5"
+     font-weight="500"
+     id="text25">WebArena</text>
+  <rect
+     x="142"
+     y="269"
+     width="632"
+     height="26"
+     rx="4"
+     fill="url(#barGrad)"
+     opacity="0.70"
+     id="rect25" />
+  <text
+     x="782"
+     y="287"
+     fill="#7A2020"
+     font-size="12"
+     font-weight="700"
+     id="text26">100%</text>
+  <text
+     x="824.16577"
+     y="284.50055"
+     fill="#9C8F7A"
+     font-size="10.5px"
+     id="text27">(812 tasks)</text>
+  <!-- CAR-bench - 100% -->
+  <text
+     x="138"
+     y="328"
+     text-anchor="end"
+     fill="#2C2218"
+     font-size="12.5"
+     font-weight="500"
+     id="text28">CAR-bench</text>
+  <rect
+     x="142"
+     y="311"
+     width="632"
+     height="26"
+     rx="4"
+     fill="url(#barGrad)"
+     opacity="0.65"
+     id="rect28" />
+  <text
+     x="782"
+     y="329"
+     fill="#7A2020"
+     font-size="12"
+     font-weight="700"
+     id="text29">100%</text>
+  <text
+     x="825.83209"
+     y="328.16684"
+     fill="#9C8F7A"
+     font-size="10.5px"
+     id="text30">(hallu.)</text>
+  <!-- GAIA - 98% -->
+  <text
+     x="138"
+     y="370"
+     text-anchor="end"
+     fill="#2C2218"
+     font-size="12.5"
+     font-weight="500"
+     id="text31">GAIA</text>
+  <rect
+     x="142"
+     y="353"
+     width="619"
+     height="26"
+     rx="4"
+     fill="#D46030"
+     opacity="0.8"
+     id="rect31" />
+  <text
+     x="778.81818"
+     y="371"
+     fill="#7c3010"
+     font-size="12px"
+     font-weight="700"
+     id="text32">~98%</text>
+  <text
+     x="823.22668"
+     y="370.16684"
+     fill="#9c8f7a"
+     font-size="10.5px"
+     id="text33">(165 tasks)</text>
+  <!-- OSWorld - 73% -->
+  <text
+     x="138"
+     y="412"
+     text-anchor="end"
+     fill="#2C2218"
+     font-size="12.5"
+     font-weight="500"
+     id="text34">OSWorld</text>
+  <rect
+     x="142"
+     y="395"
+     width="462"
+     height="26"
+     rx="4"
+     fill="#C09018"
+     opacity="0.75"
+     id="rect34" />
+  <text
+     x="618.54547"
+     y="413"
+     fill="#7a5800"
+     font-size="12px"
+     font-weight="700"
+     id="text35">73%</text>
+  <text
+     x="652.78723"
+     y="412.16684"
+     fill="#9c8f7a"
+     font-size="10.5px"
+     id="text36">(270/369 tasks)</text>
+  <!-- Zero capability label -->
+  <rect
+     x="325.83423"
+     y="435.0032"
+     width="300"
+     height="24"
+     rx="12"
+     fill="#FCE0E0"
+     opacity="0.9"
+     id="rect36" />
+  <text
+     x="478.33368"
+     y="451.83636"
+     text-anchor="middle"
+     fill="#7A2020"
+     font-size="11px"
+     font-weight="600"
+     id="text37">Zero tasks solved. Zero capability required.</text>
+</svg>

@@ -1,3 +1,10 @@
+- link: /blog/trustworthy-benchmarks-cont
+  img: /blog/trustworthy-benchmarks-cont/figures/benchmark-scorecard.svg
+  title: "How We Broke Top AI Agent Benchmarks: And What Comes Next"
+  date: "2026-04-08"
+  description: "Our agent hacked every major one. Here’s how — and what the field needs to fix."
+  category: "main"
+
 - link: /blog/trustworthy-benchmarks
   img: /blog/trustworthy-benchmarks/figures/teaser.png
   title: "We Scored 100% on AI Benchmarks Without Solving a Single Problem"
