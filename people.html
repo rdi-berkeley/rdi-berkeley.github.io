@@ -14,17 +14,18 @@ layout: people
     <!-- Faculty List -->
     <div class="faculty-list flex flex-wrap justify-center gap-0">
       {% for people in section.people %}
+      {% assign profile_url = people.homepage | default: "#" %}
       <div class="faculty text-center w-44">
         
         <!-- Photo -->
         {% if people.image_file %}
         <br>
-        <a href="{{ people.homepage }}" class="circular block mx-auto w-28 h-28 rounded-full bg-cover bg-center"
+        <a href="{{ profile_url }}" class="circular block mx-auto w-28 h-28 rounded-full bg-cover bg-center"
            style="background-image: url(/assets/images/people/{{people.image_file}});"
            aria-label="{{ people.name }}">
         </a>
         {% else %}
-        <a href="{{ people.homepage }}" class="circular block mx-auto w-28 h-28 rounded-full bg-cover bg-center"
+        <a href="{{ profile_url }}" class="circular block mx-auto w-28 h-28 rounded-full bg-cover bg-center"
            style="background-image: url(/assets/images/default_profile.jpg);"
            aria-label="{{ people.name }}">
         </a>
@@ -32,7 +33,7 @@ layout: people
 
         <!-- Name + Subtitle -->
         <div class="faculty-caption">
-          <a href="{{ people.homepage }}" class="block leading-tight">
+          <a href="{{ profile_url }}" class="block leading-tight">
             <br>
             <div class="faculty-name font-semibold text-base sm:text-lg">
               {{ people.name | replace_first: " ", "<br>" }}

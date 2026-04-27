@@ -165,14 +165,21 @@
       homepage: https://www.linkedin.com/in/jocelynweberphipps/
       image_file: jocelyn.jpg
       subtitle: "Deputy Director"
+    - name: Will Wendt
+      homepage: https://www.linkedin.com/in/william-wendt-684666169/
+      image_file: will.png
+      subtitle: "Partnerships"
+    - name: Jacob Sutton
+      image_file: jacob.png
+      subtitle: "Marketing & Partnerships"
+    - name: Madison Burnett
+      image_file: madison.png
+      subtitle: "Marketing & Operations"
     - name: Jennifer Liu
-      homepage: https://www.linkedin.com/in/samantha-guo-835056124/
+      homepage: https://www.linkedin.com/in/jennifer-liu-69a9583a2/
       image_file: jennifer.png
-      subtitle: "Operations & Partnerships"
-    - name: Samantha Guo
-      homepage: https://www.linkedin.com/in/samantha-guo-835056124/
-      image_file: samantha.png
       subtitle: "Operations"
+
     # - name: Vi Phan
     #   homepage: https://www.linkedin.com/in/samantha-guo-835056124/
     #   image_file: vi.png
