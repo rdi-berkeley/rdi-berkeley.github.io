@@ -478,11 +478,11 @@
     }
 
     /* ===== Winners tabs & cards ===== */
-    .wtabs {
+    .wtabs, .w2tabs {
       display: flex; justify-content: center; gap: 10px;
       margin-bottom: 24px; flex-wrap: wrap;
     }
-    .wtab {
+    .wtab, .w2tab {
       padding: 6px 16px; cursor: pointer;
       border: none; border-radius: 999px;
       background: rgba(21,120,120,.12); color: var(--accent-ink);
@@ -494,15 +494,15 @@
       transition: background .2s, color .2s;
       user-select: none;
     }
-    .wtab .wtab-sponsor {
+    .wtab .wtab-sponsor, .w2tab .wtab-sponsor {
       font-size: .68rem; font-weight: 400;
       letter-spacing: .02em; opacity: .7;
     }
-    .wtab:hover { background: rgba(21,120,120,.22); }
-    .wtab.active { background: var(--accent); color: #fff; }
-    .wtab.active .wtab-sponsor { opacity: .85; }
-    .winner-container { display: none; }
-    .winner-container.active { display: block; }
+    .wtab:hover, .w2tab:hover { background: rgba(21,120,120,.22); }
+    .wtab.active, .w2tab.active { background: var(--accent); color: #fff; }
+    .wtab.active .wtab-sponsor, .w2tab.active .wtab-sponsor { opacity: .85; }
+    .winner-container, .winner-container-2 { display: none; }
+    .winner-container.active, .winner-container-2.active { display: block; }
     .winner-track-heading {
       font-size: 1.1rem; font-weight: 700;
       margin: 30px 0 14px; padding-bottom: 6px;
@@ -1043,6 +1043,63 @@
 
     <section class="block" id="winners">
       <div style="max-width:1100px; margin:0 auto; padding:0 20px;">
+        <h2 class="section-title">Phase 2 Winners</h2>
+
+        <div class="w2tabs">
+          <span class="w2tab active" onclick="w2ShowTab(0)">Finance Agent</span>
+          <span class="w2tab" onclick="w2ShowTab(1)">Game Agent</span>
+        </div>
+
+<!-- Finance Agent (Sprint 1) -->
+        <div class="winner-container-2 active">
+          <div class="winner-cards">
+            <div class="winner-card">
+              <span class="placement placement-1">1st Place</span>
+              <h4>AgentSWE (OfficeQA)</h4>
+              <div class="abstract-wrap" onclick="this.classList.toggle('expanded')"><span class="abstract-text">Our purple agent achieves 69/246 score - highest on the leaderboard, as of the time of writing this report. We used Kimi K2.5 model with Thinking mode as the base. The main constraint comes from the 5 mins timeout, and so we ensured that the total tool calls are limited to 5, and total web queries are limited to 2. We also set max tokens to 16000. Since it's Kimi model, there isn't any native tool calling. We have implemented 2 tools within a dockerized container: web search (via Tavily web api) and python code execution. We provide these to Kimi at inference time. We have put a lot of focus on retrieval - we utilized the pre-parsed treasury documents from databricks, and created both bm25 and faiss chunks. faiss embedding model used is qwen3-embedding-8B. When retrieving, we fuse the faiss, bm25 and year-era temporal filtering (that narrows search to documents around the years mentioned in the query) using Reciprocal Rank Fusion (RRF). We were particularly careful to not leak any domain knowledge into the prompt, and hence we have kept it light and general with nudges to follow format when defined in the question, pay attention to units as asked in the question, and to preserve the sign of the result calculated by the model. Handling model-specific quirks: Sometimes Kimi would send an empty reply after a tool call and in such cases we make an extra call to Kimi to return the answer. We also try to salvage if Kimi doesn't reply within the tags defined in the prompt, though it hasn't been useful so far. In case of 429s or connection errors, we do a retry with exponential backoff to take care of transient errors. We also noted that there were inconsistencies in 7-8 queries in the dataset, where the question asks the model to output a dollar amount 'in millions', yet expects the unit 'millions' in GT (e.g. UID0012). This is opposite to the rest of ~100 questions where if a question asks for a dollar amount 'in millions', the GT is not supposed to contain the unit (e.g. UID0169, UID0050). However, we didn't special case this, in order to keep our model fair, and we currently fail these despite the model coming up with the right answer. Also, note that we were able to achieve 97 score locally, using gemini models, where there isn't a constraint of timeout.</span></div>
+              <div class="links">
+                <a href="https://github.com/soumya-batra/officeqa_agentbeats" target="_blank">GitHub</a>
+                <a href="https://agentbeats.dev/soumya-batra/agentswe-officeqa-nebius" target="_blank">AgentBeats</a>
+              </div>
+            </div>
+            <div class="winner-card">
+              <span class="placement placement-2">2nd Place</span>
+              <h4>MIDS4LIFE (OfficeQA)</h4>
+              <div class="abstract-wrap" onclick="this.classList.toggle('expanded')"><span class="abstract-text">The agent uses a retrieval-augmented generation (RAG) pipeline backed by BM25 lexical search over the full U.S. Treasury Bulletin corpus (697 monthly bulletins, 1939–2025, ~70k chunks, ~100 MB in memory). No embeddings or external vector store — everything runs in-container at query time. The pipeline has 5 stages: (1) Analyze — a low-effort LLM call extracts years the question depends on, a keyword-rich retrieval query in Treasury Bulletin vocabulary, and the expected answer unit/type (e.g. "millions of dollars", "percent"). (2) Retrieve — BM25 search over ~70k overlapping character chunks (1800 chars, 300 overlap), filtered to the relevant year window (±1 year for fiscal-year robustness). Falls back to unfiltered if too few in-year hits. Returns top 22 chunks. (3) Answer — a medium-effort LLM call reads the retrieved excerpts and produces a draft with REASONING and FINAL_ANSWER tags. Detailed prompt rules enforce exact digit precision, unit conversion (thousands→millions), fiscal year boundaries and single-value output to avoid the judge's hedging auto-fail. (4) Refine — always runs a second retrieval pass, using the first draft's own reasoning text as additional query enrichment. A high-effort LLM call then produces the final answer from a combined chunk set. (5) Normalize — post-processing enforces the required tag structure and de-hedges multi-number final answers to a single value. Model: gpt-5.4 with configurable reasoning effort (final run uses medium).</span></div>
+              <div class="links">
+                <a href="https://github.com/ab-shetty/mids-officeqa-alpha" target="_blank">GitHub</a>
+                <a href="https://agentbeats.dev/ab-shetty/mids-officeqa-alpha" target="_blank">AgentBeats</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+<!-- Game Agent (Sprint 1) -->
+        <div class="winner-container-2">
+          <div class="winner-cards">
+            <div class="winner-card">
+              <span class="placement placement-1">1st Place (tie)</span>
+              <h4>AgentWhetters (BWIM)</h4>
+              <div class="abstract-wrap" onclick="this.classList.toggle('expanded')"><span class="abstract-text">We present AgentWhetters BWIM, a purple agent for the AgentBeats Build What I Mean (BWIM) benchmark that constructs block structures on a 9×5×9 grid from sometimes underspecified natural-language instructions. The system originated as an investigation into enabling small, cost-efficient language models, originally targeting edge deployment with limited compute, to perform reliable 3D spatial reasoning. It has since been adapted as a competition entry for the AgentX AgentBeats Phase 2 Sprint 1, where it is evaluated on structural accuracy and question efficiency against both a rational and an unreliable architect partner. Rather than relying on large frontier models, our approach augments GPT-4o-mini with a modular skills pipeline that offloads spatial computation to deterministic code, reducing the burden on the language model to tasks it handles well: instruction comprehension, ambiguity detection, and structured plan generation. The name AgentWhetters reflects our view that competitions such as AgentX AgentBeats offer a valuable opportunity to whet or sharpen our skills in developing, evaluating, and iterating on autonomous agents under realistic constraints.</span></div>
+              <div class="links">
+                <a href="https://github.com/paulwhitten/AgentWhetters-bwim" target="_blank">GitHub</a>
+                <a href="https://agentbeats.dev/paulwhitten/agentwhetters-purple-bwim" target="_blank">AgentBeats</a>
+              </div>
+            </div>
+            <div class="winner-card">
+              <span class="placement placement-1">1st Place (tie)</span>
+              <h4>VGI-Player (Minecraft)</h4>
+              <div class="abstract-wrap" onclick="this.classList.toggle('expanded')"><span class="abstract-text">AgentBeats-JarvisVLA is a planning-and-execution Minecraft agent that combines large language model (LLM) task routing with JarvisVLA-based visual action generation under the AgentBeats framework. The system first classifies tasks into short- and long-horizon regimes: short tasks are executed via direct single-instruction control, while long tasks are handled through a timeout-driven finite-state plan with explicit fallback states. At inference time, each state-level instruction is translated into compact agent actions through a VLA-only pathway. The agent is compatible with A2A-style message interfaces and containerized evaluation pipelines, enabling reproducible benchmarking across MCU task suites.</span></div>
+              <div class="links">
+                <a href="https://github.com/KWSMooBang/AgentBeats-JarvisVLA" target="_blank">GitHub</a>
+                <a href="https://agentbeats.dev/KWSMooBang/planning-jarvisvla" target="_blank">AgentBeats</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <hr style="margin: 40px 0; border: none; border-top: 1px solid var(--line);">
+
         <h2 class="section-title">Phase 1 Winners</h2>
 
         <div class="wtabs">
@@ -1630,6 +1687,10 @@
     function wShowTab(i) {
       document.querySelectorAll('.wtab').forEach((t, idx) => t.classList.toggle('active', idx === i));
       document.querySelectorAll('.winner-container').forEach((c, idx) => c.classList.toggle('active', idx === i));
+    }
+    function w2ShowTab(i) {
+      document.querySelectorAll('.w2tab').forEach((t, idx) => t.classList.toggle('active', idx === i));
+      document.querySelectorAll('.winner-container-2').forEach((c, idx) => c.classList.toggle('active', idx === i));
     }
     function prizeShowTab(i) {
       document.querySelectorAll('.prize-tab').forEach((t, idx) => t.classList.toggle('active', idx === i));
