@@ -683,13 +683,6 @@
               <h3>OpenAI</h3>
               <p>$50 credits to every individual or team</p>
             </article>
-            <article class="resource-card">
-              <h3>More to be announced</h3>
-              <p>Additional resources will be announced soon.</p>
-            </article>
-          </div>
-          <div class="cta-row">
-            <a class="btn btn-primary" href="https://forms.gle/Uya9wQ2DqPStheH39" target="_blank" rel="noopener">Apply for GPU and inference credits</a>
           </div>
         </div>
       </div>
@@ -1061,8 +1054,11 @@
         <h2 class="section-title">Phase 2 Winners</h2>
 
         <div class="w2tabs">
-          <span class="w2tab active" onclick="w2ShowTab(0)">Finance Agent</span>
+          <span class="w2tab active" onclick="w2ShowTab(0)">Finance Agent<span class="wtab-sponsor">Sponsored by OpenAI</span></span>
           <span class="w2tab" onclick="w2ShowTab(1)">Game Agent</span>
+          <span class="w2tab" onclick="w2ShowTab(2)">Research Agent<span class="wtab-sponsor">Sponsored by OpenAI</span></span>
+          <span class="w2tab" onclick="w2ShowTab(3)">τ²-Bench</span>
+          <span class="w2tab" onclick="w2ShowTab(4)">Computer Use &amp; Web Agent</span>
         </div>
 
 <!-- Finance Agent (Sprint 1) -->
@@ -1108,6 +1104,102 @@
               <div class="links">
                 <a href="https://github.com/KWSMooBang/AgentBeats-JarvisVLA" target="_blank">GitHub</a>
                 <a href="https://agentbeats.dev/KWSMooBang/planning-jarvisvla" target="_blank">AgentBeats</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+<!-- Research Agent (Sprint 2) -->
+        <div class="winner-container-2">
+          <div class="winner-cards">
+            <div class="winner-card">
+              <span class="placement placement-1">1st Place (tie)</span>
+              <h4>MIDS4LIFE (FieldWorkArena)</h4>
+              <div class="abstract-wrap" onclick="this.classList.toggle('expanded')"><span class="abstract-text">Our purple agent is a single-call multimodal reasoning system for the FieldWorkArena benchmark, built around gpt-5.4. It answers field-operations safety questions across factory, warehouse, and retail scenes by combining careful input preparation, dynamic prompt composition, and deterministic output normalization.
+
+Incoming A2A messages are parsed into a structured multimodal payload: images are decoded and downscaled, PDFs are extracted to text via pypdf and video clips are sampled into evenly-spaced frames via OpenCV. Before any model call, the agent classifies the task along several axes (output format, numerical intent, bounding-box reference, facing direction, sleeve detection, issue-report schema, missing-evidence cues) and composes a system prompt by attaching only the guidance blocks relevant to that task.
+
+For bounding-box tasks, the agent rescales coordinates from original to downscaled image dimensions, then crops both the exact rectangle and an expanded context view, prepending these to the image list so the model sees zoomed evidence first. Bounding-box JSON incident reports are decomposed into per-image sub-calls with a confirmation pass to suppress false negatives, then assembled into the final report. JSON outputs are post-processed deterministically to match the grader's exact schema: field-name casing, sequential IDs, and distance string formats, rather than relying on the model to track these details. The result is an agent that produces format-faithful answers across all three grading types (fuzzy match, numerical match, JSON match) with consistent behavior across the benchmark's full task distribution.</span></div>
+              <div class="links">
+                <a href="https://github.com/ab-shetty/mids-fieldworkarena-alpha" target="_blank">GitHub</a>
+                <a href="https://agentbeats.dev/ab-shetty/mids-fieldworkarena-alpha" target="_blank">AgentBeats</a>
+              </div>
+            </div>
+            <div class="winner-card">
+              <span class="placement placement-1">1st Place (tie)</span>
+              <h4>MLE-Squad (MLE-Bench)</h4>
+              <div class="abstract-wrap" onclick="this.classList.toggle('expanded')"><span class="abstract-text">MLE-Squad is an autonomous system that solves machine learning problems by simulating the workflow of a high-functioning engineering team. The architecture follows a three-fold design philosophy to ensure robustness on complex, long-running tasks:
+
+1. Structure: Instead of one prompt doing everything, a Router coordinates four specialists—Architect, Data Engineer, Model Engineer, and Evaluator. This allows the team to move back and forth between tasks as needed—for example, sending a model back to the data stage if features are missing—rather than following a rigid, one-way sequence.
+
+2. Workflow &amp; Memory: To prevent the system from "forgetting" the plan over long runs (Context Window Collapse), every agent writes its work to a Git-versioned workspace. Agents pass concise handoff notes to one another and rely on shared files for blueprints and checklists. This allows an agent to re-orient itself instantly by reading the disk rather than processing thousands of lines of previous chat history.
+
+3. Project Oversight: The system enforces practical boundaries. The Router acts as a lead, evaluating the Evaluator's feedback to decide if a task needs a "do-over" or if the entire plan needs to pivot. It also sets hard limits on time and compute costs, preventing the agents from wasting tokens on endless tuning loops that only offer marginal gains.
+
+This architecture currently validates itself through top-tier performance on the AgentBeats leaderboard. As of April 14 2026, it holds the #1 rank in 4 out of 6 featured competitions. While we are still optimizing it through LLM-as-a-judge evaluation and benchmarking other tasks in mle-bench, MLE-Squad already proves to be a robust and scalable framework for autonomous machine learning engineering.</span></div>
+              <div class="links">
+                <a href="https://github.com/dirk61/MLE-Squad" target="_blank">GitHub</a>
+                <a href="https://agentbeats.dev/dirk61/mle-squad" target="_blank">AgentBeats</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+<!-- τ²-Bench (Sprint 2) -->
+        <div class="winner-container-2">
+          <div class="winner-cards">
+            <div class="winner-card">
+              <span class="placement placement-1">1st Place</span>
+              <h4>AgentSWE (τ²-Bench)</h4>
+              <div class="abstract-wrap" onclick="this.classList.toggle('expanded')"><span class="abstract-text">1. We implement a plan-&gt;reason-&gt;verify-&gt;act loop. In the first turn, we ask the purple agent to create a short plan with the steps and immediate next step, as well as to keep updating it as new information arrives. Based off this plan it reasons for its current action. We also apply self-critique, inspired by promising research in this direction, where we ask the model to verify its reasoning based on the goal it is trying to achieve. In case the validation fails, a new reasoning and verify step is generated till validation passed. Having this in the same turn allows us to not run additional LLM calls.
+
+2. We also do state tracking. We ask the model to generate current state and goal state, along with the plan. This keeps changing at each turn. State and plan is extracted at each turn and injected back into the model via system prompt.
+
+3. Prompt finetuning - We do some prompt finetuning where we nudge the model to verify from user before making tool calls when it doesn't have an answer, to not hallucinate. We have aimed to build a general model that works across all tau2 domains so we haven't put in any domain specific prompts.
+
+4. Finally, we parse use the tools field of litellm completion instead of passing tools as text. This allows the model to be more effective given that is how these were trained.</span></div>
+              <div class="links">
+                <a href="https://github.com/soumya-batra/tau2-agentbeats" target="_blank">GitHub</a>
+                <a href="https://agentbeats.dev/soumya-batra/agentswe-tau2" target="_blank">AgentBeats</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+<!-- Computer Use & Web Agent (Sprint 2) -->
+        <div class="winner-container-2">
+          <div class="winner-cards">
+            <div class="winner-card">
+              <span class="placement placement-1">1st Place (tie)</span>
+              <h4>CAReful (CAR-bench)</h4>
+              <div class="abstract-wrap" onclick="this.classList.toggle('expanded')"><span class="abstract-text">We present CAReful, a state-grounded, context-aware, and guard-augmented agent for the CAR-bench benchmark.
+
+In-car voice assistants face a distinctive set of challenges: user requests are ambiguous and speech-like, the driver cannot be frequently interrupted, and incorrect actions carry real safety consequences.
+
+General-purpose LLM agents fail here in predictable ways — they hallucinate vehicle state, invent tool calls or parameter names that do not exist, resolve ambiguity by guessing rather than reasoning, and violate policy constraints they were instructed to follow. We address each failure mode with a dedicated agentic mechanism.
+
+First, we ground the agent's reasoning in a persistent conversation history and an incrementally updated working memory of vehicle state, populated from tool call results returned by the environment harness. Schema-aware guards additionally intercept each action before execution, preventing the agent from invoking tools outside its current capability scope or hallucinating parameter names not present in the live tool schema.
+
+Second, we enforce a structured multi-level disambiguation policy as part of the agent's decision loop: ambiguous intents are resolved by reasoning over the conversation context, retrieved long-term user preferences, policy heuristics, and observed environment state — with user clarification as a last resort, minimizing unnecessary interruptions to the agent-user interaction.
+
+Third, a post-generation policy checker acts as a deterministic guardrail between the LLM and the environment harness: it intercepts policy-violating tool calls, injects structured error feedback into the agent's context, and triggers targeted self-correction within the same reasoning step.
+
+Together, these components form a reliable agent that acts safely, honestly, and robustly under the ambiguity and incomplete information that characterize real-world in-car interactions.
+
+Because LLM-based agents are fundamentally black-box systems, selecting effective methods for prompting, reasoning, and tool use is inherently challenging. To address this, we conducted rigorous experimentation and regression testing throughout the development cycle, spanning model selection, prompt design, and agent architecture. This process ensured that our methodological choices remained closely aligned with the product purpose and the key evaluation metrics.
+
+Our approach performs well across the full range of tasks in the benchmark, achieving pass@1 scores of 0.90 / 0.92 / 0.88 on the base, hallucination, and disambiguation task splits, respectively. This compares to 0.77 / 0.74 / 0.56 for the best-reported result across frontier models in the CAR-bench paper, representing a gain of up to 32 percentage points on the hardest disambiguation split.</span></div>
+              <div class="links">
+                <a href="https://github.com/gmsh/car-bench-exp-agent" target="_blank">GitHub</a>
+                <a href="https://agentbeats.dev/gmsh/careful-a-reliable-in-car-assistant-agent" target="_blank">AgentBeats</a>
+              </div>
+            </div>
+            <div class="winner-card">
+              <span class="placement placement-1">1st Place (tie)</span>
+              <h4>Entouch (OSWorld-Verified)</h4>
+              <div class="links">
+                <a href="https://github.com/ftelnov/entouch" target="_blank">GitHub</a>
+                <a href="https://agentbeats.dev/ftelnov/entouch" target="_blank">AgentBeats</a>
               </div>
             </div>
           </div>
