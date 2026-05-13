@@ -1,3 +1,10 @@
+- link: /blog/exploitgym
+  img: /blog/exploitgym/images/overview.png
+  title: "ExploitGym: Can AI Agents Turn Security Vulnerabilities into Real Attacks?"
+  date: "2026-05-13"
+  description: "A new benchmark of 898 real-world exploit-generation tasks spanning userspace programs, Google's V8 engine, and the Linux kernel. Frontier AI agents can already turn known vulnerabilities into working exploits and bypass standard mitigations like ASLR and the V8 sandbox in a meaningful fraction of cases."
+  category: "main"
+
 - link: /blog/trustworthy-benchmarks-cont
   img: /blog/trustworthy-benchmarks-cont/figures/benchmark-scorecard.svg
   title: "How We Broke Top AI Agent Benchmarks: And What Comes Next"
