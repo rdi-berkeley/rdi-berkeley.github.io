@@ -18,31 +18,20 @@
   padding: 0 32px;
 }
 
-.a16z-hero,
+/* Cohort title block: extra space after stats; comfortable gap before the card grid */
+.content-section:has(+ .a16z-grid-section) {
+  margin-top: 72px;
+  padding-top: 12px;
+  margin-bottom: 0;
+}
+.content-section:has(+ .a16z-grid-section) .section-title {
+  margin-bottom: 18px;
+}
+
 .a16z-grid-section {
   font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  padding: 22px 0 96px;
 }
-
-.a16z-hero {
-  padding: 120px 0 80px;
-  /* Solid white: matches site body (#fff in style.css); mock used #fafbfd→white gradient */
-  background: #ffffff;
-}
-.a16z-hero h1 {
-  font-size: 64px;
-  font-weight: 800;
-  line-height: 1.05;
-  margin: 0 0 24px;
-  letter-spacing: -0.025em;
-  color: var(--berkeley-blue);
-  max-width: 900px;
-}
-.a16z-hero .lede {
-  font-size: 22px;
-  max-width: 760px;
-}
-
-.a16z-grid-section { padding: 32px 0 96px; }
 .a16z-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
@@ -244,7 +233,6 @@
 .a16z-link:hover { color: white; }
 
 @media (max-width: 768px) {
-  .a16z-hero h1 { font-size: 40px; }
   .a16z-card { height: auto; perspective: none; }
   .a16z-card-inner { transform: none !important; }
   .a16z-card-front, .a16z-card-back {

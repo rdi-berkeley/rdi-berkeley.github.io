@@ -152,9 +152,9 @@ def main() -> None:
       </article>"""
         )
 
-    out = f"""        <section class="a16z-hero">
+    out = f"""        <section class="content-section">
             <div class="container">
-                <h1>{cohort_name}</h1>
+                <h2 class="section-title">{cohort_name}</h2>
             </div>
         </section>
 
