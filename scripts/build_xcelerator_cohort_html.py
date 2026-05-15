@@ -6,7 +6,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-JSON_PATH = Path(__file__).resolve().parents[2] / "Berkeley-RDI-Xcelerator-Cohort-Mockup" / "data" / "cohort.json"
+DEFAULT_JSON = Path(__file__).resolve().parents[2] / "Berkeley-RDI-Xcelerator-Cohort-Mockup" / "data" / "cohort.json"
 IMG_PREFIX = "/assets/images/xcelerator-cohort-2026/"
 
 
@@ -104,6 +104,7 @@ def company_back(c: dict) -> str:
     founded = html.escape(f"Founded {yf}") if yf is not None else ""
 
     ws = (c.get("website") or "").strip()
+    email = (c.get("email") or "").strip()
     li_co = (c.get("linkedin") or "").strip()
     links = []
     if ws:
@@ -111,6 +112,11 @@ def company_back(c: dict) -> str:
         ws_esc = html.escape(ws, quote=True)
         links.append(
             f'<a href="{ws_esc}" target="_blank" rel="noopener" class="a16z-link">{label} ↗</a>'
+        )
+    if email:
+        email_esc = html.escape(email, quote=True)
+        links.append(
+            f'<a href="mailto:{email_esc}" class="a16z-link">{email_esc} ✉</a>'
         )
     if li_co:
         li_esc = html.escape(li_co, quote=True)
@@ -136,7 +142,8 @@ def company_back(c: dict) -> str:
 
 
 def main() -> None:
-    data = json.loads(JSON_PATH.read_text(encoding="utf-8"))
+    json_path = Path(sys.argv[1]) if len(sys.argv) > 1 else DEFAULT_JSON
+    data = json.loads(json_path.read_text(encoding="utf-8"))
     cohort_name = html.escape(data.get("cohort_name", "2026 Spring Cohort"))
     # Match mockup app/main.py: only featured companies (others still being collected)
     companies = [c for c in data["companies"] if c.get("featured")]
