@@ -209,9 +209,522 @@
         <h1 style="font-weight: 500; color: #CB9445; text-align: center; font-size: 40px">
           <a href="https://rdi.berkeley.edu/events/agentic-ai-summit-2025" style="color: inherit; text-decoration: none;">Featured Speakers</a>
         </h1>
-        <div class="sponsor-banner-container">
-          <img src="../assets/images/events/agentic-ai-summit-2026-speakers.png" alt="Featured Speakers" class="speaker-banner-img">
+        <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        .rdi-spk-section { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+        .rdi-spk-sub { text-align: center; color: #5b6470; font-size: 15px; max-width: 640px; margin: 0 auto 28px; line-height: 1.5; }
+        .rdi-spk-searchwrap { position: relative; max-width: 480px; margin: 0 auto 36px; }
+        .rdi-spk-search { width: 100%; box-sizing: border-box; padding: 12px 16px 12px 42px; font-family: inherit; font-size: 14px; color: #1c2530; border: 1px solid #d7dce2; border-radius: 10px; background: #fff; outline: none; transition: border-color 0.2s, box-shadow 0.2s; }
+        .rdi-spk-search:focus { border-color: #003262; box-shadow: 0 0 0 3px rgba(0,50,98,0.08); }
+        .rdi-spk-searchicon { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); font-size: 15px; opacity: 0.5; pointer-events: none; }
+        .rdi-spk-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
+        .rdi-spk-card { width: calc((100% - 3 * 20px) / 4 - 1px); box-sizing: border-box; background: #fff; border: 1px solid #e6e9ee; border-radius: 14px; padding: 24px 16px 20px; text-align: center; transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s; }
+        .rdi-spk-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,50,98,0.1); border-color: #003262; }
+        .rdi-spk-link-wrap { text-decoration: none; color: inherit; display: block; }
+        .rdi-spk-avatar { width: 110px; height: 110px; border-radius: 50%; margin: 0 auto 14px; overflow: hidden; background: #eef2f6; }
+        .rdi-spk-avatar img { width: 100%; height: 100%; object-fit: cover; object-position: center 25%; border-radius: 50%; display: block; }
+        .rdi-spk-name { font-size: 15px; font-weight: 600; color: #1c2530; margin: 0 0 4px; }
+        .rdi-spk-title { font-size: 13px; color: #5b6470; margin: 0 0 2px; line-height: 1.35; }
+        .rdi-spk-org { font-size: 13px; color: #003262; font-weight: 500; margin: 0 0 10px; line-height: 1.35; }
+        .rdi-spk-link { font-size: 13px; color: #003262; font-weight: 500; }
+        .rdi-spk-more { text-align: center; color: #003262; font-size: 30px; font-weight: 700; margin: 48px 0 24px; }
+        @media (max-width: 900px) { .rdi-spk-card { width: calc((100% - 2 * 20px) / 3); } }
+        @media (max-width: 640px) { .rdi-spk-grid { gap: 12px; } .rdi-spk-card { width: calc((100% - 12px) / 2); } }
+        </style>
+        <div class="rdi-spk-section">
+          <p class="rdi-spk-sub">Agentic AI Summit 2026 brings together leading researchers, founders, and industry leaders shaping the future of Agentic AI.</p>
+          <div class="rdi-spk-searchwrap">
+            <span class="rdi-spk-searchicon">&#128269;</span>
+            <input class="rdi-spk-search" type="text" id="rdiSpkSearch" placeholder="Search speakers by name or organization..." />
+          </div>
+          <div class="rdi-spk-grid" id="rdiSpkGrid">
+          <div class="rdi-spk-card" data-name="ion stoica" data-org="databricks and anyscale; uc berkeley">
+            <a href="https://people.eecs.berkeley.edu/~istoica/" target="_blank" rel="noopener" class="rdi-spk-link-wrap">
+            <div class="rdi-spk-avatar">
+              <img src="../assets/images/agentic-summit-2026/speakers/ion_stoica.png" alt="Ion Stoica" loading="lazy" />
+            </div>
+            <p class="rdi-spk-name">Ion Stoica</p>
+            <p class="rdi-spk-title">Co-Founder; Professor</p>
+            <p class="rdi-spk-org">Databricks and Anyscale; UC Berkeley</p>
+            <span class="rdi-spk-link">View profile →</span></a>
+          </div>
+          <div class="rdi-spk-card" data-name="rich lyons" data-org="uc berkeley">
+            <a href="https://chancellor.berkeley.edu/people/richard-k-lyons" target="_blank" rel="noopener" class="rdi-spk-link-wrap">
+            <div class="rdi-spk-avatar">
+              <img src="../assets/images/agentic-summit-2026/speakers/rich_lyons.png" alt="Rich Lyons" loading="lazy" />
+            </div>
+            <p class="rdi-spk-name">Rich Lyons</p>
+            <p class="rdi-spk-title">Chancellor</p>
+            <p class="rdi-spk-org">UC Berkeley</p>
+            <span class="rdi-spk-link">View profile →</span></a>
+          </div>
+          <div class="rdi-spk-card" data-name="dawn song" data-org="uc berkeley; berkeley rdi">
+            <a href="https://people.eecs.berkeley.edu/~dawnsong/" target="_blank" rel="noopener" class="rdi-spk-link-wrap">
+            <div class="rdi-spk-avatar">
+              <img src="../assets/images/agentic-summit-2026/speakers/dawn_song.jpg" alt="Dawn Song" loading="lazy" />
+            </div>
+            <p class="rdi-spk-name">Dawn Song</p>
+            <p class="rdi-spk-title">Professor; Co-Director</p>
+            <p class="rdi-spk-org">UC Berkeley; Berkeley RDI</p>
+            <span class="rdi-spk-link">View profile →</span></a>
+          </div>
+          <div class="rdi-spk-card" data-name="wojciech zaremba" data-org="openai">
+            <a href="https://www.linkedin.com/in/wojciechzaremba/" target="_blank" rel="noopener" class="rdi-spk-link-wrap">
+            <div class="rdi-spk-avatar">
+              <img src="../assets/images/agentic-summit-2026/speakers/wojciech_zaremba.png" alt="Wojciech Zaremba" loading="lazy" />
+            </div>
+            <p class="rdi-spk-name">Wojciech Zaremba</p>
+            <p class="rdi-spk-title">Co-Founder</p>
+            <p class="rdi-spk-org">OpenAI</p>
+            <span class="rdi-spk-link">View profile →</span></a>
+          </div>
+          <div class="rdi-spk-card" data-name="ali ghodsi" data-org="databricks">
+            <a href="https://people.eecs.berkeley.edu/~alig/" target="_blank" rel="noopener" class="rdi-spk-link-wrap">
+            <div class="rdi-spk-avatar">
+              <img src="../assets/images/agentic-summit-2026/speakers/ali_ghodsi.png" alt="Ali Ghodsi" loading="lazy" />
+            </div>
+            <p class="rdi-spk-name">Ali Ghodsi</p>
+            <p class="rdi-spk-title">Co-Founder/CEO</p>
+            <p class="rdi-spk-org">Databricks</p>
+            <span class="rdi-spk-link">View profile →</span></a>
+          </div>
+          <div class="rdi-spk-card" data-name="sergey levine" data-org="physical intelligence; uc berkeley">
+            <a href="https://people.eecs.berkeley.edu/~svlevine/" target="_blank" rel="noopener" class="rdi-spk-link-wrap">
+            <div class="rdi-spk-avatar">
+              <img src="../assets/images/agentic-summit-2026/speakers/sergey_levine.png" alt="Sergey Levine" loading="lazy" />
+            </div>
+            <p class="rdi-spk-name">Sergey Levine</p>
+            <p class="rdi-spk-title">Co-Founder; Professor</p>
+            <p class="rdi-spk-org">Physical Intelligence; UC Berkeley</p>
+            <span class="rdi-spk-link">View profile →</span></a>
+          </div>
+          <div class="rdi-spk-card" data-name="jennifer chayes" data-org="uc berkeley">
+            <a href="https://cdss.berkeley.edu/people/jennifer-chayes" target="_blank" rel="noopener" class="rdi-spk-link-wrap">
+            <div class="rdi-spk-avatar">
+              <img src="../assets/images/agentic-summit-2026/speakers/jennifer_chayes.png" alt="Jennifer Chayes" style="object-position: center 30%;transform: scale(1.15);" loading="lazy" />
+            </div>
+            <p class="rdi-spk-name">Jennifer Chayes</p>
+            <p class="rdi-spk-title">Dean of CDSS</p>
+            <p class="rdi-spk-org">UC Berkeley</p>
+            <span class="rdi-spk-link">View profile →</span></a>
+          </div>
+          <div class="rdi-spk-card" data-name="peter steinberger" data-org="openai">
+            <a href="https://steipete.me/" target="_blank" rel="noopener" class="rdi-spk-link-wrap">
+            <div class="rdi-spk-avatar">
+              <img src="../assets/images/agentic-summit-2026/speakers/peter_steinberger.png" alt="Peter Steinberger" loading="lazy" />
+            </div>
+            <p class="rdi-spk-name">Peter Steinberger</p>
+            <p class="rdi-spk-title">Creator of OpenClaw</p>
+            <p class="rdi-spk-org">OpenAI</p>
+            <span class="rdi-spk-link">View profile →</span></a>
+          </div>
+          <div class="rdi-spk-card" data-name="jasjeet sekhon" data-org="google deepmind">
+            <a href="https://jsekhon.com" target="_blank" rel="noopener" class="rdi-spk-link-wrap">
+            <div class="rdi-spk-avatar">
+              <img src="../assets/images/agentic-summit-2026/speakers/jasjeet_sekhon.png" alt="Jasjeet Sekhon" loading="lazy" />
+            </div>
+            <p class="rdi-spk-name">Jasjeet Sekhon</p>
+            <p class="rdi-spk-title">Chief Strategy Officer</p>
+            <p class="rdi-spk-org">Google DeepMind</p>
+            <span class="rdi-spk-link">View profile →</span></a>
+          </div>
+          <div class="rdi-spk-card" data-name="pushmeet kohli" data-org="google deepmind">
+            <a href="https://research.google/people/105667/" target="_blank" rel="noopener" class="rdi-spk-link-wrap">
+            <div class="rdi-spk-avatar">
+              <img src="../assets/images/agentic-summit-2026/speakers/pushmeet_kohli.png" alt="Pushmeet Kohli" loading="lazy" />
+            </div>
+            <p class="rdi-spk-name">Pushmeet Kohli</p>
+            <p class="rdi-spk-title">VP of Science</p>
+            <p class="rdi-spk-org">Google DeepMind</p>
+            <span class="rdi-spk-link">View profile →</span></a>
+          </div>
+          <div class="rdi-spk-card" data-name="igor babuschkin" data-org="xai">
+            <a href="https://babushk.in" target="_blank" rel="noopener" class="rdi-spk-link-wrap">
+            <div class="rdi-spk-avatar">
+              <img src="../assets/images/agentic-summit-2026/speakers/igor_babuschkin.png" alt="Igor Babuschkin" loading="lazy" />
+            </div>
+            <p class="rdi-spk-name">Igor Babuschkin</p>
+            <p class="rdi-spk-title">Co-Founder</p>
+            <p class="rdi-spk-org">xAI</p>
+            <span class="rdi-spk-link">View profile →</span></a>
+          </div>
+          <div class="rdi-spk-card" data-name="ed chi" data-org="google deepmind">
+            <a href="https://www.edchi.net/" target="_blank" rel="noopener" class="rdi-spk-link-wrap">
+            <div class="rdi-spk-avatar">
+              <img src="../assets/images/agentic-summit-2026/speakers/ed_chi.png" alt="Ed Chi" loading="lazy" />
+            </div>
+            <p class="rdi-spk-name">Ed Chi</p>
+            <p class="rdi-spk-title">VP of Research</p>
+            <p class="rdi-spk-org">Google DeepMind</p>
+            <span class="rdi-spk-link">View profile →</span></a>
+          </div>
+          <div class="rdi-spk-card" data-name="andrej karpathy" data-org="">
+            <a href="https://karpathy.ai/" target="_blank" rel="noopener" class="rdi-spk-link-wrap">
+            <div class="rdi-spk-avatar">
+              <img src="../assets/images/agentic-summit-2026/speakers/andrej_karpathy.jpg" alt="Andrej Karpathy" loading="lazy" />
+            </div>
+            <p class="rdi-spk-name">Andrej Karpathy</p>
+            <p class="rdi-spk-title">Co-Founder of OpenAI; Founder of Eureka Labs</p>
+            
+            <span class="rdi-spk-link">View profile →</span></a>
+          </div>
+          <div class="rdi-spk-card" data-name="rao surapaneni" data-org="google cloud">
+            <a href="https://www.linkedin.com/in/raosurapaneni/" target="_blank" rel="noopener" class="rdi-spk-link-wrap">
+            <div class="rdi-spk-avatar">
+              <img src="../assets/images/agentic-summit-2026/speakers/rao_surapaneni.png" alt="Rao Surapaneni" loading="lazy" />
+            </div>
+            <p class="rdi-spk-name">Rao Surapaneni</p>
+            <p class="rdi-spk-title">VP/GM AI Search & Specialized AI</p>
+            <p class="rdi-spk-org">Google Cloud</p>
+            <span class="rdi-spk-link">View profile →</span></a>
+          </div>
+          <div class="rdi-spk-card" data-name="peter desantis" data-org="amazon">
+            <a href="https://www.aboutamazon.com/news/innovation-at-amazon/peter-desantis-amazon-artificial-general-intelligence" target="_blank" rel="noopener" class="rdi-spk-link-wrap">
+            <div class="rdi-spk-avatar">
+              <img src="../assets/images/agentic-summit-2026/speakers/peter_desantis.png" alt="Peter DeSantis" loading="lazy" />
+            </div>
+            <p class="rdi-spk-name">Peter DeSantis</p>
+            <p class="rdi-spk-title">SVP, Foundational AI Models, Custom Silicon, Quantum Computing</p>
+            <p class="rdi-spk-org">Amazon</p>
+            <span class="rdi-spk-link">View profile →</span></a>
+          </div>
+          <div class="rdi-spk-card" data-name="sanja fidler" data-org="nvidia">
+            <a href="https://www.cs.utoronto.ca/~fidler/" target="_blank" rel="noopener" class="rdi-spk-link-wrap">
+            <div class="rdi-spk-avatar">
+              <img src="../assets/images/agentic-summit-2026/speakers/sanja_fidler.png" alt="Sanja Fidler" loading="lazy" />
+            </div>
+            <p class="rdi-spk-name">Sanja Fidler</p>
+            <p class="rdi-spk-title">VP of AI Research</p>
+            <p class="rdi-spk-org">Nvidia</p>
+            <span class="rdi-spk-link">View profile →</span></a>
+          </div>
+          <div class="rdi-spk-card" data-name="jim fan" data-org="nvidia">
+            <a href="https://jimfan.me/" target="_blank" rel="noopener" class="rdi-spk-link-wrap">
+            <div class="rdi-spk-avatar">
+              <img src="../assets/images/agentic-summit-2026/speakers/jim_fan.png" alt="Jim Fan" style="object-position: 60% 35%;" loading="lazy" />
+            </div>
+            <p class="rdi-spk-name">Jim Fan</p>
+            <p class="rdi-spk-title">Director of Robotics & Distinguished Scientist</p>
+            <p class="rdi-spk-org">Nvidia</p>
+            <span class="rdi-spk-link">View profile →</span></a>
+          </div>
+          <div class="rdi-spk-card" data-name="dan roth" data-org="oracle">
+            <a href="https://www.cis.upenn.edu/~danroth/" target="_blank" rel="noopener" class="rdi-spk-link-wrap">
+            <div class="rdi-spk-avatar">
+              <img src="../assets/images/agentic-summit-2026/speakers/dan_roth.png" alt="Dan Roth" loading="lazy" />
+            </div>
+            <p class="rdi-spk-name">Dan Roth</p>
+            <p class="rdi-spk-title">Chief AI Scientist</p>
+            <p class="rdi-spk-org">Oracle</p>
+            <span class="rdi-spk-link">View profile →</span></a>
+          </div>
+          <div class="rdi-spk-card" data-name="weizhu chen" data-org="microsoft ai">
+            <a href="https://www.microsoft.com/en-us/research/people/wzchen/" target="_blank" rel="noopener" class="rdi-spk-link-wrap">
+            <div class="rdi-spk-avatar">
+              <img src="../assets/images/agentic-summit-2026/speakers/weizhu_chen.png" alt="Weizhu Chen" loading="lazy" />
+            </div>
+            <p class="rdi-spk-name">Weizhu Chen</p>
+            <p class="rdi-spk-title">Technical Fellow & CVP</p>
+            <p class="rdi-spk-org">Microsoft AI</p>
+            <span class="rdi-spk-link">View profile →</span></a>
+          </div>
+          <div class="rdi-spk-card" data-name="adarsh hiremath" data-org="mercor">
+            <a href="https://www.forbes.com/profile/adarsh-hiremath/" target="_blank" rel="noopener" class="rdi-spk-link-wrap">
+            <div class="rdi-spk-avatar">
+              <img src="../assets/images/agentic-summit-2026/speakers/adarsh_hiremath.png" alt="Adarsh Hiremath" loading="lazy" />
+            </div>
+            <p class="rdi-spk-name">Adarsh Hiremath</p>
+            <p class="rdi-spk-title">Co-Founder/CTO</p>
+            <p class="rdi-spk-org">Mercor</p>
+            <span class="rdi-spk-link">View profile →</span></a>
+          </div>
+          <div class="rdi-spk-card" data-name="arvind jain" data-org="glean">
+            <a href="https://www.glean.com/authors/arvind-jain" target="_blank" rel="noopener" class="rdi-spk-link-wrap">
+            <div class="rdi-spk-avatar">
+              <img src="../assets/images/agentic-summit-2026/speakers/arvind_jain.png" alt="Arvind Jain" loading="lazy" />
+            </div>
+            <p class="rdi-spk-name">Arvind Jain</p>
+            <p class="rdi-spk-title">Founder/CEO</p>
+            <p class="rdi-spk-org">Glean</p>
+            <span class="rdi-spk-link">View profile →</span></a>
+          </div>
+          <div class="rdi-spk-card" data-name="richard socher" data-org="you.com">
+            <a href="https://socher.org" target="_blank" rel="noopener" class="rdi-spk-link-wrap">
+            <div class="rdi-spk-avatar">
+              <img src="../assets/images/agentic-summit-2026/speakers/richard_socher.png" alt="Richard Socher" loading="lazy" />
+            </div>
+            <p class="rdi-spk-name">Richard Socher</p>
+            <p class="rdi-spk-title">Founder/CEO</p>
+            <p class="rdi-spk-org">You.com</p>
+            <span class="rdi-spk-link">View profile →</span></a>
+          </div>
+          <div class="rdi-spk-card" data-name="gabe pereyra" data-org="harvey ai">
+            <a href="https://www.harvey.ai/blog/author/gabe-pereyra" target="_blank" rel="noopener" class="rdi-spk-link-wrap">
+            <div class="rdi-spk-avatar">
+              <img src="../assets/images/agentic-summit-2026/speakers/gabe_pereyra.png" alt="Gabe Pereyra" loading="lazy" />
+            </div>
+            <p class="rdi-spk-name">Gabe Pereyra</p>
+            <p class="rdi-spk-title">Co-Founder/President</p>
+            <p class="rdi-spk-org">Harvey AI</p>
+            <span class="rdi-spk-link">View profile →</span></a>
+          </div>
+          <div class="rdi-spk-card" data-name="michele catasta" data-org="replit">
+            <a href="https://www.linkedin.com/in/pirroh" target="_blank" rel="noopener" class="rdi-spk-link-wrap">
+            <div class="rdi-spk-avatar">
+              <img src="../assets/images/agentic-summit-2026/speakers/michele_catasta.png" alt="Michele Catasta" loading="lazy" />
+            </div>
+            <p class="rdi-spk-name">Michele Catasta</p>
+            <p class="rdi-spk-title">President</p>
+            <p class="rdi-spk-org">Replit</p>
+            <span class="rdi-spk-link">View profile →</span></a>
+          </div>
+          <div class="rdi-spk-card" data-name="alex graveley" data-org="perplexity ai">
+            <a href="https://alexgraveley.com/" target="_blank" rel="noopener" class="rdi-spk-link-wrap">
+            <div class="rdi-spk-avatar">
+              <img src="../assets/images/agentic-summit-2026/speakers/alex_graveley.png" alt="Alex Graveley" loading="lazy" />
+            </div>
+            <p class="rdi-spk-name">Alex Graveley</p>
+            <p class="rdi-spk-title">Director, Comet</p>
+            <p class="rdi-spk-org">Perplexity AI</p>
+            <span class="rdi-spk-link">View profile →</span></a>
+          </div>
+          <div class="rdi-spk-card" data-name="michael spranger" data-org="sony ai">
+            <a href="https://sites.google.com/view/michaelspranger/" target="_blank" rel="noopener" class="rdi-spk-link-wrap">
+            <div class="rdi-spk-avatar">
+              <img src="../assets/images/agentic-summit-2026/speakers/michael_spranger.png" alt="Michael Spranger" loading="lazy" />
+            </div>
+            <p class="rdi-spk-name">Michael Spranger</p>
+            <p class="rdi-spk-title">President</p>
+            <p class="rdi-spk-org">Sony AI</p>
+            <span class="rdi-spk-link">View profile →</span></a>
+          </div>
+          <div class="rdi-spk-card" data-name="martin casado" data-org="a16z">
+            <a href="https://a16z.com/author/martin-casado/" target="_blank" rel="noopener" class="rdi-spk-link-wrap">
+            <div class="rdi-spk-avatar">
+              <img src="../assets/images/agentic-summit-2026/speakers/martin_casado.png" alt="Martin Casado" loading="lazy" />
+            </div>
+            <p class="rdi-spk-name">Martin Casado</p>
+            <p class="rdi-spk-title">General Partner</p>
+            <p class="rdi-spk-org">a16z</p>
+            <span class="rdi-spk-link">View profile →</span></a>
+          </div>
+          <div class="rdi-spk-card" data-name="alfred lin" data-org="sequoia capital">
+            <a href="https://sequoiacap.com/people/alfred-lin/" target="_blank" rel="noopener" class="rdi-spk-link-wrap">
+            <div class="rdi-spk-avatar">
+              <img src="../assets/images/agentic-summit-2026/speakers/alfred_lin.png" alt="Alfred Lin" loading="lazy" />
+            </div>
+            <p class="rdi-spk-name">Alfred Lin</p>
+            <p class="rdi-spk-title">General Partner</p>
+            <p class="rdi-spk-org">Sequoia Capital</p>
+            <span class="rdi-spk-link">View profile →</span></a>
+          </div>
+          <div class="rdi-spk-card" data-name="andy konwinski" data-org="databricks, perplexity and laude ventures">
+            <a href="https://andykonwinski.com/about/" target="_blank" rel="noopener" class="rdi-spk-link-wrap">
+            <div class="rdi-spk-avatar">
+              <img src="../assets/images/agentic-summit-2026/speakers/andy_konwinski.png" alt="Andy Konwinski" loading="lazy" />
+            </div>
+            <p class="rdi-spk-name">Andy Konwinski</p>
+            <p class="rdi-spk-title">Co-Founder</p>
+            <p class="rdi-spk-org">Databricks, Perplexity and Laude Ventures</p>
+            <span class="rdi-spk-link">View profile →</span></a>
+          </div>
+          <div class="rdi-spk-card" data-name="anjney midha" data-org="a16z">
+            <a href="https://a16z.com/author/anjney-midha/" target="_blank" rel="noopener" class="rdi-spk-link-wrap">
+            <div class="rdi-spk-avatar">
+              <img src="../assets/images/agentic-summit-2026/speakers/anjney_midha.png" alt="Anjney Midha" loading="lazy" />
+            </div>
+            <p class="rdi-spk-name">Anjney Midha</p>
+            <p class="rdi-spk-title">General Partner</p>
+            <p class="rdi-spk-org">a16z</p>
+            <span class="rdi-spk-link">View profile →</span></a>
+          </div>
+          <div class="rdi-spk-card" data-name="saurabh tiwary" data-org="">
+            <a href="https://www.linkedin.com/in/saurabh-tiwary/" target="_blank" rel="noopener" class="rdi-spk-link-wrap">
+            <div class="rdi-spk-avatar">
+              <img src="../assets/images/agentic-summit-2026/speakers/saurabh_tiwary.png" alt="Saurabh Tiwary" loading="lazy" />
+            </div>
+            <p class="rdi-spk-name">Saurabh Tiwary</p>
+            <p class="rdi-spk-title">VP & GM, Google Cloud AI</p>
+            
+            <span class="rdi-spk-link">View profile →</span></a>
+          </div>
+          <div class="rdi-spk-card" data-name="lukas biewald" data-org="weights & biases">
+            <a href="https://lukasbiewald.com/" target="_blank" rel="noopener" class="rdi-spk-link-wrap">
+            <div class="rdi-spk-avatar">
+              <img src="../assets/images/agentic-summit-2026/speakers/lukas_biewald.png" alt="Lukas Biewald" loading="lazy" />
+            </div>
+            <p class="rdi-spk-name">Lukas Biewald</p>
+            <p class="rdi-spk-title">Founder/CEO</p>
+            <p class="rdi-spk-org">Weights & Biases</p>
+            <span class="rdi-spk-link">View profile →</span></a>
+          </div>
+          <div class="rdi-spk-card" data-name="waseem alshikh" data-org="writer">
+            <a href="https://www.linkedin.com/in/waseemalshikh/" target="_blank" rel="noopener" class="rdi-spk-link-wrap">
+            <div class="rdi-spk-avatar">
+              <img src="../assets/images/agentic-summit-2026/speakers/waseem_alshikh.png" alt="Waseem Alshikh" loading="lazy" />
+            </div>
+            <p class="rdi-spk-name">Waseem Alshikh</p>
+            <p class="rdi-spk-title">Co-Founder/CTO</p>
+            <p class="rdi-spk-org">Writer</p>
+            <span class="rdi-spk-link">View profile →</span></a>
+          </div>
+          <div class="rdi-spk-card" data-name="chuan li" data-org="lambda">
+            <a href="https://github.com/chuanli11" target="_blank" rel="noopener" class="rdi-spk-link-wrap">
+            <div class="rdi-spk-avatar">
+              <img src="../assets/images/agentic-summit-2026/speakers/chuan_li.png" alt="Chuan Li" loading="lazy" />
+            </div>
+            <p class="rdi-spk-name">Chuan Li</p>
+            <p class="rdi-spk-title">Chief Scientific Officer</p>
+            <p class="rdi-spk-org">Lambda</p>
+            <span class="rdi-spk-link">View profile →</span></a>
+          </div>
+          <div class="rdi-spk-card" data-name="surojit chatterjee" data-org="ema">
+            <a href="https://www.linkedin.com/in/surojitchatterjee/" target="_blank" rel="noopener" class="rdi-spk-link-wrap">
+            <div class="rdi-spk-avatar">
+              <img src="../assets/images/agentic-summit-2026/speakers/surojit_chatterjee.png" alt="Surojit Chatterjee" loading="lazy" />
+            </div>
+            <p class="rdi-spk-name">Surojit Chatterjee</p>
+            <p class="rdi-spk-title">Founder/CEO</p>
+            <p class="rdi-spk-org">Ema</p>
+            <span class="rdi-spk-link">View profile →</span></a>
+          </div>
+          <div class="rdi-spk-card" data-name="anahita tafvizi" data-org="snowflake">
+            <a href="https://www.snowflake.com/en/blog/authors/anahita-tafvizi-/" target="_blank" rel="noopener" class="rdi-spk-link-wrap">
+            <div class="rdi-spk-avatar">
+              <img src="../assets/images/agentic-summit-2026/speakers/anahita_tafvizi.png" alt="Anahita Tafvizi" loading="lazy" />
+            </div>
+            <p class="rdi-spk-name">Anahita Tafvizi</p>
+            <p class="rdi-spk-title">Chief Data & AI Officer</p>
+            <p class="rdi-spk-org">Snowflake</p>
+            <span class="rdi-spk-link">View profile →</span></a>
+          </div>
+          <div class="rdi-spk-card" data-name="duncan lennox" data-org="hubspot">
+            <a href="https://www.hubspot.com/company/board-of-directors/duncan-lennox" target="_blank" rel="noopener" class="rdi-spk-link-wrap">
+            <div class="rdi-spk-avatar">
+              <img src="../assets/images/agentic-summit-2026/speakers/duncan_lennox.png" alt="Duncan Lennox" loading="lazy" />
+            </div>
+            <p class="rdi-spk-name">Duncan Lennox</p>
+            <p class="rdi-spk-title">Chief Product & Technology Officer</p>
+            <p class="rdi-spk-org">Hubspot</p>
+            <span class="rdi-spk-link">View profile →</span></a>
+          </div>
+          <div class="rdi-spk-card" data-name="jeff wecker" data-org="two sigma">
+            <a href="https://www.linkedin.com/in/jeffwecker/" target="_blank" rel="noopener" class="rdi-spk-link-wrap">
+            <div class="rdi-spk-avatar">
+              <img src="../assets/images/agentic-summit-2026/speakers/jeff_wecker.png" alt="Jeff Wecker" loading="lazy" />
+            </div>
+            <p class="rdi-spk-name">Jeff Wecker</p>
+            <p class="rdi-spk-title">CTO</p>
+            <p class="rdi-spk-org">Two Sigma</p>
+            <span class="rdi-spk-link">View profile →</span></a>
+          </div>
+          <div class="rdi-spk-card" data-name="jen allum" data-org="de shaw">
+            <a href="https://www.jenniferallum.info/" target="_blank" rel="noopener" class="rdi-spk-link-wrap">
+            <div class="rdi-spk-avatar">
+              <img src="../assets/images/agentic-summit-2026/speakers/jen_allum.png" alt="Jen Allum" loading="lazy" />
+            </div>
+            <p class="rdi-spk-name">Jen Allum</p>
+            <p class="rdi-spk-title">SVP, Co-Head of GenAI</p>
+            <p class="rdi-spk-org">DE Shaw</p>
+            <span class="rdi-spk-link">View profile →</span></a>
+          </div>
+          <div class="rdi-spk-card" data-name="ryan lopopolo" data-org="openai">
+            <a href="https://hyperbo.la/contact/" target="_blank" rel="noopener" class="rdi-spk-link-wrap">
+            <div class="rdi-spk-avatar">
+              <img src="../assets/images/agentic-summit-2026/speakers/ryan_lopopolo.png" alt="Ryan Lopopolo" loading="lazy" />
+            </div>
+            <p class="rdi-spk-name">Ryan Lopopolo</p>
+            <p class="rdi-spk-title">MTS (lead Dark Factory)</p>
+            <p class="rdi-spk-org">OpenAI</p>
+            <span class="rdi-spk-link">View profile →</span></a>
+          </div>
+          <div class="rdi-spk-card" data-name="aditya grover" data-org="inception labs">
+            <a href="https://aditya-grover.github.io/" target="_blank" rel="noopener" class="rdi-spk-link-wrap">
+            <div class="rdi-spk-avatar">
+              <img src="../assets/images/agentic-summit-2026/speakers/aditya_grover.png" alt="Aditya Grover" loading="lazy" />
+            </div>
+            <p class="rdi-spk-name">Aditya Grover</p>
+            <p class="rdi-spk-title">Co-Founder/CTO</p>
+            <p class="rdi-spk-org">Inception Labs</p>
+            <span class="rdi-spk-link">View profile →</span></a>
+          </div>
+          <div class="rdi-spk-card" data-name="ekin dogus cubuk" data-org="periodic labs">
+            <a href="https://www.linkedin.com/in/ekin-dogus-cubuk-9148b8114/" target="_blank" rel="noopener" class="rdi-spk-link-wrap">
+            <div class="rdi-spk-avatar">
+              <img src="../assets/images/agentic-summit-2026/speakers/ekin_dogus_cubuk.png" alt="Ekin Dogus Cubuk" loading="lazy" />
+            </div>
+            <p class="rdi-spk-name">Ekin Dogus Cubuk</p>
+            <p class="rdi-spk-title">Co-Founder</p>
+            <p class="rdi-spk-org">Periodic Labs</p>
+            <span class="rdi-spk-link">View profile →</span></a>
+          </div>
+          <div class="rdi-spk-card" data-name="andi peng" data-org="humans &">
+            <a href="https://andipeng.com/" target="_blank" rel="noopener" class="rdi-spk-link-wrap">
+            <div class="rdi-spk-avatar">
+              <img src="../assets/images/agentic-summit-2026/speakers/andi_peng.png" alt="Andi Peng" loading="lazy" />
+            </div>
+            <p class="rdi-spk-name">Andi Peng</p>
+            <p class="rdi-spk-title">Co-Founder</p>
+            <p class="rdi-spk-org">Humans &</p>
+            <span class="rdi-spk-link">View profile →</span></a>
+          </div>
+          <div class="rdi-spk-card" data-name="milind naphade" data-org="capital one">
+            <a href="https://www.capitalone.com/tech/ai/milind-naphade-svp-ai-foundations/" target="_blank" rel="noopener" class="rdi-spk-link-wrap">
+            <div class="rdi-spk-avatar">
+              <img src="../assets/images/agentic-summit-2026/speakers/milind_naphade.png" alt="Milind Naphade" loading="lazy" />
+            </div>
+            <p class="rdi-spk-name">Milind Naphade</p>
+            <p class="rdi-spk-title">SVP, AI Foundations</p>
+            <p class="rdi-spk-org">Capital One</p>
+            <span class="rdi-spk-link">View profile →</span></a>
+          </div>
+          <div class="rdi-spk-card" data-name="ali nazari" data-org="susquehanna international group">
+            <a href="https://www.linkedin.com/in/ali-nazari-97246716/" target="_blank" rel="noopener" class="rdi-spk-link-wrap">
+            <div class="rdi-spk-avatar">
+              <img src="../assets/images/agentic-summit-2026/speakers/ali_nazari.png" alt="Ali Nazari" loading="lazy" />
+            </div>
+            <p class="rdi-spk-name">Ali Nazari</p>
+            <p class="rdi-spk-title">Head of Deep Learning Research</p>
+            <p class="rdi-spk-org">Susquehanna International Group</p>
+            <span class="rdi-spk-link">View profile →</span></a>
+          </div>
+          <div class="rdi-spk-card" data-name="anastasis germanidis" data-org="runway">
+            <a href="https://agermanidis.com/" target="_blank" rel="noopener" class="rdi-spk-link-wrap">
+            <div class="rdi-spk-avatar">
+              <img src="../assets/images/agentic-summit-2026/speakers/anastasis_germanidis.png" alt="Anastasis Germanidis" loading="lazy" />
+            </div>
+            <p class="rdi-spk-name">Anastasis Germanidis</p>
+            <p class="rdi-spk-title">Co-Founder/Co-CEO</p>
+            <p class="rdi-spk-org">Runway</p>
+            <span class="rdi-spk-link">View profile →</span></a>
+          </div>
+          <div class="rdi-spk-card" data-name="dima dmytro dzhulgakov" data-org="fireworks ai">
+            <a href="https://www.linkedin.com/in/dzhulgakov/" target="_blank" rel="noopener" class="rdi-spk-link-wrap">
+            <div class="rdi-spk-avatar">
+              <img src="../assets/images/agentic-summit-2026/speakers/dima_dzhulgakov.png" alt="Dima Dmytro Dzhulgakov" loading="lazy" />
+            </div>
+            <p class="rdi-spk-name">Dima Dmytro Dzhulgakov</p>
+            <p class="rdi-spk-title">Co-Founder/CTO</p>
+            <p class="rdi-spk-org">Fireworks AI</p>
+            <span class="rdi-spk-link">View profile →</span></a>
+          </div>
+          </div>
+          <p class="rdi-spk-more">More to be announced soon!</p>
         </div>
+        <script>
+        (function() {
+          var input = document.getElementById('rdiSpkSearch');
+          if (!input) return;
+          input.addEventListener('input', function(e) {
+            var q = e.target.value.toLowerCase();
+            document.querySelectorAll('#rdiSpkGrid .rdi-spk-card').forEach(function(card) {
+              var name = card.getAttribute('data-name') || '';
+              var org = card.getAttribute('data-org') || '';
+              card.style.display = (name.indexOf(q) !== -1 || org.indexOf(q) !== -1) ? '' : 'none';
+            });
+          });
+        })();
+        </script>
       </div>
 
       <!-- Sponsors Section -->
