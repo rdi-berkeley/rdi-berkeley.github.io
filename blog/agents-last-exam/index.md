@@ -3,6 +3,11 @@ layout: blog
 title: "Agents' Last Exam"
 ---
 
+<style>
+.blog-post ul { list-style-type: disc; padding-left: 2rem; }
+.blog-post ol { list-style-type: decimal; padding-left: 2rem; }
+</style>
+
 # Agents' Last Exam
 
 <div class="author-info">
