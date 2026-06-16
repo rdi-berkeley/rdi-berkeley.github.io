@@ -1,5 +1,5 @@
 - link: /blog/agents-last-exam
-  img: /blog/agents-last-exam/main-results.png
+  img: /blog/agents-last-exam/cover.png
   title: "Agents' Last Exam"
   date: "2026-06-15"
   description: "A rolling benchmark measuring whether AI agents can perform economically valuable work across 55 occupations. We evaluated Fable 5, GPT-5.5, Composer 2.5, and other frontier systems on 1,500+ expert-sourced tasks. Today's agents solve a meaningful fraction of professional work, but on ALE's hardest tier every frontier agent we tested, including Fable 5, scored 0%."
