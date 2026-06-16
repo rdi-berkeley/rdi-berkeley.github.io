@@ -8,7 +8,9 @@ title: "Agents' Last Exam"
 <div class="author-info">
     Yiyou Sun*, Xinyang Han*, Weichen Zhang*, Yuanbo Pang*, Tianyu Wang*, Yuhan Cao*, Yixiao Huang*, …, Dawn Song
 <br>
-UC Berkeley RDI (* for core contributors)
+(* for core contributors)
+<br>
+UC Berkeley RDI
 <br>
 June 2026
 <br>
