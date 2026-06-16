@@ -203,6 +203,555 @@
         </div>
       </div>
 
+      <div class="agenda-section" style="margin: 30px 0;">
+        <hr style="margin-left: -20%; margin-right: -20%">
+        <br>
+        <h1 style="font-weight: 500; color: #CB9445; text-align: center; font-size: 40px">Program Schedule</h1>
+    <style>
+      /* ===== Program Schedule (Agenda) — mirrors 2025 Summit agenda styling ===== */
+      .agenda-section { --primary: #1a73e8; --primary-light: #e8f0fe; --text: #202124; --text-light: #5f6368; --border: #dadce0; }
+      .agenda-tabs { display: flex; justify-content: center; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+      .agenda-tab { padding: 10px 20px; cursor: pointer; border: 1px solid #ccc; border-radius: 20px; background: #e1e1e1; color: black; }
+      .agenda-tab.active { background-color: #1a73e8; color: white; }
+      .agenda-date { text-align: center; color: var(--text-light); font-size: 14px; margin: 0 0 24px; }
+      .resource-container { display: none; }
+      .resource-container.active { display: block; }
+      .session-header { background-color: var(--primary-light); padding: 12px 20px; border-left: 4px solid var(--primary); margin: 18px 0 20px; border-radius: 4px; position: relative; z-index: 2; }
+      .session-time { font-size: 13px; font-weight: 600; color: var(--text-light); margin-bottom: 2px; }
+      .session-title { font-size: 18px; font-weight: 500; color: var(--primary); }
+      .timeline { position: relative; max-width: 760px; margin: 0 auto; }
+      .timeline::before { content: ""; position: absolute; top: 0; bottom: 0; left: 120px; width: 2px; background-color: var(--border); z-index: 1; }
+      .event { display: flex; margin-bottom: 20px; position: relative; }
+      .event-time { flex: 0 0 100px; font-weight: 500; text-align: right; padding-right: 40px; color: var(--text-light); position: relative; }
+      .event-time::after { content: ""; position: absolute; right: 15px; top: 8px; width: 10px; height: 10px; border-radius: 50%; background: var(--primary); z-index: 1; }
+      .event-content { flex: 1; padding: 0 0 0 30px; }
+      .event-title { font-weight: 500; font-size: 16px; margin-bottom: 5px; }
+      .speaker { margin-bottom: 10px; }
+      .speaker-header { display: flex; align-items: baseline; gap: 0.5em; flex-wrap: wrap; }
+      .speaker-name { font-weight: 500; }
+      .speaker-title { color: var(--text-light); font-size: 14px; }
+      .event-title-2 { color: var(--text-light); font-size: 14px; }
+      .break .event-time::after { background: #fbbc04; }
+      .break .event-title { color: var(--text-light); }
+      .moderator { margin-top: 8px; font-style: italic; color: var(--text-light); font-size: 14px; }
+      @media (max-width: 720px) { .timeline::before { left: 88px; } .event-time { flex-basis: 74px; padding-right: 24px; } }
+    </style>
+    <script>
+      function showAgendaTab(index) {
+        document.querySelectorAll(".agenda-tab").forEach(function (tab, i) {
+          tab.classList.toggle("active", i === index);
+        });
+        document.querySelectorAll(".agenda-section .resource-container").forEach(function (c, i) {
+          c.classList.toggle("active", i === index);
+        });
+      }
+      document.addEventListener("DOMContentLoaded", function () { showAgendaTab(0); });
+    </script>
+        <div class="agenda-tabs">
+        <div class="agenda-tab active" onclick="showAgendaTab(0)">Mainstage - Saturday</div>
+        <div class="agenda-tab" onclick="showAgendaTab(1)">Mainstage - Sunday</div>
+        </div>
+    <div class="resource-container active" id="agenda-track-0">
+      <div class="timeline">
+          <div class="event">
+              <div class="event-time">9:15 AM</div>
+              <div class="event-content">
+                  <div class="event-title">Opening Remarks</div>
+                  <div class="speaker">
+                      <div class="speaker-header">
+                          <div class="speaker-name">Rich Lyons</div>
+                          <div class="speaker-title">Chancellor, UC Berkeley</div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="session-header">
+              <div class="session-time">9:30 AM</div>
+              <div class="session-title">Session 1: Agentic AI Infrastructure &amp; Platform</div>
+          </div>
+          <div class="event">
+              <div class="event-time">9:30 AM</div>
+              <div class="event-content">
+                  <div class="event-title">Focus Talks</div>
+                  <div class="speaker">
+                      <div class="speaker-header">
+                          <div class="speaker-name">Peter DeSantis</div>
+                          <div class="speaker-title">SVP, Foundational AI Models, Custom Silicon, Quantum Computing, Amazon</div>
+                      </div>
+                  </div>
+                  <div class="speaker">
+                      <div class="speaker-header">
+                          <div class="speaker-name">Saurabh Tiwary</div>
+                          <div class="speaker-title">VP &amp; GM, Google Cloud AI</div>
+                      </div>
+                  </div>
+                  <div class="speaker">
+                      <div class="speaker-header">
+                          <div class="speaker-name">Jonathan Cohen</div>
+                          <div class="speaker-title">VP of Applied Research, Nvidia</div>
+                      </div>
+                  </div>
+                  <div class="speaker">
+                      <div class="speaker-header">
+                          <div class="speaker-name">Chuan Li</div>
+                          <div class="speaker-title">Chief Scientific Officer, Lambda</div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="event">
+              <div class="event-time">10:25 AM</div>
+              <div class="event-content">
+                  <div class="event-title">Panel: Agentic AI Infrastructure &amp; Platform</div>
+                  <div class="moderator">Panelists: Peter DeSantis, Saurabh Tiwary, Jonathan Cohen, Chuan Li</div>
+              </div>
+          </div>
+          <div class="session-header">
+              <div class="session-time">10:45 AM</div>
+              <div class="session-title">Fireside Chat</div>
+          </div>
+          <div class="event">
+              <div class="event-time">10:45 AM</div>
+              <div class="event-content">
+                  <div class="speaker">
+                      <div class="speaker-header">
+                          <div class="speaker-name">Martin Casado</div>
+                          <div class="speaker-title">General Partner, a16z</div>
+                      </div>
+                  </div>
+                  <div class="speaker">
+                      <div class="speaker-header">
+                          <div class="speaker-name">Jasjeet Sekhon</div>
+                          <div class="speaker-title">Chief Strategy Officer, Google DeepMind</div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="session-header">
+              <div class="session-time">11:10 AM</div>
+              <div class="session-title">Session 2: Future of Software Development</div>
+          </div>
+          <div class="event">
+              <div class="event-time">11:10 AM</div>
+              <div class="event-content">
+                  <div class="event-title">Focus Talks</div>
+                  <div class="speaker">
+                      <div class="speaker-header">
+                          <div class="speaker-name">Andrej Karpathy</div>
+                          <div class="speaker-title">Anthropic; Co-Founder of OpenAI</div>
+                      </div>
+                  </div>
+                  <div class="speaker">
+                      <div class="speaker-header">
+                          <div class="speaker-name">Peter Steinberger</div>
+                          <div class="speaker-title">Creator of OpenClaw, OpenAI</div>
+                      </div>
+                  </div>
+                  <div class="speaker">
+                      <div class="speaker-header">
+                          <div class="speaker-name">Ryan Lopopolo</div>
+                          <div class="speaker-title">MTS (lead Dark Factory), OpenAI</div>
+                      </div>
+                  </div>
+                  <div class="speaker">
+                      <div class="speaker-header">
+                          <div class="speaker-name">Michele Catasta</div>
+                          <div class="speaker-title">President, Replit</div>
+                      </div>
+                  </div>
+                  <div class="speaker">
+                      <div class="speaker-header">
+                          <div class="speaker-name">Alex Graveley</div>
+                          <div class="speaker-title">Director, Comet, Perplexity AI</div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="event">
+              <div class="event-time">11:55 AM</div>
+              <div class="event-content">
+                  <div class="event-title">Panel: Future of Software Development</div>
+                  <div class="moderator">Panelists: Andrej Karpathy, Peter Steinberger, Ryan Lopopolo, Michele Catasta, Alex Graveley</div>
+                  <div class="moderator">Moderator: Anjney Midha (GP, a16z)</div>
+              </div>
+          </div>
+          <div class="event break">
+              <div class="event-time">12:20 PM</div>
+              <div class="event-content">
+                  <div class="event-title">Lunch</div>
+              </div>
+          </div>
+          <div class="session-header">
+              <div class="session-time">1:30 PM</div>
+              <div class="session-title">Session 3: Agentic AI Foundational Capabilities</div>
+          </div>
+          <div class="event">
+              <div class="event-time">1:30 PM</div>
+              <div class="event-content">
+                  <div class="event-title">Focus Talks</div>
+                  <div class="speaker">
+                      <div class="speaker-header">
+                          <div class="speaker-name">Dawn Song</div>
+                          <div class="speaker-title">Professor, UC Berkeley; Co-Director, Berkeley RDI</div>
+                      </div>
+                  </div>
+                  <div class="speaker">
+                      <div class="speaker-header">
+                          <div class="speaker-name">Wojciech Zaremba</div>
+                          <div class="speaker-title">Co-Founder, OpenAI</div>
+                      </div>
+                  </div>
+                  <div class="speaker">
+                      <div class="speaker-header">
+                          <div class="speaker-name">Pushmeet Kohli</div>
+                          <div class="speaker-title">VP of Science, Google DeepMind</div>
+                      </div>
+                  </div>
+                  <div class="speaker">
+                      <div class="speaker-header">
+                          <div class="speaker-name">Dan Roth</div>
+                          <div class="speaker-title">Chief AI Scientist, Oracle</div>
+                      </div>
+                  </div>
+                  <div class="speaker">
+                      <div class="speaker-header">
+                          <div class="speaker-name">Weizhu Chen</div>
+                          <div class="speaker-title">Technical Fellow &amp; CVP, Microsoft AI</div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="event">
+              <div class="event-time">2:35 PM</div>
+              <div class="event-content">
+                  <div class="event-title">Panel: Agentic AI Foundational Capabilities</div>
+                  <div class="moderator">Panelists: Dawn Song, Wojciech Zaremba, Pushmeet Kohli, Dan Roth, Weizhu Chen</div>
+                  <div class="moderator">Moderator: Will Knight (Senior Writer, Wired)</div>
+              </div>
+          </div>
+          <div class="session-header">
+              <div class="session-time">3:00 PM</div>
+              <div class="session-title">Session 4: Robotics &amp; World Models</div>
+          </div>
+          <div class="event">
+              <div class="event-time">3:00 PM</div>
+              <div class="event-content">
+                  <div class="event-title">Focus Talks</div>
+                  <div class="speaker">
+                      <div class="speaker-header">
+                          <div class="speaker-name">Sergey Levine</div>
+                          <div class="speaker-title">Co-Founder, Physical Intelligence; Professor, UC Berkeley</div>
+                      </div>
+                  </div>
+                  <div class="speaker">
+                      <div class="speaker-header">
+                          <div class="speaker-name">Jim Fan</div>
+                          <div class="speaker-title">Director of Robotics &amp; Distinguished Scientist, Nvidia</div>
+                      </div>
+                  </div>
+                  <div class="speaker">
+                      <div class="speaker-header">
+                          <div class="speaker-name">Michael Spranger</div>
+                          <div class="speaker-title">President, Sony AI</div>
+                      </div>
+                  </div>
+                  <div class="speaker">
+                      <div class="speaker-header">
+                          <div class="speaker-name">Anastasis Germanidis</div>
+                          <div class="speaker-title">Co-Founder/Co-CEO, Runway</div>
+                      </div>
+                  </div>
+                  <div class="speaker">
+                      <div class="speaker-header">
+                          <div class="speaker-name">Wei Zhan</div>
+                          <div class="speaker-title">Chief Scientist, Applied Intuition</div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="event">
+              <div class="event-time">3:45 PM</div>
+              <div class="event-content">
+                  <div class="event-title">Panel: Robotics &amp; World Models</div>
+                  <div class="moderator">Panelists: Sergey Levine, Jim Fan, Michael Spranger, Anastasis Germanidis, Wei Zhan</div>
+              </div>
+          </div>
+          <div class="event break">
+              <div class="event-time">4:10 PM</div>
+              <div class="event-content">
+                  <div class="event-title">Break</div>
+              </div>
+          </div>
+          <div class="session-header">
+              <div class="session-time">4:30 PM</div>
+              <div class="session-title">Session 5: Agentic AI in Capital Markets</div>
+          </div>
+          <div class="event">
+              <div class="event-time">4:30 PM</div>
+              <div class="event-content">
+                  <div class="event-title">Panel: Agentic AI in Capital Markets</div>
+                  <div class="speaker">
+                      <div class="speaker-header">
+                          <div class="speaker-name">Jeff Wecker</div>
+                          <div class="speaker-title">CTO, Two Sigma</div>
+                      </div>
+                  </div>
+                  <div class="speaker">
+                      <div class="speaker-header">
+                          <div class="speaker-name">Jen Allum</div>
+                          <div class="speaker-title">SVP, Co-Head of GenAI, The D. E. Shaw Group</div>
+                      </div>
+                  </div>
+                  <div class="speaker">
+                      <div class="speaker-header">
+                          <div class="speaker-name">Ali Nazari</div>
+                          <div class="speaker-title">Head of Deep Learning Research, Susquehanna International Group</div>
+                      </div>
+                  </div>
+                  <div class="speaker">
+                      <div class="speaker-header">
+                          <div class="speaker-name">Li Deng</div>
+                          <div class="speaker-title">Chief AI Officer, Global Head of ML, Vatic Investments</div>
+                      </div>
+                  </div>
+                  <div class="moderator">Moderator: Bradley Olson (Technology Editor, WSJ)</div>
+              </div>
+          </div>
+          <div class="session-header">
+              <div class="session-time">5:00 PM</div>
+              <div class="session-title">Fireside Chat</div>
+          </div>
+          <div class="event">
+              <div class="event-time">5:00 PM</div>
+              <div class="event-content">
+                  <div class="speaker">
+                      <div class="speaker-header">
+                          <div class="speaker-name">Andrew Ng</div>
+                          <div class="speaker-title">Founder, DeepLearning.AI</div>
+                      </div>
+                  </div>
+                  <div class="speaker">
+                      <div class="speaker-header">
+                          <div class="speaker-name">Alfred Lin</div>
+                          <div class="speaker-title">General Partner, Sequoia Capital</div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+    <div class="resource-container" id="agenda-track-1">
+      <div class="timeline">
+          <div class="event">
+              <div class="event-time">9:30 AM</div>
+              <div class="event-content">
+                  <div class="event-title">Opening Remarks</div>
+                  <div class="speaker">
+                      <div class="speaker-header">
+                          <div class="speaker-name">Jennifer Chayes</div>
+                          <div class="speaker-title">Dean of CDSS, UC Berkeley</div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="session-header">
+              <div class="session-time">9:40 AM</div>
+              <div class="session-title">Session 1: Enterprise AI</div>
+          </div>
+          <div class="event">
+              <div class="event-time">9:40 AM</div>
+              <div class="event-content">
+                  <div class="event-title">Focus Talks</div>
+                  <div class="speaker">
+                      <div class="speaker-header">
+                          <div class="speaker-name">Rao Surapaneni</div>
+                          <div class="speaker-title">VP/GM AI Search &amp; Specialized AI, Google Cloud</div>
+                      </div>
+                  </div>
+                  <div class="speaker">
+                      <div class="speaker-header">
+                          <div class="speaker-name">Adarsh Hiremath</div>
+                          <div class="speaker-title">Co-Founder/CTO, Mercor</div>
+                      </div>
+                  </div>
+                  <div class="speaker">
+                      <div class="speaker-header">
+                          <div class="speaker-name">Arvind Jain</div>
+                          <div class="speaker-title">Founder/CEO, Glean</div>
+                      </div>
+                  </div>
+                  <div class="speaker">
+                      <div class="speaker-header">
+                          <div class="speaker-name">Duncan Lennox</div>
+                          <div class="speaker-title">Chief Product &amp; Technology Officer, Hubspot</div>
+                      </div>
+                  </div>
+                  <div class="speaker">
+                      <div class="speaker-header">
+                          <div class="speaker-name">Anahita Tafvizi</div>
+                          <div class="speaker-title">Chief Data &amp; AI Officer, Snowflake</div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="event">
+              <div class="event-time">10:35 AM</div>
+              <div class="event-content">
+                  <div class="event-title">Panel: Enterprise AI</div>
+                  <div class="moderator">Panelists: Rao Surapaneni, Adarsh Hiremath, Arvind Jain, Duncan Lennox, Anahita Tafvizi, Waseem Alshikh (Co-Founder/CTO, Writer), Surojit Chatterjee (Founder/CEO, Ema)</div>
+                  <div class="moderator">Moderator: Aaron Jacobson (GP, NEA)</div>
+              </div>
+          </div>
+          <div class="session-header">
+              <div class="session-time">11:05 AM</div>
+              <div class="session-title">Fireside Chat</div>
+          </div>
+          <div class="event">
+              <div class="event-time">11:05 AM</div>
+              <div class="event-content">
+                  <div class="speaker">
+                      <div class="speaker-header">
+                          <div class="speaker-name">Ali Ghodsi</div>
+                          <div class="speaker-title">Co-Founder/CEO, Databricks</div>
+                      </div>
+                  </div>
+                  <div class="speaker">
+                      <div class="speaker-header">
+                          <div class="speaker-name">Andy Konwinski</div>
+                          <div class="speaker-title">Co-Founder, Databricks, Perplexity and Laude Ventures</div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="event break">
+              <div class="event-time">11:30 AM</div>
+              <div class="event-content">
+                  <div class="event-title">Lunch</div>
+              </div>
+          </div>
+          <div class="session-header">
+              <div class="session-time">1:00 PM</div>
+              <div class="session-title">Session 2: Frontier Research</div>
+          </div>
+          <div class="event">
+              <div class="event-time">1:00 PM</div>
+              <div class="event-content">
+                  <div class="event-title">Focus Talks</div>
+                  <div class="speaker">
+                      <div class="speaker-header">
+                          <div class="speaker-name">Richard Socher</div>
+                          <div class="speaker-title">Founder/CEO, Recursive Superintelligence</div>
+                      </div>
+                  </div>
+                  <div class="speaker">
+                      <div class="speaker-header">
+                          <div class="speaker-name">Ed Chi</div>
+                          <div class="speaker-title">VP of Research, Google DeepMind</div>
+                      </div>
+                  </div>
+                  <div class="speaker">
+                      <div class="speaker-header">
+                          <div class="speaker-name">Ekin Dogus Cubuk</div>
+                          <div class="speaker-title">Co-Founder, Periodic Labs</div>
+                      </div>
+                  </div>
+                  <div class="speaker">
+                      <div class="speaker-header">
+                          <div class="speaker-name">Krithik Puthalath</div>
+                          <div class="speaker-title">CEO, Zyphra</div>
+                      </div>
+                  </div>
+                  <div class="speaker">
+                      <div class="speaker-header">
+                          <div class="speaker-name">Andi Peng</div>
+                          <div class="speaker-title">Co-Founder, Humans &amp;</div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="event">
+              <div class="event-time">1:35 PM</div>
+              <div class="event-content">
+                  <div class="event-title">Panel: Frontier Research</div>
+                  <div class="moderator">Panelists: Richard Socher, Ed Chi, Ekin Dogus Cubuk, Krithik Puthalath, Andi Peng</div>
+                  <div class="moderator">Moderator: Igor Babuschkin (Co-Founder, xAI)</div>
+              </div>
+          </div>
+          <div class="session-header">
+              <div class="session-time">2:05 PM</div>
+              <div class="session-title">Session 3: Agentic AI Developer Platforms</div>
+          </div>
+          <div class="event">
+              <div class="event-time">2:05 PM</div>
+              <div class="event-content">
+                  <div class="event-title">Focus Talks</div>
+                  <div class="speaker">
+                      <div class="speaker-header">
+                          <div class="speaker-name">Lukas Biewald</div>
+                          <div class="speaker-title">Founder/CEO, Weights &amp; Biases</div>
+                      </div>
+                  </div>
+                  <div class="speaker">
+                      <div class="speaker-header">
+                          <div class="speaker-name">Matt White</div>
+                          <div class="speaker-title">Global CTO of AI, Linux Foundation; CTO, PyTorch Foundation</div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="event">
+              <div class="event-time">2:20 PM</div>
+              <div class="event-content">
+                  <div class="event-title">Panel: Agentic AI Developer Platforms</div>
+                  <div class="moderator">Panelists: Lukas Biewald, Matt White, Dima Dmytro Dzhulgakov (Co-Founder/CTO, Fireworks AI), Ivan Burazin (Co-Founder/CEO, Daytona)</div>
+                  <div class="moderator">Moderator: Megan Morrone (Editor of Technology, Axios)</div>
+              </div>
+          </div>
+          <div class="session-header">
+              <div class="session-time">2:50 PM</div>
+              <div class="session-title">Session 4: Agentic AI in Finance &amp; Legal</div>
+          </div>
+          <div class="event">
+              <div class="event-time">2:50 PM</div>
+              <div class="event-content">
+                  <div class="event-title">Focus Talks</div>
+                  <div class="speaker">
+                      <div class="speaker-header">
+                          <div class="speaker-name">Nikhil Chandhok</div>
+                          <div class="speaker-title">Chief Product &amp; Technology Officer, Circle</div>
+                      </div>
+                  </div>
+                  <div class="speaker">
+                      <div class="speaker-header">
+                          <div class="speaker-name">Gabe Pereyra</div>
+                          <div class="speaker-title">Co-Founder/President, Harvey AI</div>
+                      </div>
+                  </div>
+                  <div class="speaker">
+                      <div class="speaker-header">
+                          <div class="speaker-name">Milind Naphade</div>
+                          <div class="speaker-title">SVP, AI Foundations, Capital One</div>
+                      </div>
+                  </div>
+                  <div class="speaker">
+                      <div class="speaker-header">
+                          <div class="speaker-name">Faraz Shafiq</div>
+                          <div class="speaker-title">Head of AI, Wells Fargo</div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="event">
+              <div class="event-time">3:20 PM</div>
+              <div class="event-content">
+                  <div class="event-title">Panel: Agentic AI in Finance &amp; Legal</div>
+                  <div class="moderator">Panelists: Nikhil Chandhok, Gabe Pereyra, Milind Naphade, Faraz Shafiq</div>
+              </div>
+          </div>
+      </div>
+    </div>
+      </div>
+
       <div>
         <hr style="margin-left: -20%; margin-right: -20%">
         <br>
