@@ -232,6 +232,7 @@
       .event-title-2 { color: var(--text-light); font-size: 14px; }
       .break .event-time::after { background: #fbbc04; }
       .break .event-title { color: var(--text-light); }
+      .workshop .event-time::after { background: #c026a8; }
       .moderator { margin-top: 8px; font-style: italic; color: var(--text-light); font-size: 14px; }
       @media (max-width: 720px) { .timeline::before { left: 88px; } .event-time { flex-basis: 74px; padding-right: 24px; } }
     </style>
@@ -608,7 +609,7 @@
               <div class="event-time">10:35 AM</div>
               <div class="event-content">
                   <div class="event-title">Panel: Enterprise AI</div>
-                  <div class="moderator">Panelists: Rao Surapaneni, Adarsh Hiremath, Arvind Jain, Duncan Lennox, Anahita Tafvizi, Waseem Alshikh (Co-Founder/CTO, Writer), Surojit Chatterjee (Founder/CEO, Ema)</div>
+                  <div class="moderator">Panelists: Rao Surapaneni, Adarsh Hiremath, Arvind Jain, Duncan Lennox, Anahita Tafvizi, Surojit Chatterjee (Founder/CEO, Ema)</div>
                   <div class="moderator">Moderator: Aaron Jacobson (GP, NEA)</div>
               </div>
           </div>
@@ -814,10 +815,22 @@
                   </div>
               </div>
           </div>
-          <div class="event break">
+          <div class="event workshop">
               <div class="event-time">11:05 AM</div>
               <div class="event-content">
-                  <div class="event-title">Workshop</div>
+                  <div class="event-title">Workshop: Turning Chatbots into Agents: What Modern RL Looks Like by Daytona</div>
+                  <div class="speaker">
+                      <div class="speaker-header">
+                          <div class="speaker-name">Lovre Pesut</div>
+                          <div class="speaker-title">AI Engineer, Daytona</div>
+                      </div>
+                  </div>
+                  <div class="speaker">
+                      <div class="speaker-header">
+                          <div class="speaker-name">Muhammad Hashmi</div>
+                          <div class="speaker-title">DevRel, Daytona</div>
+                      </div>
+                  </div>
               </div>
           </div>
           <div class="event break">
@@ -866,16 +879,40 @@
                   </div>
               </div>
           </div>
-          <div class="event break">
+          <div class="event workshop">
               <div class="event-time">2:00 PM</div>
               <div class="event-content">
-                  <div class="event-title">Workshop</div>
+                  <div class="event-title">Workshop: Open-Source Agent Investigations: Security Arena, Distilled Traces, and Auto-Optimization by Lambda</div>
+                  <div class="speaker">
+                      <div class="speaker-header">
+                          <div class="speaker-name">Devina Jain</div>
+                          <div class="speaker-title">Research Engineer, Lambda</div>
+                      </div>
+                  </div>
+                  <div class="speaker">
+                      <div class="speaker-header">
+                          <div class="speaker-name">Zach Mueller</div>
+                          <div class="speaker-title">Head of Developer Relations, Lambda</div>
+                      </div>
+                  </div>
+                  <div class="speaker">
+                      <div class="speaker-header">
+                          <div class="speaker-name">Chuan Li</div>
+                          <div class="speaker-title">Chief Science Officer, Lambda</div>
+                      </div>
+                  </div>
               </div>
           </div>
-          <div class="event break">
+          <div class="event workshop">
               <div class="event-time">3:00 PM</div>
               <div class="event-content">
-                  <div class="event-title">Workshop</div>
+                  <div class="event-title">Workshop: Building Agentic Apps End-to-End with Replit Agent</div>
+                  <div class="speaker">
+                      <div class="speaker-header">
+                          <div class="speaker-name">Brandon Middleton</div>
+                          <div class="speaker-title">Head of Education, Replit</div>
+                      </div>
+                  </div>
               </div>
           </div>
           <div class="session-header">
@@ -1604,6 +1641,12 @@
                   </div>
                   <div class="speaker">
                       <div class="speaker-header">
+                          <div class="speaker-name">Ankit Goyal</div>
+                          <div class="speaker-title">Principal Staff Software Engineer, LinkedIn</div>
+                      </div>
+                  </div>
+                  <div class="speaker">
+                      <div class="speaker-header">
                           <div class="speaker-name">Daniel Homola</div>
                           <div class="speaker-title">Lead AI Engineer, BMW Research</div>
                       </div>
@@ -1803,6 +1846,16 @@
             <p class="rdi-spk-org">Anthropic</p>
             <span class="rdi-spk-link">View profile →</span></a>
           </div>
+          <div class="rdi-spk-card" data-name="peter steinberger" data-org="openai" data-stage="mainstage">
+            <a href="https://steipete.me/" target="_blank" rel="noopener" class="rdi-spk-link-wrap">
+            <div class="rdi-spk-avatar">
+              <img src="../assets/images/agentic-summit-2026/speakers/peter_steinberger.png" alt="Peter Steinberger" loading="lazy" />
+            </div>
+            <p class="rdi-spk-name">Peter Steinberger</p>
+            <p class="rdi-spk-title">Creator of OpenClaw</p>
+            <p class="rdi-spk-org">OpenAI</p>
+            <span class="rdi-spk-link">View profile →</span></a>
+          </div>
           <div class="rdi-spk-card" data-name="andrew ng" data-org="deeplearning.ai" data-stage="mainstage">
             <a href="https://www.andrewng.org/" target="_blank" rel="noopener" class="rdi-spk-link-wrap">
             <div class="rdi-spk-avatar">
@@ -1811,6 +1864,26 @@
             <p class="rdi-spk-name">Andrew Ng</p>
             <p class="rdi-spk-title">Founder</p>
             <p class="rdi-spk-org">DeepLearning.AI</p>
+            <span class="rdi-spk-link">View profile →</span></a>
+          </div>
+          <div class="rdi-spk-card" data-name="peter desantis" data-org="amazon" data-stage="mainstage">
+            <a href="https://www.aboutamazon.com/news/innovation-at-amazon/peter-desantis-amazon-artificial-general-intelligence" target="_blank" rel="noopener" class="rdi-spk-link-wrap">
+            <div class="rdi-spk-avatar">
+              <img src="../assets/images/agentic-summit-2026/speakers/peter_desantis.png" alt="Peter DeSantis" loading="lazy" />
+            </div>
+            <p class="rdi-spk-name">Peter DeSantis</p>
+            <p class="rdi-spk-title">SVP, Foundational AI Models, Custom Silicon, Quantum Computing</p>
+            <p class="rdi-spk-org">Amazon</p>
+            <span class="rdi-spk-link">View profile →</span></a>
+          </div>
+          <div class="rdi-spk-card" data-name="jasjeet sekhon" data-org="google deepmind" data-stage="mainstage">
+            <a href="https://jsekhon.com" target="_blank" rel="noopener" class="rdi-spk-link-wrap">
+            <div class="rdi-spk-avatar">
+              <img src="../assets/images/agentic-summit-2026/speakers/jasjeet_sekhon.png" alt="Jasjeet Sekhon" loading="lazy" />
+            </div>
+            <p class="rdi-spk-name">Jasjeet Sekhon</p>
+            <p class="rdi-spk-title">Chief Strategy Officer</p>
+            <p class="rdi-spk-org">Google DeepMind</p>
             <span class="rdi-spk-link">View profile →</span></a>
           </div>
           <div class="rdi-spk-card" data-name="ali ghodsi" data-org="databricks" data-stage="mainstage">
@@ -1833,16 +1906,6 @@
             <p class="rdi-spk-org">Physical Intelligence; UC Berkeley</p>
             <span class="rdi-spk-link">View profile →</span></a>
           </div>
-          <div class="rdi-spk-card" data-name="peter steinberger" data-org="openai" data-stage="mainstage">
-            <a href="https://steipete.me/" target="_blank" rel="noopener" class="rdi-spk-link-wrap">
-            <div class="rdi-spk-avatar">
-              <img src="../assets/images/agentic-summit-2026/speakers/peter_steinberger.png" alt="Peter Steinberger" loading="lazy" />
-            </div>
-            <p class="rdi-spk-name">Peter Steinberger</p>
-            <p class="rdi-spk-title">Creator of OpenClaw</p>
-            <p class="rdi-spk-org">OpenAI</p>
-            <span class="rdi-spk-link">View profile →</span></a>
-          </div>
           <div class="rdi-spk-card" data-name="jennifer chayes" data-org="uc berkeley" data-stage="mainstage">
             <a href="https://cdss.berkeley.edu/people/jennifer-chayes" target="_blank" rel="noopener" class="rdi-spk-link-wrap">
             <div class="rdi-spk-avatar">
@@ -1851,16 +1914,6 @@
             <p class="rdi-spk-name">Jennifer Chayes</p>
             <p class="rdi-spk-title">Dean of CDSS</p>
             <p class="rdi-spk-org">UC Berkeley</p>
-            <span class="rdi-spk-link">View profile →</span></a>
-          </div>
-          <div class="rdi-spk-card" data-name="jasjeet sekhon" data-org="google deepmind" data-stage="mainstage">
-            <a href="https://jsekhon.com" target="_blank" rel="noopener" class="rdi-spk-link-wrap">
-            <div class="rdi-spk-avatar">
-              <img src="../assets/images/agentic-summit-2026/speakers/jasjeet_sekhon.png" alt="Jasjeet Sekhon" loading="lazy" />
-            </div>
-            <p class="rdi-spk-name">Jasjeet Sekhon</p>
-            <p class="rdi-spk-title">Chief Strategy Officer</p>
-            <p class="rdi-spk-org">Google DeepMind</p>
             <span class="rdi-spk-link">View profile →</span></a>
           </div>
           <div class="rdi-spk-card" data-name="pushmeet kohli" data-org="google deepmind" data-stage="mainstage">
@@ -1901,16 +1954,6 @@
             <p class="rdi-spk-name">Rao Surapaneni</p>
             <p class="rdi-spk-title">VP/GM AI Search & Specialized AI</p>
             <p class="rdi-spk-org">Google Cloud</p>
-            <span class="rdi-spk-link">View profile →</span></a>
-          </div>
-          <div class="rdi-spk-card" data-name="peter desantis" data-org="amazon" data-stage="mainstage">
-            <a href="https://www.aboutamazon.com/news/innovation-at-amazon/peter-desantis-amazon-artificial-general-intelligence" target="_blank" rel="noopener" class="rdi-spk-link-wrap">
-            <div class="rdi-spk-avatar">
-              <img src="../assets/images/agentic-summit-2026/speakers/peter_desantis.png" alt="Peter DeSantis" loading="lazy" />
-            </div>
-            <p class="rdi-spk-name">Peter DeSantis</p>
-            <p class="rdi-spk-title">SVP, Foundational AI Models, Custom Silicon, Quantum Computing</p>
-            <p class="rdi-spk-org">Amazon</p>
             <span class="rdi-spk-link">View profile →</span></a>
           </div>
           <div class="rdi-spk-card" data-name="jim fan" data-org="nvidia" data-stage="mainstage">
@@ -2083,16 +2126,6 @@
             <p class="rdi-spk-org">Weights & Biases</p>
             <span class="rdi-spk-link">View profile →</span></a>
           </div>
-          <div class="rdi-spk-card" data-name="waseem alshikh" data-org="writer" data-stage="mainstage">
-            <a href="https://www.linkedin.com/in/waseemalshikh/" target="_blank" rel="noopener" class="rdi-spk-link-wrap">
-            <div class="rdi-spk-avatar">
-              <img src="../assets/images/agentic-summit-2026/speakers/waseem_alshikh.png" alt="Waseem Alshikh" loading="lazy" />
-            </div>
-            <p class="rdi-spk-name">Waseem Alshikh</p>
-            <p class="rdi-spk-title">Co-Founder/CTO</p>
-            <p class="rdi-spk-org">Writer</p>
-            <span class="rdi-spk-link">View profile →</span></a>
-          </div>
           <div class="rdi-spk-card" data-name="chuan li" data-org="lambda" data-stage="mainstage">
             <a href="https://github.com/chuanli11" target="_blank" rel="noopener" class="rdi-spk-link-wrap">
             <div class="rdi-spk-avatar">
@@ -2101,16 +2134,6 @@
             <p class="rdi-spk-name">Chuan Li</p>
             <p class="rdi-spk-title">Chief Scientific Officer</p>
             <p class="rdi-spk-org">Lambda</p>
-            <span class="rdi-spk-link">View profile →</span></a>
-          </div>
-          <div class="rdi-spk-card" data-name="surojit chatterjee" data-org="ema" data-stage="mainstage">
-            <a href="https://www.linkedin.com/in/surojitchatterjee/" target="_blank" rel="noopener" class="rdi-spk-link-wrap">
-            <div class="rdi-spk-avatar">
-              <img src="../assets/images/agentic-summit-2026/speakers/surojit_chatterjee.png" alt="Surojit Chatterjee" loading="lazy" />
-            </div>
-            <p class="rdi-spk-name">Surojit Chatterjee</p>
-            <p class="rdi-spk-title">Founder/CEO</p>
-            <p class="rdi-spk-org">Ema</p>
             <span class="rdi-spk-link">View profile →</span></a>
           </div>
           <div class="rdi-spk-card" data-name="anahita tafvizi" data-org="snowflake" data-stage="mainstage">
@@ -2183,6 +2206,16 @@
             <p class="rdi-spk-org">Humans &</p>
             <span class="rdi-spk-link">View profile →</span></a>
           </div>
+          <div class="rdi-spk-card" data-name="nikhil chandhok" data-org="circle" data-stage="mainstage">
+            <a href="https://www.circle.com/leadership/nikhil-chandhok" target="_blank" rel="noopener" class="rdi-spk-link-wrap">
+            <div class="rdi-spk-avatar">
+              <img src="../assets/images/agentic-summit-2026/speakers/nikhil_chandhok.png" alt="Nikhil Chandhok" loading="lazy" />
+            </div>
+            <p class="rdi-spk-name">Nikhil Chandhok</p>
+            <p class="rdi-spk-title">Chief Product &amp; Technology Officer</p>
+            <p class="rdi-spk-org">Circle</p>
+            <span class="rdi-spk-link">View profile →</span></a>
+          </div>
           <div class="rdi-spk-card" data-name="milind naphade" data-org="capital one" data-stage="mainstage">
             <a href="https://www.capitalone.com/tech/ai/milind-naphade-svp-ai-foundations/" target="_blank" rel="noopener" class="rdi-spk-link-wrap">
             <div class="rdi-spk-avatar">
@@ -2253,14 +2286,14 @@
             <p class="rdi-spk-org">Wells Fargo</p>
             <span class="rdi-spk-link">View profile →</span></a>
           </div>
-          <div class="rdi-spk-card" data-name="nikhil chandhok" data-org="circle" data-stage="mainstage">
-            <a href="https://www.circle.com/leadership/nikhil-chandhok" target="_blank" rel="noopener" class="rdi-spk-link-wrap">
+          <div class="rdi-spk-card" data-name="surojit chatterjee" data-org="ema" data-stage="mainstage">
+            <a href="https://www.linkedin.com/in/surojitchatterjee/" target="_blank" rel="noopener" class="rdi-spk-link-wrap">
             <div class="rdi-spk-avatar">
-              <img src="../assets/images/agentic-summit-2026/speakers/nikhil_chandhok.png" alt="Nikhil Chandhok" loading="lazy" />
+              <img src="../assets/images/agentic-summit-2026/speakers/surojit_chatterjee.png" alt="Surojit Chatterjee" loading="lazy" />
             </div>
-            <p class="rdi-spk-name">Nikhil Chandhok</p>
-            <p class="rdi-spk-title">Chief Product &amp; Technology Officer</p>
-            <p class="rdi-spk-org">Circle</p>
+            <p class="rdi-spk-name">Surojit Chatterjee</p>
+            <p class="rdi-spk-title">Founder/CEO</p>
+            <p class="rdi-spk-org">Ema</p>
             <span class="rdi-spk-link">View profile →</span></a>
           </div>
           <div class="rdi-spk-card" data-name="matt white" data-org="" data-stage="mainstage">
@@ -2580,6 +2613,56 @@
             <p class="rdi-spk-name">Vijay Ganesh</p>
             <p class="rdi-spk-title">Professor</p>
             <p class="rdi-spk-org">Georgia Institute of Technology</p>
+            <span class="rdi-spk-link">View profile →</span></a>
+          </div>
+          <div class="rdi-spk-card" data-name="lovre pesut" data-org="daytona" data-stage="atlas">
+            <a href="https://lov.re/" target="_blank" rel="noopener" class="rdi-spk-link-wrap">
+            <div class="rdi-spk-avatar">
+              <img src="../assets/images/agentic-summit-2026/speakers/lovre_pesut.png" alt="Lovre Pesut" loading="lazy" />
+            </div>
+            <p class="rdi-spk-name">Lovre Pesut</p>
+            <p class="rdi-spk-title">AI Engineer</p>
+            <p class="rdi-spk-org">Daytona</p>
+            <span class="rdi-spk-link">View profile →</span></a>
+          </div>
+          <div class="rdi-spk-card" data-name="muhammad hashmi" data-org="daytona" data-stage="atlas">
+            <a href="https://www.linkedin.com/in/mu-hash/" target="_blank" rel="noopener" class="rdi-spk-link-wrap">
+            <div class="rdi-spk-avatar">
+              <img src="../assets/images/agentic-summit-2026/speakers/muhammad_hashmi.png" alt="Muhammad Hashmi" loading="lazy" />
+            </div>
+            <p class="rdi-spk-name">Muhammad Hashmi</p>
+            <p class="rdi-spk-title">DevRel</p>
+            <p class="rdi-spk-org">Daytona</p>
+            <span class="rdi-spk-link">View profile →</span></a>
+          </div>
+          <div class="rdi-spk-card" data-name="devina jain" data-org="lambda" data-stage="atlas">
+            <a href="https://www.linkedin.com/in/devina-jain-088aba86" target="_blank" rel="noopener" class="rdi-spk-link-wrap">
+            <div class="rdi-spk-avatar">
+              <img src="../assets/images/agentic-summit-2026/speakers/devina_jain.png" alt="Devina Jain" loading="lazy" />
+            </div>
+            <p class="rdi-spk-name">Devina Jain</p>
+            <p class="rdi-spk-title">Research Engineer</p>
+            <p class="rdi-spk-org">Lambda</p>
+            <span class="rdi-spk-link">View profile →</span></a>
+          </div>
+          <div class="rdi-spk-card" data-name="zach mueller" data-org="lambda" data-stage="atlas">
+            <a href="https://www.linkedin.com/in/zachary-mueller-135257118/" target="_blank" rel="noopener" class="rdi-spk-link-wrap">
+            <div class="rdi-spk-avatar">
+              <img src="../assets/images/agentic-summit-2026/speakers/zach_mueller.png" alt="Zach Mueller" loading="lazy" />
+            </div>
+            <p class="rdi-spk-name">Zach Mueller</p>
+            <p class="rdi-spk-title">Head of Developer Relations</p>
+            <p class="rdi-spk-org">Lambda</p>
+            <span class="rdi-spk-link">View profile →</span></a>
+          </div>
+          <div class="rdi-spk-card" data-name="brandon middleton" data-org="replit" data-stage="atlas">
+            <a href="https://dschool.stanford.edu/directory/brandon-middleton" target="_blank" rel="noopener" class="rdi-spk-link-wrap">
+            <div class="rdi-spk-avatar">
+              <img src="../assets/images/agentic-summit-2026/speakers/brandon_middleton.png" alt="Brandon Middleton" loading="lazy" />
+            </div>
+            <p class="rdi-spk-name">Brandon Middleton</p>
+            <p class="rdi-spk-title">Head of Education</p>
+            <p class="rdi-spk-org">Replit</p>
             <span class="rdi-spk-link">View profile →</span></a>
           </div>
           <div class="rdi-spk-card" data-name="markus j. buehler" data-org="mit/unreasonable labs" data-stage="nexus">
