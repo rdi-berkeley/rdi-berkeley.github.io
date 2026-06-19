@@ -1,3 +1,10 @@
+- link: /blog/cybergym-e2e
+  img: /blog/cybergym-e2e/images/overview.png
+  title: "CyberGym-E2E: Scalable Real-World Benchmark for AI Agents' End-to-End Cybersecurity Capabilities"
+  date: "2026-06-18"
+  description: "A large-scale, end-to-end cybersecurity benchmark of 920 real-world vulnerabilities across 139 open-source projects. Each task asks an AI agent to independently discover a vulnerability, prove it with a PoC, and write a patch — measuring the full defensive lifecycle."
+  category: "main"
+
 - link: /blog/agents-last-exam
   img: /blog/agents-last-exam/main-results.png
   title: "Agents' Last Exam"
