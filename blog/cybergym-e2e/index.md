@@ -205,18 +205,18 @@ On the expanded 920-task benchmark with newer models, end-to-end performance jum
 
 ## The Interesting Bits
 
-**Budget matters.** Success rates rise steadily with the cost budget before flattening out. Patch-only performance saturates early (most models are near their ceiling by a few dollars), but end-to-end discovery keeps benefiting from more runway. The $10 cap is an evaluation choice for fair cross-model comparison, not a property of the dataset — researchers with more resources can push further.
+**Budget matters.** Success rates rise steadily with the cost budget before flattening out. Patch-only performance plateaus early (most models are near their ceiling by a few dollars), but end-to-end discovery keeps benefiting from more runway. The $10 cap is an evaluation choice for fair cross-model comparison, not a property of the dataset — researchers with more resources can push further.
 
 <figure style="text-align: center; margin: 1em 0;">
   <img src="images/cost_scaling_frontier.png" alt="Pass rate vs cost across frontier models" style="width: 100%;">
-  <figcaption style="margin-top: 0.5em; font-size: 0.9em; text-align: left;"><em>Figure 2: End-to-end (left) and patch-only (right) pass rate as a function of per-task cost budget, up to $10. Patch-only saturates quickly; end-to-end discovery keeps climbing.</em></figcaption>
+  <figcaption style="margin-top: 0.5em; font-size: 0.9em; text-align: left;"><em>Figure 2: End-to-end (left) and patch-only (right) pass rate as a function of per-task cost budget, up to $10. Patch-only plateaus quickly; end-to-end discovery keeps climbing.</em></figcaption>
 </figure>
 
 That last point is most visible when we lift Opus 4.6's cap entirely. Its patch-only curve plateaus near 86% almost immediately, but its end-to-end curve keeps rising out to ~$30+, eventually reaching ~63% — strong evidence that the strongest agents are capable of sustained, multi-stage reasoning that a tight budget undercounts.
 
 <figure style="text-align: center; margin: 1em 0;">
   <img src="images/cost_scaling_opus_uncapped.png" alt="Opus 4.6 uncapped pass rate vs cost" style="width: 100%;">
-  <figcaption style="margin-top: 0.5em; font-size: 0.9em; text-align: left;"><em>Figure 3: With the cost cap removed, Claude Opus 4.6's end-to-end success keeps climbing toward ~63%, while patch-only saturates almost immediately near 86%.</em></figcaption>
+  <figcaption style="margin-top: 0.5em; font-size: 0.9em; text-align: left;"><em>Figure 3: With the cost cap removed, Claude Opus 4.6's end-to-end success keeps climbing toward ~63%, while patch-only plateaus almost immediately near 86%.</em></figcaption>
 </figure>
 
 **The S3–S4 gap up close.** As discussed in the takeaways, agents frequently fix a valid but unintended vulnerability. One promising direction for closing this gap is to instruct agents to keep searching after fixing their first vulnerability — enumerating and patching all discoverable vulnerabilities in a region rather than stopping at the first success — or more broadly, to ask the agent to find and fix as many vulnerabilities as it can in the same run.
@@ -232,9 +232,9 @@ To make the workflow concrete, here is a representative successful end-to-end tr
 
 ## Why This Matters
 
-CyberGym-E2E makes one thing measurable and concrete: today's frontier agents are reasonably capable at fixing vulnerabilities once those vulnerabilities are localized, and the larger gap is about autonomous discovery — a gap the newest models are closing quickly. For defenders, that's an actionable signal: automated end-to-end remediation could accelerate triage and patching.
+CyberGym-E2E makes one thing measurable and concrete: today's frontier agents are frequently able to produce a passing fix once the vulnerability is localized, and the larger gap is about autonomous discovery — a gap the newest models are closing quickly. For defenders, that's an actionable signal: automated end-to-end remediation could accelerate triage and patching, with human review still in the loop, since not every passing patch is a clean fix.
 
-The benchmark is a contribution to both sides of the responsible-development equation: it gives defenders a realistic, execution-grounded way to measure how much an AI agent can actually do across the full lifecycle, and it gives model developers a way to track these capabilities in a domain where the stakes are unusually high. Because the construction pipeline is automated and continues to ingest new OSS-Fuzz vulnerabilities, the benchmark can scale alongside both the models and the evolving vulnerability landscape.
+The benchmark contributes to both sides of the responsible-development equation: it gives defenders a realistic, execution-grounded way to measure how much an AI agent can do across the full lifecycle, and it gives model developers a way to track these capabilities where the stakes are unusually high. Because the construction pipeline is automated and continues to ingest new OSS-Fuzz vulnerabilities, the benchmark can scale alongside both the models and the evolving vulnerability landscape.
 
 ---
 
