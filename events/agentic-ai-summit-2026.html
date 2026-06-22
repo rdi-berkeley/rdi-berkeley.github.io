@@ -218,6 +218,11 @@
       .session-header { background-color: var(--primary-light); padding: 12px 20px; border-left: 4px solid var(--primary); margin: 18px 0 20px; border-radius: 4px; position: relative; z-index: 2; }
       .session-time { font-size: 13px; font-weight: 600; color: var(--text-light); margin-bottom: 2px; }
       .session-title { font-size: 18px; font-weight: 500; color: var(--primary); }
+      /* Frontier session block: blue tint wrapping the session header + its talks
+         (Atlas/Nexus/Compass). Workshops/breaks sit outside, in the white gap. */
+      .session-block-wrap { background-color: var(--primary-light); border-left: 4px solid var(--primary); border-radius: 4px; padding: 4px 20px 10px; margin: 18px 0; position: relative; z-index: 2; }
+      .session-block-wrap .session-header { background: none; border-left: none; border-radius: 0; padding: 12px 0 8px; margin: 0; }
+      .session-block-wrap .event { margin-bottom: 0; }
       .timeline { position: relative; max-width: 760px; margin: 0 auto; }
       .timeline::before { content: ""; position: absolute; top: 0; bottom: 0; left: 120px; width: 2px; background-color: var(--border); z-index: 1; }
       .event { display: flex; margin-bottom: 20px; position: relative; }
@@ -775,6 +780,7 @@
     </div>
     <div class="resource-container" id="agenda-track-2">
       <div class="timeline">
+          <div class="session-block-wrap">
           <div class="session-header">
               <div class="session-time">10:00 AM</div>
               <div class="session-title">Session 1: Foundational Capabilities</div>
@@ -815,6 +821,7 @@
                   </div>
               </div>
           </div>
+          </div>
           <div class="event workshop">
               <div class="event-time">11:05 AM</div>
               <div class="event-content">
@@ -839,6 +846,7 @@
                   <div class="event-title">Lunch &amp; Poster Presentations</div>
               </div>
           </div>
+          <div class="session-block-wrap">
           <div class="session-header">
               <div class="session-time">1:00 PM</div>
               <div class="session-title">Session 2: Robotics &amp; World Models</div>
@@ -879,6 +887,7 @@
                   </div>
               </div>
           </div>
+          </div>
           <div class="event workshop">
               <div class="event-time">2:00 PM</div>
               <div class="event-content">
@@ -915,6 +924,7 @@
                   </div>
               </div>
           </div>
+          <div class="session-block-wrap">
           <div class="session-header">
               <div class="session-time">4:00 PM</div>
               <div class="session-title">Session 3: Frameworks &amp; Dev Platforms</div>
@@ -961,6 +971,7 @@
                   </div>
               </div>
           </div>
+          </div>
           <div class="event break">
               <div class="event-time">5:30 PM</div>
               <div class="event-content">
@@ -971,6 +982,7 @@
     </div>
     <div class="resource-container" id="agenda-track-3">
       <div class="timeline">
+          <div class="session-block-wrap">
           <div class="session-header">
               <div class="session-time">10:00 AM</div>
               <div class="session-title">Session 1: Enterprise AI</div>
@@ -1023,6 +1035,7 @@
                   </div>
               </div>
           </div>
+          </div>
           <div class="event break">
               <div class="event-time">11:20 AM</div>
               <div class="event-content">
@@ -1035,6 +1048,7 @@
                   <div class="event-title">Lunch &amp; Poster Presentations</div>
               </div>
           </div>
+          <div class="session-block-wrap">
           <div class="session-header">
               <div class="session-time">1:00 PM</div>
               <div class="session-title">Session 2: Agent Evaluation &amp; Benchmarks</div>
@@ -1069,12 +1083,14 @@
                   </div>
               </div>
           </div>
+          </div>
           <div class="event break">
               <div class="event-time">1:45 PM</div>
               <div class="event-content">
                   <div class="event-title">Workshop</div>
               </div>
           </div>
+          <div class="session-block-wrap">
           <div class="session-header">
               <div class="session-time">2:45 PM</div>
               <div class="session-title">Session 3: AI for Math</div>
@@ -1109,6 +1125,7 @@
                   </div>
               </div>
           </div>
+          </div>
           <div class="event break">
               <div class="event-time">3:30 PM</div>
               <div class="event-content">
@@ -1125,6 +1142,7 @@
     </div>
     <div class="resource-container" id="agenda-track-4">
       <div class="timeline">
+          <div class="session-block-wrap">
           <div class="session-header">
               <div class="session-time">10:00 AM</div>
               <div class="session-title">Session 1: AI for Science</div>
@@ -1171,6 +1189,7 @@
                   </div>
               </div>
           </div>
+          </div>
           <div class="event break">
               <div class="event-time">10:50 AM</div>
               <div class="event-content">
@@ -1183,6 +1202,7 @@
                   <div class="event-title">Lunch &amp; Poster Presentations</div>
               </div>
           </div>
+          <div class="session-block-wrap">
           <div class="session-header">
               <div class="session-time">1:00 PM</div>
               <div class="session-title">Session 2: Coding &amp; Web Agent</div>
@@ -1223,12 +1243,14 @@
                   </div>
               </div>
           </div>
+          </div>
           <div class="event break">
               <div class="event-time">1:50 PM</div>
               <div class="event-content">
                   <div class="event-title">Workshop</div>
               </div>
           </div>
+          <div class="session-block-wrap">
           <div class="session-header">
               <div class="session-time">2:50 PM</div>
               <div class="session-title">Session 3: Agentic AI in Finance and Healthcare</div>
@@ -1263,6 +1285,8 @@
                   </div>
               </div>
           </div>
+          </div>
+          <div class="session-block-wrap">
           <div class="session-header">
               <div class="session-time">3:25 PM</div>
               <div class="session-title">Session 4: Secure Agentic AI</div>
@@ -1315,6 +1339,7 @@
                   </div>
               </div>
           </div>
+          </div>
           <div class="event break">
               <div class="event-time">4:30 PM</div>
               <div class="event-content">
@@ -1325,6 +1350,7 @@
     </div>
     <div class="resource-container" id="agenda-track-5">
       <div class="timeline">
+          <div class="session-block-wrap">
           <div class="session-header">
               <div class="session-time">10:00 AM</div>
               <div class="session-title">Session 1: AI Systems</div>
@@ -1359,6 +1385,7 @@
                   </div>
               </div>
           </div>
+          </div>
           <div class="event break">
               <div class="event-time">10:45 AM</div>
               <div class="event-content">
@@ -1371,6 +1398,7 @@
                   <div class="event-title">Lunch &amp; Poster Presentations</div>
               </div>
           </div>
+          <div class="session-block-wrap">
           <div class="session-header">
               <div class="session-time">1:00 PM</div>
               <div class="session-title">Session 2: Frameworks &amp; Dev Platforms</div>
@@ -1435,12 +1463,14 @@
                   </div>
               </div>
           </div>
+          </div>
           <div class="event break">
               <div class="event-time">2:00 PM</div>
               <div class="event-content">
                   <div class="event-title">Workshop</div>
               </div>
           </div>
+          <div class="session-block-wrap">
           <div class="session-header">
               <div class="session-time">3:00 PM</div>
               <div class="session-title">Session 3: Foundational Capabilities</div>
@@ -1481,6 +1511,7 @@
                   </div>
               </div>
           </div>
+          </div>
           <div class="event workshop">
               <div class="event-time">3:50 PM</div>
               <div class="event-content">
@@ -1503,6 +1534,7 @@
     </div>
     <div class="resource-container" id="agenda-track-6">
       <div class="timeline">
+          <div class="session-block-wrap">
           <div class="session-header">
               <div class="session-time">10:00 AM</div>
               <div class="session-title">Session 1: AI Safety</div>
@@ -1567,6 +1599,7 @@
                   </div>
               </div>
           </div>
+          </div>
           <div class="event break">
               <div class="event-time">11:10 AM</div>
               <div class="event-content">
@@ -1579,6 +1612,7 @@
                   <div class="event-title">Lunch &amp; Poster Presentations</div>
               </div>
           </div>
+          <div class="session-block-wrap">
           <div class="session-header">
               <div class="session-time">1:00 PM</div>
               <div class="session-title">Session 2: AI Systems</div>
@@ -1631,6 +1665,8 @@
                   </div>
               </div>
           </div>
+          </div>
+          <div class="session-block-wrap">
           <div class="session-header">
               <div class="session-time">1:40 PM</div>
               <div class="session-title">Session 3: Enterprise AI</div>
@@ -1683,6 +1719,8 @@
                   </div>
               </div>
           </div>
+          </div>
+          <div class="session-block-wrap">
           <div class="session-header">
               <div class="session-time">2:20 PM</div>
               <div class="session-title">Session 4: Agent Evaluation &amp; Benchmarks</div>
@@ -1752,6 +1790,7 @@
                       </div>
                   </div>
               </div>
+          </div>
           </div>
       </div>
     </div>
