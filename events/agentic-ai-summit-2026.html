@@ -77,11 +77,20 @@
 
 <body data-new-gr-c-s-check-loaded="14.1034.0" data-gr-ext-installed="">
 
-  <img src="/assets/images/agentic_ai_summit_2026_banner.jpg" alt="Agentic AI Summit 2026 Banner"
-    style="display:block; margin-left: 17vw; margin-right: 17vw; width: calc(100% - 34vw); height:auto; margin-top: 2%; margin-bottom: 2%;">
+  <style>
+    #agentic-2026-banner { margin-left: 17vw; margin-right: 17vw; width: calc(100% - 34vw); }
+    #main-text-container { margin-left: 17vw; margin-right: 17vw; }
+    @media (max-width: 768px) {
+      #agentic-2026-banner { margin-left: 5vw; margin-right: 5vw; width: calc(100% - 10vw); }
+      #main-text-container { margin-left: 5vw; margin-right: 5vw; }
+    }
+  </style>
+
+  <img id="agentic-2026-banner" src="/assets/images/agentic_ai_summit_2026_banner.jpg" alt="Agentic AI Summit 2026 Banner"
+    style="display:block; height:auto; margin-top: 2%; margin-bottom: 2%;">
 
   <div id="main-text-container"
-    style="font-size: 12pt; font-family: 'Poppins', sans-serif; font-weight: 300; margin-bottom: 40px; margin-left: 17vw; margin-right: 17vw;">
+    style="font-size: 12pt; font-family: 'Poppins', sans-serif; font-weight: 300; margin-bottom: 40px;">
     <div style="text-align: left; color: black;">
       <p style="font-size: 1rem; margin-bottom: 20px;">
         Welcome to the Agentic AI Summit 2026, hosted by Berkeley RDI and Responsible Decentralized Intelligence Foundation.
@@ -1826,7 +1835,8 @@
         .rdi-spk-stagetab:hover { border-color: #003262; }
         .rdi-spk-stagetab.active { background: #003262; color: #fff; border-color: #003262; }
         @media (max-width: 900px) { .rdi-spk-card { width: calc((100% - 2 * 20px) / 3); } }
-        @media (max-width: 640px) { .rdi-spk-grid { gap: 12px; } .rdi-spk-card { width: calc((100% - 12px) / 2); } }
+        @media (max-width: 640px) { .rdi-spk-section { padding: 0 16px; } .rdi-spk-grid { gap: 12px; } .rdi-spk-card { width: calc((100% - 12px) / 2); padding: 16px 10px 14px; } .rdi-spk-avatar { width: 72px; height: 72px; margin: 0 auto 10px; } }
+        @media (max-width: 420px) { .rdi-spk-card { width: 100%; } }
         </style>
         <div class="rdi-spk-section">
           <p class="rdi-spk-sub">Agentic AI Summit 2026 brings together leading researchers, founders, and industry leaders shaping the future of Agentic AI.</p>
