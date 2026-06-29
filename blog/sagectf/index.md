@@ -27,12 +27,12 @@ UC Santa Barbara, UC Berkeley
 <br>
 June 16, 2026
 <br>
-<em>(Est. 8-12 minutes read)</em>
+<em>(Est. 8-12 minutes read, more details at <a href="https://www.opensage-agent.ai/" target="_blank">https://www.opensage-agent.ai/</a>)</em>
 </div>
 
 DEF CON CTF is the **Olympics of hacking**. Its challenges are among the hardest in all of cybersecurity, typically involving reverse-engineering binaries and crafting working exploits. Throughout the history of DEF CON quals, these tasks have usually demanded a team of more than **20 world-class** hackers — sometimes **hundreds** — working around the clock to solve them within the three-day window.
 
-This year, with AI, things are different. At UC Santa Barbara and UC Berkeley, we built SageCTF: a CTF-specialized agent built on our next-generation agent scaffold, OpenSage. Competing as a **solo player** in the qualifiers, it achieved impressively strong results:
+This year, with AI, things are different. At UC Santa Barbara and UC Berkeley, we built SageCTF: a CTF-specialized agent built on our next-generation agent scaffold, [OpenSage](https://www.opensage-agent.ai/). Competing as a **solo player** in the qualifiers, it achieved impressively strong results:
 
 * Recovered 8 flags across 7 difficult challenges, where each one requires a team of professional hackers a few hours to solve
 * Earned a total of 1,743 points — placing in the **top 5%** of all teams
