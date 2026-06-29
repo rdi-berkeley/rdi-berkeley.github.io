@@ -5,6 +5,13 @@
   description: "A large-scale, end-to-end cybersecurity benchmark of 920 real-world vulnerabilities across 139 open-source projects. Each task asks an AI agent to independently discover a vulnerability, prove it with a PoC, and write a patch — measuring the full defensive lifecycle."
   category: "main"
 
+- link: /blog/sagectf
+  img: /blog/sagectf/cover.jpg
+  title: "SageCTF: The Most Capable AI Agent for The Most Challenging CTF"
+  date: "2026-06-16"
+  description: "Built on OpenSage, SageCTF competed solo at DEF CON CTF 2026 — recovering 8 flags across 7 of the world's hardest challenges, earning 1,743 points to place in the top 5% of teams, and outscoring every No-AI and Low-AI team."
+  category: "main"
+
 - link: /blog/agents-last-exam
   img: /blog/agents-last-exam/main-results.png
   title: "Agents' Last Exam"
