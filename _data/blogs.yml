@@ -1,3 +1,10 @@
+- link: /blog/polyfill
+  img: /blog/polyfill/figures/malware_clean.png
+  title: "The Malware CDN is Still Lurking in GitHub Pages, and AI Just Made It Worse"
+  date: "2026-06-24"
+  description: "A year after polyfill.io was hijacked, over a thousand live GitHub Pages sites continue to serve JavaScript from a network the US government has sanctioned. And AI just made it worse."
+  category: "main"
+
 - link: /blog/cybergym-e2e
   img: /blog/cybergym-e2e/images/overview.png
   title: "CyberGym-E2E: Scalable Real-World Benchmark for AI Agents' End-to-End Cybersecurity Capabilities"
