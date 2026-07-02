@@ -14,7 +14,7 @@ UC Berkeley
 <br>
 April 2026
 <br>
-<em>(Est. 15-20 minutes read, tool available at <a href="https://github.com/moogician/trustworthy-env" target="_blank">github.com/moogician/trustworthy-env</a>)</em>
+<em>(Est. 15-20 minutes read, tool available at <a href="https://github.com/benchjack/benchjack" target="_blank">https://github.com/benchjack/benchjack</a>, more details in <a href="https://arxiv.org/abs/2605.12673" target="_blank">arXiv paper: https://arxiv.org/abs/2605.12673</a>)</em>
 </div>
 
 ---

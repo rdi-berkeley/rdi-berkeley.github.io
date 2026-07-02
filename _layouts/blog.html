@@ -233,6 +233,54 @@
     font-weight: 600;
     color: #000;
 }
+
+/* Polished tables inside blog post content */
+.blog-post table {
+    display: block;
+    width: fit-content;
+    max-width: 100%;
+    overflow-x: auto;
+    margin: 1.75rem auto;
+    border-collapse: collapse;
+    border: 1px solid #e2e2e2;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+.blog-post table th,
+.blog-post table td {
+    padding: 0.65rem 1rem;
+    border-bottom: 1px solid #e2e2e2;
+    text-align: left;
+    vertical-align: top;
+    font-size: 0.95rem;
+}
+
+.blog-post table thead th {
+    background-color: #f4f4f4;
+    font-weight: 600;
+    white-space: nowrap;
+    color: #003262;
+    border-bottom: 2px solid #d0d0d0;
+}
+
+.blog-post table tbody tr {
+    transition: background-color 0.15s ease;
+}
+
+.blog-post table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.blog-post table tbody tr:hover {
+    background-color: #f0f0f0;
+}
+
+.blog-post table tbody tr:last-child td {
+    border-bottom: none;
+}
 </style>
 
 <script>
