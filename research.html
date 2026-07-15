@@ -464,7 +464,7 @@
   </div>
 
   <!-- test -->
-  
+
   <!-- Join Our Community -->
   <section id="community" class="bg-blue-900 py-16 px-6 text-center">
     <h2 class="text-3xl text-white font-bold mb-4 text-white">Join Our Community</h2>
@@ -552,11 +552,11 @@
     const grid  = document.getElementById('research-grid');
     const pagEl = document.getElementById('pagination');
     if (!grid || !pagEl) return;
-  
+
     const perPage = 30;
     const allItems = Array.from(grid.querySelectorAll('.research-card'));
     let page = 1;
-  
+
     function visibleItems() {
       // Treat elements hidden by filters (e.g., .hidden or display:none) as invisible
       return allItems.filter(el =>
@@ -565,11 +565,11 @@
         el.offsetParent !== null
       );
     }
-  
+
     function render() {
       const vis = visibleItems();
       const totalPages = Math.ceil(vis.length / perPage);
-  
+
       // If 30 or fewer visible, show all and hide pagination
       if (vis.length <= perPage) {
         allItems.forEach(el => (el.style.display = ''));
@@ -578,18 +578,18 @@
         page = 1;
         return;
       }
-  
+
       // Otherwise, paginate visible set
       pagEl.style.display = '';
       const maxPage = Math.max(1, totalPages);
       page = Math.min(Math.max(1, page), maxPage);
-  
+
       // Hide all, then show the current slice of visible ones
       allItems.forEach(el => (el.style.display = 'none'));
       const start = (page - 1) * perPage;
       const end   = start + perPage;
       vis.slice(start, end).forEach(el => (el.style.display = ''));
-  
+
       // Build controls
       pagEl.innerHTML = '';
       const mkBtn = (label, disabled, goto, active = false) => {
@@ -604,14 +604,14 @@
       for (let p = 1; p <= totalPages; p++) pagEl.appendChild(mkBtn(String(p), false, p, p === page));
       pagEl.appendChild(mkBtn('Next', page === totalPages, page + 1));
     }
-  
+
     // Re-render when filters change: observe class/style changes or child list mutations
     const mo = new MutationObserver(render);
     mo.observe(grid, { attributes: true, attributeFilter: ['class', 'style'], subtree: true, childList: true });
-  
+
     // Optional: re-render on a custom event if your filters dispatch it
     window.addEventListener('filters:changed', render);
-  
+
     render();
   })();
   </script>
