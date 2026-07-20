@@ -100,6 +100,12 @@
       subtitle: |
         Affiliate Faculty, UIUC,
         AI Security
+    - name: Chenguang Wang
+      homepage: https://cgraywang.github.io/
+      image_file: chenguangwang.jpg
+      subtitle: |
+        Affiliate Faculty, UCSC,
+        AI/ML
 
 # - section_name: "STUDENT"
 #   people:
