@@ -277,13 +277,14 @@
       .speaker { margin-bottom: 10px; }
       .speaker-header { display: flex; align-items: baseline; gap: 0.5em; flex-wrap: wrap; }
       .speaker-name { font-weight: 500; }
-      .speaker-title { color: var(--text-light); font-size: 14px; }
+      .speaker-title { color: var(--text-light); font-size: 14px; font-style: italic; }
+      .speaker-title.speaker-label { font-style: normal; }
       .event-title-2 { color: #003262; font-size: 14px; }
       .break .event-time::after { background: #fbbc04; }
       .break .event-title { color: var(--text-light); }
       .workshop .event-time::after { background: #c026a8; }
       .keynote .event-time::after { background: #34a853; }
-      .moderator { margin-top: 8px; font-style: italic; color: var(--text-light); font-size: 14px; }
+      .moderator { margin-top: 8px; color: var(--text-light); font-size: 14px; }
       @media (max-width: 720px) { .timeline::before { left: 88px; } .event-time { flex-basis: 74px; padding-right: 24px; } }
     </style>
     <script>
@@ -1388,7 +1389,7 @@
                   <div class="event-title">Workshop by Fetcherr</div>
                   <div class="speaker">
                       <div class="speaker-header">
-                          <div class="speaker-title">Keynote by</div>
+                          <div class="speaker-title speaker-label">Keynote by</div>
                           <div class="speaker-name">Uri Yerushalmi</div>
                           <div class="speaker-title">Chief AI Officer, Fetcherr</div>
                       </div>
@@ -1396,7 +1397,7 @@
                   </div>
                   <div class="speaker">
                       <div class="speaker-header">
-                          <div class="speaker-title">Workshop led by</div>
+                          <div class="speaker-title speaker-label">Workshop led by</div>
                           <div class="speaker-name">Hadar Sharvit</div>
                           <div class="speaker-title">Director of Deep Learning, Fetcherr</div>
                       </div>
