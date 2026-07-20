@@ -270,7 +270,7 @@
       .timeline { position: relative; max-width: 760px; margin: 0 auto; }
       .timeline::before { content: ""; position: absolute; top: 0; bottom: 0; left: 120px; width: 2px; background-color: var(--border); z-index: 1; }
       .event { display: flex; margin-bottom: 20px; position: relative; }
-      .event-time { flex: 0 0 100px; font-weight: 500; text-align: right; padding-right: 40px; color: var(--text-light); position: relative; }
+      .event-time { flex: 0 0 100px; font-weight: 500; text-align: right; padding-right: 40px; color: var(--text-light); position: relative; white-space: nowrap; }
       .event-time::after { content: ""; position: absolute; right: 15px; top: 8px; width: 10px; height: 10px; border-radius: 50%; background: var(--primary); z-index: 1; }
       .event-content { flex: 1; padding: 0 0 0 30px; }
       .event-title { font-weight: 500; font-size: 16px; margin-bottom: 5px; }
@@ -285,7 +285,7 @@
       .workshop .event-time::after { background: #c026a8; }
       .keynote .event-time::after { background: #34a853; }
       .moderator { margin-top: 8px; color: var(--text-light); font-size: 14px; }
-      @media (max-width: 720px) { .timeline::before { left: 106px; } .event-time { flex-basis: 92px; padding-right: 24px; } }
+      @media (max-width: 720px) { .timeline::before { left: 114px; } .event-time { flex-basis: 100px; padding-right: 24px; } }
     </style>
     <script>
       function showAgendaTab(index) {
