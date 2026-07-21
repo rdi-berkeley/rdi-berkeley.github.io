@@ -2,6 +2,12 @@
 layout: default
 ---
 
+<meta http-equiv="refresh" content="0; url=/">
+<script>window.location.replace('/');</script>
+<p style="text-align:center; margin-top: 60px;">This page has moved. Redirecting to the <a href="/">homepage</a>&hellip;</p>
+
+<!-- Page deprecated; redirects to homepage. Original content preserved inert below. -->
+<template id="archived-newsletter-content">
 <!-- Sidebar Navigation -->
 <div style="color: black; width: 15%; height: auto; margin-top: 60px; position: absolute; display: flex; flex-direction: column; gap: 15px;">
     <a href="/publicCourses" class="nav-url">
@@ -75,3 +81,4 @@ layout: default
         });
     </script>
 </div>
+</template>

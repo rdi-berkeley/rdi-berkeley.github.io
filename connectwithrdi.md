@@ -2,6 +2,12 @@
 layout: default
 ---
 
+<meta http-equiv="refresh" content="0; url=/">
+<script>window.location.replace('/');</script>
+<p style="text-align:center; margin-top: 60px;">This page has moved. Redirecting to the <a href="/">homepage</a>&hellip;</p>
+
+<!-- Page deprecated; redirects to homepage. Original content preserved inert below. -->
+<template id="archived-connectwithrdi-content">
 <div style="color: black; width: 15%; height: 160px; margin-top: 60px; position: absolute; display: flex; flex-direction: column; justify-content: space-evenly">
     <a href="/publicCourses" class="nav-url">
         DeFi MOOC
@@ -128,3 +134,5 @@ Use these QR codes to connect with us <br><br>
     <!--End mc_embed_signup-->
 
   </div>
+</div>
+</template>
