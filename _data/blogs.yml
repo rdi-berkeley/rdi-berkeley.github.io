@@ -1,3 +1,10 @@
+- link: /blog/auto-software-dev
+  img: /blog/auto-software-dev/sdlc-taxonomy.png
+  title: "When Coding Stops Being the Bottleneck"
+  date: "2026-07-26"
+  description: "Why AI will completely transform, not merely accelerate, software engineering. We propose a three-level taxonomy of software-development autonomy inspired by autonomous driving, examine six structural shifts, and make ten predictions about the future of software development."
+  category: "main"
+
 - link: /blog/polyfill
   img: /blog/polyfill/figures/malware_clean.png
   title: "The Malware CDN is Still Lurking in GitHub Pages, and AI Just Made It Worse"
