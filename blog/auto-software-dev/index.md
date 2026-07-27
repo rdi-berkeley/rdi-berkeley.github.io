@@ -70,6 +70,8 @@ AI not only builds, tests, and deploys software; it decides what should be built
 
 We anticipate organizations in different domains to progress through this autonomy framework at different paces. High-assurance domains may remain at Level I or below for a long time, while internal tools and disposable applications may approach Level II much sooner. The taxonomy is a way to make capability claims, deployment choices, and accountability legible.
 
+It is tempting to assume that we are already well into Level I or Level II autonomy when using recent models, but these levels are designed to **reach consistent capabilities** rather than today's error prone but often functional outputs with no formal guarantees of correctness.
+
 ## Autonomy Has More Than One Dimension
 
 The three autonomy levels answer one primary question: Which stages of the software development lifecycle does the AI system own? But the level alone does not fully characterize how autonomous the system is. Two systems at the same level can operate very differently depending on three additional, cross-cutting dimensions:
