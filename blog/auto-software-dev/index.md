@@ -3,6 +3,17 @@ layout: blog
 title: "When Coding Stops Being the Bottleneck"
 ---
 
+<style>
+.blog-post img.wide-figure {
+    width: min(900px, 94vw);
+    max-width: none;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: none;
+}
+</style>
+
 # When Coding Stops Being the Bottleneck
 
 *Why AI will completely transform, not merely accelerate, software engineering*
@@ -41,7 +52,7 @@ Software development has no comparable framework. "Autonomous coding agent" curr
 
 Inspired by the SAE automation levels, we propose and define three levels of software-development autonomy based on which stages of the software development lifecycle have moved from human responsibility to full AI control.
 
-<img src="autonomy_matrix.svg" alt="Matrix showing which stages of the software development lifecycle are owned by humans versus AI at each autonomy level, from today's AI-assisted development through Level I (Code Autonomy), Level II (Pipeline Autonomy), and Level III (Demand Autonomy)" class="content-image" style="width: 100%; padding: 10px;">
+<img src="autonomy_matrix.svg" alt="Matrix showing which stages of the software development lifecycle are owned by humans versus AI at each autonomy level, from today's AI-assisted development through Level I (Code Autonomy), Level II (Pipeline Autonomy), and Level III (Demand Autonomy)" class="content-image wide-figure">
 
 Our levels classify how much of the software development lifecycle an AI system owns, and which responsibilities remain with humans.
 
@@ -87,9 +98,10 @@ A team may nominally operate at Level I, with humans remaining fully responsible
 
 We therefore argue for explicit level gating: systems should advance only when the challenges associated with their current level have been demonstrably addressed. The burden of proof should rise with the autonomy, duration, and risk of the deployment.
 
-## Six Structural Shifts
 
-<img src="six-shifts-poster.svg" alt="Poster summarizing the six structural shifts: specifications become the primary development artifact, abstraction boundaries become permeable, software shifts to continuously evolving systems, assurance moves from artifacts to agents, multi-agent coordination moves beyond human organizations, and the software engineering ecosystem restructures" class="content-image" style="width: 100%; padding: 10px;">
+<img src="six-shifts-poster.svg" alt="Poster summarizing the six structural shifts: specifications become the primary development artifact, abstraction boundaries become permeable, software shifts to continuously evolving systems, assurance moves from artifacts to agents, multi-agent coordination moves beyond human organizations, and the software engineering ecosystem restructures" class="content-image wide-figure">
+
+## Six Structural Shifts
 
 If implementation becomes abundant, software development does not simply become a faster version of today's workflow. It undergoes a deeper transformation. The primary artifacts of software engineering change. The engineering process itself changes. And ultimately, the software engineering ecosystem reorganizes.
 
@@ -143,9 +155,9 @@ As autonomous agents absorb more implementation work, software development organ
 
 At the same time, entirely new ecosystem institutions become necessary. Independent auditors, certification organizations, trustworthiness assessment providers, and governance services may become as important as today's testing platforms or cloud providers. Software engineering education will likewise place greater emphasis on specification, verification, security, governance, and system-level judgment than on manual implementation alone.
 
-## Ten Predictions About the Future of Software Development
+<img src="ten-predictions-poster.svg" alt="Poster summarizing ten predictions about the future of software development, from specifications becoming the software's genome to software becoming abundant while trust becomes scarce" class="content-image wide-figure">
 
-<img src="ten-predictions-poster.svg" alt="Poster summarizing ten predictions about the future of software development, from specifications becoming the software's genome to software becoming abundant while trust becomes scarce" class="content-image" style="width: 100%; padding: 10px;">
+## Ten Predictions About the Future of Software Development
 
 The structural shifts described above suggest a set of concrete, testable predictions. They are deliberately forward-looking rather than inevitable. Different domains will evolve at different speeds, but together these predictions illustrate how autonomous software development could reshape software engineering over the coming decade.
 
