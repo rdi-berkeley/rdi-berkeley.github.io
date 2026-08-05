@@ -171,16 +171,19 @@
       homepage: https://www.linkedin.com/in/jocelynweberphipps/
       image_file: jocelyn.jpg
       subtitle: "Deputy Director"
+    - name: Linda Lu
+      image_file: linda.png
+      subtitle: "Head of Strategic Initiatives"
     - name: Will Wendt
       homepage: https://www.linkedin.com/in/william-wendt-684666169/
       image_file: will.png
       subtitle: "Partnerships"
     - name: Jacob Sutton
       image_file: jacob.png
-      subtitle: "Marketing & Partnerships"
+      subtitle: "Marketing"
     - name: Madison Burnett
       image_file: madison.png
-      subtitle: "Marketing & Operations"
+      subtitle: "Operations"
     - name: Jennifer Liu
       homepage: https://www.linkedin.com/in/jennifer-liu-69a9583a2/
       image_file: jennifer.png
