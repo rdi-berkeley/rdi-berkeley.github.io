@@ -1,3 +1,10 @@
+- link: /blog/vero
+  img: /blog/vero/figure1-workflow.png
+  title: "Vero: Can AI Agents Build Formally Verified Software Repositories?"
+  date: "2026-08-01"
+  description: "Vero is, to our knowledge, the first benchmark for joint implementation and proof synthesis at the repository level."
+  category: "main"
+
 - link: /blog/auto-software-dev
   img: /blog/auto-software-dev/ten-predictions-poster.svg
   title: "When Coding Stops Being the Bottleneck"
