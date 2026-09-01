@@ -21,7 +21,7 @@ UC Berkeley; University of Chicago; California Institute of Technology; Stanford
 <br>
 <em>*Equal contribution</em>
 <br>
-August 2026  |  Approximately 10-minute read  |  <a href="https://arxiv.org/abs/2608.13522">Paper</a>  |  <a href="https://vero.verina.io/">Project website</a>  |  <a href="https://github.com/sunblaze-ucb/vero">GitHub</a>
+September 1, 2026  |  Approximately 10-minute read  |  <a href="https://arxiv.org/abs/2608.13522">Paper</a>  |  <a href="https://vero.verina.io/">Project website</a>  |  <a href="https://github.com/sunblaze-ucb/vero">GitHub</a>
 </div>
 
 

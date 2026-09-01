@@ -1,7 +1,7 @@
 - link: /blog/vero
   img: /blog/vero/figure1-workflow.png
   title: "Vero: Can AI Agents Build Formally Verified Software Repositories?"
-  date: "2026-08-01"
+  date: "2026-09-01"
   description: "Vero is, to our knowledge, the first benchmark for joint implementation and proof synthesis at the repository level."
   category: "main"
 
