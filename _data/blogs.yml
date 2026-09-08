@@ -1,3 +1,10 @@
+- link: /blog/cua-lite
+  img: /blog/cua-lite/assets/card.png
+  title: "CUA-Lite: An Open Platform for Computer-Use Agents"
+  date: "2026-09-07"
+  description: "Open-source environments, datasets and models for computer-use agents remain scattered. CUA-Lite is an open platform built around three standardized abstractions: one environment interface, under which 15+ benchmarks run across desktop, browser and mobile, plus optional VM-free desktop sandboxes holding 30k+ verifiable tasks for training; one supervised data format, into which 10+ public CUA datasets are converted; and one harness per model, shared across eval, SFT and RL, for 14 model families."
+  category: "main"
+
 - link: /blog/vero
   img: /blog/vero/figure1-workflow.png
   title: "Vero: Can AI Agents Build Formally Verified Software Repositories?"

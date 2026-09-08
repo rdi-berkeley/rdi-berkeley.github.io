@@ -1,0 +1,1291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CUA-Lite: An Open Platform for Computer-Use Agents</title>
+<meta name="description" content="Open-source environments, datasets and models for computer-use agents remain scattered. CUA-Lite is an open platform built around three standardized abstractions: one environment interface, under which 15+ benchmarks run across desktop, browser and mobile, plus optional VM-free desktop sandboxes holding 30k+ verifiable tasks for training; one supervised data format, into which 10+ public CUA datasets are converted; and one harness per model, shared across eval, SFT and RL, for 14 model families." />
+<link rel="preload" href="assets/fonts/Fraunces.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="assets/fonts/Fraunces-Italic.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="assets/fonts/Urbanist.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="assets/fonts/GeistMono.woff2" as="font" type="font/woff2" crossorigin />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="CUA-Lite: An Open Platform for Computer-Use Agents" />
+<meta name="twitter:description" content="Open-source environments, datasets and models for computer-use agents remain scattered. CUA-Lite is an open platform built around three standardized abstractions: one environment interface, under which 15+ benchmarks run across desktop, browser and mobile, plus optional VM-free desktop sandboxes holding 30k+ verifiable tasks for training; one supervised data format, into which 10+ public CUA datasets are converted; and one harness per model, shared across eval, SFT and RL, for 14 model families." />
+<meta name="twitter:image" content="https://rdi.berkeley.edu/blog/cua-lite/assets/card.png" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="CUA-Lite: An Open Platform for Computer-Use Agents" />
+<meta property="og:description" content="Open-source environments, datasets and models for computer-use agents remain scattered. CUA-Lite is an open platform built around three standardized abstractions: one environment interface, under which 15+ benchmarks run across desktop, browser and mobile, plus optional VM-free desktop sandboxes holding 30k+ verifiable tasks for training; one supervised data format, into which 10+ public CUA datasets are converted; and one harness per model, shared across eval, SFT and RL, for 14 model families." />
+<meta property="og:url" content="https://rdi.berkeley.edu/blog/cua-lite/" />
+<meta property="og:image" content="https://rdi.berkeley.edu/blog/cua-lite/assets/card.png" />
+<link rel="stylesheet" href="css/style.css" />
+<style>
+/* article layout — the quiet template: one narrow column, no animation */
+.post-wrap { max-width: 680px; margin: 0 auto; padding: 76px 28px 72px; }
+.post-wrap p.post-meta { font-family: var(--mono); font-size: var(--fs-xs); letter-spacing: 2.5px; text-transform: uppercase; color: var(--dim); margin: 0 0 18px; }
+.post-wrap ul.post-list { margin: 0 0 22px; padding-left: 22px; }
+.post-wrap ul.post-list li { margin: 0 0 9px; line-height: 1.62; }
+.post-wrap ul.post-list li::marker { color: var(--accent); }
+.post-wrap img.cover-image { display: block; width: 100%; height: auto; border-radius: 10px;
+  margin: 0 0 30px; }
+.post-wrap p.post-authors { font-size: var(--fs-md); line-height: 1.6; color: var(--dim); margin: 0 0 18px; }
+.post-wrap p.post-lede { line-height: 1.7; margin: 0 0 22px; }   /* body size, like the site's own posts: it was --fs-lg (15px) against a 16.5px body, which read as a caption */
+/* headings (h1 Title / h2 Section / h3 Subsection) come from the shared ladder in style.css */
+.post-wrap p { color: var(--muted); font-size: var(--fs-xl); line-height: 1.7; margin: 0 0 22px; }
+.post-wrap p b { color: var(--text); font-weight: 650; }
+.post-wrap p a { color: var(--accent); }   /* prose links only — component links style themselves */
+.post-wrap p a:hover { text-decoration: underline; }
+.post-wrap code { font-family: var(--mono); font-size: var(--fs-md); background: var(--panel-2); border: 1px solid var(--line); padding: 1px 6px; color: var(--text); }
+.post-wrap b.call { color: var(--accent); }   /* the two calls echo the title's accent "contributors." */
+.post-call { border-left: 3px solid var(--accent); background: rgba(189,90,56,.05);
+  padding: 14px 18px; border-radius: 0 10px 10px 0; margin: 0 0 22px; }   /* the featured-row treatment, inline */
+.post-wrap p.post-links { font-family: var(--mono); font-size: var(--fs-sm); margin: 0 0 22px; }
+.post-links a { color: var(--accent); white-space: nowrap; }   /* a link wraps as a unit, never mid-name */
+.post-close { border-top: 1px solid var(--line); margin-top: 40px; padding-top: 24px; }
+/* ---- animated flow figures: a pairing lights up and one wire plugs through the hub ---- */
+.flow-demo { margin: 6px 0 20px; background: radial-gradient(135% 105% at 50% -12%, #fffdf7, var(--panel-fill) 72%); border: 1px solid var(--panel-edge); border-radius: 14px; padding: 20px 20px 16px;
+  box-shadow: inset 0 1px 0 var(--panel-hi), 0 1px 2px rgba(40,30,15,.04), 0 16px 34px -24px rgba(40,30,15,.30); }   /* lift off the page like the homepage's panels — warm ink shadow, top inner highlight */
+.pair-board { display: grid; grid-template-columns: 1fr 150px 1fr; position: relative; }   /* both boards funnel through a unifying node */
+.pair-col { display: flex; flex-direction: column; gap: 7px; }
+.pair-k { font-family: var(--mono); font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--dim); margin-bottom: 3px; }
+.pair-right .pair-k { text-align: right; }   /* the right column mirrors the left */
+.pair-chip { font-family: var(--mono); font-size: 12px; color: var(--muted); background: var(--panel-2); border: 1px solid var(--line-2);
+  border-radius: 999px; padding: 6px 13px; white-space: nowrap; align-self: flex-start; box-shadow: inset 0 1px 0 rgba(255,255,255,.5), 0 1px 1.5px rgba(40,30,15,.045); transition: color .25s ease, border-color .25s ease, background .25s ease, box-shadow .25s ease; }
+.pair-chip:hover { text-decoration: none; color: var(--text); border-color: var(--accent-dim); }   /* every chip links out */
+.pair-chip:visited { color: var(--muted); }
+.pair-right .pair-chip { align-self: flex-end; }
+/* category glyphs — each kind of entity wears a silhouette so left/right and
+   data / env / model read without reading the label. Instances stay homogeneous
+   on purpose: the figure's whole point is that they're interchangeable once unified. */
+.pair-chip::before { content: ""; display: inline-block; width: 12px; height: 12px; margin-right: 7px;
+  vertical-align: -1.5px; background: currentColor; opacity: .8;
+  -webkit-mask: var(--ic) center/contain no-repeat; mask: var(--ic) center/contain no-repeat; }
+.pair-chip[data-cat="data"]  { --ic: url('assets/icons/rows.svg'); }
+.pair-chip[data-cat="env"]   { --ic: url('assets/icons/window.svg'); }
+.pair-chip[data-cat="model"] { --ic: url('assets/icons/chip.svg'); }
+/* agents wear their maker's mark (grey via currentColor, brightening on hover/active), echoing the
+   homepage's affiliation logos; MAI-UI has no brand mark so it keeps the generic chip glyph. */
+.pair-chip[data-logo]::before { width: 14px; height: 14px; vertical-align: -3.5px; opacity: .74; }   /* balanced below so dense marks don't read heavier than thin ones */
+.pair-chip[data-logo="qwen"]::before    { opacity: .6; }
+.pair-chip[data-logo="ui-tars"]::before { opacity: .5; }
+.pair-chip[data-logo="claude"]::before  { opacity: .66; }
+.pair-chip[data-logo].on::before        { opacity: 1; }   /* the active agent's mark goes full terracotta */
+.pair-chip[data-logo="openai"]  { --ic: url('assets/logos/openai.svg'); }
+.pair-chip[data-logo="claude"]  { --ic: url('assets/logos/claude.svg'); }
+.pair-chip[data-logo="qwen"]    { --ic: url('assets/logos/qwen.svg'); }
+.pair-chip[data-logo="gemini"]  { --ic: url('assets/logos/gemini.svg'); }
+.pair-chip[data-logo="ui-tars"] { --ic: url('assets/logos/ui-tars.png'); }
+.pair-chip[data-logo="kimi"]    { --ic: url('assets/logos/kimi.svg'); }
+.chip-tag { color: var(--dim); font-size: 10px; transition: color .25s ease; }   /* dim platform hint: desktop / browser / mobile */
+.pair-chip.ghost { background: transparent; color: var(--dim); }   /* the open slot — solid border like the rest, just no fill */
+.pair-chip.on { color: var(--accent); border-color: var(--accent); background: rgba(189,90,56,.10); box-shadow: inset 0 1px 0 rgba(255,255,255,.4), 0 3px 10px -4px rgba(189,90,56,.4); }   /* the in-play chip warms and lifts */
+.pair-chip.ghost.on { color: var(--accent); background: rgba(189,90,56,.06); }   /* the slot lights up, still dashed — yours to fill */
+.pair-chip.on .chip-tag { color: var(--accent-dim); }
+/* the target chip lights as the wire reaches it, not before */
+.pair-right .pair-chip.on { transition-delay: 1.2s; }   /* the target lights as the second wire segment lands (~1.4s) */
+.pair-right .pair-chip.on .chip-tag { transition-delay: 1.2s; }   /* the tag waits with its chip */
+.pair-mid { display: flex; align-items: center; justify-content: center; padding-top: 26px; }   /* the chip columns carry a label on top; match its offset so the hub lands on the 3rd (middle) capsule, not above it */
+[data-board="pair"] { grid-template-columns: 1.35fr 150px 1fr; }   /* env names are wide; nudge lite.gym right so its left/right margins balance (no adapter fills the right side here) */
+/* the hub reads as a hub: accent-edged card with pixel ports where the wires plug in */
+.pair-node { position: relative; z-index: 2; font-family: var(--mono); font-size: 12.5px; color: var(--text); text-align: center;
+  background: linear-gradient(180deg, #fff, #fffaf1); border: 1px solid var(--accent-dim); border-radius: 10px; padding: 9px 13px 8px;
+  box-shadow: 0 2px 5px -2px rgba(40,30,15,.12), 0 16px 30px -20px rgba(189,90,56,.32), inset 0 1px 0 #fff; }   /* the focal card lifts highest — a faint terracotta ground-shadow */
+.pair-node::before, .pair-node::after { content: ""; position: absolute; top: 50%; width: 7px; height: 7px; margin-top: -3.5px; background: var(--accent); }
+.pair-node::before { left: -4px; }
+.pair-node::after { right: -4px; }
+.pair-node code { background: none; border: 0; padding: 0; font-size: 12.5px; }
+/* the hub wears the CUA-Lite mark: everything converges into the paper plane = into CUA-Lite */
+.node-mark { display: block; width: 15px; height: 15px; margin: 0 auto 5px; background: url('assets/logo.svg') center/contain no-repeat; }
+/* under the shared plane, a small glyph tells the two hubs apart: {} = the schema · ↻ = the gym loop */
+.node-glyph { display: block; font-family: var(--mono); font-size: 14px; line-height: 1; color: var(--accent); margin-top: 6px; }
+.node-loop { width: 14px; height: 14px; margin: 6px auto 0; background: var(--accent);
+  -webkit-mask: url('assets/icons/loop.svg') center/contain no-repeat; mask: url('assets/icons/loop.svg') center/contain no-repeat; }
+.pair-node { box-sizing: border-box; }
+@media (min-width: 561px) { .pair-node { min-width: 128px; } }   /* both hubs share one width on desktop; mobile shrinks naturally so it never covers the chips */
+.pair-node:hover, .pair-node:focus-within { z-index: 30; }   /* the hover card must clear the sibling stage cards */
+.wire-stage:hover, .wire-stage:focus-within { z-index: 30; }
+.wire-stage:hover .ls-pop, .wire-stage:focus-within .ls-pop { opacity: 1; visibility: visible; transform: translateY(-50%); pointer-events: auto; }
+.node-sub { display: block; font-size: 8.5px; letter-spacing: 1.3px; text-transform: uppercase; color: var(--dim); margin-top: 4px; white-space: nowrap; }
+/* ---- column seeds: a column opens as a category emblem, then unfolds into its pills ----
+   datasets = three platform screenshot-trajectory stacks (recorded data); agents = a cursor (the actor).
+   this is what tells figure "datasets→agents" apart from figure "environments→agents" at a glance. */
+.pair-col { position: relative; }
+.col-seed { position: absolute; left: 0; top: 0; bottom: 0; display: none; flex-direction: column; gap: 10px; justify-content: center; padding-top: 26px; z-index: 4; pointer-events: none; }   /* centred + the hub's 26px offset so the seed sits exactly at the hub's midline */
+.pair-right .col-seed { left: auto; right: 0; align-items: flex-end; }
+.seed-fold .col-seed { display: flex; opacity: 1; transition: opacity .32s var(--ease), transform .32s var(--ease); }
+.seed-fold.unfolded .col-seed { opacity: 0; transform: scale(.9); }   /* seeds clear FIRST, then the pills arrive — never both mid-fade in the same spot */
+.seed-fold.unfolded .col-seed.to-gym { opacity: 0; transform: translate(155px, -40px) scale(.42); }   /* the platforms travel toward lite.gym and shrink into it — a hand-off into the gym, where the loop's screenshot device then appears */
+.seed-fold.unfolded:has(.col-seed.to-gym) .pair-node { animation: hubReceive .7s var(--ease) .34s; }   /* lite.gym gives a small pulse as the platforms land in it */
+@keyframes hubReceive { 40% { transform: scale(1.05); } }
+/* screenshot-trajectory frames — real device proportions like the homepage demos: desktop/browser landscape, mobile portrait */
+.traj { position: relative; }
+.traj.desktop, .traj.browser { width: 127px; height: 52px; }
+.traj.desktop .fr, .traj.browser .fr { width: 82px; height: 52px; border-radius: 6px; }
+.traj.mobile { width: 89px; height: 66px; }
+.traj.mobile .fr { width: 44px; height: 66px; border-radius: 10px; }
+.traj .fr { position: absolute; top: 0; overflow: hidden; background: #fff center / cover no-repeat; border: 1px solid rgba(40,30,15,.22); box-shadow: 2px 3px 6px -3px rgba(40,30,15,.30); }
+.traj.desktop .fr { background-image: url(assets/traj/desktop.png); }   /* real screenshots of the hero demos — a dataset is recorded screens */
+.traj.browser .fr { background-image: url(assets/traj/web.png); }
+.traj.mobile .fr { background-image: url(assets/traj/mobile.png); background-position: center top; }
+/* fig 4: environments open as the three GENERAL platforms — device forms (not a screenshot) */
+.plat .dev { display: block; position: relative; background: linear-gradient(180deg, #fff, #fdf7ec); border: 1.5px solid var(--accent-dim); box-shadow: 0 2px 5px -2px rgba(40,30,15,.13); }
+.plat.desktop .dev, .plat.browser .dev { width: 90px; height: 54px; border-radius: 6px; }
+.plat.mobile .dev { width: 44px; height: 70px; border-radius: 12px; }
+.plat.desktop::after { content: ""; display: block; width: 30px; height: 7px; margin: 0 auto; background: var(--accent-dim); opacity: .4; clip-path: polygon(28% 0, 72% 0, 100% 100%, 0 100%); }   /* monitor stand */
+.plat.browser .dev::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 13px; background: var(--panel-2); border-bottom: 1px solid var(--line-2); border-radius: 6px 6px 0 0; }   /* browser chrome */
+.plat.browser .dev::after { content: ""; position: absolute; top: 5px; left: 7px; width: 3.5px; height: 3.5px; border-radius: 50%; background: var(--accent-dim); box-shadow: 6px 0 var(--accent-dim), 12px 0 var(--accent-dim); }   /* traffic lights */
+.plat.mobile .dev::before { content: ""; position: absolute; top: 6px; left: 50%; transform: translateX(-50%); width: 14px; height: 3px; border-radius: 2px; background: var(--line-2); }   /* notch */
+.ag-seed { position: relative; display: inline-flex; align-items: center; background: var(--panel-2); border: 1px solid var(--line-2); border-radius: 999px; padding: 9px 20px; box-shadow: inset 0 1px 0 rgba(255,255,255,.5), 0 1px 1.5px rgba(40,30,15,.045); font-family: var(--mono); font-size: 13px; color: var(--muted); }
+.ag-seed::before, .ag-seed::after { content: ""; position: absolute; inset: 0; border-radius: 999px; background: var(--panel-2); border: 1px solid var(--line-2); z-index: -1; }
+.ag-seed::before { transform: translate(4px, 6px); opacity: .7; } .ag-seed::after { transform: translate(8px, 12px); opacity: .45; }   /* stacked = many agents, fanning into GPT/Claude/… */
+/* fold: pills wait, hidden, until the seed unfolds */
+.seed-fold .pair-chip { opacity: 0; transform: translateY(-8px); transition: opacity .28s var(--ease), transform .28s var(--ease); }
+.seed-fold.unfolded .pair-chip { opacity: 1; transform: none; transition-delay: .12s; }   /* wait for the seeds to clear */
+.seed-fold.unfolded .pair-col .pair-chip:nth-child(3) { transition-delay: .16s; }
+.seed-fold.unfolded .pair-col .pair-chip:nth-child(4) { transition-delay: .2s; }
+.seed-fold.unfolded .pair-col .pair-chip:nth-child(5) { transition-delay: .24s; }
+.seed-fold.unfolded .pair-col .pair-chip:nth-child(6) { transition-delay: .28s; }
+.seed-fold:not(.wired) .pair-wire { opacity: 0; }   /* the wire waits for the ladder to begin — not just the unfold — so it never links pills that are still fading in */
+.seed-fold:not(.wired) .pair-node::before, .seed-fold:not(.wired) .pair-node::after { opacity: 0; }   /* no ports until wired */
+.seed-fold:not(.wired) .flow-dot, .seed-fold:not(.wired) .land-ring, .seed-fold:not(.wired) .gym-shot,
+.seed-fold:not(.wired) .gym-cur, .seed-fold:not(.wired) .flow-lab { display: none; }   /* these run on their own timers — display:none beats the animation, so nothing flickers before the ladder */
+.seed-fold .pair-wire { transition: opacity .4s ease; }
+.pair-wire { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; overflow: visible; }
+.pair-wire .w1, .pair-wire .w2 { fill: none; stroke: var(--accent); stroke-width: 2; stroke-linecap: round; stroke-dasharray: 400; stroke-dashoffset: 400; opacity: 0; }
+.pair-wire .cw { fill: none; stroke: var(--accent); stroke-width: 2; stroke-linecap: round; }   /* fig-2 converge/fork wires — dasharray + offset set per-path in JS */
+.pair-wire path.draw { animation: wireDraw 1s var(--ease) forwards; }
+.pair-wire .w2.draw { animation-delay: .4s; }
+@keyframes wireDraw { 0% { stroke-dashoffset: 400; opacity: 1; } 100% { stroke-dashoffset: 0; opacity: 1; } }
+/* data packets: the site's pixel square traveling the wire (screenshot up, action down) */
+.flow-dot { position: absolute; width: 7px; height: 7px; background: var(--accent); opacity: 0; z-index: 1; pointer-events: none;
+  offset-rotate: 0deg; box-shadow: 0 0 0 2px var(--panel-fill); }   /* cream halo — reads against the same-color wire */
+.flow-dot.go { animation: dotGo 1.1s linear forwards; }
+.flow-dot.back { animation: dotBack 1.1s linear forwards; }
+@keyframes dotGo { 0% { offset-distance: 0%; opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { offset-distance: 100%; opacity: 0; } }
+@keyframes dotBack { 0% { offset-distance: 100%; opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { offset-distance: 0%; opacity: 0; } }
+.flow-lab { position: absolute; font-family: var(--mono); font-size: 11px; letter-spacing: .5px; color: var(--muted); opacity: 0;
+  transform: translate(-50%,-50%); white-space: nowrap; pointer-events: none; z-index: 3; transition: opacity .25s ease; }
+.flow-lab.show { opacity: .9; }
+/* the adapter stage sits on the wire — a mini sibling of the hub card, same material as the intro's adapter card */
+.wire-stage { position: absolute; transform: translate(-50%, -50%); z-index: 2; cursor: help;
+  font-family: var(--mono); font-size: 10px; letter-spacing: .5px; color: var(--muted); white-space: nowrap;
+  background: linear-gradient(180deg, #fff, #fffaf1); border: 1px solid var(--accent-dim); border-radius: 6px; padding: 3px 8px;
+  box-shadow: 0 1px 3px -1px rgba(40,30,15,.12), inset 0 1px 0 #fff; }
+/* the gym loop made tangible: a mini screen above the hub (the screenshot going up),
+   the hero demo's own cursor below it (the click coming down) */
+.gym-shot { position: absolute; transform: translate(-50%, -100%); z-index: 3; opacity: 0; transition: opacity .3s ease; pointer-events: none; }
+.gym-shot.show { opacity: 1; }
+.gym-shot .scr { display: none; }
+.gym-shot[data-plat="desktop"] .scr.desktop, .gym-shot[data-plat="browser"] .scr.browser, .gym-shot[data-plat="mobile"] .scr.mobile { display: block; }
+.scr.desktop { width: 58px; height: 40px; background: #3d5163; border: 2px solid #23272f; border-radius: 4px; position: relative; }
+.scr.desktop::after { content: ""; position: absolute; left: 8px; top: 7px; right: 8px; bottom: 9px; background: #f4f2ea; border: 1px solid #23272f; border-radius: 2px;
+  background-image: linear-gradient(#e7e2d2 0 6px, transparent 6px); }
+.scr.browser { width: 58px; height: 40px; background: #f4f2ea; border: 2px solid #23272f; border-radius: 4px; position: relative; }
+.scr.browser::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 9px; background: #e7e2d2; border-bottom: 1px solid #23272f; }
+.scr.browser::after { content: ""; position: absolute; left: 5px; top: 2.5px; width: 26px; height: 4px; background: #fff; border-radius: 2px; border: .5px solid #b7ae98; }
+.scr.mobile { width: 24px; height: 42px; background: #f4f2ea; border: 2px solid #23272f; border-radius: 6px; position: relative; }
+.scr.mobile::after { content: ""; position: absolute; left: 6px; bottom: 2px; right: 6px; height: 2px; border-radius: 2px; background: #23272f; }
+.gym-cur { position: absolute; width: 14px; height: 21px; background: url('assets/pixel/cursor.png') top left/contain no-repeat;
+  image-rendering: pixelated; filter: drop-shadow(0 1px 2px rgba(0,0,0,.35)); z-index: 3; opacity: 0; transition: opacity .3s ease; pointer-events: none; }
+.gym-cur.show { opacity: 1; }
+/* a phone is touch, not mouse (same rule as the hero demo): the tap is a finger ripple */
+.gym-cur.touch { background: none; filter: none; width: 18px; height: 18px; }
+.gym-cur.touch::after { content: ""; position: absolute; inset: 0; border-radius: 50%;
+  box-shadow: 0 0 0 2.5px rgba(63,158,87,.55); animation: tapRipple 1s var(--ease) infinite; }
+@keyframes tapRipple { 0% { transform: scale(.35); opacity: .9; } 100% { transform: scale(1.15); opacity: 0; } }
+/* the landing pulse — the hero demo's green ring, marking where the payload arrives */
+.land-ring { position: absolute; width: 22px; height: 22px; border-radius: 50%; box-shadow: 0 0 0 2px rgba(63,158,87,.7);
+  transform: translate(-50%,-50%) scale(.35); opacity: 0; pointer-events: none; z-index: 3; }
+.land-ring.hit { animation: landHit .6s var(--ease) forwards; }
+@keyframes landHit { 0% { opacity: .9; transform: translate(-50%,-50%) scale(.35); } 100% { opacity: 0; transform: translate(-50%,-50%) scale(1); } }
+/* ---- the packing figure: each step's prompt is a tape that contains the previous one;
+   responses are the accent bands (the loss), folds are the hatched left region ---- */
+.tape-board { display: flex; flex-direction: column; justify-content: center; min-height: 146px; }   /* fixed height: the packed rows re-center as the absorbed ones collapse, no page reflow */
+.tape-row { display: grid; grid-template-columns: 54px 1fr; align-items: center; gap: 10px; margin-bottom: 7px; max-height: 44px; overflow: hidden;
+  transition: opacity .5s ease, max-height .55s var(--ease), margin-bottom .55s var(--ease), transform .55s var(--ease); }
+.tape-row:last-child { margin-bottom: 0; }
+.tape-row.future { opacity: .18; }
+.tape-row.absorbed { opacity: 0; max-height: 0; margin-bottom: 0; transform: scaleY(.25); }   /* packed away — the two kept forwards slide together */
+.tape-lab { font-family: var(--mono); font-size: 9.5px; color: var(--dim); text-align: right; }
+.tape-wrap { display: grid; grid-template-columns: minmax(0, 1fr) 118px; align-items: center; gap: 8px; }
+.tape { display: flex; height: 20px; border: 1px solid var(--line-2); border-radius: 4px; overflow: hidden;
+  background: var(--panel-fill); flex: none; box-shadow: inset 0 1px 0 rgba(255,255,255,.6), inset 0 -1px 0 rgba(60,48,36,.05), 0 1px 1.5px rgba(40,30,15,.05); transition: border-color .4s ease, box-shadow .4s ease; }
+.tape-row.keep .tape { border-color: var(--accent); box-shadow: inset 0 1px 0 rgba(255,255,255,.5), 0 2px 10px -3px rgba(189,90,56,.38); }   /* a kept forward glows terracotta */
+.tp { height: 100%; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+.tp em { font-style: normal; font-family: var(--mono); font-size: 10px; letter-spacing: .3px; color: var(--muted); white-space: nowrap; }
+.tp.r em { color: #fdf6e9; }
+.tp.p { background: var(--panel-2); }
+.tp.d { background: var(--panel-2); border-left: 1px solid var(--panel-fill); }
+.tp.r { background: linear-gradient(180deg, rgba(200,101,64,.95), rgba(178,84,47,.82)); box-shadow: inset 0 1px 0 rgba(255,255,255,.18); }   /* response bands read as raised terracotta strips */
+.tp.f { background: repeating-linear-gradient(45deg, transparent 0 3px, var(--line-2) 3px 5px); }
+.tape-note { font-family: var(--mono); font-size: 9.5px; color: var(--accent); white-space: nowrap; opacity: 0; transition: opacity .4s ease; }
+/* fold moment: the hatched region grows in while the source screenshots (row above) gray out */
+.tape-row.born .tp.f { animation: foldIn .8s var(--ease) both; transform-origin: left; }
+@keyframes foldIn { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+.tape-row.born .tp.f em { animation: labelIn .3s ease .8s both; }   /* the label waits out the squish */
+@keyframes labelIn { from { opacity: 0; } to { opacity: 1; } }
+.tape-row.foldsrc .tp.p, .tape-row.foldsrc .tp.d { filter: grayscale(1); opacity: .55; transition: filter .5s ease, opacity .5s ease; }
+/* merge moment: one sweep = the forward pass; then every response band pulses = the loss hits */
+.tape-row.keep .tape { position: relative; }
+.tape-row.keep .tape::after { content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.45), transparent);
+  transform: translateX(-110%); animation: fwdSweep 1.1s ease .2s forwards; }
+@keyframes fwdSweep { to { transform: translateX(110%); } }
+.tape-row.keep .tp.r { animation: lossPulse .5s ease 1.4s 2; }
+@keyframes lossPulse { 50% { filter: brightness(1.35); transform: scaleY(1.2); } }
+.tape-row.keep .tape-note { opacity: 1; }
+.tape-legend { margin-top: 12px; font-family: var(--mono); font-size: 9.5px; color: var(--dim); display: flex; align-items: center; gap: 6px; }
+/* the figure opens as LiteSample → adapter → Qwen3.5, then the overlay zooms out while the tape zooms in */
+.flow-demo.pack { position: relative; overflow: hidden; }   /* clips the zoom-scaled intro so it never widens the page */
+.pack-intro { position: absolute; inset: 0; display: flex; align-items: center; justify-content: space-evenly; gap: 12px; flex-wrap: wrap;
+  background: radial-gradient(135% 105% at 50% -12%, #fffdf7, var(--panel-fill) 72%); border-radius: 14px; z-index: 5; opacity: 0; pointer-events: none;
+  transform-origin: 50% 50%; transition: opacity .45s var(--ease); font-family: var(--mono); }
+.pack.intro-on .pack-intro { opacity: 1; }
+/* exit: the whole intro stays OPAQUE and pushes into the adapter (centred) — LiteSample and Qwen scale off-frame, the adapter grows — then it dissolves only at the very end to reveal the tape already settled behind it. Opaque until the last moment, so the two layers never bleed through each other. */
+.pack.intro-out .pack-intro { animation: introZoomOut .82s var(--ease) forwards; transition: none; }
+@keyframes introZoomOut { 0% { opacity: 1; transform: scale(1); } 70% { opacity: 1; transform: scale(1.6); } 100% { opacity: 0; transform: scale(1.95); } }
+.pack .tape-board { transition: opacity .4s ease; }   /* fades in hidden behind the opaque intro, so it is fully in place before the dissolve */
+.pack.intro-on .tape-board { opacity: 0; }
+.pack .tape-legend { transition: opacity .5s ease; }
+.pack.intro-on .tape-legend { opacity: 0; }
+.pack-adapter { font-size: 11px; background: linear-gradient(180deg, #fff, #fffaf1); border: 1px solid var(--accent-dim); border-radius: 6px; padding: 4px 11px; color: var(--muted); box-shadow: 0 1px 3px -1px rgba(40,30,15,.12), inset 0 1px 0 #fff; }
+.pack-intro > span:not(.pi-dot) { position: relative; z-index: 1; }   /* components ride above the wire (the packet keeps its own absolute positioning) */
+.pack-intro-wire { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+.piw { fill: none; stroke: var(--accent); stroke-width: 2; stroke-linecap: round; stroke-dasharray: 400; stroke-dashoffset: 400; }   /* fixed dasharray, exactly like figures 2/4's wires */
+.pack.playing .piw { animation: piwDraw .24s var(--ease) forwards; }   /* same fixed dasharray, .24s so both segments finish by .34s, inside INTRO → the line-head extends at the SAME rate, not a per-segment speed */
+.pack.playing .piw:last-child { animation-delay: .1s; }   /* the adapter→Qwen segment follows the LiteSample→adapter one, same stagger as .w2 */
+.pack.intro-out .piw { stroke-dashoffset: 0 !important; }   /* stay drawn while the intro fades out */
+@keyframes piwDraw { to { stroke-dashoffset: 0; } }
+.pi-dot { position: absolute; top: var(--piy, 50%); left: var(--pix0, 0); width: 7px; height: 7px; margin: -3.5px 0 0 -3.5px; background: var(--accent); box-shadow: 0 0 0 2px var(--panel-fill); opacity: 0; z-index: 0; pointer-events: none; }   /* z-index 0: rides the wire but passes BEHIND the adapter/cards, so it goes THROUGH them, not over */
+.pack.playing .pi-dot { animation: piDot .34s linear .34s infinite; }   /* starts only after BOTH segments have drawn (.24s + .1s = .34s) and lands at .68s, inside INTRO */
+@keyframes piDot { 0% { left: var(--pix0); opacity: 0; } 8% { opacity: 1; } 90% { opacity: 1; } 100% { left: var(--pix1); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .pack.intro-on .pi-dot { animation: none; opacity: 0; }
+  .pack.intro-out .pack-intro { animation: none; opacity: 0; } .pack-intro, .pack .tape-board { transition: none; } }   /* no zoom-into-adapter motion */
+/* the intro reuses the real figure components (hub card + plane + {} , adapter card, agent chip) so it matches figure 2 */
+.pack-intro .pair-node::before, .pack-intro .pair-node::after { display: none; }   /* no wires in the intro → no ports */
+.pack-intro .pair-chip { align-self: center; }
+.tp-sw { width: 12px; height: 8px; border-radius: 2px; display: inline-block; }
+.tp-sw.p { background: var(--panel-2); border: 1px solid var(--line-2); }
+.tp-sw.r { background: linear-gradient(180deg, rgba(200,101,64,.95), rgba(178,84,47,.82)); margin-left: 10px; }
+.tp-sw.f { background: repeating-linear-gradient(45deg, transparent 0 3px, var(--line-2) 3px 5px); border: 1px solid var(--line-2); margin-left: 10px; }
+@media (max-width: 430px) {
+  .tape-row { grid-template-columns: 34px 1fr; gap: 6px; }
+  .tape-wrap { grid-template-columns: minmax(0, 1fr) 84px; gap: 5px; }
+  .tape-lab, .tape-note, .tape-legend { font-size: 10px; }   /* content text keeps the legibility floor */
+  .tape-note { white-space: normal; line-height: 1.25; }
+  .tape-legend { flex-wrap: wrap; row-gap: 3px; }
+  .tp em { display: none; }   /* inside labels need room; the legend still explains the colors */
+  .tape { height: 12px; }
+}
+/* ---- the before-board: same anatomy, but no hub and no color — attempts die mid-air ---- */
+.mess .pair-chip + .pair-k { margin-top: 12px; }   /* the left column stacks two groups */
+/* the before-board draws the full N×M tangle: every dataset/benchmark wired to every agent by
+   hand. Dashed + colourless = makeshift, never resolved — the hub boards below tidy the same wires. */
+.mess .mw { fill: none; stroke: #9c8b74; stroke-width: 1.6; stroke-linecap: round; stroke-dasharray: 6 6; opacity: .7; }
+.mess .mw-bundle { fill: none; stroke-linecap: round; }   /* one bundle per left node: draws accent, then settles into the grey tangle (states set inline) */
+/* both columns carry 4 real boxes + a "yours next" ghost, top-aligned, so rows line up */
+.pair-cmd { margin-top: 16px; padding-top: 13px; border-top: 1px solid var(--line); font-family: var(--mono); font-size: 12px; color: var(--muted); word-break: break-word; line-height: 1.6; }
+.pair-cmd .c-p { color: var(--dim); }
+.pair-cmd b { color: var(--accent); font-weight: 500; }
+.pair-cmd b, .pair-cmd .nb { white-space: nowrap; }  /* ids wrap as a unit, never mid-token */
+@media (prefers-reduced-motion: reduce) {
+  .pair-wire path.draw { animation: none; stroke-dashoffset: 0; opacity: 1; }
+  .tape-row.born .tp.f, .tape-row.born .tp.f em, .tape-row.keep .tape::after, .tape-row.keep .tp.r, .gym-cur.touch::after { animation: none; }
+  .pair-chip.on { transition-delay: 0s; }
+}
+@media (max-width: 560px) {
+  .pair-board { grid-template-columns: 1fr 104px 1fr; }
+  .pair-chip { font-size: 10.5px; padding: 5px 10px; }
+  .chip-tag { font-size: 9px; }
+  .wire-stage { display: none; }   /* the mid column is too tight for the stage labels */
+  .gym-shot, .gym-cur { display: none; }
+  .pair-node { padding: 7px 9px 6px; }
+  .pair-node, .pair-node code { font-size: 10.5px; }
+  .node-sub { font-size: 7.5px; letter-spacing: 1px; margin-top: 3px; }
+  .pair-chip::before { width: 11px; height: 11px; margin-right: 5px; }
+  .node-mark { width: 12px; height: 12px; margin-bottom: 3px; }
+}
+@media (max-width: 430px) {  /* keep the node clear of the chips on small phones */
+  .pair-board { grid-template-columns: minmax(0, 1fr) 84px minmax(0, 1fr); }   /* chips yield inward, never clip at the panel edge */
+  .pair-chip { font-size: 10px; padding: 4px 8px; }
+  .chip-tag { display: none; }   /* the hint yields before the id does */
+  .flow-lab, .gym-shot, .gym-cur { display: none; }
+  .pair-node { padding: 5px 8px; }
+  .pair-node, .pair-node code { font-size: 10px; }
+  .node-sub { display: none; }
+  .pair-chip::before { width: 9px; height: 9px; margin-right: 4px; }
+  .node-mark { width: 10px; height: 10px; margin-bottom: 2px; }
+  .flow-demo { padding: 14px 14px 12px; }
+}
+@media (max-width: 360px) {
+  .pair-board { grid-template-columns: minmax(0, 1fr) 74px minmax(0, 1fr); }
+  .pair-k { letter-spacing: 1px; }
+  .pair-chip { font-size: 9px; padding: 3px 6px; }
+  .pair-node { padding: 4px 7px; }
+  .pair-node, .pair-node code { font-size: 9.5px; }
+}
+@media (max-width: 340px) { .flow-demo { margin-left: -8px; margin-right: -8px; } }
+.blog-foot { max-width: 680px; margin: 0 auto; padding: 20px 28px 44px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-family: var(--mono); font-size: var(--fs-sm); color: var(--dim); }
+.blog-foot a { color: var(--dim); }
+.blog-foot a:hover { color: var(--text); }
+</style>
+<style>
+
+/* article layout — the quiet template, shared with /blog/why-cua-lite/ */
+.post-wrap { max-width: 680px; margin: 0 auto; padding: 76px 28px 72px; }
+.post-wrap p.post-meta { font-family: var(--mono); font-size: var(--fs-xs); letter-spacing: 2.5px; text-transform: uppercase; color: var(--dim); margin: 0 0 18px; }
+.post-wrap p { color: var(--muted); font-size: var(--fs-xl); line-height: 1.7; margin: 0 0 22px; }
+.post-wrap p b { color: var(--text); font-weight: 650; }
+.post-wrap p a { color: var(--accent); }
+.post-wrap p a:hover { text-decoration: underline; }
+.post-wrap code { font-family: var(--mono); font-size: var(--fs-md); background: var(--panel-2); border: 1px solid var(--line); padding: 1px 6px; color: var(--text); }
+.post-wrap b.call { color: var(--accent); }
+.post-call { border-left: 3px solid var(--accent); background: rgba(189,90,56,.05); padding: 14px 18px; border-radius: 0 10px 10px 0; margin: 0 0 22px; }
+.post-wrap p.post-links { font-family: var(--mono); font-size: var(--fs-sm); margin: 0 0 22px; }
+.post-links a { color: var(--accent); white-space: nowrap; }
+.post-close { border-top: 1px solid var(--line); margin-top: 40px; padding-top: 24px; }
+/* ---- figures share the flow-demo shell; real animated figures land after the narrative is signed off ---- */
+.flow-demo { margin: 6px 0 20px; background: radial-gradient(135% 105% at 50% -12%, #fffdf7, var(--panel-fill) 72%); border: 1px solid var(--panel-edge); border-radius: 14px; padding: 20px 20px 16px;
+  box-shadow: inset 0 1px 0 var(--panel-hi), 0 1px 2px rgba(40,30,15,.04), 0 16px 34px -24px rgba(40,30,15,.30); }
+.fig-todo { min-height: 150px; display: flex; align-items: center; justify-content: center; text-align: center;
+  font-family: var(--mono); font-size: var(--fs-sm); color: var(--dim); line-height: 1.7; letter-spacing: .3px;
+  border: 1px dashed var(--line-2); border-radius: 10px; padding: 24px; }
+.fig-todo b { color: var(--accent); font-weight: 600; }
+/* ---- the one figure · three beats: OSWorld (a desktop on a heavy VM stack) → shed the machine →
+   Lite.OSWorld (container, driven agent⇄desktop, same evaluator) → packs at scale ---- */
+.v2c-stage { position: relative; display: flex; align-items: center; justify-content: center; min-height: 312px; padding: 8px 0; transition: opacity .3s ease; }
+.v2c.notrans .v2c-lyr, .v2c.notrans .v2c-kvm, .v2c.notrans .v2c-ctr, .v2c.notrans .v2c-clones span, .v2c.notrans .v2c-clones span i b, .v2c.notrans .v2c-label, .v2c.notrans .v2c-cap, .v2c.notrans .v2c-unit { transition: none !important; }
+.v2c-unit { position: relative; display: flex; flex-direction: column; align-items: center; z-index: 2; transition: transform .55s var(--ease), opacity .42s ease .12s; }
+.v2c-label { font-family: var(--mono); font-size: 14px; letter-spacing: .5px; color: var(--muted); margin-bottom: 18px; transition: color .4s ease; }
+.v2c.s2 .v2c-label, .v2c.s3 .v2c-label { color: var(--accent); }
+/* the desktop — the constant through the first beats */
+.v2c-screen-wrap { position: relative; z-index: 3; }
+.v2c-screen { width: 188px; height: 118px; border-radius: 9px 9px 3px 3px; overflow: hidden; position: relative; display: flex; flex-direction: column;
+  background: linear-gradient(180deg, #fff, #fdf7ec); border: 2px solid var(--accent-dim); box-shadow: 0 3px 8px -2px rgba(40,30,15,.16); }
+.v2c-screen .scr-bar { height: 18px; background: var(--panel-2); border-bottom: 1px solid var(--line-2); display: flex; align-items: center; justify-content: space-between; padding: 0 9px; }
+.v2c-screen .scr-bar .scr-menu { width: 15px; height: 4px; border-radius: 2px; background: var(--accent-dim); opacity: .6; }   /* activities/menu, top-left of the panel */
+.v2c-screen .scr-bar .scr-clock { width: 22px; height: 8px; border-radius: 3px; background: var(--panel-fill); border: 1px solid var(--line-2); }   /* clock/indicators, top-right */
+.v2c-screen .scr-body { position: relative; flex: 1; background: linear-gradient(158deg, #efe1cd, #e6d5bd); }   /* the desktop wallpaper */
+.v2c-screen .scr-win { position: absolute; left: 22px; top: 20px; right: 30px; bottom: 22px; border-radius: 4px 4px 3px 3px; background: #fff; border: 1px solid var(--accent-dim); box-shadow: 0 4px 8px -3px rgba(40,30,15,.22); overflow: hidden; display: flex; flex-direction: column; gap: 8px; padding: 22px 13px 0; }   /* an app window open on the desktop */
+.v2c-screen .scr-win::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 13px; background: var(--panel-2); border-bottom: 1px solid var(--line-2); }   /* the window's own titlebar */
+.v2c-screen .scr-win b { height: 7px; border-radius: 2px; background: #e4dac6; }
+.v2c-screen .scr-win b.a { background: var(--accent); opacity: .85; width: 58%; }
+/* beat 1 · the heavy VM stack the desktop rides on */
+.v2c-stack { display: flex; flex-direction: column; align-items: center; }
+.v2c-lyr { display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-size: 13px; letter-spacing: .4px; transition: transform .55s var(--ease), opacity .45s ease; }
+.v2c-lyr.qcow { width: 208px; height: 30px; margin-top: -1px; background: var(--panel-2); border: 1px solid var(--line-2); color: var(--muted); }
+.v2c-lyr.vm { width: 222px; height: 38px; margin-top: -1px; border-radius: 0 0 10px 10px; color: #d9c9b3;
+  background: repeating-linear-gradient(135deg, #3b352c 0 6px, #322d25 6px 12px); box-shadow: 0 11px 22px -8px rgba(40,30,15,.5); }
+.v2c-kvm { margin-top: 13px; position: relative; font-family: var(--mono); font-size: 13px; color: var(--muted); background: var(--panel-2); border: 1px solid var(--line-2);
+  border-radius: 6px; padding: 5px 13px; transition: transform .55s var(--ease), opacity .45s ease; }
+.v2c-kvm::before { content: ""; position: absolute; left: 50%; top: -13px; width: 2px; height: 13px; background: var(--line-2); transform: translateX(-50%); }
+/* beat 2 · the light container frame that wraps the desktop after the shed */
+.v2c-ctr { position: absolute; inset: -13px; border: 2px dashed var(--accent-dim); border-radius: 15px; opacity: 0; transform: scale(.92);
+  transition: opacity .45s ease, transform .5s var(--ease); pointer-events: none; }
+.v2c-ctr::before { content: "container"; position: absolute; left: 12px; top: -9px; background: var(--panel-fill); padding: 0 6px;
+  font-family: var(--mono); font-size: 10px; letter-spacing: 1px; text-transform: uppercase; color: var(--accent); }
+/* beat 3 · replicate the container into an aligned grid of parallel rollouts */
+.v2c-cap { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) translateY(calc(-150px * var(--gk, 1))); font-family: var(--mono); font-size: 13px; letter-spacing: .4px; color: var(--accent); white-space: nowrap; opacity: 0; transition: opacity .4s ease; pointer-events: none; }
+.v2c.s3 .v2c-cap { opacity: 1; transition-delay: .42s; }   /* wait for the hero's own label to clear — no double title */
+.v2c-clones { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(var(--gk, 1)); display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }   /* --gk (set in JS) shrinks the whole grid to fit narrow figures */
+.v2c-clones span { position: relative; overflow: hidden; width: 120px; height: 76px; border-radius: 7px; background: linear-gradient(158deg, #fdf5ea, #f2e6d4); border: 2px solid var(--accent-dim); box-shadow: 0 3px 6px -2px rgba(40,30,15,.15);
+  opacity: 0; transform: scale(.5); transition: opacity .3s ease, transform .4s var(--ease); }
+.v2c-clones span::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 17px; background: var(--panel-2); border-bottom: 1px solid var(--line-2); }
+.v2c-clones span::after { content: ""; position: absolute; top: 31px; left: 15px; width: 58px; height: 4px; border-radius: 2px; background: var(--accent-dim); }   /* one window/content line — the desktop inside */
+.v2c-clones span i { position: absolute; left: 15px; right: 15px; bottom: 13px; height: 4px; border-radius: 2px; background: var(--line-2); overflow: hidden; }   /* rollout track */
+.v2c-clones span i b { position: absolute; left: 0; top: 0; bottom: 0; width: 0; border-radius: 2px; background: var(--accent); transition: width .6s var(--ease); }   /* rollout progress */
+.v2c-note { text-align: center; font-family: var(--mono); font-size: 12.5px; letter-spacing: .3px; color: var(--muted); margin: 4px auto 0; min-height: 18px; transition: opacity .25s ease; }
+/* states */
+.v2c.s1 .v2c-lyr.qcow { transform: translateY(40px); opacity: 0; }
+.v2c.s1 .v2c-lyr.vm { transform: translateY(54px) scale(.96); opacity: 0; }
+.v2c.s1 .v2c-kvm { transform: translateY(48px); opacity: 0; }
+.v2c.s2 .v2c-ctr, .v2c.s3 .v2c-ctr { opacity: 1; transform: scale(1); }
+.v2c.s3 .v2c-unit { opacity: 0; }   /* the container shrinks toward tile #1 (transform set in JS) and hands off */
+.v2c.s3 .v2c-clones span { opacity: 1; transform: scale(1); }   /* 1 → many · diagonal stamp, per-cell delay in JS */
+.v2c.s3 .v2c-clones span i b { width: var(--p, 60%); }          /* each rollout fills to its own level (parallel) */
+@media (prefers-reduced-motion: reduce) {
+  .v2c-lyr, .v2c-kvm, .v2c-ctr, .v2c-clones span, .v2c-clones span i b { transition: none; }
+}
+/* ---- OSWorld ↔ Lite.OSWorld head-to-head — the site's highlight idiom (accent wash + inset bar)
+   on the winning column ---- */
+.cmp { max-width: 624px; margin: 26px auto 30px; border: 1px solid var(--panel-edge); border-radius: 14px; background: var(--panel-fill); overflow: hidden; }
+.cmp-tbl { width: 100%; border-collapse: collapse; }
+.cmp-tbl th, .cmp-tbl td { padding: 12px 18px; text-align: left; vertical-align: middle; }
+.cmp-tbl thead th { font-family: var(--mono); font-size: 13px; letter-spacing: .3px; font-weight: 700; color: var(--text); }
+.cmp-tbl thead th.cmp-hi { color: var(--accent); box-shadow: inset 0 2.5px 0 var(--accent); }   /* accent cap on the winning column */
+.cmp-tbl tbody th[scope="row"] { font-family: var(--mono); font-size: 11px; letter-spacing: .6px; text-transform: uppercase; color: var(--muted); font-weight: 500; white-space: nowrap; }
+.cmp-tbl tbody td { font-family: var(--mono); font-size: 13px; color: var(--muted); }
+.cmp-tbl tbody td.cmp-hi { color: var(--text); font-weight: 600; }
+.cmp-tbl tbody tr + tr th, .cmp-tbl tbody tr + tr td { border-top: 1px solid var(--line); }
+.cmp-hi { background: rgba(189,90,56,.06); }   /* soft accent wash — same idiom as the leaderboard leader */
+.cmp-skel { display: inline-block; width: 54px; height: 9px; border-radius: 5px; background: linear-gradient(90deg, var(--line-2), rgba(60,48,36,.09)); }
+.cmp-cap { padding: 12px 18px 14px; font-family: var(--mono); font-size: 11.5px; line-height: 1.5; color: var(--muted); border-top: 1px solid var(--line); background: rgba(60,48,36,.015); }
+.cmp-pending { color: var(--dim); }
+@media (max-width: 480px) {
+  .cmp-tbl th, .cmp-tbl td { padding: 10px 12px; }
+  .cmp-tbl thead th, .cmp-tbl tbody td { font-size: 12px; }
+  .cmp-tbl tbody th[scope="row"] { white-space: normal; }
+}
+/* ---- Still OSWorld? · the same rollout, two environments, side by side ---- */
+.hh { margin: 24px 0 30px; }
+.hh-tabs { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin-bottom: 14px; }
+.hh-tab { font-family: var(--mono); font-size: 12px; letter-spacing: .2px; padding: 6px 15px; border-radius: 999px; border: 1px solid var(--line-2); background: transparent; color: var(--muted); cursor: pointer; transition: border-color .15s ease, color .15s ease, background .15s ease; }
+.hh-tab:hover { border-color: var(--accent-dim); color: var(--text); }
+.hh-tab.is-on { background: var(--accent); border-color: var(--accent); color: #fff; }
+.hh-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.hh-panel { position: relative; aspect-ratio: 16 / 10; border-radius: 12px; overflow: hidden; border: 1.5px solid var(--panel-edge); background: linear-gradient(158deg, #efe1cd, #e6d5bd); display: flex; align-items: center; justify-content: center; cursor: pointer; }
+.hh-panel::before { content: ""; position: absolute; inset: 26px 30px 24px; border: 1.5px solid rgba(255,255,255,.55); border-radius: 5px; z-index: 1; pointer-events: none; }   /* a faint app window on the desktop */
+.hh-panel.hh-lite { border-color: var(--accent-dim); box-shadow: inset 0 0 0 1px rgba(189,90,56,.14); }
+.hh-vid { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; background: #000; }
+.hh-tag { position: absolute; top: 10px; left: 10px; z-index: 2; font-family: var(--mono); font-size: 11px; letter-spacing: .2px; padding: 3px 10px; border-radius: 999px; background: rgba(255,252,246,.82); color: var(--muted); }
+.hh-panel.hh-lite .hh-tag { color: var(--accent); }
+/* clicking a task tab swaps both panels' clips in lockstep; a live indicator + a scrubber track real playback */
+.hh-live { position: absolute; top: 12px; right: 12px; z-index: 2; display: flex; align-items: flex-end; gap: 2.5px; height: 13px; }
+.hh-live i { width: 3px; height: 4px; border-radius: 1px; background: var(--accent); animation: belteq .9s ease-in-out infinite; }
+.hh-live i:nth-child(2) { animation-delay: .18s; }
+.hh-live i:nth-child(3) { animation-delay: .36s; }
+.hh-scrub { position: absolute; left: 14px; right: 14px; bottom: 12px; height: 4px; border-radius: 2px; background: rgba(255,255,255,.5); overflow: hidden; z-index: 2; }
+.hh-scrub-fill { display: block; height: 100%; width: 0; background: var(--accent); border-radius: 2px; }
+@media (prefers-reduced-motion: reduce) { .hh-live i { animation: none; height: 8px; } }
+.hh-cap { text-align: center; font-family: var(--mono); font-size: 12px; letter-spacing: .2px; color: var(--muted); margin-top: 13px; }
+@media (max-width: 560px) { .hh-pair { grid-template-columns: 1fr; gap: 12px; } }
+/* ---- parity plot · OSWorld vs Lite.OSWorld scores, one dot per model on a y=x diagonal ---- */
+.par { margin: 4px auto 6px; max-width: 430px; transform: translateX(-18px); }   /* the nudge centres the plot frame against its y-axis label */
+@media (max-width: 560px) { .par { transform: none; } }   /* below that the column is narrower than the figure, so the nudge pushes it out of the column */   /* nudge left so the plot grid reads centered (the y-axis label eats the left margin) */
+.par-plot { position: relative; }
+.par-svg { width: 100%; height: auto; display: block; font-family: var(--mono); overflow: visible; }
+.par-svg .ax { stroke: var(--line-2); stroke-width: 1; }
+.par-svg .grid { stroke: var(--line-2); stroke-width: 1; }
+.par-svg .diag { stroke: var(--accent-dim); stroke-width: 1.5; stroke-dasharray: 4 4; fill: none; }
+.par-svg .diag-lbl { fill: var(--accent); font-size: 8.5px; letter-spacing: .3px; }
+.par-svg .tick { fill: var(--muted); font-size: 8.5px; }
+.par-svg .axname { fill: var(--muted); font-size: 10px; letter-spacing: .4px; }
+.par-svg .dot { fill: var(--accent); fill-opacity: .82; stroke: var(--panel-fill); stroke-width: 1.5; cursor: pointer; transition: fill-opacity .12s ease; }
+.par-svg .dot:hover { fill-opacity: 1; }
+.par-tip { position: absolute; z-index: 5; transform: translate(-50%, -100%); background: #fffdf8; color: var(--muted); border: 1px solid var(--panel-edge); font-family: var(--mono); font-size: 11px; line-height: 1.45; padding: 6px 10px; border-radius: 7px; white-space: nowrap; pointer-events: none; box-shadow: 0 5px 16px -5px rgba(40,30,15,.3); }
+.par-tip b { color: var(--text); font-weight: 600; }
+.par-tip i { color: var(--accent); font-weight: 600; font-style: normal; }
+.par-cap { text-align: center; font-family: var(--mono); font-size: 11.5px; letter-spacing: .2px; color: var(--muted); margin-top: 12px; }
+/* ---- table of contents — the blog index's postlist idiom, numbered (the sections are a sequence) ---- */
+.toc { background: var(--panel-fill); border: 1px solid var(--panel-edge); border-radius: 12px; padding: 6px; margin: 2px 0 34px; }
+.toc a { display: flex; align-items: baseline; gap: 14px; padding: 10px 15px; border-radius: 8px; font-family: var(--mono); font-size: 13.5px; color: var(--text); transition: background .14s ease, color .14s ease; }
+.toc a:hover { background: var(--panel-2); color: var(--accent); }
+.toc a + a { border-top: 1px solid var(--line); border-top-left-radius: 0; border-top-right-radius: 0; }
+.toc-n { flex: 0 0 auto; min-width: 18px; color: var(--accent-dim); font-size: 11px; letter-spacing: 1px; }
+.toc a:hover .toc-n { color: var(--accent); }
+.toc a.toc-hl { color: var(--accent); font-weight: 600; background: rgba(189,90,56,.07); box-shadow: inset 2.5px 0 0 var(--accent); }   /* the payoff entry — matches its highlighted section */
+.toc a.toc-hl:hover { background: rgba(189,90,56,.11); }
+.toc a.toc-hl .toc-n { color: var(--accent); }
+.toc-badge { margin-left: auto; align-self: center; font-family: var(--mono); font-size: 9.5px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent); border: 1px solid var(--accent-dim); border-radius: 999px; padding: 3px 9px; white-space: nowrap; }
+/* ---- the payoff section wears the blog index's "featured" highlight: accent wash + inset bar ---- */
+/* the payoff section — set apart by a full-width rule + eyebrow, aligned to the body margin (a section, not a callout box) */
+.hl-sec { margin: 56px 0 0; padding-top: 40px; border-top: 1px solid var(--line-2); }
+.hl-sec > h2 { margin-top: 8px; }
+.sec-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); }
+.blog-foot { max-width: 680px; margin: 0 auto; padding: 20px 28px 44px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-family: var(--mono); font-size: var(--fs-sm); color: var(--dim); }
+.blog-foot a { color: var(--dim); }
+.blog-foot a:hover { color: var(--text); }
+
+</style>
+<style>/* main.js sets `js-reveal` on <html> from inside its components IIFE, so it IS set here — and style.css then hides every .reveal and every .lb-row until an IntersectionObserver marks it. That entrance is the homepage's flourish; on someone else's site it is a whole class of blank-figure failure, and the one figure it would take down is the leaderboard — this post's headline evidence. So: off, all of it */
+.js-reveal .reveal { opacity: 1; transform: none; transition: none; }
+.js-reveal .lb .lb-row { opacity: 1; animation: none; }
+.js-reveal .lb .lb-fill { transform: none; animation: none; }
+</style>
+<style>/* if the cross-origin clips cannot load, show the reason, not an empty box */
+.belt-offline .belt-tabs, .belt-offline .belt { display: none; }
+.belt-offline .belt-cap { padding-top: 0; }
+.hh-offline .hh-tabs, .hh-offline .hh-board { display: none; }
+.hh-offline .hh-cap { padding-top: 0; }
+</style>
+<style>/* port-only layout corrections; see make_post.py for why each exists */
+.post-wrap figure.hf-embed { margin-bottom: 22px; }
+#benchmarks .cov { text-align: center; }
+#benchmarks .cov-body, #benchmarks .cov-panel { text-align: left; }
+@media (max-width: 1279px) { #lb-info { display: none; } }
+.post-wrap h2 { margin-top: 64px; }
+.post-wrap h3 { margin: 44px 0 14px; font-weight: 370;
+  font-variation-settings: 'opsz' 144, 'wght' 370, 'SOFT' 0, 'WONK' 0; }
+#benchmarks .lb { margin-top: 22px; }
+@media (max-width: 560px) {
+  .post-wrap .cb-body { white-space: pre; word-break: normal; }
+  .post-wrap .cmdbuild .term { overflow-x: auto; }
+}
+.post-wrap [data-train-panel] .panel-note, .post-wrap [data-cmd="rl"] .panel-note { text-align: left; }
+</style>
+</head>
+<body>
+
+<main class="post-wrap">
+    <img class="cover-image" src="assets/cover.png" alt="CUA-Lite — an open platform for computer-use agents. Three mock screens show the same agent at work: a spreadsheet of benchmark scores on a Linux desktop, a search results page in a browser, and a chat thread on a phone. Alongside them: efficient sandboxes with 30k+ verifiable tasks, 10+ SFT datasets plus frontier-CUA rollouts, and one framework for eval, SFT and RL across desktop, browser and mobile." />
+  <p class="post-meta">September 2026</p>
+  <h1><span class="nb">CUA-Lite</span>: An Open Platform for <span class="nb">Computer-Use</span> Agents</h1>
+  <p class="post-authors">CUA-Lite Contributors</p>
+  <p class="post-lede"><b>Introducing CUA-Lite, an open platform for developing <span class="nb">computer-use</span> agents.</b> It is built around three standardized abstractions — <b>Lite.Gym</b> for environments, <b>Lite.Sample</b> for supervised data, and one harness per model across eval, SFT and RL. <b>15+ benchmarks, 10+ datasets and 30k+ verifiable tasks</b> are already plugged in.</p>
+  <p class="post-links"><a href="https://github.com/cua-lite/cua-lite" target="_blank" rel="noopener">Code ↗</a> &nbsp;·&nbsp; <a href="https://cua-lite.github.io" target="_blank" rel="noopener">Project site ↗</a></p>
+
+  <nav class="toc" aria-label="Contents">
+    <a href="#why"><span class="toc-n">01</span>Why CUA-Lite</a>
+    <a href="#sandboxes"><span class="toc-n">02</span>Lite.Gym: Unified environment interface</a>
+    <a href="#datasets"><span class="toc-n">03</span>Lite.Sample: Unified supervised data format</a>
+    <a href="#framework"><span class="toc-n">04</span>Model harnesses: shared across eval, SFT &amp; RL</a>
+  </nav>
+
+  <h2 id="why">Why CUA-Lite</h2>
+  <p><span class="nb">Computer-use</span> agents operate desktop, browser and mobile applications, and developing one takes environments with verifiable tasks, supervised data, and models, plus the harness that runs a model in an environment. <b>Open-source efforts already exist for all three, but they remain scattered:</b> each environment has its own interface and runtime; each supervised dataset its own format; each model its own action space, prompt format and rollout code.</p>
+  <p>Without a shared standard, connecting models to environments means rewriting the same code: an action mapping, a context window, and a rollout loop — so resources cannot be pooled and scaled, nor can evaluation, SFT and RL share one infrastructure.</p>
+
+  <figure class="flow-demo mess" aria-label="Without a shared interface, pairings fail: different schemas, action spaces, harnesses">
+    <div class="pair-board" data-board="mess">
+      <div class="pair-col">
+        <span class="pair-k">Datasets</span>
+        <a data-cat="data" class="pair-chip" href="https://huggingface.co/datasets/cua-lite/Multimodal-Mind2Web" target="_blank" rel="noopener">Mind2Web</a>
+        <a data-cat="data" class="pair-chip" href="https://huggingface.co/datasets/cua-lite/GUIOdyssey" target="_blank" rel="noopener">GUIOdyssey</a>
+        <span class="pair-k">Benchmarks</span>
+        <a data-cat="env" class="pair-chip" href="https://github.com/xlang-ai/OSWorld" target="_blank" rel="noopener">OSWorld</a>
+        <a data-cat="env" class="pair-chip" href="https://github.com/web-arena-x/webarena" target="_blank" rel="noopener">WebArena</a>
+      </div>
+      <div></div>
+      <div class="pair-col pair-right">
+        <span class="pair-k">Agents</span>
+        <a data-logo="openai" data-cat="model" class="pair-chip" href="https://platform.openai.com/docs/guides/tools-computer-use" target="_blank" rel="noopener">GPT</a>
+        <a data-logo="claude" data-cat="model" class="pair-chip" href="https://docs.anthropic.com/en/docs/agents-and-tools/computer-use" target="_blank" rel="noopener">Claude</a>
+        <a data-logo="qwen" data-cat="model" class="pair-chip" href="https://huggingface.co/Qwen/Qwen3-VL-8B-Instruct" target="_blank" rel="noopener">Qwen</a>
+        <a data-logo="gemini" data-cat="model" class="pair-chip" href="https://deepmind.google/technologies/gemini/" target="_blank" rel="noopener">Gemini</a>
+      </div>
+      <svg class="pair-wire" aria-hidden="true"><path class="mw"/></svg>
+    </div>
+  </figure>
+
+  <p><b>CUA-Lite closes all three</b>, in one place:</p>
+  <ul class="post-list">
+    <li><b>Lite.Gym</b>, the unified environment interface — 15+ benchmarks, plus optional VM-free desktop sandboxes holding 30k+ verifiable training tasks.</li>
+    <li><b>Lite.Sample</b>, the unified supervised data format — 10+ datasets and fresh rollouts, free on <a href="https://huggingface.co/cua-lite" target="_blank" rel="noopener">Hugging&nbsp;Face</a>.</li>
+    <li><b>Model harnesses</b> shared across eval, SFT and RL — one per model, implemented for 14 model families.</li>
+  </ul>
+
+  <h2 id="sandboxes">Lite.Gym: Unified environment interface</h2>
+  <p><b>Any agent plugs into any environment through one interface.</b>
+  <code class="lg" tabindex="0">lite.gym</code> exposes an environment as a
+  Gym-style <code>reset</code> / <code>step</code> / <code>close</code> loop. The
+  loop standardizes one observation format across environments — a screenshot,
+  text, or both per tool call — and one GUI action space per platform, issued as
+  tool calls: <code>click</code> and <code>type</code> on desktop and browser,
+  <code>tap</code> and <code>swipe</code> on mobile, plus extra tools per
+  environment such as <code>bash</code> in our desktop sandboxes. It wraps the
+  environment's own runtime: a VM, a browser, or a mobile emulator.</p>
+  <figure class="flow-demo" aria-label="Any environment paired with any agent through lite.gym: screenshots up, actions down">
+    <div class="pair-board" data-board="pair">
+      <div class="pair-col">
+        <span class="pair-k">Environments</span>
+        <a data-cat="env" class="pair-chip" data-id="osworld" href="https://github.com/xlang-ai/OSWorld" target="_blank" rel="noopener">OSWorld<span class="chip-tag"> · desktop</span></a>
+        <a data-cat="env" class="pair-chip" data-id="browsergym.webarena" href="https://github.com/web-arena-x/webarena" target="_blank" rel="noopener">WebArena<span class="chip-tag"> · browser</span></a>
+        <a data-cat="env" class="pair-chip" data-id="androidworld" href="https://github.com/google-research/android_world" target="_blank" rel="noopener">AndroidWorld<span class="chip-tag"> · mobile</span></a>
+        <a data-cat="env" class="pair-chip" data-id="webgym" href="https://github.com/microsoft/webgym" target="_blank" rel="noopener">WebGym<span class="chip-tag"> · browser</span></a>
+        <a data-cat="env" class="pair-chip ghost" data-id="your-env" href="https://github.com/cua-lite/cua-lite/blob/main/docs/envs.md" target="_blank" rel="noopener">yours next</a>
+      </div>
+      <div class="pair-mid"><span class="pair-node"><span class="node-mark" aria-hidden="true"></span><code class="lg" tabindex="0">lite.gym</code><span class="node-glyph node-loop" aria-hidden="true"></span></span></div>
+      <div class="pair-col pair-right">
+        <span class="pair-k">Agents</span>
+        <a data-logo="openai" data-cat="model" class="pair-chip" data-id="gpt-5.5" href="https://platform.openai.com/docs/guides/tools-computer-use" target="_blank" rel="noopener">GPT</a>
+        <a data-logo="claude" data-cat="model" class="pair-chip" data-id="claude-opus-4-7" href="https://docs.anthropic.com/en/docs/agents-and-tools/computer-use" target="_blank" rel="noopener">Claude</a>
+        <a data-logo="qwen" data-cat="model" class="pair-chip" data-id="Qwen/Qwen3-VL-8B-Instruct" href="https://huggingface.co/Qwen/Qwen3-VL-8B-Instruct" target="_blank" rel="noopener">Qwen</a>
+        <a data-logo="gemini" data-cat="model" class="pair-chip" data-id="gemini-3.6-flash" href="https://deepmind.google/technologies/gemini/" target="_blank" rel="noopener">Gemini</a>
+        <a data-cat="model" class="pair-chip ghost" href="https://github.com/cua-lite/cua-lite/tree/main/lite/agents" target="_blank" rel="noopener">yours next</a>
+      </div>
+      <svg class="pair-wire" aria-hidden="true"><path class="w1"/><path class="w2"/></svg>
+    </div>
+    <div class="pair-cmd" data-cmd-line></div>
+  </figure>
+  <p><b>CUA-Lite also provides optional, lightweight <span class="nb">VM-free</span> desktop sandboxes of its own:</b> Docker containers that replicate OSWorld's desktop at much lower cost and hold 30k+ verifiable tasks for training. They need no <code>/dev/kvm</code>, the hardware virtualization VM-based benchmarks require, so they run on any host with Docker — and Lite.OSWorld (ours) runs OSWorld's own tasks and evaluators, unchanged.</p>
+  <figure class="flow-demo v2c" aria-label="OSWorld's KVM virtual machine sheds its heavy VM and /dev/kvm dependency to become the Lite.OSWorld container, which then packs into many">
+    <div class="v2c-stage">
+      <div class="v2c-unit">
+        <span class="v2c-label">OSWorld</span>
+        <div class="v2c-screen-wrap">
+          <div class="v2c-screen"><span class="scr-bar"><i class="scr-menu"></i><i class="scr-clock"></i></span><span class="scr-body"><span class="scr-win"><b></b><b class="a"></b></span></span></div>
+          <span class="v2c-ctr" aria-hidden="true"></span>
+        </div>
+        <div class="v2c-stack">
+          <div class="v2c-lyr qcow">Ubuntu.qcow2</div>
+          <div class="v2c-lyr vm">QEMU · KVM</div>
+        </div>
+        <div class="v2c-kvm">/dev/kvm</div>
+      </div>
+      <div class="v2c-clones" aria-hidden="true"></div>
+      <span class="v2c-cap" aria-hidden="true">Lite.OSWorld · parallel rollouts</span>
+    </div>
+    <figcaption class="v2c-note">A desktop sealed in a VM — every task boots QEMU/KVM.</figcaption>
+  </figure>
+
+
+<h3>Beyond OSWorld: scalable training sandboxes</h3>
+  <p><b>The <span class="nb">VM-free</span> container isn't just for OSWorld — it's the foundation for CUA-Lite's family of sandboxes.</b> The same base already runs browser and desktop tasks, and real science desktops: GMAT flying spacecraft, PyMOL turning proteins.</p>
+
+  <figure class="belt-fig" aria-label="Looping rollout trajectories across CUA-Lite training environments">
+    <div class="belt-tabs" role="tablist">
+      <button class="belt-tab is-on" type="button" role="tab" aria-selected="true">Lite.OSWorld</button>
+      <button class="belt-tab" type="button" role="tab" aria-selected="false">Lite.ScaleCUA</button>
+      <button class="belt-tab" type="button" role="tab" aria-selected="false">Lite.CUAGym</button>
+      <button class="belt-tab" type="button" role="tab" aria-selected="false">Lite.CUAWorld</button>
+    </div>
+    <div class="belt"><div class="belt-track" aria-hidden="true"></div></div>
+    <figcaption class="belt-cap">Looping rollout trajectories — click a tile for the full rollout.</figcaption>
+  </figure>
+  <p class="post-call"><b class="call">Call for sandbox contributors.</b> A sandbox only
+  matters while people run it. Add yours to CUA-Lite, and every agent trains and benchmarks on it —
+  now and later. One integration, and the whole field builds on it.</p>
+
+  <p class="post-links"><a href="https://github.com/cua-lite/cua-lite/tree/main/lite/gym/envs/lite" target="_blank" rel="noopener">Lite.* environments ↗</a> &nbsp;·&nbsp; <a href="https://github.com/cua-lite/cua-lite/blob/main/docs/envs.md" target="_blank" rel="noopener">Env guide ↗</a> &nbsp;·&nbsp; <a href="#lb">Leaderboard ↓</a></p>
+
+  <h2 id="datasets">Lite.Sample: Unified supervised data format</h2>
+  <p><b>Convert a dataset once, and every agent can train on it.</b>
+  <code class="ls" tabindex="0">LiteSample</code> is the one schema, shared
+  across every env, agent, and task type, free on Hugging&nbsp;Face.</p>
+  <p>One shape for all of it, whatever it came from: messages whose tool calls are the interface's actions and whose tool results are its observations — from a GUI grounding label to a full rollout.</p>
+  <figure class="flow-demo" aria-label="Any dataset, converted once, trains any agent">
+    <div class="pair-board" data-board="data">
+      <div class="pair-col">
+        <span class="pair-k">Datasets</span>
+        <a data-cat="data" class="pair-chip" data-id="Multimodal-Mind2Web" href="https://huggingface.co/datasets/cua-lite/Multimodal-Mind2Web" target="_blank" rel="noopener">Mind2Web<span class="chip-tag"> · browser</span></a>
+        <a data-cat="data" class="pair-chip" data-id="GUIOdyssey" href="https://huggingface.co/datasets/cua-lite/GUIOdyssey" target="_blank" rel="noopener">GUIOdyssey<span class="chip-tag"> · mobile</span></a>
+        <a data-cat="data" class="pair-chip" data-id="ScaleCUA" href="https://huggingface.co/datasets/cua-lite/ScaleCUA" target="_blank" rel="noopener">ScaleCUA<span class="chip-tag"> · all</span></a>
+        <a data-cat="data" class="pair-chip" data-id="OpenCUA" href="https://huggingface.co/datasets/cua-lite/OpenCUA" target="_blank" rel="noopener">OpenCUA<span class="chip-tag"> · desktop</span></a>
+        <a data-cat="data" class="pair-chip ghost" data-id="YourDataset" href="https://github.com/cua-lite/cua-lite/blob/main/lite/data/preproc/AGENTS.md" target="_blank" rel="noopener">yours</a>
+      </div>
+      <div class="pair-mid"><span class="pair-node"><span class="node-mark" aria-hidden="true"></span><code class="ls" tabindex="0">LiteSample</code><span class="node-glyph">{ }</span></span></div>
+      <div class="pair-col pair-right">
+        <span class="pair-k">Agents</span>
+        <a data-logo="qwen" data-cat="model" class="pair-chip" data-id="Qwen/Qwen3-VL-8B-Instruct" href="https://huggingface.co/Qwen/Qwen3-VL-8B-Instruct" target="_blank" rel="noopener">Qwen</a>
+        <a data-logo="ui-tars" data-cat="model" class="pair-chip" data-id="ByteDance-Seed/UI-TARS-1.5-7B" href="https://huggingface.co/ByteDance-Seed/UI-TARS-1.5-7B" target="_blank" rel="noopener">UI-TARS</a>
+        <a data-cat="model" class="pair-chip" data-id="Tongyi-MAI/MAI-UI-8B" href="https://huggingface.co/Tongyi-MAI/MAI-UI-8B" target="_blank" rel="noopener">MAI-UI</a>
+        <a data-logo="microsoft" data-cat="model" class="pair-chip" data-id="microsoft/Fara-7B" href="https://huggingface.co/microsoft/Fara-7B" target="_blank" rel="noopener">Fara</a>
+        <a data-cat="model" class="pair-chip ghost" href="https://github.com/cua-lite/cua-lite/tree/main/lite/agents" target="_blank" rel="noopener">yours</a>
+      </div>
+      <svg class="pair-wire" aria-hidden="true"><path class="w1"/><path class="w2"/></svg>
+    </div>
+    <div class="pair-cmd" data-cmd-line></div>
+  </figure>
+  <p><b>CUA-Lite ships an <code class="ad" tabindex="0">adapter</code> per model,
+  packing a unified <code class="ls" tabindex="0">LiteSample</code> into the exact
+  training format each one needs.</b> The figure above shows one, with the building
+  blocks to add your own.</p>
+
+
+
+  <p><b>10+ datasets are already on Hugging Face</b>: existing CUA corpora — grounding · understanding · use — preprocessed into Lite.Sample, plus fresh rollouts from frontier CUAs. Browse the <a href="https://huggingface.co/collections/cua-lite/corpora" target="_blank" rel="noopener">corpora</a> and the <a href="https://huggingface.co/collections/cua-lite/rollouts" target="_blank" rel="noopener">rollouts</a>; below, one of them, WebGym:</p>
+
+    <figure class="hf-embed reveal">
+      <div class="hf-window">
+        <div class="hf-bar">
+          <span class="bw-lights" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="hf-url"><span class="hf-url-host">huggingface.co/datasets/</span>cua-lite/<span class="hf-ds" id="hf-select"><button class="hf-ds-tok" id="hf-trigger" aria-haspopup="listbox" aria-expanded="false"><span id="hf-tg-name">WebGym</span><span class="hf-caret" aria-hidden="true"></span></button><span class="hf-menu" id="hf-menu" role="listbox" aria-label="dataset"></span></span></span>
+          <a class="hf-open" id="hf-open" href="https://huggingface.co/datasets/cua-lite/WebGym" target="_blank" rel="noopener">open ↗</a>
+        </div>
+        <div class="hf-frame" id="hf-frame">
+          <div class="hf-skeleton" aria-hidden="true"><span></span><span></span><span></span></div>
+        </div>
+      </div>
+    </figure>
+
+  <p class="post-call"><b class="call">Call for data contributors.</b> Data only matters
+  while models can train on it. Share yours with CUA-Lite, and every agent trains on it — even models
+  that don't exist yet. One conversion, and the whole community trains on it.</p>
+
+  <p class="post-links"><a href="https://github.com/cua-lite/cua-lite/blob/main/lite/data/preproc/AGENTS.md" target="_blank" rel="noopener">Preprocessing guide ↗</a> &nbsp;·&nbsp; <a href="https://github.com/cua-lite/cua-lite/tree/main/lite/agents" target="_blank" rel="noopener">Agent harnesses ↗</a> &nbsp;·&nbsp; <a href="https://github.com/cua-lite/cua-lite/blob/main/docs/sft.md" target="_blank" rel="noopener">SFT guide ↗</a></p>
+
+  <h2 id="framework">Model harnesses: shared across eval, SFT &amp; RL</h2>
+  <p><b>Each model has one harness, the code that adapts it to the interface and the format.</b> Through its harness a model runs in every integrated environment, and eval and RL consume the rollouts it produces; with the same harness, any stored <code class="ls" tabindex="0">LiteSample</code> is rendered into the model's own training format for SFT — here, Qwen3.5's:</p>
+  <figure class="flow-demo pack intro-on" aria-label="A six-step trajectory in the Qwen3.5 view: history collapses past image_max, and prefix-extending steps pack into segments">
+    <div class="pack-intro" aria-hidden="true"><svg class="pack-intro-wire" aria-hidden="true"><path class="piw"/><path class="piw"/></svg><span class="pi-dot" aria-hidden="true"></span><span class="pair-node"><span class="node-mark" aria-hidden="true"></span><span>LiteSample</span><span class="node-glyph">{ }</span></span><span class="pack-adapter">adapter</span><span class="pair-chip" data-cat="model" data-logo="qwen">Qwen</span></div>
+    <div class="tape-board" data-pack>
+      <div class="tape-row">
+        <span class="tape-lab">step 1</span>
+        <span class="tape-wrap"><span class="tape" style="width:31.82%"><i class="tp p" style="width:71.43%"><em>instr · img1</em></i><i class="tp r" style="width:28.57%"><em>act1</em></i></span>
+        <span class="tape-note"></span></span></div>
+      <div class="tape-row">
+        <span class="tape-lab">step 2</span>
+        <span class="tape-wrap"><span class="tape" style="width:54.55%"><i class="tp p" style="width:41.67%"><em>instr · img1</em></i><i class="tp r" style="width:16.67%"><em>act1</em></i><i class="tp d" style="width:25.00%"><em>img2</em></i><i class="tp r" style="width:16.67%"><em>act2</em></i></span>
+        <span class="tape-note"></span></span></div>
+      <div class="tape-row">
+        <span class="tape-lab">step 3</span>
+        <span class="tape-wrap"><span class="tape" style="width:77.27%"><i class="tp p" style="width:29.41%"><em>instr · img1</em></i><i class="tp r" style="width:11.76%"><em>act1</em></i><i class="tp d" style="width:17.65%"><em>img2</em></i><i class="tp r" style="width:11.76%"><em>act2</em></i><i class="tp d" style="width:17.65%"><em>img3</em></i><i class="tp r" style="width:11.76%"><em>act3</em></i></span>
+        <span class="tape-note"></span></span></div>
+      <div class="tape-row">
+        <span class="tape-lab">step 4</span>
+        <span class="tape-wrap"><span class="tape" style="width:100.00%"><i class="tp p" style="width:22.73%"><em>instr · img1</em></i><i class="tp r" style="width:9.09%"><em>act1</em></i><i class="tp d" style="width:13.64%"><em>img2</em></i><i class="tp r" style="width:9.09%"><em>act2</em></i><i class="tp d" style="width:13.64%"><em>img3</em></i><i class="tp r" style="width:9.09%"><em>act3</em></i><i class="tp d" style="width:13.64%"><em>img4</em></i><i class="tp r" style="width:9.09%"><em>act4</em></i></span>
+        <span class="tape-note">1 forward · loss ×4</span></span></div>
+      <div class="tape-row">
+        <span class="tape-lab">step 5</span>
+        <span class="tape-wrap"><span class="tape" style="width:40.91%"><i class="tp f" style="width:44.44%"><em>hist ×4</em></i><i class="tp d" style="width:33.33%"><em>img5</em></i><i class="tp r" style="width:22.22%"><em>act5</em></i></span>
+        <span class="tape-note"></span></span></div>
+      <div class="tape-row">
+        <span class="tape-lab">step 6</span>
+        <span class="tape-wrap"><span class="tape" style="width:63.64%"><i class="tp f" style="width:28.57%"><em>hist ×4</em></i><i class="tp d" style="width:21.43%"><em>img5</em></i><i class="tp r" style="width:14.29%"><em>act5</em></i><i class="tp d" style="width:21.43%"><em>img6</em></i><i class="tp r" style="width:14.29%"><em>act6</em></i></span>
+        <span class="tape-note">1 forward · loss ×2</span></span></div>
+    </div>
+    <div class="tape-legend" aria-hidden="true"><i class="tp-sw p"></i>prompt<i class="tp-sw r"></i>response · loss<i class="tp-sw f"></i>collapsed history</div>
+    <div class="pair-cmd" data-pack-line></div>
+  </figure>
+
+  <div id="benchmarks">
+  <h3>Eval, any agent on any benchmark</h3>
+  <p>Set <code>--model-id</code> for the agent and <code>--env-id</code> for the benchmark:</p>
+
+    <div class="cmdbuild reveal" data-cmd="eval">
+      <div class="term">
+        <div class="term-bar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="term-title">evaluate.sh</span></div>
+        <div class="term-body static cb-body"><span class="t-dim">$</span> python scripts/rollout.py <span class="cb-cont">\</span><br><span class="cb-i"></span><span class="cb-flag">--model-id</span> <span class="cb-slot" data-slot="agent"></span> <span class="cb-cont">\</span><br><span class="cb-i"></span><span class="cb-flag">--env-id</span> <span class="cb-slot" data-slot="env"></span> <span class="cb-cont">\</span><br><span class="cb-i"></span><span class="cb-flag">--splits</span> eval <span class="cb-cont">\</span><br><span class="cb-i"></span><span class="cb-flag">--config-path</span> scripts/configs/<span class="cb-drv" data-drv="family"></span>/default/<span class="cb-drv" data-drv="env"></span>.yaml</div>
+      </div>
+    </div>
+
+  <p><b>15+ benchmarks are already integrated</b> — ours is the <span class="nb">VM-free</span> runtime, the interface and the integration, not the task suites — and the <span class="nb">VM-free</span> desktop sandboxes are an addition, not a replacement: the original OSWorld VM sits right beside Lite.OSWorld, and the mobile benchmarks still need a VM or an emulator:</p>
+
+    <div class="cov reveal" id="leaderboard">
+      <div class="cov-tabs" role="tablist">
+        <button class="cov-tab" type="button" data-plat="Grounding" role="tab">Grounding<span class="cov-n">2</span></button>
+        <button class="cov-tab on" type="button" data-plat="Desktop" role="tab">Desktop<span class="cov-n">4</span></button>
+        <button class="cov-tab" type="button" data-plat="Browser" role="tab">Browser<span class="cov-n">6</span></button>
+        <button class="cov-tab" type="button" data-plat="Mobile" role="tab">Mobile<span class="cov-n">4</span></button>
+      </div>
+      <div class="cov-body">
+        <div class="cov-panel" data-plat="Grounding">
+          <a class="row" data-env="osworld_g" href="https://github.com/cua-lite/cua-lite/blob/main/lite/gym/envs/osworld_g/README.md" target="_blank" rel="noopener"><span class="r-name">OSWorld-G</span><span class="r-desc">desktop UI grounding</span></a>
+          <a class="row" data-env="screenspot_pro" href="https://github.com/cua-lite/cua-lite/blob/main/lite/gym/envs/screenspot_pro/README.md" target="_blank" rel="noopener"><span class="r-name">ScreenSpot-Pro</span><span class="r-desc">high-res professional apps</span></a>
+        </div>
+        <div class="cov-panel on" data-plat="Desktop">
+          <a class="row" data-env="osworld" href="https://github.com/cua-lite/cua-lite/blob/main/lite/gym/envs/osworld/README.md" target="_blank" rel="noopener"><span class="r-name">OSWorld</span><span class="r-desc">real Ubuntu desktop apps</span></a>
+          <a class="row" data-env="lite.osworld" href="https://github.com/cua-lite/cua-lite/blob/main/lite/gym/envs/lite/osworld/README.md" target="_blank" rel="noopener"><span class="r-name">Lite.OSWorld</span><span class="r-desc">lightweight OSWorld tasks</span></a>
+          <a class="row" data-env="osworld_2" href="https://github.com/cua-lite/cua-lite/blob/main/lite/gym/envs/osworld_2/README.md" target="_blank" rel="noopener"><span class="r-name">OSWorld-2</span><span class="r-desc">capability-graded · partial credit</span></a>
+          <a class="row" data-env="cua.bench" href="https://github.com/cua-lite/cua-lite/blob/main/lite/gym/envs/cua/README.md" target="_blank" rel="noopener"><span class="r-name">CUABench</span><span class="r-desc">computer-use · KiCad · workflows</span></a>
+        </div>
+        <div class="cov-panel" data-plat="Browser">
+          <a class="row" data-env="webgym" href="https://github.com/cua-lite/cua-lite/blob/main/lite/gym/envs/webgym/README.md" target="_blank" rel="noopener"><span class="r-name">WebGym</span><span class="r-desc">web navigation</span></a>
+          <a class="row" data-env="webharbor.webvoyager" href="https://github.com/cua-lite/cua-lite/blob/main/lite/gym/envs/webharbor/webvoyager/README.md" target="_blank" rel="noopener"><span class="r-name">WebVoyager</span><span class="r-desc">live production websites</span></a>
+          <a class="row" data-env="online_mind2web" href="https://github.com/cua-lite/cua-lite/blob/main/lite/gym/envs/online_mind2web/README.md" target="_blank" rel="noopener"><span class="r-name">Online-Mind2Web</span><span class="r-desc">300 live web tasks</span></a>
+          <a class="row" data-env="browsergym.miniwob" href="https://github.com/cua-lite/cua-lite/blob/main/lite/gym/envs/browsergym/README.md" target="_blank" rel="noopener"><span class="r-name">MiniWoB</span><span class="r-desc">mini web interactions</span></a>
+          <a class="row" data-env="browsergym.webarena" href="https://github.com/cua-lite/cua-lite/blob/main/lite/gym/envs/browsergym/README.md" target="_blank" rel="noopener"><span class="r-name">WebArena</span><span class="r-desc">self-hosted shop · forum · GitLab</span></a>
+          <a class="row" data-env="browsergym.visualwebarena" href="https://github.com/cua-lite/cua-lite/blob/main/lite/gym/envs/browsergym/README.md" target="_blank" rel="noopener"><span class="r-name">VisualWebArena</span><span class="r-desc">visual web tasks</span></a>
+        </div>
+        <div class="cov-panel" data-plat="Mobile">
+          <a class="row" data-env="androidworld" href="https://github.com/cua-lite/cua-lite/blob/main/lite/gym/envs/androidworld/README.md" target="_blank" rel="noopener"><span class="r-name">AndroidWorld</span><span class="r-desc">real Android apps</span></a>
+          <a class="row" data-env="androidlab" href="https://github.com/cua-lite/cua-lite/blob/main/lite/gym/envs/androidlab/README.md" target="_blank" rel="noopener"><span class="r-name">AndroidLab</span><span class="r-desc">9 offline Android apps</span></a>
+          <a class="row" data-env="mobileworld" href="https://github.com/cua-lite/cua-lite/blob/main/lite/gym/envs/mobileworld/README.md" target="_blank" rel="noopener"><span class="r-name">MobileWorld</span><span class="r-desc">161 mobile tasks</span></a>
+          <a class="row" data-env="mobilegym" href="https://github.com/cua-lite/cua-lite/blob/main/lite/gym/envs/mobilegym/README.md" target="_blank" rel="noopener"><span class="r-name">MobileGym</span><span class="r-desc">mobile navigation</span></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="lb reveal" id="lb" aria-label="Benchmark leaderboard">
+      <div class="lb-card">
+        <div class="lb-bar">
+          <span class="lb-title">Leaderboard</span>
+          <span class="lb-tabs" id="lb-tabs"><span class="lb-tab on" id="lb-env">OSWorld</span><span class="lb-cfgs" id="lb-cfgs"></span></span>
+          <button class="lb-info" id="lb-info" type="button" aria-label="Benchmark composition"><svg class="lb-info-i" viewBox="0 0 16 16" width="13" height="13" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="none" stroke="currentColor" stroke-width="1.3"></circle><circle cx="8" cy="4.7" r="1" fill="currentColor"></circle><rect x="7.2" y="6.9" width="1.6" height="5" rx=".8" fill="currentColor"></rect></svg><span class="lb-info-t">composition</span></button>
+          <a class="lb-open" id="lb-open" href="https://github.com/cua-lite/cua-lite/blob/main/lite/gym/envs/osworld/README.md" target="_blank" rel="noopener">README&nbsp;↗</a>
+        </div>
+        <div class="lb-body" id="lb-body" role="list"></div>
+        <div class="lb-foot" id="lb-foot"></div>
+      </div>
+            <div class="lb-pop lb-comp" id="lb-comp" role="tooltip" aria-hidden="true"></div>
+      <div class="lb-pop lb-rowpop" id="lb-rowpop" role="tooltip" aria-hidden="true"></div>
+    </div>
+  </div>
+
+  <h3>SFT &amp; RL, any open agent</h3>
+  <p>SFT on CUA-Lite's corpora, then reinforce in its envs — GRPO and beyond, on the <a href="https://github.com/THUDM/slime" target="_blank" rel="noopener">Slime</a> trainer. Train any open agent on any data and any env:</p>
+
+  <div id="train">
+    <div class="train-tabs" role="tablist">
+      <button class="train-tab on" type="button" data-train="sft" role="tab" aria-selected="true">SFT</button>
+      <button class="train-tab" type="button" data-train="rl" role="tab" aria-selected="false">RL</button>
+    </div>
+    <div class="reveal sft-frame" data-train-panel="sft">
+      <p class="panel-note">Lite.Sample, adapted to each model — pick a dataset and a student:</p>
+            <div class="sft-cfg">
+        <div class="sft-field">
+          <span class="sft-field-label">Dataset:</span>
+          <span class="cb-slot" data-sft="dataset"></span>
+        </div>
+        <span class="sft-arrow" aria-hidden="true">→</span>
+        <div class="sft-field">
+          <span class="sft-field-label">Model:</span>
+          <span class="cb-slot" data-sft="model"></span>
+        </div>
+      </div>
+      <div class="cmdbuild">
+        <div class="term">
+          <div class="term-bar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="term-title">run_sft.sh</span></div>
+          <div class="term-body static cb-body"><span class="t-dim"># --- host ---</span><br><span class="t-dim"># 1 · download the corpus</span><br><span class="t-dim">$</span> python -m lite.data.hf.download <span class="cb-drv" data-drv="dataset"></span> <span class="cb-cont">\</span><br><span class="cb-i"></span><span class="cb-i"></span><span class="cb-flag">--out</span> .data/hf/cua-lite/<span class="cb-drv" data-drv="dataset"></span><br><br><span class="t-dim"># 2 · export a model-ready SFT parquet</span><br><span class="t-dim">$</span> python -m lite.train.export.export_sft <span class="cb-cont">\</span><br><span class="cb-i"></span><span class="cb-i"></span><span class="cb-flag">--model-id</span> <span class="cb-drv" data-drv="model"></span> <span class="cb-cont">\</span><br><span class="cb-i"></span><span class="cb-i"></span><span class="cb-flag">--config</span> scripts/configs/<span class="cb-drv" data-drv="family"></span>/recipes/sft/default.yaml <span class="cb-cont">\</span><br><span class="cb-i"></span><span class="cb-i"></span><span class="cb-flag">--data-paths</span> .data/hf/cua-lite/<span class="cb-drv" data-drv="dataset"></span> <span class="cb-cont">\</span><br><span class="cb-i"></span><span class="cb-i"></span><span class="cb-flag">--image-root</span> .data/hf <span class="cb-cont">\</span><br><span class="cb-i"></span><span class="cb-i"></span><span class="cb-flag">-o</span> .data/sft/<span class="cb-drv" data-drv="family"></span>/<span class="cb-drv" data-drv="slug"></span>.parquet<br><br><span class="t-dim"># --- Slime container (see docs/slime.md) ---</span><br><span class="t-dim"># 3 · supervised fine-tune</span><br><span class="t-dim">$</span> <span class="cb-flag">MODEL_ID=</span><span class="cb-drv" data-drv="model"></span> <span class="cb-cont">\</span><br><span class="cb-i"></span><span class="cb-flag">PROMPT_DATA=</span>.data/sft/<span class="cb-drv" data-drv="family"></span>/<span class="cb-drv" data-drv="slug"></span>.parquet <span class="cb-cont">\</span><br><span class="cb-i"></span><span class="cb-i"></span>bash scripts/train/run_sft.sh</div>
+        </div>
+      </div>
+    </div>
+    <div class="cmdbuild reveal cb-hidden" data-cmd="rl" data-train-panel="rl">
+      <p class="panel-note">Rollouts scored in the env drive GRPO updates — pick a model and env:</p>
+      <div class="term">
+        <div class="term-bar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="term-title">run_grpo.sh</span></div>
+        <div class="term-body static cb-body"><span class="t-dim">$</span> <span class="cb-flag">MODEL_ID=</span><span class="cb-slot" data-slot="agent"></span> <span class="cb-cont">\</span><br><span class="cb-i"></span><span class="cb-flag">ENV_ID=</span><span class="cb-slot" data-slot="env"></span> <span class="cb-cont">\</span><br><span class="cb-i"></span><span class="cb-flag">CONFIG_PATH=</span>scripts/configs/<span class="cb-drv" data-drv="family"></span>/default/<span class="cb-drv" data-drv="env"></span>.yaml <span class="cb-cont">\</span><br><span class="cb-i"></span><span class="cb-i"></span>bash scripts/train/run_grpo.sh</div>
+      </div>
+    </div>
+  </div>
+
+
+  <p class="post-close"><b>Bring a dataset, an env, or an agent — each one
+  compounds.</b> Or just tell us what's missing —
+  <a href="https://github.com/cua-lite/cua-lite" target="_blank" rel="noopener">GitHub</a> ·
+  <a href="https://huggingface.co/cua-lite" target="_blank" rel="noopener">Hugging Face</a> ·
+  <a href="mailto:zhanhui@berkeley.edu">Email</a>.</p>
+</main>
+
+<div class="peek-scrim"></div>
+<div class="peek" hidden>
+  <div class="peek-media">
+    <div class="peek-head"><span class="peek-domain"></span><p class="peek-instr"></p></div>
+    <div class="peek-stage"><video class="peek-vid" muted loop playsinline preload="none"></video></div>
+  </div>
+  <ol class="peek-actions"></ol>
+</div>
+
+<footer class="blog-foot">
+  <span><a href="https://cua-lite.github.io">cua-lite.github.io</a> — open sandboxes, data and infra.</span>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  // animations idle while their figure is off-screen (and the three boards start staggered)
+  const onScreen = new WeakSet();
+  const starters = new WeakMap(), started = new WeakSet();   // a figure's animation starts the first time it scrolls into view
+  const io = "IntersectionObserver" in window ? new IntersectionObserver((es) =>
+    es.forEach((e) => { if (e.isIntersecting) { onScreen.add(e.target);
+        if (starters.has(e.target) && !started.has(e.target)) { started.add(e.target); starters.get(e.target)(); } }
+      else onScreen.delete(e.target); }), { rootMargin: "0px 0px -15% 0px" }) : null;
+  const watch = (fig) => { if (io) io.observe(fig); else onScreen.add(fig); };
+  const live = (fig) => !io || onScreen.has(fig);
+  const onSeen = (fig, fn) => { if (!io) { fn(); return; } starters.set(fig, fn); };   // run fn once, when fig first enters view
+  function runBoard(fig, mkCmd, mode, startDelay, unfold) {   // mode: "data" (sample flows in) | "loop" (screenshot up, action down); unfold: open as column seeds first
+    const board = fig.querySelector(".pair-board");
+    const left = [...board.querySelectorAll(".pair-col:not(.pair-right) .pair-chip:not(.ghost)")];
+    const right = [...board.querySelectorAll(".pair-right .pair-chip:not(.ghost)")];
+    const node = board.querySelector(".pair-node");
+    const svg = board.querySelector(".pair-wire");
+    const paths = svg.querySelectorAll(".w1, .w2");
+    const cmd = fig.querySelector("[data-cmd-line]");
+    // ladder over both columns, whatever their lengths: advance one side, then the other
+    const seq = [];
+    for (let k = 0; k < Math.max(left.length, right.length); k++) {
+      const a = Math.min(k, left.length - 1), e = Math.min(k, right.length - 1);
+      const prevE = Math.min(Math.max(k - 1, 0), right.length - 1);
+      if (k && prevE !== e) seq.push([a, prevE]);
+      seq.push([a, e]);
+    }
+    let i = 0, cur = [0, 0];
+    const timers = [];
+    const ring = document.createElement("span");   // the green landing pulse (hero demo's ring)
+    ring.className = "land-ring";
+    board.appendChild(ring);
+    const dot = document.createElement("span");    // the payload: a pixel square traveling the wire
+    dot.className = "flow-dot";
+    board.appendChild(dot);
+    let labUp = null, labDown = null, pmark = null, amark = null;
+    let shot = null, gcur = null;
+    if (mode === "loop") {   // the gym loop: observation up, action down
+      labUp = document.createElement("span"); labUp.className = "flow-lab"; labUp.textContent = "screenshot";
+      labDown = document.createElement("span"); labDown.className = "flow-lab"; labDown.textContent = "click([632, 375])";
+      board.appendChild(labUp); board.appendChild(labDown);
+      shot = document.createElement("span"); shot.className = "gym-shot";
+      shot.innerHTML = '<span class="scr desktop"></span><span class="scr browser"></span><span class="scr mobile"></span>';
+      board.appendChild(shot);
+      gcur = document.createElement("span"); gcur.className = "gym-cur";
+      board.appendChild(gcur);
+    } else {                 // the pipeline: the left plugs straight into the schema; the adapter converts a row to each model's format
+      amark = document.createElement("span"); amark.className = "wire-stage stage-adapter"; amark.tabIndex = 0;
+      amark.textContent = "adapter";
+      board.appendChild(amark);
+    }
+    const so = () => (innerWidth <= 430 ? 2 : 4);  // wire standoff from the chip edge
+    const pt = (el, side) => { const b = el.getBoundingClientRect(), s = svg.getBoundingClientRect();
+      return [side === "r" ? b.right - s.left + so() : b.left - s.left - so(), b.top + b.height / 2 - s.top]; };
+    // node-side wires end 3px past the edge — inside the pixel port, so they read as plugged in
+    const ptN = (side) => { const b = node.getBoundingClientRect(), s = svg.getBoundingClientRect();
+      return [side === "r" ? b.right - s.left + 3 : b.left - s.left - 3, b.top + b.height / 2 - s.top]; };
+    const curve = ([x1, y1], [x2, y2]) => { const mx = (x1 + x2) / 2; return `M ${x1} ${y1} C ${mx} ${y1}, ${mx} ${y2}, ${x2} ${y2}`; };
+    const seg = ([x1, y1], [x2, y2]) => { const mx = (x1 + x2) / 2; return `C ${mx} ${y1}, ${mx} ${y2}, ${x2} ${y2}`; };
+    // one continuous path chip → spine → (under the cards + hub) → chip, for the traveling payload
+    const fullPath = (a, e) => { const p1 = pt(left[a], "r"), p2 = pt(right[e], "l");
+      const h1 = ptN("l"), h2 = ptN("r");
+      if (hasSpine()) { const { pR } = spine();   // left plugs straight in; right routes through the adapter (pR)
+        return `M ${p1[0]} ${p1[1]} ${seg(p1, h1)} L ${h2[0]} ${h2[1]} L ${pR[0]} ${pR[1]} ${seg(pR, p2)}`; }
+      return `M ${p1[0]} ${p1[1]} ${seg(p1, h1)} L ${h2[0]} ${h2[1]} ${seg(h2, p2)}`; };
+    function placeExtras(e) {
+      if (labUp) { const b = node.getBoundingClientRect(), sv = svg.getBoundingClientRect();
+        const cx = b.left + b.width / 2 - sv.left;
+        labUp.style.left = cx + "px"; labUp.style.top = (b.top - sv.top - 12) + "px";
+        labDown.style.left = cx + "px"; labDown.style.top = (b.bottom - sv.top + 12) + "px";
+        shot.style.left = cx + "px"; shot.style.top = (b.top - sv.top - 24) + "px";
+        gcur.style.left = (cx + 68) + "px"; gcur.style.top = (b.bottom - sv.top + 9) + "px"; }
+      if (amark) {   // the adapter card sits on the right spine — it never moves between beats
+        const { y, pR } = spine();
+        amark.style.left = pR[0] + "px"; amark.style.top = y + "px"; }
+    }
+    const redraw = (p) => { p.classList.remove("draw"); void p.getBoundingClientRect(); p.classList.add("draw"); };
+    // the fixed pipeline spine: stage cards sit level with the hub; every wire merges into it
+    const spine = () => { const nb = node.getBoundingClientRect(), sv = svg.getBoundingClientRect();
+      const y = nb.top + nb.height / 2 - sv.top;
+      return { y, pL: [nb.left - sv.left - 64, y], pR: [nb.right - sv.left + 64, y] }; };
+    const hasSpine = () => mode === "data" && innerWidth > 560;   // the stage cards hide below 560 — so does their spine
+    function wires(a, e) {
+      if (hasSpine()) {
+        const { pR } = spine();
+        const h2 = ptN("r");
+        paths[0].setAttribute("d", curve(pt(left[a], "r"), ptN("l")));   // left plugs straight into the hub (no preproc stage)
+        paths[1].setAttribute("d", `M ${h2[0]} ${h2[1]} L ${pR[0]} ${pR[1]} ${seg(pR, pt(right[e], "l"))}`);
+      } else {
+        paths[0].setAttribute("d", curve(pt(left[a], "r"), ptN("l")));
+        paths[1].setAttribute("d", curve(ptN("r"), pt(right[e], "l")));
+      }
+    }
+    function step(a, e) {
+      cur = [a, e];
+      left.forEach((c, k) => c.classList.toggle("on", k === a));
+      right.forEach((c, k) => c.classList.toggle("on", k === e));
+      wires(a, e);
+      paths.forEach(redraw);
+      cmd.innerHTML = mkCmd(left[a].dataset.id, right[e].dataset.id);
+      placeExtras(e);
+      if (!reduce && (!unfold || fig.classList.contains("wired"))) {   // don't schedule the loop extras (screenshot device, cursor, dot) until the board has actually begun — the initial step(0,0) on load must not queue a stray gym-shot flash
+        timers.forEach(clearTimeout); timers.length = 0;
+        ring.classList.remove("hit");
+        dot.classList.remove("go", "back");
+        if (labUp) { labUp.classList.remove("show"); labDown.classList.remove("show"); }
+        dot.style.offsetPath = `path("${fullPath(a, e)}")`;
+        const pulse = (x, y) => { ring.style.left = x + "px"; ring.style.top = y + "px";
+          void ring.getBoundingClientRect(); ring.classList.add("hit"); };
+        if (mode === "loop") {   // wire lands, then the loop runs once: screenshot up, click comes down and lands
+          const PLAT = { "osworld": "desktop", "browsergym.webarena": "browser", "androidworld": "mobile", "webgym": "browser" };
+          const plat = PLAT[left[a].dataset.id] || "desktop";
+          shot.dataset.plat = plat;
+          labDown.textContent = (plat === "mobile" ? "tap([632, 375])" : "click([632, 375])");
+          gcur.classList.toggle("touch", plat === "mobile");   // touch platforms tap, they don't click
+          shot.classList.remove("show"); gcur.classList.remove("show");
+          timers.push(setTimeout(() => { dot.classList.add("go"); labUp.classList.add("show"); shot.classList.add("show"); }, 1700));
+          timers.push(setTimeout(() => { labUp.classList.remove("show"); shot.classList.remove("show");
+            dot.classList.remove("go"); void dot.getBoundingClientRect();
+            dot.classList.add("back"); labDown.classList.add("show"); gcur.classList.add("show"); }, 3100));
+          timers.push(setTimeout(() => { const [x, y] = pt(left[a], "r"); pulse(x, y); }, 4150));
+          timers.push(setTimeout(() => { labDown.classList.remove("show"); gcur.classList.remove("show"); }, 4500));
+        } else {                 // one-directional: the wire DRAWING IN is the flow — no traveling packet after (unlike the gym loop's round-trip). Just a "delivered" pulse as the wire lands.
+          timers.push(setTimeout(() => { const [x, y] = pt(right[e], "l"); pulse(x, y); }, 1500));
+        }
+      }
+    }
+    // reserve the height of the tallest command so the figure never jumps between pairs
+    function reserve() {
+      const keep = cmd.innerHTML;
+      cmd.style.minHeight = "";
+      let max = 0;
+      seq.forEach(([a, e]) => { cmd.innerHTML = mkCmd(left[a].dataset.id, right[e].dataset.id); max = Math.max(max, cmd.offsetHeight); });
+      cmd.innerHTML = keep;
+      cmd.style.minHeight = max + "px";
+    }
+    step(0, 0); reserve(); watch(fig);
+    const cycle = () => { if (!live(fig)) return; i = (i + 1) % seq.length; step(seq[i][0], seq[i][1]); };
+    const begin = () => { fig.classList.add("wired"); step(cur[0], cur[1]); setTimeout(() => setInterval(cycle, 5200), startDelay || 0); };
+    if (reduce) { if (unfold) fig.classList.add("unfolded", "wired"); }
+    else onSeen(fig, () => {   // seeds hold, unfold into the pills, then the wire ladder runs
+      if (unfold) { setTimeout(() => fig.classList.add("unfolded"), 260); setTimeout(begin, 820); }
+      else begin();
+    });
+    // re-anchor the wires without replaying the draw
+    return () => { reserve(); wires(cur[0], cur[1]); placeExtras(cur[1]); };
+  }
+  const boards = [];
+  // column seeds — datasets open as three platform screenshot-trajectory stacks, agents as a cursor; hidden until a figure opts in with .seed-fold
+  function trajSeed() {
+    const seed = document.createElement("div"); seed.className = "col-seed"; seed.setAttribute("aria-hidden", "true");
+    ["desktop", "browser", "mobile"].forEach((plat) => {
+      const t = document.createElement("div"); t.className = "traj " + plat;
+      for (let i = 0; i < 4; i++) {
+        const fr = document.createElement("span"); fr.className = "fr";
+        fr.style.left = (i * 15) + "px"; fr.style.opacity = [".6", ".74", ".87", "1"][i]; fr.style.zIndex = i + 1;
+        t.appendChild(fr);   // the frame's real hero screenshot comes from its CSS background-image
+      }
+      seed.appendChild(t);
+    });
+    return seed;
+  }
+  function agentsSeed() {   // agents open as one neutral grey "Agents" chip (stacked = many) that fans into GPT/Claude/…
+    const seed = document.createElement("div"); seed.className = "col-seed"; seed.setAttribute("aria-hidden", "true");
+    seed.innerHTML = '<span class="ag-seed">Agents</span>';
+    return seed;
+  }
+  function platformSeed() {   // environments = the three GENERAL platforms, drawn as device forms (not a screenshot)
+    const seed = document.createElement("div"); seed.className = "col-seed to-gym"; seed.setAttribute("aria-hidden", "true");
+    ["desktop", "browser", "mobile"].forEach((plat) => {
+      const d = document.createElement("div"); d.className = "plat " + plat;
+      d.innerHTML = '<span class="dev"></span>';
+      seed.appendChild(d);
+    });
+    return seed;
+  }
+  (function () {   // JS-gated (.seed-fold) so no-JS keeps the pills visible
+    const df = document.querySelector('[data-board="data"]');
+    if (df) { df.querySelector(".pair-col:not(.pair-right)").appendChild(trajSeed()); df.querySelector(".pair-right").appendChild(agentsSeed()); df.closest(".flow-demo").classList.add("seed-fold"); }
+    const pf = document.querySelector('[data-board="pair"]');
+    if (pf) { pf.querySelector(".pair-col:not(.pair-right)").appendChild(platformSeed()); pf.querySelector(".pair-right").appendChild(agentsSeed()); pf.closest(".flow-demo").classList.add("seed-fold"); }
+  })();
+  // figure 2 — the efficient route: all datasets converge through LiteSample → one adapter → fork to every agent (N+M, not the N×M tangle above)
+  const dataFig = document.querySelector('[data-board="data"]');
+  if (dataFig) (function () {
+    const fig = dataFig.closest(".flow-demo"), board = dataFig;
+    const left = [...board.querySelectorAll(".pair-col:not(.pair-right) .pair-chip")];   // incl the "yours next" ghost — it converges too
+    const right = [...board.querySelectorAll(".pair-right .pair-chip")];
+    const node = board.querySelector(".pair-node"), svg = board.querySelector(".pair-wire");
+    const cmd = fig.querySelector("[data-cmd-line]");
+    const adp = document.createElement("span"); adp.className = "wire-stage stage-adapter"; adp.tabIndex = 0; adp.textContent = "adapter"; board.appendChild(adp);
+    svg.innerHTML = "";
+    const mk = () => { const p = document.createElementNS("http://www.w3.org/2000/svg", "path"); p.setAttribute("class", "cw"); svg.appendChild(p); return p; };
+    const wIn = left.map(mk), wMid = mk(), wOut = right.map(mk), all = [...wIn, wMid, ...wOut];
+    const S = () => svg.getBoundingClientRect(), R = (el) => el.getBoundingClientRect(), so = () => (innerWidth <= 430 ? 2 : 4);
+    const curve = ([x1, y1], [x2, y2]) => { const mx = (x1 + x2) / 2; return `M ${x1} ${y1} C ${mx} ${y1}, ${mx} ${y2}, ${x2} ${y2}`; };
+    const rx = (el) => R(el).right - S().left + so(), lx = (el) => R(el).left - S().left - so(), cyy = (el) => R(el).top + R(el).height / 2 - S().top;
+    // Both sides are smooth fans that share ONE bend-x: with a common bend-x the curves keep their
+    // vertical order and can never cross, whichever end fans out — so no gather stub is needed.
+    const fan = ([x1, y1], [x2, y2], bx) => `M ${x1} ${y1} C ${bx} ${y1}, ${bx} ${y2}, ${x2} ${y2}`;
+    const anchor = () => {
+      const s = S(), nb = R(node);
+      const nL = [nb.left - s.left - 3, nb.top + nb.height / 2 - s.top], nR = [nb.right - s.left + 3, nb.top + nb.height / 2 - s.top];
+      // Sit the adapter snug against the hub (not out by the agents) so the fork fan gets the same
+      // horizontal room the converge fan has — otherwise its wires have ~9px to open in and tangle.
+      adp.style.left = (nb.right - s.left + R(adp).width / 2 + 12) + "px"; adp.style.top = (nb.top + nb.height / 2 - s.top) + "px";
+      // Converge: datasets → hub port. Bend-x sits midway between the widest chip edge and the hub,
+      // never left of a chip, so the smooth fan closes in without a hook — mirror of the fork below.
+      const maxRx = Math.max(...left.map(rx));
+      const convCx = maxRx + (nL[0] - maxRx) * 0.5;
+      left.forEach((el, k) => wIn[k].setAttribute("d", fan([rx(el), cyy(el)], nL, convCx)));
+      // the adapter label is hidden on narrow screens (mid column too tight) — then the hub itself
+      // doubles as the fork point: no mid line, agents fork straight from the hub's right port.
+      const adpVisible = adp.offsetParent !== null && R(adp).width > 0;
+      const forkFrom = adpVisible
+        ? (() => { const ab = R(adp), aL = [ab.left - s.left, ab.top + ab.height / 2 - s.top], aR = [ab.right - s.left, ab.top + ab.height / 2 - s.top]; wMid.setAttribute("d", curve(nR, aL)); return aR; })()
+        : (wMid.setAttribute("d", ""), nR);
+      // Fork: adapter → agents. Bend-x halfway to the NEAREST agent edge (never past it) so the curves
+      // don't overshoot and hook. Agents are right-aligned, so a per-wire midpoint would let a higher
+      // (narrower) agent's wire bend late and cross the lower one — the shared bend-x prevents that.
+      const forkCx = forkFrom[0] + (Math.min(...right.map(lx)) - forkFrom[0]) * 0.5;
+      right.forEach((el, k) => wOut[k].setAttribute("d", fan(forkFrom, [lx(el), cyy(el)], forkCx)));
+    };
+    anchor(); boards.push(anchor);
+    cmd.innerHTML = `<span class="c-p">$</span> export_sft <span class="nb">--data-paths</span> <span class="nb">hf/<b>Multimodal-Mind2Web</b></span> <span class="nb">--model-id</span> <b>Qwen3-VL-8B-Instruct</b>`;
+    let timers = [];
+    const clr = () => { timers.forEach(clearTimeout); timers = []; };
+    const draw = (p, dur) => { const len = p.getTotalLength(); p.style.transition = `stroke-dashoffset ${dur}ms var(--ease)`; p.style.strokeDashoffset = 0; };
+    const hide = (p) => { const len = p.getTotalLength(); p.style.transition = "none"; p.style.strokeDasharray = len; p.style.strokeDashoffset = len; p.style.opacity = "1"; };
+    function run() {
+      clr(); all.forEach(hide); left.concat(right).forEach((c) => c.classList.remove("on")); adp.classList.remove("on"); void svg.getBoundingClientRect();
+      wIn.forEach((p) => draw(p, 850)); left.forEach((c) => timers.push(setTimeout(() => c.classList.add("on"), 160)));   // 5 datasets converge to the hub
+      timers.push(setTimeout(() => { draw(wMid, 430); adp.classList.add("on"); }, 900));                                   // one line through the adapter
+      timers.push(setTimeout(() => { wOut.forEach((p) => draw(p, 850)); right.forEach((c) => c.classList.add("on")); }, 1350));  // fork out to every agent
+    }
+    const CYCLE = 5200;
+    function loop() { clr(); svg.style.transition = "opacity .35s ease"; svg.style.opacity = "0"; left.concat(right).forEach((c) => c.classList.remove("on")); adp.classList.remove("on"); timers.push(setTimeout(() => { svg.style.opacity = "1"; run(); }, 360)); }
+    if (reduce) { fig.classList.add("unfolded", "wired"); anchor(); all.forEach((p) => { p.style.strokeDashoffset = 0; }); left.concat(right).forEach((c) => c.classList.add("on")); }
+    else { watch(fig); onSeen(fig, () => {
+      setTimeout(() => fig.classList.add("unfolded"), 260);
+      setTimeout(() => { fig.classList.add("wired"); anchor(); run(); setInterval(() => { if (live(fig)) loop(); }, CYCLE); }, 820);
+    }); }
+  })();
+  // the before-board: no shared interface, so every dataset/benchmark must be wired to every
+  // agent by hand — the full N×M tangle. The hub boards below route the same wires cleanly (N+M).
+  const messFig = document.querySelector('[data-board="mess"]');
+  if (messFig) (function () {
+    const left = [...messFig.querySelectorAll(".pair-col:not(.pair-right) .pair-chip")];
+    const right = [...messFig.querySelectorAll(".pair-right .pair-chip")];
+    const svg = messFig.querySelector(".pair-wire");
+    const pt = (el, side) => { const b = el.getBoundingClientRect(), s = svg.getBoundingClientRect();
+      return [side === "r" ? b.right - s.left + 4 : b.left - s.left - 4, b.top + b.height / 2 - s.top]; };
+    const curve = ([x1, y1], [x2, y2]) => { const mid = (x1 + x2) / 2; return `M ${x1} ${y1} C ${mid} ${y1}, ${mid} ${y2}, ${x2} ${y2} `; };
+    svg.innerHTML = "";   // one bundle path per left node — its wires reach out to every right node
+    const bundles = left.map(() => { const p = document.createElementNS("http://www.w3.org/2000/svg", "path"); p.setAttribute("class", "mw-bundle"); svg.appendChild(p); return p; });
+    const GREY = "#9c8b74";
+    const anchor = () => bundles.forEach((p, i) => { let d = ""; right.forEach((r) => { d += curve(pt(left[i], "r"), pt(r, "l")); }); p.setAttribute("d", d); });
+    const grey = (p, op) => { p.style.stroke = GREY; p.style.strokeWidth = "1.6"; p.style.strokeDasharray = "6 6"; p.style.strokeDashoffset = "0"; p.style.opacity = op; };
+    // shared beat — the grey tangle accumulates one left node's bundle at a time
+    const BEAT = 1050, LEAD = 380;
+    const CYCLE = LEAD + (left.length - 1) * BEAT + 500 + 1900;
+    let timers = [];
+    const clear = () => { timers.forEach(clearTimeout); timers = []; };
+    function play() {
+      clear(); anchor();
+      bundles.forEach((p) => { p.style.transition = "opacity .35s ease"; p.style.opacity = "0"; });   // fade the old tangle out before rebuilding
+      timers.push(setTimeout(() => {
+        bundles.forEach((p) => { p.style.transition = "none"; grey(p, "0"); });
+        void svg.getBoundingClientRect();
+        bundles.forEach((p, i) => timers.push(setTimeout(() => {
+          p.style.transition = "opacity .5s ease"; p.style.opacity = ".7";   // this left node's wires to every agent fade in
+        }, i * BEAT)));
+      }, LEAD));
+    }
+    if (reduce) { anchor(); bundles.forEach((p) => grey(p, ".7")); }
+    else { watch(messFig); onSeen(messFig, () => { play(); setInterval(() => { if (live(messFig)) play(); }, CYCLE); }); }
+    boards.push(anchor);   // re-anchor with the other boards on resize / font load
+  })();
+
+  const pairFig = document.querySelector('[data-board="pair"]');
+  if (pairFig) boards.push(runBoard(pairFig.closest(".flow-demo"), (e, a) =>   // environments sit on the left
+    `<span class="c-p">$</span> rollout.py <span class="nb">--model-id</span> <b>${a}</b> <span class="nb">--env-id</span> <b>${e}</b>`, "loop", 3400, true));
+  // the packing figure: each step's prompt tape contains the previous one (token-level
+  // prefix); at step 5 image_max=4 folds the oldest screenshots and the prefix breaks —
+  // so steps 1-4 collapse into one forward, steps 5-6 into another
+  // (lite/agents/models/qwen3_5/protocol.py; lite/train/rollout/core/segmenter.py)
+  const packFig = document.querySelector("[data-pack]");
+  if (packFig) (function () {
+    const rows = [...packFig.querySelectorAll(".tape-row")];
+    const labs = rows.map((r) => r.querySelector(".tape-lab").textContent);   // "step N" — restored each cycle, renamed to "forward N" once packed
+    const line = packFig.closest(".flow-demo").querySelector("[data-pack-line]");
+    const SCRIPT = [   // [ms, fn, narration] — each event holds long enough to read its line
+      [0,     () => rows.forEach((r, i) => { r.className = "tape-row future"; r.querySelector(".tape-lab").textContent = labs[i]; }),
+              "one trajectory, 6 steps — as Qwen3.5 sees it"],
+      [1300,  () => rows[0].className = "tape-row",
+              "step 1 · instr + img1 → act1"],
+      [2600,  () => rows[1].className = "tape-row",
+              "step 2 starts with all of step 1 — a strict prefix"],
+      [3900,  () => rows[2].className = "tape-row", "step 3 · still extending"],
+      [5200,  () => rows[3].className = "tape-row",
+              "step 4 · acts 1–4 all live in this one tape"],
+      [7000,  () => { rows[4].className = "tape-row born"; rows[3].className = "tape-row foldsrc"; },
+              "image_max=4 — the older history collapses to text · the prefix breaks"],
+      [8800,  () => { rows[5].className = "tape-row"; rows[3].className = "tape-row"; }, "step 6 extends step 5"],
+      [10500, () => { [0, 1, 2, 4].forEach((i) => rows[i].className = "tape-row absorbed");
+                      rows[3].className = "tape-row keep"; rows[5].className = "tape-row keep";
+                      rows[3].querySelector(".tape-lab").textContent = "forward 1";
+                      rows[5].querySelector(".tape-lab").textContent = "forward 2"; },
+              "prefix-extenders pack into their last tape: 6 steps, 2 forwards"],
+    ];
+    const CYCLE = 15200;
+    let max = 0;
+    SCRIPT.forEach(([, , t]) => { line.textContent = t; max = Math.max(max, line.offsetHeight); });
+    line.style.minHeight = max + "px";
+    const fig = packFig.closest(".flow-demo");
+    const introSvg = fig.querySelector(".pack-intro-wire");
+    const drawIntroWire = () => {   // curve LiteSample → adapter → Qwen, measured from live geometry
+      if (!introSvg) return;
+      const s = introSvg.getBoundingClientRect(); if (!s.width) return;
+      const node = fig.querySelector(".pack-intro .pair-node"), adp = fig.querySelector(".pack-intro .pack-adapter"), qw = fig.querySelector(".pack-intro .pair-chip");
+      if (!node || !adp || !qw) return;
+      const cy = (el) => { const b = el.getBoundingClientRect(); return b.top + b.height / 2 - s.top; };
+      const rx = (el) => el.getBoundingClientRect().right - s.left, lx = (el) => el.getBoundingClientRect().left - s.left;
+      const curve = (x1, y1, x2, y2) => { const mx = (x1 + x2) / 2; return `M ${x1} ${y1} C ${mx} ${y1}, ${mx} ${y2}, ${x2} ${y2}`; };
+      const paths = introSvg.querySelectorAll(".piw");
+      const w0 = curve(rx(node) + 3, cy(node), lx(adp) - 3, cy(adp)), w1 = curve(rx(adp) + 3, cy(adp), lx(qw) - 3, cy(qw));
+      paths[0].setAttribute("d", w0); paths[1].setAttribute("d", w1);
+      const dot = fig.querySelector(".pi-dot");   // packet flows LiteSample → through adapter → Qwen (horizontal wire → simple left-slide)
+      if (dot) { dot.style.setProperty("--piy", cy(node) + "px"); dot.style.setProperty("--pix0", (rx(node) + 3) + "px"); dot.style.setProperty("--pix1", (lx(qw) - 3) + "px"); }
+    };
+    drawIntroWire();
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(drawIntroWire);
+    addEventListener("resize", () => setTimeout(drawIntroWire, 60));
+    const INTRO = 700;   // hold "LiteSample → adapter → Qwen3.5" long enough to read, then fade into the tape it produces
+    function play() {
+      fig.classList.remove("intro-on", "intro-out", "playing");
+      void fig.offsetWidth;   // restart the wire-draw + packet from the top, so they play on scroll-in (not on page load)
+      fig.classList.add("intro-on", "playing");
+      line.textContent = "the adapter · one LiteSample row → Qwen3.5's training tape";
+      setTimeout(() => { fig.classList.remove("intro-on", "playing"); fig.classList.add("intro-out"); }, INTRO);
+      SCRIPT.forEach(([ms, fn, t]) => setTimeout(() => { fn(); line.textContent = t; }, ms + INTRO));
+    }
+    if (reduce) { fig.classList.remove("intro-on"); const [, fn, t] = SCRIPT[SCRIPT.length - 1];
+      rows.forEach((r) => r.className = "tape-row"); fn(); line.textContent = t;
+    } else { watch(fig);
+      onSeen(fig, () => { play(); setInterval(() => { if (live(fig)) play(); }, CYCLE + INTRO); }); }
+  })();
+
+  // wires are measured from live geometry — re-anchor after web fonts land and on resize
+  const sync = () => boards.forEach((fn) => fn());
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(sync);
+  let rt; addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(sync, 120); });
+})();
+</script>
+<script src="js/main.js"></script>
+<script src="js/belt.js"></script>
+<script src="js/lspop.js"></script>
+<script>
+
+(function () {
+  "use strict";
+  const fig = document.querySelector(".v2c");
+  if (!fig) return;
+  const label = fig.querySelector(".v2c-label");
+  const stage = fig.querySelector(".v2c-stage");
+  const unit = fig.querySelector(".v2c-unit");
+  const clones = fig.querySelector(".v2c-clones");   // beat 3 · one container replicates into a grid of parallel rollouts
+  const note = fig.querySelector(".v2c-note");
+  const NOTES = [
+    "A desktop sealed in a VM — every task boots QEMU/KVM.",
+    "Out of the VM — the same desktop, now a container.",
+    "Replicate the container — rollouts run in parallel.",
+  ];
+  const COLS = 4;
+  const LEVELS = [62, 88, 45, 74, 55, 92, 68, 40, 80, 58, 84, 50];   // each rollout at its own progress — parallel, not lockstep
+  for (let i = 0; i < 12; i++) {
+    const s = document.createElement("span");
+    const diag = Math.floor(i / COLS) + (i % COLS);   // stamp out diagonally from the top-left (tile #1 first)
+    s.style.transitionDelay = (330 + diag * 46) + "ms";     // tile #1 fades in as the hero lands (overlap, no blank gap), rest stamp after
+    s.style.setProperty("--p", LEVELS[i] + "%");
+    const track = document.createElement("i"), bar = document.createElement("b");
+    bar.style.transitionDelay = (800 + diag * 52) + "ms";   // each rollout bar advances once its tile has landed
+    track.appendChild(bar); s.appendChild(track);
+    clones.appendChild(s);
+  }
+  const ctr = fig.querySelector(".v2c-ctr");
+  // shrink the grid to fit the figure width on narrow screens (one factor scales tiles + text + gaps together)
+  function fitGrid() {
+    const avail = fig.querySelector(".v2c-stage").clientWidth - 12;
+    clones.style.setProperty("--gk", Math.min(1, avail / clones.scrollWidth || 1).toFixed(3));
+  }
+  // the hero container shrinks toward the grid's first cell as the grid blooms — the big box BECOMES tile #1
+  function heroToTile1() {
+    const t = clones.firstChild.getBoundingClientRect(), u = unit.getBoundingClientRect(), c = ctr.getBoundingClientRect();
+    const scale = c.width ? Math.min(1, t.width / c.width) : 0.5;   // match the (possibly grid-scaled) tile size, any viewport
+    const dx = (t.left + t.width / 2) - (u.left + u.width / 2);
+    const dy = (t.top + t.height / 2) - (u.top + u.height / 2);
+    unit.style.transform = `translate(${dx}px, ${dy}px) scale(${scale.toFixed(3)})`;
+  }
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let timers = [];
+  const clear = () => { timers.forEach(clearTimeout); timers = []; };
+  const setNote = (t) => { note.style.opacity = "0"; timers.push(setTimeout(() => { note.textContent = t; note.style.opacity = "1"; }, 220)); };
+  function timeline() {   // beat 1 (OSWorld VM) held → shed → beat 2 (Lite.OSWorld container) → beat 3 (replicate into parallel rollouts)
+    fig.classList.remove("s1", "s2", "s3");
+    label.textContent = "OSWorld"; unit.style.transform = ""; note.textContent = NOTES[0]; note.style.opacity = "1";
+    timers.push(setTimeout(() => fig.classList.add("s1"), 1600));
+    timers.push(setTimeout(() => { fig.classList.add("s2"); label.textContent = "Lite.OSWorld"; setNote(NOTES[1]); }, 2550));
+    timers.push(setTimeout(() => { fig.classList.add("s3"); heroToTile1(); setNote(NOTES[2]); }, 4450));
+  }
+  function loopReset() {   // fade out, reset instantly (no reverse-animation), fade back in, replay
+    clear();
+    stage.style.opacity = "0";
+    timers.push(setTimeout(() => {
+      fig.classList.add("notrans"); fig.classList.remove("s1", "s2", "s3"); label.textContent = "OSWorld"; unit.style.transform = "";
+      note.textContent = NOTES[0]; note.style.opacity = "1";
+      void fig.offsetWidth; fig.classList.remove("notrans");
+      stage.style.opacity = "1"; timeline();
+    }, 340));
+  }
+  const CYCLE = 7000;
+  fitGrid();
+  addEventListener("resize", () => { fitGrid(); if (fig.classList.contains("s3")) heroToTile1(); });
+  if (reduce) { fig.classList.add("s2"); label.textContent = "Lite.OSWorld"; note.textContent = NOTES[1]; return; }
+  if ("IntersectionObserver" in window) {
+    let started = false;
+    const io = new IntersectionObserver((es) => es.forEach((e) => {
+      if (e.isIntersecting && !started) { started = true; timeline(); setInterval(loopReset, CYCLE); }
+    }), { rootMargin: "0px 0px -15% 0px" });
+    io.observe(fig);
+  } else { timeline(); setInterval(loopReset, CYCLE); }
+})();
+
+</script>
+</body>
+</html>

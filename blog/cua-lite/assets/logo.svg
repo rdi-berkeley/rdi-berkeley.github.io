@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+  <!-- CUA-Lite mark: paper-airplane "Ember" — solid terracotta with a light fold-crease.
+       Crease is cream (#faf4e8) to match the nav/footer background it sits on. -->
+  <path d="M22 2 L2 9.2 L10.6 12.8 L14.4 21.5 Z" fill="#bd5a38"/>
+  <path d="M22 2 L10.6 12.8" stroke="#faf4e8" stroke-width="1.15" stroke-linecap="round"/>
+</svg>
