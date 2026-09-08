@@ -1,0 +1,1164 @@
+/* ============================================================
+   CUA-Lite — warm editorial, cream.
+   Ivory→peach canvas, soft taupe ink, ONE terracotta accent. Fraunces
+   serif display with an italic accent word; Urbanist body; Geist Mono
+   for everything the machine says. One agent operates three devices —
+   a desktop, a browser, a phone. Quality = restraint.
+   ============================================================ */
+
+@font-face { font-family: 'Fraunces'; src: url('../assets/fonts/Fraunces.woff2') format('woff2'); font-weight: 300 700; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url('../assets/fonts/Fraunces-Italic.woff2') format('woff2'); font-weight: 300 700; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Urbanist'; src: url('../assets/fonts/Urbanist.woff2') format('woff2'); font-weight: 100 900; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Geist Mono'; src: url('../assets/fonts/GeistMono.woff2') format('woff2'); font-weight: 400 600; font-style: normal; font-display: swap; }
+
+:root {
+  /* one signature easing across every motion — switch, cursor, bubbles, pages */
+  --ease: cubic-bezier(.33, 0, .15, 1);
+  /* warm ivory→peach canvas + soft taupe ink (microsoft.ai palette), ONE terracotta accent */
+  --bg:      #faf4e8;
+  --panel:   #f2eadb;
+  --panel-2: #ece2d1;
+  --line:    rgba(60,48,36,.11);
+  --line-2:  rgba(60,48,36,.18);
+  --text:    #453d33;                        /* soft warm taupe — low-contrast calm, not hard black */
+  --muted:   #6f665a;
+  --dim:     #a89e8c;
+  --accent:  #bd5a38;                       /* warm terracotta — harmonizes with cream, not eco-green */
+  --accent-dim: rgba(189,90,56,.5);
+
+  --serif: 'Fraunces', Georgia, serif;
+  --sans:  'Urbanist', -apple-system, system-ui, sans-serif;
+  /* Geist Mono — Vercel's monospace: tighter and more refined,
+     at home in a warm editorial layout; self-hosted, with per-OS mono fallbacks */
+  --mono:  'Geist Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+
+  /* ---------- type scale — pick a ROLE, never a number ----------
+     Seven size steps. A step is only half a style: the other half is family ·
+     case · weight · color, fixed per role. Size never encodes hierarchy alone —
+     it always pairs with those (see the Eval board). The named roles at each step:
+
+       --fs-2xl 17.5  Card-title  sans 700  (feature card heading: .src-h, .post-title)
+       --fs-xl  16.5  Body        sans 450 muted lh≥1.6 (paragraphs, section leads, panel-note)
+                      Feature     sans 700  (body-size emphatic: stat number, wordmark)
+       --fs-lg  15    Button      sans 600–700  (pill buttons)
+                      Cite-title  serif      (the one citation heading)
+       --fs-md  14    Card-body   sans 450 muted (a feature card's main description: .src-d)
+                      Item/Nav    sans 500  (nav, menu items, footer links)
+                      Code-inline mono       (inline code & names in/near prose)
+       --fs-sm  12.5  Caption     sans dim   (terse secondary descriptions)
+                      Mono-data   mono       (terminals, panels, leaderboard values)
+                      Footer-meta mono dim   (page-footer meta)
+       --fs-xs  11    Eyebrow     mono UP track2.5 dim  (section overline)
+                      Tab/Label   mono UP track1  muted (component tabs, field labels)
+                      Meta        mono       (in-component meta & rank numbers, code in popovers)
+       --fs-2xs 10    Group-cap   mono UP track1.5      (caption nested inside a card/menu)
+                      Glyph       (a lone symbol trailing larger text: ↗ %)
+
+     h1/h2 keep their own clamp() display sizes. Anything inside a demo screen
+     (.win-* .sh-* .bw-* .gg-* .gs-* .ph-* .taskbar) is scenography — a depicted
+     device at reduced scale — and keeps literal px (audit_site.py enforces both). */
+  --fs-2xs: 10px;
+  --fs-xs:  11px;
+  --fs-sm:  12.5px;
+  --fs-md:  14px;
+  --fs-lg:  15px;
+  --fs-xl:  16.5px;
+  --fs-2xl: 17.5px;
+
+  /* ---------- display sizes — the serif heading ladder ----------
+     Fluid clamp() steps, shared by the blog AND the weekly-update report so the
+     two never drift. Pick a ROLE, never a number (same rule as --fs above).
+     (The landing h1/h2 keep their own larger bespoke clamps — see .type roles.)
+       --t-title    Title       serif 350  the page/post title — blog "Why CUA-Lite …",
+                                            report "Weekly update"                     (L1)
+       --t-section  Section     serif 370  a section — blog "Why CUA-Lite" (h2),
+                                            report "1 CUA-Lite"                          (L2)
+       --t-sub      Subsection  serif 420  a subsection — report "1.1"                  (L3)
+     Below L3, sub-parts reuse the Eyebrow role (--fs-xs, mono) — no new size. */
+  --t-title:   clamp(34px, 4.4vw, 52px);
+  --t-section: clamp(22px, 2.6vw, 28px);
+  --t-sub:     clamp(19px, 2vw,   23px);
+
+  /* light card material — near-ivory panel, soft warm edge (tables, popovers, menus) */
+  --panel-fill: #fefaf0;
+  --panel-edge: #e7ddc9;
+  --panel-hi: rgba(255,255,255,.8);
+  --panel-lo: rgba(60,48,36,.05);
+
+  /* dark terminal material — the code/CRT blocks stay dark on cream, bright green pops */
+  --term-bg:    #16140e;
+  --term-fill:  #1b1912;
+  --term-edge:  #322e22;
+  --term-text:  #ece6d4;
+  --term-muted: #a49c88;
+  --term-dim:   #6f6a58;
+  --term-accent: #ef9d62;   /* warm amber-coral — the bright accent inside dark terminals */
+
+  --maxw: 1180px;
+}
+
+* { box-sizing: border-box; }
+html { overflow-x: clip;
+  scroll-behavior: smooth; scroll-padding-top: 92px;
+  /* reserve the scrollbar gutter — short pages (blog) must not re-center the layout
+     relative to long ones on classic-scrollbar browsers. NOT overflow-y: scroll,
+     which breaks Chromium's smooth on-load scroll to #hash anchors. */
+  scrollbar-gutter: stable; }
+body {
+  /* overflow-x lives on <html>, not here. With <html> at the default `visible`, an
+     overflow on <body> is PROPAGATED to the viewport and <body> itself is treated as
+     `visible` — so this rule silently did nothing, and the closed .ls-pop hover card
+     (430px, absolutely positioned) widened the document by up to 179px between 940px
+     and 1400px. `clip` rather than `hidden`: it does not create a scroll container, so
+     position:sticky still works. The open card stays fully visible — lspop.js shifts it
+     back inside the viewport on pointerenter. */
+  margin: 0; color: var(--text);
+  /* soft warm peach washes over ivory — microsoft.ai's ambient warmth, viewport-fixed */
+  background:
+    radial-gradient(72% 55% at 86% 0%, rgba(240,206,190,.55), transparent 60%),
+    radial-gradient(66% 52% at 4% 6%, rgba(238,210,197,.45), transparent 62%),
+    var(--bg);
+  background-attachment: fixed;
+  font-family: var(--sans); font-size: 16px; line-height: 1.65; font-weight: 450;
+  /* clip (not hidden): still contains stray horizontal overflow, but does NOT
+     create a scroll container — so the sticky nav keeps working in Safari.
+     'hidden' here is a known cause of broken position:sticky on iOS. */
+  overflow-x: clip; -webkit-font-smoothing: antialiased;
+}
+::selection { background: var(--accent); color: #04140a; }
+a { color: var(--text); text-decoration: none; }
+a:focus-visible, button:focus-visible, .plat:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.container { max-width: var(--maxw); margin: 0 auto; padding: 0 28px; }
+
+/* ---------- type roles ---------- */
+.eyebrow {
+  font-family: var(--mono); font-size: var(--fs-xs); letter-spacing: 2.5px;
+  text-transform: uppercase; color: var(--dim); margin: 0 0 22px;
+}
+h1 { font-family: var(--serif); font-weight: 350; font-variation-settings: 'opsz' 144, 'wght' 350, 'SOFT' 0, 'WONK' 0; font-size: clamp(44px, 5.4vw, 76px); line-height: 1.0; letter-spacing: -0.025em; margin: 0 0 26px; text-wrap: balance; }
+h2 { font-family: var(--serif); font-weight: 370; font-variation-settings: 'opsz' 144, 'wght' 370, 'SOFT' 0, 'WONK' 0; font-size: clamp(34px, 4.6vw, 60px); line-height: 1.04; letter-spacing: -0.02em; margin: 0 0 26px; }
+h1 em, h2 em { font-style: italic; color: var(--accent); font-variation-settings: 'opsz' 144, 'wght' 400, 'SOFT' 0, 'WONK' 0; }
+/* the hero's connective "on" — a quiet grey hinge so the eye stays on the two terracotta claims, not the joint */
+.hero-head h1 .h1-hinge, .closing-line .h1-hinge { color: var(--muted); }
+/* the hero line is 38 chars, not 27 — at the global 76px it wraps to three lines and
+   splits "computer-use" at its hyphen. 64px sets it as two lines with "for" closing line
+   one, the same shape the hero has always had. Size alone does NOT protect the compound:
+   below ~390px it still broke at the hyphen ("computer-" / "use agents."), so every element
+   that renders this line wraps the compound in .nb — the hero h1, .closing-line, .cite-title
+   (fixed --fs-lg, not even clamped) and the search-preview mock. Measure at 360px, not 1440px. */
+.hero-head h1 { font-size: clamp(42px, 4.6vw, 64px); margin-bottom: 32px; }
+/* below 375px the second line ("computer-use agents.", 300px at 42px) no longer fits the
+   289px content box, so it wraps to three lines and strands "agents." alone — the orphan the
+   .claim-t rule forbids. 375px is the modern phone floor (SE3 375, iPhone 15 390); only the
+   320px-class devices need the smaller step, so scope it rather than lowering the clamp floor
+   for every phone. Measured, not guessed: line widths 292 / 300 against 304px available at 375. */
+@media (max-width: 374px) { .hero-head h1 { font-size: 34px; } }
+/* and again below ~316px, where even 34px leaves "computer-use agents." (243px) wider than the
+   ~209px content box, so it wraps to three lines and strands "agents." — measured on a 5px grid,
+   not sampled: the orphan runs 280–310px and clears at 320px. */
+@media (max-width: 319px) { .hero-head h1 { font-size: 28px; } }
+/* Verified floor: 280px (Galaxy Fold cover screen, the narrowest shipping viewport). At 280px and
+   up, all five display instances of the line — h1, .closing-line, .cite-title, .foot-tag and the
+   search-preview mock's .gs-h1 — wrap with the compound intact and no one-word last line, measured
+   on a 5px grid from 260 to 1440. Below 280px both .closing-line and .gs-h1 strand the "for" hinge
+   (through 279px) and the h1 goes back to three lines with "agents." alone (through 271px); no
+   shipping device is that narrow, so there is no third step. The two .gg-title rows inside the browser
+   mockup are 14.5px UI chrome in a 313px frame — a two-line search result is correct there, and
+   only the hyphen split (which .nb prevents) would be a defect. */
+
+/* ---------- blog / report heading ladder ----------
+   The editorial (non-landing) heading roles. Every post and the weekly report
+   share these, so a title reads the same everywhere. Sizes come from the display
+   tokens above; family/weight inherit from the base serif h1/h2/h3.
+     .post-wrap h1  Title       (L1) — the one page/post title
+     .post-wrap h2  Section     (L2) — a numbered/named section
+     .post-wrap h3  Subsection  (L3) — a sub-part inside a section */
+.post-wrap h1 { font-size: var(--t-title);   margin: 0 0 28px; }
+.post-wrap h2 { font-size: var(--t-section); margin: 40px 0 14px; }
+.post-wrap h3 { font-family: var(--serif); font-weight: 420;
+  font-variation-settings: 'opsz' 144, 'wght' 420, 'SOFT' 0, 'WONK' 0;
+  font-size: var(--t-sub); line-height: 1.14; letter-spacing: -0.015em; margin: 30px 0 10px; }
+
+@keyframes blink { 50% { opacity: 0; } }
+
+/* ---------- buttons ---------- */
+/* primary CTA — the one terracotta pill; its shadow is the accent's own warmth */
+.btn-solid {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--sans); font-weight: 700; font-size: var(--fs-lg);
+  background: var(--accent); color: #f6f2e8; padding: 12px 26px; border-radius: 999px; border: 0;
+  box-shadow: 0 8px 20px -12px rgba(189,90,56,.65);
+  transition: transform .14s var(--ease), filter .14s ease, box-shadow .2s var(--ease);
+}
+.btn-solid:hover { filter: brightness(1.04); transform: translateY(-2px); box-shadow: 0 12px 26px -12px rgba(189,90,56,.7); }
+.btn-solid:active { transform: translateY(0); }
+.btn-solid.sm { padding: 8px 18px; font-size: var(--fs-md); }
+.btn-ghost {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--sans); font-weight: 600; font-size: var(--fs-lg);
+  color: var(--text); padding: 12px 26px; border-radius: 999px;
+  border: 1px solid var(--panel-edge); background: var(--panel-fill);
+  transition: border-color .14s ease, background .14s ease, transform .14s var(--ease);
+}
+.btn-ghost:hover { border-color: var(--accent-dim); background: #fff; transform: translateY(-1px); }
+.btn-ghost.sm { padding: 7px 17px; font-size: var(--fs-md); font-weight: 600; }   /* mirrors .btn-solid.sm; 1px less padding absorbs the border so both pills stand equally tall */
+.cta-row { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+.cta-row .btn-solid, .cta-row .btn-ghost { min-width: 112px; justify-content: center; }   /* the two home buttons stand equal, like the nav pills */
+.cta-row.center { justify-content: center; margin-top: 36px; }
+/* closing CTA — a quiet bookend to the hero */
+.closing { text-align: center; padding-top: 40px; }
+.closing-line { font-family: var(--serif); font-weight: 400; font-style: normal; font-size: clamp(28px, 3.2vw, 42px); letter-spacing: -0.01em; color: var(--text); margin: 0; }
+.closing-line em { font-style: italic; color: var(--accent); }
+
+/* ---------- nav ---------- */
+.nav { position: sticky; top: 0; z-index: 100; background: rgba(250,244,232,.72); backdrop-filter: blur(16px) saturate(1.15); border-bottom: 1px solid var(--line); }
+.nav-inner { max-width: var(--maxw); margin: 0 auto; padding: 16px 28px; display: flex; align-items: center; justify-content: space-between; }
+.brand { display: inline-flex; align-items: center; gap: 10px; }
+.brand-plane { width: 22px; height: 22px; background: url('../assets/logo.svg') center/contain no-repeat; }
+.brand-name { font-family: var(--sans); font-weight: 700; font-size: var(--fs-xl); letter-spacing: -0.01em; white-space: nowrap; }
+.nav-links { display: flex; align-items: center; gap: 30px; }
+.nav-links a { color: var(--muted); font-size: var(--fs-md); font-weight: 500; transition: color .12s ease; }
+.nav-links a:hover { color: var(--text); }
+.nav-links .btn-solid { color: #f6f2e8; }
+.nav-links .btn-ghost { color: var(--text); background: transparent; border-color: var(--line-2); }   /* outline-only on the cream nav — panel-edge is too faint here */
+.nav-links .btn-ghost.sm, .nav-links .btn-solid.sm { min-width: 91px; justify-content: center; }   /* the two home pills stand equal — "GitHub" matches "Datasets" */
+.nav-links .btn-ghost:hover { background: #fff; }
+.nav-links .btn-ghost[aria-current="page"] { border-color: var(--accent-dim); background: #fff; }   /* the filled pill marks "you are here" */
+.nav-cta { display: flex; align-items: center; gap: 12px; }   /* the two pills read as one action cluster, tighter than the link run */
+.nav-sep { width: 1px; height: 15px; background: var(--line-2); }   /* groups the nav: in-page sections │ site pages │ the product's homes */
+
+/* ---------- hero ---------- */
+/* overflow visible so the stat popovers can extend below the hero and layer on top
+   (the device animations + ambient wash are contained in their own boxes instead) */
+.hero { padding: 60px 0 36px; position: relative; overflow: visible; }
+.hero::before {  /* slow warm ambient wash — echoes microsoft.ai's flowing canvas, with a whisper of green */
+  content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden;
+  background:
+    radial-gradient(38% 46% at 20% 14%, rgba(126,231,135,.05), transparent 60%),
+    radial-gradient(48% 54% at 80% 22%, rgba(243,198,179,.45), transparent 62%),
+    radial-gradient(44% 52% at 58% 62%, rgba(238,212,197,.34), transparent 66%);
+  filter: blur(26px);
+  animation: heroDrift 26s var(--ease) infinite alternate;
+}
+@keyframes heroDrift { from { transform: translate3d(0,0,0) scale(1); } to { transform: translate3d(-2.5%, 1.8%, 0) scale(1.07); } }
+/* two-column hero: the pitch on the left, the live demo on the right — the
+   device sits top-right as the focal object, its streaming trace directly
+   beneath it. Not a stacked overflow; a deliberate side-by-side. */
+.hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 0.98fr) minmax(0, 1.02fr); gap: 52px; align-items: start; }
+.hero-head { max-width: 560px; }
+.hero-demo { position: relative; display: flex; flex-direction: column; gap: 18px; }
+.hero-demo > * { min-width: 0; }
+/* an orchestrated entrance — the pitch settles in line by line, then the
+   demo rises and the agent gets to work. A crafted load, not a flat fade. */
+@keyframes heroIn { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+.hero-head > * { animation: heroIn .6s var(--ease) both; }
+.hero-head > *:nth-child(1) { animation-delay: .02s; }
+.hero-head > *:nth-child(2) { animation-delay: .12s; }
+.hero-head > *:nth-child(3) { animation-delay: .24s; }
+.hero-head > *:nth-child(4) { animation-delay: .34s; }
+.hero-demo { animation: heroIn .68s var(--ease) .46s both; }
+.stage { position: relative; min-height: 430px; }
+/* three platforms, one focal device — a true two-way crossfade.
+   visibility is delayed to the end of the fade so the outgoing device
+   actually fades out (instead of vanishing instantly). */
+/* silky cross-dissolve with a directional push: the outgoing device slides
+   left and fades while the incoming slides in from the right — never an empty
+   frame (that would read as a blink). The incoming rides on top (z-index) so
+   two dissimilar silhouettes dissolve cleanly instead of ghosting. Reads like
+   a premium slideshow, not a cut. */
+.stage .device { position: absolute; inset: 0; isolation: isolate; display: flex; flex-direction: column; align-items: center; justify-content: flex-end;
+  opacity: 0; visibility: hidden; transform: translateX(34px) scale(.982);
+  transition: opacity .4s ease, transform .5s var(--ease), visibility 0s .5s; }
+/* a shared lit tabletop: the three devices all stand on the same surface, so
+   the narrow phone reads as an object resting on a desk, not floating in a void */
+.stage::after { content: ""; position: absolute; left: 50%; bottom: -16px; width: 108%; height: 70px;
+  transform: translateX(-50%); z-index: -2; pointer-events: none; filter: blur(21px);
+  background:
+    radial-gradient(56% 62% at 50% 38%, rgba(154,212,110,.09), transparent 70%),
+    radial-gradient(82% 96% at 50% 30%, rgba(120,150,200,.05), transparent 72%); }
+/* each device casts its own soft contact shadow onto that surface — grounded, real */
+.stage .device::after { content: ""; position: absolute; left: 50%; bottom: -15px; transform: translateX(-50%);
+  z-index: -1; pointer-events: none; filter: blur(13px);
+  background: radial-gradient(50% 50% at 50% 50%, rgba(40,30,15,.42), rgba(40,30,15,.2) 46%, transparent 74%); }
+.dev-desktop::after { width: 220px; height: 26px; }
+.dev-browser::after { width: 440px; height: 30px; }
+.dev-mobile::after  { width: 196px; height: 28px; }
+.stage .device.active { opacity: 1; visibility: visible; transform: none; z-index: 2;
+  transition: opacity .42s ease, transform .52s var(--ease), visibility 0s 0s; }
+/* the outgoing device — slides out to the left, fading a touch faster than
+   the incoming arrives so the two never sit at full strength together */
+.stage .device.exit { opacity: 0; visibility: visible; transform: translateX(-38px) scale(.978); z-index: 1;
+  transition: opacity .3s ease, transform .5s var(--ease), visibility 0s .5s; }
+/* when YOU drive the switch, the same motion — just quicker */
+.stage.snappy .device { transition: opacity .26s ease, transform .34s var(--ease), visibility 0s .34s; }
+.stage.snappy .device.active { transition: opacity .28s ease, transform .36s var(--ease), visibility 0s 0s; }
+.stage.snappy .device.exit { transition: opacity .26s ease, transform .34s var(--ease), visibility 0s .34s; }
+.dev-desktop > .crt, .dev-browser > .browser { width: 100%; }
+/* a soft ambient behind the CRT — a screen lit in a dark room, restrained */
+.hero-demo::before { content: ""; position: absolute; left: 30%; top: 50%; width: 62%; height: 108%;
+  transform: translate(-50%,-50%); z-index: -1; pointer-events: none;
+  background: radial-gradient(46% 48% at 50% 50%, rgba(126,231,135,.07), rgba(90,150,230,.035) 55%, transparent 72%);
+  filter: blur(28px); }
+/* announcement chip — a temporary slot above the headline for time-boxed news
+   (releases etc.); currently unused. Evergreen links belong in the CTA row instead. */
+.hero-chip { display: inline-flex; align-items: center; gap: 9px; font-family: var(--mono); font-size: var(--fs-sm); color: var(--accent);
+  border: 1px solid var(--accent-dim); border-radius: 999px; padding: 7px 15px; margin-bottom: 22px; transition: background .14s ease; }
+.hero-chip:hover { background: #fff; }
+.chip-dot { width: 6px; height: 6px; background: var(--accent); }
+.nb { white-space: nowrap; }   /* glue for phrases that must not break mid-unit */
+/* the two deliverables — a labeled list, so the parallel structure is visible before it is
+   read; platform before framework, mirroring the pillar order (01 Data → 02 Eval → 03 Train) */
+.lead-claims { list-style: none; margin: 0 0 36px; padding: 0; display: grid; gap: 14px; max-width: 500px; }
+.lead-claims li { display: grid; grid-template-columns: 16px 1fr; align-items: start; }   /* hanging pixel bullet; the bolded first words are the labels */
+.lead-claims li::before { content: ""; width: 7px; height: 7px; background: var(--accent); margin-top: 10px; }
+.claim-t { color: var(--muted); font-size: var(--fs-xl); line-height: 1.6; text-wrap: balance; }   /* no one-word orphan lines */
+.lead-claims b { color: var(--text); font-weight: 650; }
+.lead-claims .lc { color: var(--accent); font-weight: 650; white-space: nowrap; }
+.lead-claims .hinge { color: var(--dim); font-style: italic; }
+.lead-claims a { color: var(--accent); border-bottom: 1px solid var(--accent-dim); padding-bottom: 1px; white-space: nowrap; }   /* never split a link across lines */
+.lead-claims a:hover { border-bottom-color: var(--accent); }
+/* stats — concise by default, the full list on hover */
+/* one row so moving from any stat down into its hover panel never crosses another stat */
+.stats { position: relative; list-style: none; display: flex; flex-wrap: nowrap; align-items: baseline; gap: 0; padding: 0; margin: 46px 0 0;
+  font-family: var(--mono); font-size: var(--fs-xs); letter-spacing: 1px; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
+.stat { position: static; cursor: default; display: inline-flex; align-items: baseline; gap: 5px; }
+.stat:not(:last-child)::after { content: "·"; margin: 0 12px; color: var(--dim); }
+.stat-n { color: var(--accent); font-weight: 700; font-size: var(--fs-xl); letter-spacing: 0; }
+/* one shared panel-slot below the row — hover fills the whitespace instead of a cramped tooltip above */
+.stat-pop { position: absolute; top: 100%; left: 0; margin-top: 18px; z-index: 30; width: max-content; max-width: min(470px, calc(100vw - 40px)); white-space: normal;
+  background: var(--panel-fill); border: 1px solid var(--panel-edge); border-radius: 14px;
+  box-shadow: 0 28px 52px -28px rgba(40,30,15,.46), 0 3px 8px -4px rgba(40,30,15,.16);
+  padding: 17px 19px 16px; text-transform: none; text-align: left;
+  opacity: 0; transform: translateY(-6px); pointer-events: none; transition: opacity .2s var(--ease), transform .2s var(--ease); }
+/* JS `pop-open` (enforces one-at-a-time) is the sole hover driver; a bare
+   :hover rule here would bypass that exclusivity and let panels coexist. */
+.stat.pop-open .stat-pop, .stat:focus-within .stat-pop { opacity: 1; transform: none; pointer-events: auto; }
+.stat-pop b { display: block; font-family: var(--sans); font-weight: 600; font-size: var(--fs-sm); letter-spacing: 0; text-transform: none; color: var(--muted); line-height: 1.42; margin-bottom: 13px; }
+.pop-grp { display: block; margin-top: 13px; }
+.pop-grp:first-of-type { margin-top: 0; }
+.pop-cat { display: block; font-family: var(--mono); font-size: var(--fs-2xs); letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent-dim); margin-bottom: 7px; }
+.pop-list { display: flex; flex-wrap: wrap; gap: 4px 22px; }
+.pop-item { display: inline-flex; align-items: center; gap: 5px; font-family: var(--sans); font-size: var(--fs-md); font-weight: 500; color: var(--text); text-decoration: none; padding: 2px 0; transition: color .14s ease; }
+.pop-item:hover { color: var(--accent); }
+.pop-x { font-size: var(--fs-2xs); color: var(--dim); transition: color .14s ease, transform .14s ease; }
+.pop-item:hover .pop-x { color: var(--accent); transform: translate(1px,-1px); }
+
+/* ---------- terminal — stays dark on the cream page (the code/CRT identity) ---------- */
+.term { position: relative; background: var(--term-fill); color: var(--term-text); border: 1px solid var(--term-edge); border-radius: 8px; overflow: hidden;
+  box-shadow: 0 20px 44px -26px rgba(40,30,15,.5);
+  --accent: var(--term-accent); }   /* inside the dark terminal, accent is the bright warm terminal accent */
+.term::after {  /* faint CRT scanlines — the pixel-era heritage, whispered */
+  content: ""; position: absolute; inset: 0; pointer-events: none; border-radius: inherit;
+  background: repeating-linear-gradient(to bottom, rgba(255,255,255,.022) 0 1px, transparent 1px 3px);
+}
+.term-bar { display: flex; align-items: center; gap: 7px; padding: 13px 16px; border-bottom: 1px solid var(--term-edge); }
+.term-bar .d { width: 10px; height: 10px; border-radius: 50%; background: #3a352a; }
+.term-title { margin-left: 10px; font-family: var(--mono); font-size: var(--fs-sm); color: var(--term-dim); }
+.term-copy { margin-left: auto; font-family: var(--mono); font-size: var(--fs-2xs); letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--term-dim); background: transparent; border: 0; cursor: pointer; padding: 3px 4px; transition: color .12s ease; }
+.term-copy:hover { color: var(--term-text); }
+.term-copy.done { color: var(--term-accent); }
+.term-body { margin: 0; padding: 22px 24px; font-family: var(--mono); font-size: var(--fs-sm); line-height: 1.8; color: var(--term-text); min-height: 356px; white-space: pre-wrap; word-break: break-word; }
+.term-body.static, .term-body.qs { min-height: 0; }
+.t-dim { color: var(--dim); }
+.t-kw  { color: #9ecbff; }
+.t-str { color: var(--accent); }
+/* the quickstart session streams in line by line when scrolled to — the
+   brand's live-terminal language, so this reads like a real run, not a slab */
+.qs-line { display: block; }
+.qs-gap { margin-top: 1.5em; }
+.js-reveal .qs-line { opacity: 0; transform: translateY(5px); transition: opacity .4s var(--ease), transform .4s var(--ease); }
+.js-reveal .start-term.in .qs-line { opacity: 1; transform: none; }
+.start-term.in .qs-line:nth-child(1) { transition-delay: .06s; }
+.start-term.in .qs-line:nth-child(2) { transition-delay: .30s; }
+.start-term.in .qs-line:nth-child(3) { transition-delay: .50s; }
+.start-term.in .qs-line:nth-child(4) { transition-delay: .70s; }
+.start-term.in .qs-line:nth-child(5) { transition-delay: .90s; }
+.qs-caret { display: inline-block; width: 7px; height: 1.02em; margin-left: 4px; background: var(--accent); vertical-align: -.12em; }
+.js-reveal .qs-caret { opacity: 0; }
+.js-reveal .start-term.in .qs-caret { opacity: 1; transition: opacity .01s linear 1.05s; animation: blink 1s steps(1) infinite 1.15s; }
+.hero .term { margin-top: 10px; }
+
+/* ============================================================
+   the agent operating a screen — a pixel CRT, the teaser alive.
+   Chunky bevels, flat fills, zero radius, no blur. The Bliss
+   wallpaper + a LibreOffice Calc window; the cursor operates it.
+   ============================================================ */
+:root {
+  /* dark modern device casing — thin premium bezels (Apple-product-shot on cream) */
+  --crt:   #2a2a30; --crt-hi: #45454e; --crt-lo: #1a1a1e; --ink: #07080a;
+  --crt-rim: 0 0 0 1px rgba(0,0,0,.35);
+  --win:   #f5f6f2; --win-bar: #dde1d7; --win-ink: #2a2e27; --win-sub: #8a8f86;
+  --pgreen: #7ee787; --pgreen-lo: #3f9e57; --pgreen-ink: #08240f;
+}
+
+/* the desktop device — a clean silver monitor sharing the phone's casing material
+   (var(--crt) body + bevel + rim). One modern device family, no pixel art. */
+.crt { position: relative; padding: 8px 8px 9px; border-radius: 13px;
+  background: linear-gradient(177deg, #35353d 0%, #24242a 62%, #1d1d22 100%);
+  box-shadow: inset 0 1.5px 0 rgba(255,255,255,.09), 0 1.5px 3px rgba(0,0,0,.34), 0 34px 52px -30px rgba(40,30,15,.42); }
+.screen { position: relative; aspect-ratio: 16/10; overflow: hidden; border-radius: 5px; background: #24303f;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,.55); }
+/* a clean, calm desktop backdrop — no pixel wallpaper */
+.wall { position: absolute; inset: 0; background: linear-gradient(150deg, #37556b 0%, #4d6b7a 48%, #6c7f84 100%); }
+/* the glass: a soft, subtle vignette (a modern LCD, not a CRT) */
+.screen::after { content: ""; position: absolute; inset: 0; z-index: 10; pointer-events: none;
+  box-shadow: inset 0 0 42px rgba(8,16,26,.38); }
+.mk-ph { color: var(--win-sub); }
+.typed { color: #0d5f2a; font-weight: 700; }
+
+/* the app window — floated so the pixel desktop shows around it */
+.win { position: absolute; left: 6.5%; right: 6.5%; top: 8.5%; bottom: auto;
+  background: var(--win); border-radius: 7px; overflow: hidden;
+  box-shadow: 0 20px 38px -18px rgba(8,16,26,.55), 0 0 0 1px rgba(0,0,0,.1); display: flex; flex-direction: column; }
+.win-bar { display: flex; align-items: center; gap: 7px; height: 20px; padding: 0 8px; background: var(--win-bar);
+  box-shadow: inset 0 -2px 0 #c3c8bd; font-family: var(--mono); font-size: 10px; color: var(--win-ink); }
+.win-dot { width: 8px; height: 8px; background: var(--pgreen); box-shadow: 0 0 0 2px var(--ink); }
+.win-name { letter-spacing: .3px; }
+.win-body { flex: 1; padding: 7px 11px; min-height: 0; }
+
+/* LibreOffice Calc — the desktop task */
+.sheet { display: flex; flex-direction: column; gap: 5px; }
+.sh-fbar { display: flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 11px; }
+.sh-ref { color: var(--win-ink); background: #e9ebe4; box-shadow: inset 2px 2px 0 #cfd2c9, 0 0 0 2px var(--ink);
+  padding: 4px 9px; min-width: 34px; text-align: center; }
+.sh-fx { color: #8a8f86; font-style: italic; }
+.sh-formula { flex: 1; color: #0d5f2a; background: #fff; box-shadow: inset 2px 2px 0 #eef1e9, 0 0 0 2px var(--ink);
+  padding: 3px 9px; min-height: 21px; display: flex; align-items: center; }
+.sh-grid { display: grid; grid-template-columns: 26px 1fr 84px; box-shadow: 0 0 0 2px var(--ink); }
+.sh-hc, .sh-hr { background: #dfe3da; color: #6a706a; font-family: var(--mono); font-size: 10px;
+  display: flex; align-items: center; justify-content: center; padding: 3px; box-shadow: inset -1px -1px 0 #c4c9bd; }
+.sh-cell { font-family: var(--mono); font-size: 11px; color: var(--win-ink); background: #fff; padding: 3px 9px;
+  min-height: 21px; display: flex; align-items: center; box-shadow: inset -1px -1px 0 #dfe2d9; }
+.sh-cell.num { justify-content: flex-end; }
+.sh-cell.dim { color: #9aa096; }
+.sh-cell.strong { font-weight: 700; }
+/* the score cells are yours to edit — the agent re-averages whatever you enter.
+   a faint green underline at rest signals "this is a live field". */
+.sh-cell.editable { cursor: text; caret-color: var(--pgreen-lo); box-shadow: inset -1px -1px 0 #dfe2d9, inset 0 -2px 0 rgba(63,158,87,.34); }
+.sh-cell.editable:hover { background: #eefaef; box-shadow: inset 0 0 0 1px var(--pgreen-lo), inset -1px -1px 0 #dfe2d9; }
+.sh-cell.editable:focus { outline: none; background: #fff; box-shadow: inset 0 0 0 2px var(--pgreen-lo); }
+/* the agent selects a cell, then the result eases in (not a pop) */
+.sh-cell.total { transition: background .32s ease, color .32s ease, box-shadow .22s ease; }
+.sh-cell.sel { box-shadow: inset 0 0 0 2px var(--pgreen-lo); }
+.sh-cell.total.filled { color: #0d5f2a; font-weight: 700; background: #d7f6dd; box-shadow: inset 0 0 0 2px var(--pgreen-lo); }
+/* blinking text caret while the agent types the formula */
+.typed.caret::after { content: ""; display: inline-block; width: 2px; height: 1.05em; margin-left: 1px;
+  background: #0d5f2a; vertical-align: -0.15em; animation: blink 1s steps(1) infinite; }
+
+/* the agent: a real mouse cursor + a clean ring pulse on click.
+   Movement is GPU-composited transform (buttery), not left/top (janky). */
+.mouse-cur { position: absolute; left: 0; top: 0; margin: -1px 0 0 -2px; width: 21px; height: 32px; background: url('../assets/pixel/cursor.png') top left/contain no-repeat; image-rendering: pixelated; filter: drop-shadow(0 2px 3px rgba(0,0,0,.45)); transform: translate3d(0,0,0); transition: transform .42s var(--ease); will-change: transform; z-index: 8; pointer-events: none; }
+.press { transform: translate(1px,1px); filter: brightness(.93); }
+/* click / tap feedback: a clean expanding ring pulse — premium, not a
+   game-y sparkle. One language for every device (mouse or touch). */
+.spark { position: absolute; width: 30px; height: 30px; border-radius: 50%; box-shadow: 0 0 0 2px rgba(63,158,87,.7);
+  transform: translate(-50%,-50%) scale(.3); opacity: 0; z-index: 7; pointer-events: none; }
+.spark.go { animation: tap .52s ease-out 1; }
+@keyframes tap { 0% { opacity: .7; transform: translate(-50%,-50%) scale(.3); } 100% { opacity: 0; transform: translate(-50%,-50%) scale(1.2); } }
+/* a phone is touch, not mouse: hide the arrow cursor, use a larger finger ripple */
+.dev-mobile .mouse-cur { display: none; }
+.dev-mobile .spark { width: 42px; height: 42px; box-shadow: 0 0 0 2.5px rgba(63,158,87,.55); }
+
+/* taskbar — the OS bar carries the live action */
+.taskbar { position: absolute; left: 0; right: 0; bottom: 0; height: 28px; display: flex; align-items: center; gap: 9px;
+  padding: 0 8px; background: #23272f; box-shadow: inset 0 2px 0 #3b424e; font-family: var(--mono); font-size: 10px; color: #c9cfda; z-index: 6; }
+.tb-start { display: flex; align-items: center; gap: 5px; color: var(--text); background: var(--panel-fill); font-weight: 800;
+  box-shadow: inset -2px -2px 0 #e4dac6, inset 2px 2px 0 #fffdf8; padding: 3px 9px; }
+/* easter-egg links inside the demo mockups — keep the mockup look, no link chrome */
+.tb-start, .gs-btn, .gs-btn2, .ph-who { text-decoration: none; cursor: pointer; }
+.ph-av-link { display: block; line-height: 0; cursor: pointer; }
+/* the exact CUA-Lite mark (terracotta + fold-seam), same as the header */
+.tb-logo { width: 14px; height: 14px; background: url('../assets/logo.svg') center/contain no-repeat; }
+.think { color: #8a93a2; }
+.think i { font-style: normal; animation: dot 1.15s ease-in-out infinite; }
+.think i:nth-child(2) { animation-delay: .18s; } .think i:nth-child(3) { animation-delay: .36s; }
+@keyframes dot { 0%, 100% { opacity: .25; } 50% { opacity: 1; } }
+.tb-clock { margin-left: auto; color: #8a93a2; }
+
+/* monitor stand — a slim tapered neck into a low flat foot, dark like the bezel */
+.crt-neck { width: 40px; height: 22px; margin: -1px auto 0; background: linear-gradient(180deg, #2d2d34, #222228);
+  clip-path: polygon(34% 0, 66% 0, 74% 100%, 26% 100%); }
+.crt-base { width: 132px; height: 8px; margin: 0 auto; border-radius: 4px 4px 5px 5px;
+  background: linear-gradient(180deg, #34343b, #201f24);
+  box-shadow: 0 5px 10px -4px rgba(40,30,15,.4); }
+
+/* the platform words in the lead ARE the control — hover to switch the device.
+   Distinct from the bold keywords: an underline that lights up, never bold. */
+.plat { color: var(--text); cursor: pointer; padding-bottom: 1px; white-space: nowrap;
+  box-shadow: inset 0 -1.5px 0 var(--line-2); transition: color .25s ease, box-shadow .25s ease; }   /* quiet until active — the orange visibly travels with the demo */
+.plat:hover, .plat.on { color: var(--accent); box-shadow: inset 0 -2px 0 var(--accent); }
+
+/* ---------- BROWSER: a classic browser, standalone (no monitor) ----------
+   window lights + a tab + a pill address bar make it unmistakably a browser.
+   It opens on Google, searches cua-lite, and lands on this very homepage. */
+/* the browser is a light pixel window — silver chrome + charcoal outline like the
+   monitor, so the three devices share one aesthetic (no dark macOS chrome) */
+/* the browser is its own thing — a clean, realistic light Chrome window (not a dark device) */
+.browser { background: #dcdde1; border-radius: 11px; overflow: hidden; box-shadow: 0 24px 50px -30px rgba(40,30,15,.5), 0 0 0 1px rgba(0,0,0,.09); }
+.bw-tabs { display: flex; align-items: center; gap: 7px; padding: 9px 12px 0; }
+.bw-lights { display: inline-flex; gap: 6px; margin-right: 3px; }
+.bw-lights i { width: 10px; height: 10px; border-radius: 50%; box-shadow: inset 0 0 0 1px rgba(0,0,0,.18); }
+.bw-lights i:nth-child(1) { background: #ff5f57; } .bw-lights i:nth-child(2) { background: #febc2e; } .bw-lights i:nth-child(3) { background: #28c840; }
+.bw-tab { display: inline-flex; align-items: center; gap: 7px; font-family: var(--sans); font-weight: 600; font-size: 11px; color: var(--win-ink);
+  background: var(--win); box-shadow: inset 0 0 0 1.5px #cdd0c4; padding: 7px 13px; border-radius: 6px 6px 0 0; }
+.bw-fav { width: 9px; height: 9px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+.bw-x { color: var(--win-sub); }
+.bw-newtab { font-family: var(--mono); font-size: 13px; color: #6f7268; padding: 3px 7px; }
+.bw-nav { display: flex; align-items: center; gap: 11px; padding: 9px 12px 10px; }
+.bw-arrows { font-family: var(--mono); font-size: 14px; color: #6f7268; letter-spacing: 3px; }
+.bw-reload { font-family: var(--mono); font-size: 13px; color: #565a50; }
+.bw-url { flex: 1; display: flex; align-items: center; gap: 7px; font-family: var(--mono); font-size: 11px; color: var(--win-ink); background: #fbfbf7; border-radius: 999px; box-shadow: inset 0 0 0 1.5px #c7cabf; padding: 6px 14px; }
+.bw-lock { font-size: 9px; }
+.bw-view { position: relative; aspect-ratio: 16/9.6; overflow: hidden; background: #fff; box-shadow: inset 0 1px 0 rgba(0,0,0,.1); }
+
+/* the three browser pages cross-fade like a real page load, never a hard cut */
+.gg-home, .gg-results, .gg-site { position: absolute; inset: 0; opacity: 0; visibility: hidden; transform: translateY(9px);
+  transition: opacity .3s ease, transform .42s var(--ease), visibility 0s .42s; pointer-events: none; }
+.gg-home.show, .gg-results.show, .gg-site.show { opacity: 1; visibility: visible; transform: none; pointer-events: auto;
+  transition: opacity .34s ease, transform .44s var(--ease), visibility 0s 0s; }
+/* Google — home */
+.gg-home { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px; padding: 0 28px; }
+.gg-logo { display: flex; font-family: var(--sans); font-weight: 800; font-size: 46px; letter-spacing: -1.5px; }
+.gg-logo b:nth-child(1) { color: #4285F4; } .gg-logo b:nth-child(2) { color: #EA4335; } .gg-logo b:nth-child(3) { color: #FBBC05; }
+.gg-logo b:nth-child(4) { color: #4285F4; } .gg-logo b:nth-child(5) { color: #34A853; } .gg-logo b:nth-child(6) { color: #EA4335; }
+.gg-search { display: flex; align-items: center; gap: 12px; width: 100%; max-width: 360px; background: #fff; border-radius: 24px;
+  box-shadow: 0 0 0 1.5px #dcdfe3, 0 2px 6px rgba(0,0,0,.12); padding: 11px 18px; font-size: 13px; color: #3c4043; }
+.gg-search.hot { box-shadow: 0 0 0 2px var(--pgreen-lo), 0 2px 8px rgba(0,0,0,.14); }
+.gg-mag { color: #9aa0a6; font-size: 15px; }
+.gg-btns { display: flex; gap: 11px; }
+.gg-btn { font-family: var(--sans); font-weight: 500; font-size: 11.5px; color: #3c4043; background: #f8f9fa; border-radius: 4px; box-shadow: 0 0 0 1px #dfe1e5; padding: 9px 15px; }
+
+/* Google — results */
+.gg-results { display: flex; flex-direction: column; padding: 14px 22px 0; overflow: hidden; }
+.gg-rbar { display: flex; align-items: center; gap: 14px; padding-bottom: 13px; box-shadow: inset 0 -1px 0 #e4e6ea; margin-bottom: 15px; }
+.gg-rlogo { display: flex; font-family: var(--sans); font-weight: 800; font-size: 20px; letter-spacing: -.5px; }
+.gg-rlogo b:nth-child(1){color:#4285F4;} .gg-rlogo b:nth-child(2){color:#EA4335;} .gg-rlogo b:nth-child(3){color:#FBBC05;}
+.gg-rlogo b:nth-child(4){color:#4285F4;} .gg-rlogo b:nth-child(5){color:#34A853;} .gg-rlogo b:nth-child(6){color:#EA4335;}
+.gg-rq { flex: 1; background: #fff; border-radius: 20px; box-shadow: 0 0 0 1.5px #dcdfe3; padding: 7px 15px; font-size: 12px; color: #3c4043; }
+.gg-rmag { color: #9aa0a6; font-size: 14px; }
+.gg-item { display: flex; flex-direction: column; gap: 3px; margin-bottom: 15px; cursor: pointer; }
+.gg-item .gg-url { font-family: var(--mono); font-size: 10.5px; color: #5f6368; }
+.gg-item .gg-title { font-family: var(--sans); font-weight: 500; font-size: 14.5px; color: #1a0dab; }
+.gg-item .gg-snip { font-size: 11px; color: #4d5156; line-height: 1.5; }
+.gg-item[data-t=open]:hover .gg-title, .gg-item.press .gg-title { text-decoration: underline; }
+
+/* the cua-lite homepage, opened in the browser — a miniature of this page */
+.gg-site { display: flex; flex-direction: column; background: #000; }
+.gs-nav { display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; box-shadow: inset 0 -1px 0 #16191f; }
+.gs-brand { display: flex; align-items: center; gap: 7px; color: #fff; font-family: var(--sans); font-weight: 750; font-size: 13px; }
+/* the mini cua-lite site's own brand mark — the exact header mark */
+.gs-plane { width: 16px; height: 16px; background: url('../assets/logo.svg') center/contain no-repeat; }
+.gs-links { display: flex; gap: 7px; }
+.gs-links i { width: 20px; height: 5px; border-radius: 2px; background: #2a2f38; }
+.gs-hero { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 0 24px; gap: 11px; }
+.gs-h1 { font-family: var(--serif); font-weight: 400; font-size: 30px; line-height: 1.04; color: #fff; letter-spacing: -.5px; }
+.gs-h1 em { color: var(--accent); font-style: italic; }
+.gs-cta { display: flex; gap: 9px; margin-top: 7px; }
+.gs-btn { background: var(--accent); color: #08240f; font-family: var(--sans); font-weight: 700; font-size: 10px; padding: 8px 13px; }
+.gs-btn2 { color: #fff; border: 1.5px solid #2a2f38; font-family: var(--sans); font-weight: 600; font-size: 10px; padding: 6.5px 13px; }
+
+/* ---------- MOBILE: a phone — rounded like a real handset, not a slab ---------- */
+/* thin uniform bezels, big soft corners, a Dynamic Island: unmistakably a phone.
+   It shares the casing material (colour, bevel, rim) with the other devices,
+   but its silhouette is its own — a CRT is boxy, a phone is not. */
+.phone { position: relative; width: 212px; padding: 6px; border-radius: 46px;
+  background: linear-gradient(155deg, #3c3c44 0%, #25252b 55%, #1c1c21 100%);
+  box-shadow: inset 0 1.5px 1px rgba(255,255,255,.13), inset 0 0 0 1px rgba(0,0,0,.3), 0 34px 55px -32px rgba(40,30,15,.5); }
+/* side buttons — volume rocker on the left rail, power on the right */
+.phone::before { content: ""; position: absolute; right: -2px; top: 112px; width: 2px; height: 46px; border-radius: 2px; background: var(--crt-lo); box-shadow: 1px 0 0 rgba(0,0,0,.55); }
+.phone::after  { content: ""; position: absolute; left: -2px; top: 86px; width: 2px; height: 48px; border-radius: 2px; background: var(--crt-lo); box-shadow: -1px 0 0 rgba(0,0,0,.55); }
+.ph-screen { position: relative; aspect-ratio: 9/19; overflow: hidden; border-radius: 40px; background: #f4f5f0;
+  display: flex; flex-direction: column; }   /* status bar + chat stack without overflowing the screen */
+/* the Dynamic Island — the tell that says "iPhone" at a glance */
+.ph-island { position: absolute; top: 10px; left: 50%; transform: translateX(-50%); width: 54px; height: 15px; border-radius: 8px; background: #05070b; z-index: 13; }
+.ph-island::after { content: ""; position: absolute; right: 7px; top: 50%; transform: translateY(-50%); width: 5px; height: 5px; border-radius: 50%; background: #17252f; box-shadow: inset 0 0 0 1px #05070b; }
+/* the home indicator — dark pill on the bright screen */
+.ph-home { position: absolute; bottom: 7px; left: 50%; transform: translateX(-50%); width: 98px; height: 5px; border-radius: 3px; background: #2a2e27; opacity: .8; z-index: 13; }
+.ph-status { display: flex; justify-content: space-between; align-items: center; font-family: var(--sans); font-weight: 700; font-size: 10.5px; color: #2a2e27; padding: 10px 20px 5px; }
+/* a battery icon — outline + fill + terminal nub */
+.ph-sig { position: relative; width: 22px; height: 11px; border-radius: 3px; box-shadow: inset 0 0 0 1.5px #9a9d93; }
+.ph-sig::before { content: ""; position: absolute; left: 2px; top: 2px; bottom: 2px; width: 13px; border-radius: 1.5px; background: #2a2e27; }
+.ph-sig::after { content: ""; position: absolute; right: -3px; top: 50%; transform: translateY(-50%); width: 2px; height: 4px; border-radius: 0 1.5px 1.5px 0; background: #9a9d93; }
+/* the Messages app — texting ZHZisZZ about why CUA-Lite is good */
+.ph-app { padding: 0; }
+.ph-chat { flex: 1; min-height: 0; display: flex; flex-direction: column; }
+.ph-chead { position: relative; display: flex; flex-direction: column; align-items: center; gap: 5px; padding: 3px 12px 11px; box-shadow: inset 0 -1px 0 #e3e5df; }
+.ph-back { position: absolute; left: 13px; top: 5px; font-size: 22px; line-height: 1; color: var(--pgreen-lo); }
+.ph-av { width: 42px; height: 42px; border-radius: 50%; object-fit: cover; background: #d7dad1; }
+.ph-av.noimg { background: linear-gradient(140deg, #9aa79a, #66745f); }
+.ph-who { font-family: var(--sans); font-weight: 600; font-size: 11.5px; color: #2a2e27; }
+.ph-thread { flex: 1; min-height: 0; overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end; gap: 7px; padding: 14px 13px; }
+.ph-day { align-self: center; font-family: var(--sans); font-size: 9px; color: #9aa096; margin-bottom: 4px; }
+.ph-bub { flex-shrink: 0; max-width: 80%; font-size: 12.5px; line-height: 1.36; padding: 8px 12px; border-radius: 17px; }
+.ph-bub.them { align-self: flex-start; background: #e7e7ec; color: #2a2e27; border-bottom-left-radius: 5px; }
+/* the sent bubble grows its height as it appears, so the whole thread slides
+   up smoothly (never a jump) — the classic silky messaging feel */
+.ph-bub.me { align-self: flex-end; background: #34c759; color: #fff; font-weight: 600; border-bottom-right-radius: 5px;
+  max-height: 0; padding-top: 0; padding-bottom: 0; opacity: 0; overflow: hidden; transform: translateY(7px) scale(.95); transform-origin: 100% 100%;
+  transition: max-height .42s var(--ease), padding .42s var(--ease), opacity .3s ease, transform .42s cubic-bezier(.2,.9,.3,1.2); }
+.ph-bub.me.show { max-height: 150px; padding-top: 8px; padding-bottom: 8px; opacity: 1; transform: none; }
+.ph-composer { display: flex; align-items: center; gap: 8px; padding: 10px 12px 26px; background: #f4f5f0; box-shadow: inset 0 1px 0 #e3e5df; }
+.ph-input { flex: 1; display: flex; align-items: center; font-size: 12.5px; color: #2a2e27; background: #fff; border-radius: 16px; box-shadow: inset 0 0 0 1.5px #d3d5ce; padding: 7px 13px; height: 32px; white-space: nowrap; overflow: hidden; }
+.ph-input .mk-ph, .ph-input > span { overflow: hidden; text-overflow: clip; white-space: nowrap; }
+.ph-input.hot { box-shadow: inset 0 0 0 2px var(--pgreen-lo); }
+/* send button = the CUA-Lite paper plane itself (exact mark + ring) */
+.ph-send { display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%;
+  background: #fff; box-shadow: inset 0 0 0 1.5px var(--accent); flex-shrink: 0; transition: background .22s ease, box-shadow .22s ease; }
+.ph-send::after { content: ""; width: 16px; height: 16px; background: url('../assets/logo.svg') center/contain no-repeat; }
+.ph-send.sent { background: #fbeee7; box-shadow: inset 0 0 0 1.5px var(--accent); }
+
+/* ---------- shared agent status line ---------- */
+/* the rollout streams as a live log — the agent's run, line by line */
+/* reserve the tallest mode's height so cycling desktop/browser/mobile never nudges
+   the page below (browser's 6-line trace is the max) — zero layout drift */
+/* the rollout trace is a dark terminal log (like the page's other terminals) so it
+   stays legible on the cream page and reads as the machine's own output */
+.rollout { font-family: var(--mono); font-size: var(--fs-md); min-height: 284px; margin-top: 16px;
+  --accent: var(--term-accent);
+  background: var(--term-fill); color: var(--term-text); border: 1px solid var(--term-edge); border-radius: 8px;
+  padding: 18px 20px 16px; box-shadow: 0 20px 44px -26px rgba(40,30,15,.5); }
+.rl-cmd { font-size: var(--fs-sm); line-height: 1.55; color: var(--term-muted); padding-bottom: 12px; border-bottom: 1px solid var(--term-edge); word-break: break-word; }
+.rl-cmd .c-p { color: var(--term-accent); } .rl-cmd .c-flag { color: var(--term-dim); } .rl-cmd .c-val { color: var(--term-text); } .rl-cmd .c-env { color: var(--term-accent); }
+.rl-log { margin-top: 12px; min-height: 190px; display: flex; flex-direction: column; gap: 9px; }
+.rl-line { display: flex; color: var(--term-text); opacity: 0; transform: translateY(3px); animation: rlIn .22s ease forwards; }
+.rl-mark { color: var(--term-dim); margin-right: 10px; flex-shrink: 0; }
+.rl-lat { margin-left: auto; padding-left: 14px; color: var(--term-dim); flex-shrink: 0; font-variant-numeric: tabular-nums; }
+.rl-line.think { color: var(--term-muted); }
+.rl-line.done { color: var(--accent); font-weight: 500; }
+.rl-line.done .rl-mark { color: var(--accent); }
+.rl-line.live .rl-mark::after { content: ""; }
+.rl-line.live .caret { display: inline-block; width: 6px; height: 1.05em; margin-left: 3px; background: var(--accent); vertical-align: -0.15em; animation: blink 1s steps(1) infinite; }
+@keyframes rlIn { to { opacity: 1; transform: none; } }
+
+/* ---------- divider: a short centred hairline between sections ---------- */
+.divider { position: relative; display: flex; align-items: center; justify-content: center; padding: 22px 0; }
+/* a quiet, short centred hairline — a minimal editorial break between sections */
+.flightline { width: 52px; height: 1px; background: var(--line-2); }
+.js-reveal .flightline { transform: scaleX(0); }
+.js-reveal .divider.in .flightline { transform: scaleX(1); transition: transform .9s var(--ease) .1s; }
+@media (prefers-reduced-motion: reduce) {
+  .js-reveal .flightline { clip-path: none; }
+}
+
+/* scroll reveal — content settles up as you reach it (only when JS is on) */
+.js-reveal .reveal { opacity: 0; transform: translateY(20px); transition: opacity .5s ease, transform .58s var(--ease); }
+.js-reveal .reveal.in { opacity: 1; transform: none; transition-delay: var(--rev-delay, 0s); }
+
+/* ---------- sections ---------- */
+.section { padding: 132px 0 24px; }
+#start { padding-top: 84px; }   /* it follows the hero's divider — keep the gap ~in line with the other sections */
+.section:last-of-type { padding-bottom: 44px; }
+
+/* ---------- section lead paragraph (intro under an h2) ---------- */
+.section-lead { max-width: 600px; margin: 0 0 56px; color: var(--muted); font-size: var(--fs-xl); line-height: 1.62; }
+.section-lead code { font-family: var(--mono); font-size: var(--fs-md); background: var(--panel-2); border: 1px solid var(--line); padding: 1px 6px; color: var(--text); }
+.section-lead a { color: var(--accent); }
+.section-lead a:hover { text-decoration: underline; }
+/* the two data sources — corpora (at scale) + rollouts (on demand) */
+.src-two { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; max-width: 660px; margin: 0 auto 26px; text-align: left; }
+.src { display: flex; flex-direction: column; gap: 8px; padding: 21px 23px 19px; border-radius: 14px; text-decoration: none;
+  background: var(--panel-fill); border: 1px solid var(--panel-edge);
+  box-shadow: 0 20px 38px -28px rgba(40,30,15,.32); transition: transform .18s var(--ease), box-shadow .22s var(--ease), border-color .18s ease; }
+.src:hover { transform: translateY(-3px); box-shadow: 0 26px 44px -26px rgba(40,30,15,.4); border-color: var(--accent-dim); }
+.src-k { font-family: var(--mono); font-size: var(--fs-2xs); letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent-dim); }
+.src-h { font-family: var(--sans); font-weight: 700; font-size: var(--fs-2xl); color: var(--text); letter-spacing: -0.01em; }
+/* OpenAI mark on the Rollouts card — masked so it inherits the heading ink; the
+   Rollouts are teacher-model (GPT/Claude…) generations, not just HF-hosted data */
+.src-ico { display: inline-block; width: 16px; height: 16px; vertical-align: -3px; margin-right: 7px;
+  background: currentColor; -webkit-mask: url('../assets/logos/openai.svg') center/contain no-repeat; mask: url('../assets/logos/openai.svg') center/contain no-repeat; }
+.src-d { font-family: var(--sans); font-size: var(--fs-md); line-height: 1.5; color: var(--muted); }
+.src-go { margin-top: 4px; font-family: var(--mono); font-size: var(--fs-sm); color: var(--accent); transition: opacity .14s ease; }
+.src:hover .src-go { text-decoration: underline; }
+.src-contrib { font-family: var(--mono); font-size: var(--fs-sm); color: var(--muted); margin: -4px auto 30px; text-align: center; }
+.src-contrib a { color: var(--accent); }
+.src-contrib a:hover { text-decoration: underline; }
+
+/* ---- training-env belt · looping rollout clips, one env family at a time (driven by js/belt.js) ---- */
+.belt-fig { max-width: 660px; margin: 8px auto 18px; }   /* shared content column — same 660px as .cov / .lb / .hf-embed */
+.belt-tabs { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin-bottom: 10px; }
+/* one-line plain-English gloss of the selected family, swapped by js/belt.js on tab change */
+.belt-fam-desc { text-align: center; font-family: var(--mono); font-size: var(--fs-sm); letter-spacing: .2px; color: var(--muted); margin: 0 auto 15px; }   /* same voice as .belt-cap — keeps the whole belt mono */
+.belt-tab { font-family: var(--mono); font-size: 12px; letter-spacing: .2px; padding: 6px 14px; border-radius: 999px; border: 1px solid var(--line-2); background: transparent; color: var(--muted); cursor: pointer; transition: border-color .15s ease, color .15s ease, background .15s ease; }
+.belt-tab:hover { border-color: var(--accent-dim); color: var(--text); }
+.belt-tab.is-on { background: var(--accent); border-color: var(--accent); color: #fff; }
+.belt { position: relative; overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent); mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent); }
+.belt-track { display: flex; width: max-content; animation: beltscroll 44s linear infinite; }
+.belt-track + .belt-track { margin-top: 12px; }   /* two staggered rows — 8 clips split 4 + 4 */
+.belt-track-rev { animation-direction: reverse; animation-delay: -22s; }   /* opposite direction + half-cycle phase → the rows never line up */
+.belt:hover .belt-track { animation-play-state: paused; }
+@keyframes beltscroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.belt-tile { position: relative; flex: 0 0 auto; width: 172px; aspect-ratio: 16 / 10; margin-right: 14px; border-radius: 10px; overflow: hidden; border: 1.5px solid var(--panel-edge); background: linear-gradient(158deg, #efe1cd, #e6d5bd); cursor: pointer; }
+.belt-tile::before { content: ""; position: absolute; inset: 20px 26px 18px; border: 1.5px solid rgba(255,255,255,.5); border-radius: 4px; z-index: 1; pointer-events: none; }   /* a faint app-window frame over the clip */
+.belt-vid { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; background: #000; }
+.belt-tag { position: absolute; bottom: 8px; left: 9px; z-index: 2; font-family: var(--mono); font-size: 10px; letter-spacing: .2px; padding: 2px 8px; border-radius: 999px; background: rgba(255,252,246,.85); color: var(--accent); }
+.belt-live { position: absolute; top: 9px; right: 10px; z-index: 2; display: flex; align-items: flex-end; gap: 2px; height: 11px; }   /* auto-playing indicator */
+.belt-live i { width: 2.5px; height: 4px; border-radius: 1px; background: var(--accent); animation: belteq .9s ease-in-out infinite; }
+.belt-live i:nth-child(2) { animation-delay: .18s; }
+.belt-live i:nth-child(3) { animation-delay: .36s; }
+@keyframes belteq { 0%, 100% { height: 3px; } 50% { height: 11px; } }
+.belt-cap { text-align: center; font-family: var(--mono); font-size: var(--fs-sm); letter-spacing: .2px; color: var(--muted); margin-top: 14px; }
+@media (prefers-reduced-motion: reduce) { .belt-track { animation: none; } .belt-live i { animation: none; height: 7px; } }
+/* ---- rollout peek · hover a clip to enlarge it, with instruction + clickable action log (js/belt.js) ---- */
+.peek-scrim { position: fixed; inset: 0; background: rgba(30,22,14,.38); z-index: 59; opacity: 0; transition: opacity .18s ease; pointer-events: none; }
+.peek { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(.97); z-index: 60; display: grid; grid-template-columns: minmax(0, 1fr) 240px; gap: 0; background: var(--panel-fill, #fdf7ec); border: 1.5px solid var(--panel-edge); border-radius: 14px; overflow: hidden; box-shadow: 0 24px 60px -18px rgba(30,22,14,.45); opacity: 0; pointer-events: none; transition: opacity .18s ease, transform .18s ease;
+  width: min(1180px, calc(100vw - 40px)); height: min(86vh, 600px); }   /* sized so the 16:9 clip fills the stage with almost no letterbox */
+.peek[hidden] { display: none; }
+.peek-scrim.is-on { opacity: 1; }   /* dim only — never intercepts the pointer, or the tile would lose hover the instant it opens */
+.peek.is-on { opacity: 1; pointer-events: auto; transform: translate(-50%, -50%) scale(1); }
+.peek-media { display: flex; flex-direction: column; min-width: 0; min-height: 0; }
+.peek-head { flex: 0 0 auto; background: var(--panel-fill, #fdf7ec); border-bottom: 1.5px solid var(--line-2); padding: 12px 15px; }   /* domain always visible; only the instruction scrolls (below) */
+.peek-domain { display: inline-block; font-family: var(--mono); font-size: 10px; letter-spacing: 1px; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; }
+/* the instruction caps at exactly 3 lines (54px = 3 × 18px) so the clip stays large — the cut lands on a line boundary, never a half-line, and a themed scrollbar shows when there's more to read */
+.peek-instr-wrap { position: relative; }
+.peek-instr-wrap::after { content: ""; position: absolute; left: 0; right: 8px; bottom: 0; height: 14px; background: linear-gradient(transparent, var(--panel-fill, #fdf7ec)); opacity: 0; transition: opacity .15s ease; pointer-events: none; }   /* soft bottom hint (on top of the real scrollbar) shown only while there's more task text below the fold */
+.peek-instr-wrap.more::after { opacity: 1; }
+.peek-instr { margin: 0; font-family: var(--mono); font-size: 11.5px; line-height: 18px; letter-spacing: .1px; color: var(--text); max-height: 54px; overflow-y: auto; scrollbar-width: thin; scrollbar-color: var(--accent-dim) transparent; }
+.peek-instr::-webkit-scrollbar { width: 8px; -webkit-appearance: none; }
+.peek-instr::-webkit-scrollbar-thumb { background: var(--accent-dim); border-radius: 4px; border: 2px solid var(--panel-fill, #fdf7ec); }
+.peek-instr::-webkit-scrollbar-track { background: rgba(120,110,95,.1); border-radius: 4px; }
+.peek-stage { position: relative; flex: 1 1 auto; min-height: 0; background: #000; }
+.peek-vid { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }   /* contain — never crop the frame */
+.peek-actions { list-style: none; margin: 0; padding: 8px; min-height: 0; overflow-y: auto; display: flex; flex-direction: column; gap: 4px; border-left: 1.5px solid var(--line-2); }
+.peek-act { display: flex; align-items: flex-start; gap: 7px; width: 100%; text-align: left; font-family: var(--mono); font-size: 11px; line-height: 1.4; letter-spacing: .1px; color: var(--muted); background: transparent; border: 1px solid transparent; border-radius: 7px; padding: 6px 8px; cursor: pointer; transition: background .12s ease, color .12s ease, border-color .12s ease; }
+.peek-act:hover { background: var(--panel-2); color: var(--text); }
+.peek-act.is-on { background: rgba(189,90,56,.1); border-color: var(--accent-dim); color: var(--text); }
+.peek-act-n { flex: 0 0 auto; color: var(--accent); font-weight: 650; }
+.peek-act-t { min-width: 0; white-space: pre-wrap; overflow-wrap: anywhere; }   /* one line per call in the turn */
+@media (max-width: 640px) {
+  .peek { grid-template-columns: 1fr; grid-template-rows: auto auto; width: calc(100vw - 32px); height: auto; max-height: calc(100vh - 32px); }
+  .peek-stage { flex: 0 0 auto; aspect-ratio: 16 / 9; }   /* clips are 1920×1080 — match so the phone view has no letterbox either */
+  .peek-actions { border-left: none; border-top: 1.5px solid var(--line-2); max-height: 32vh; }
+}
+/* hub chips (LiteSample, lite.gym) — hover pops the schema / interface card to the right */
+code.ls, code.lg, code.ad { position: relative; cursor: help; }
+.ls-pop { position: absolute; left: calc(100% + 14px); top: 50%; transform: translateY(-50%) translateX(-6px); z-index: 40;
+  width: 430px; max-width: min(430px, 46vw); text-align: left;
+  background: var(--term-fill); border: 1px solid var(--term-edge); border-radius: 14px;
+  box-shadow: 0 28px 54px -28px rgba(40,30,15,.5), 0 4px 10px -5px rgba(40,30,15,.2);
+  opacity: 0; visibility: hidden; pointer-events: none; transition: opacity .2s var(--ease), transform .2s var(--ease); }
+code.ls:hover .ls-pop, code.ls:focus .ls-pop, code.ls:focus-within .ls-pop,
+code.lg:hover .ls-pop, code.lg:focus .ls-pop, code.lg:focus-within .ls-pop,
+code.ad:hover .ls-pop, code.ad:focus .ls-pop, code.ad:focus-within .ls-pop { opacity: 1; visibility: visible; transform: translateY(-50%); pointer-events: auto; }
+.ls-pop::before { content: ""; position: absolute; left: -16px; top: 0; bottom: 0; width: 16px; }   /* bridge the gap so it stays open */
+.ls-bar { display: flex; align-items: center; gap: 6px; padding: 10px 14px; border-bottom: 1px solid var(--term-edge); }
+.ls-bar .d { width: 9px; height: 9px; border-radius: 50%; background: #3a352a; }
+.ls-t { margin-left: 8px; font-family: var(--mono); font-size: var(--fs-xs); color: var(--term-dim); }
+.ls-code { margin: 0; padding: 14px 16px; font-family: var(--mono); font-size: var(--fs-xs); line-height: 1.62; color: var(--term-text); white-space: pre; overflow-x: auto; }
+
+/* ---------- live HF dataset browser: a refined dropdown + framed viewer ---------- */
+.hf-embed { margin: 0; }
+/* the selector lives INSIDE the URL bar as an editable green token — the same
+   fill-in-the-blank language as the command builders, not a floating dropdown */
+.hf-ds { position: relative; display: inline-block; }
+.hf-ds-tok { font-family: var(--mono); font-size: inherit; color: var(--accent); background: rgba(154,212,110,.10);
+  border: 0; border-bottom: 1px dashed var(--accent-dim); padding: 1px 7px; cursor: pointer;
+  display: inline-flex; align-items: center; gap: 7px; transition: background .14s var(--ease), border-color .14s var(--ease); }
+.hf-ds-tok:hover { background: rgba(154,212,110,.18); border-bottom-color: var(--accent); }
+.hf-ds.open .hf-ds-tok { background: rgba(154,212,110,.18); border-bottom-style: solid; border-bottom-color: var(--accent); }
+.hf-caret { width: 6px; height: 6px; border-right: 1.5px solid var(--accent); border-bottom: 1.5px solid var(--accent);
+  transform: translateY(-2px) rotate(45deg); transition: transform .22s var(--ease); }
+.hf-ds.open .hf-caret { transform: translateY(1px) rotate(-135deg); }
+.hf-menu { position: absolute; top: calc(100% + 10px); left: 0; z-index: 30; min-width: 260px; max-width: min(320px, 82vw); max-height: 366px; overflow-y: auto;
+  background: var(--panel-fill); border: 2px solid var(--panel-edge); padding: 6px; box-shadow: 0 26px 60px -24px rgba(0,0,0,.95);
+  opacity: 0; visibility: hidden; transform: translateY(-8px) scale(.99); transform-origin: top left;
+  transition: opacity .2s var(--ease), transform .2s var(--ease), visibility 0s .2s; }
+.hf-ds.open .hf-menu { opacity: 1; visibility: visible; transform: none; transition: opacity .2s var(--ease), transform .2s var(--ease); }
+.hf-grp { font-family: var(--mono); font-size: var(--fs-2xs); letter-spacing: 1.5px; text-transform: uppercase; color: var(--dim);
+  padding: 12px 12px 6px; }
+.hf-grp:first-child { padding-top: 6px; }
+.hf-opt { display: flex; align-items: center; justify-content: space-between; gap: 16px; width: 100%; font-family: var(--mono);
+  font-size: var(--fs-sm); color: var(--muted); background: transparent; border: 0; padding: 9px 12px; cursor: pointer; text-align: left;
+  transition: background .12s ease, color .12s ease; }
+.hf-opt:hover { background: var(--panel-2); color: var(--text); }
+.hf-opt.active { color: var(--accent); }
+.hf-opt.active::after { content: "✓"; font-size: var(--fs-sm); }
+.hf-window { border: 1px solid var(--panel-edge); background: var(--panel-fill);
+  box-shadow: 0 30px 60px -40px rgba(40,30,15,.4); }
+.hf-bar { position: relative; z-index: 3; display: flex; align-items: center; gap: 14px; padding: 11px 16px; background: var(--panel-2); border-bottom: 1px solid var(--panel-edge); }
+.hf-url { flex: 1; min-width: 0; font-family: var(--mono); font-size: var(--fs-sm); color: var(--muted); white-space: nowrap; }
+.hf-open { font-family: var(--mono); font-size: var(--fs-sm); color: var(--accent); white-space: nowrap; transition: opacity .12s ease; }
+.hf-open:hover { opacity: .7; }
+.hf-frame { position: relative; height: 520px; background: var(--panel-fill); transition: height .5s var(--ease); }
+.hf-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; z-index: 1;
+  opacity: 0; transition: opacity .45s ease; }
+.hf-frame.loaded iframe { opacity: 1; }
+/* the dark loading state sits ON TOP of the (white, still-empty) iframe until
+   the viewer actually paints, then crossfades out — never a blank white flash */
+.hf-skeleton { position: absolute; inset: 0; z-index: 2; display: flex; flex-direction: column; gap: 14px;
+  padding: 46px 28px 28px; background: var(--panel-fill); }
+.hf-frame.loaded .hf-skeleton { opacity: 0; visibility: hidden; transition: opacity .45s ease, visibility 0s .45s; }
+.hf-skeleton::before { content: "Loading live from 🤗 Hugging Face…"; position: absolute; top: 16px; left: 28px;
+  font-family: var(--mono); font-size: var(--fs-sm); color: var(--dim); letter-spacing: .3px; }
+.hf-skeleton span { height: 30px; background: linear-gradient(90deg, var(--panel-2) 25%, #fff 50%, var(--panel-2) 75%); background-size: 200% 100%; animation: hfShimmer 1.5s ease-in-out infinite; }
+.hf-skeleton span:nth-child(2) { width: 82%; } .hf-skeleton span:nth-child(3) { width: 64%; }
+@keyframes hfShimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+
+/* ---------- Train: SFT | RL toggle (pill tabs, mirrors .cov-tabs) ---------- */
+/* fit-content + auto side margins center the pill bar over the 660px terminal
+   (which is itself margin:auto within .container) — shares the same center line */
+.train-tabs { display: flex; width: fit-content; gap: 2px; margin: 0 auto 18px; padding: 4px;
+  background: var(--panel-2); border: 1px solid var(--panel-edge); border-radius: 999px; }
+.train-tab { font-family: var(--mono); font-size: var(--fs-xs); letter-spacing: 1px; text-transform: uppercase;
+  color: var(--muted); background: transparent; border: 0; border-radius: 999px; padding: 8px 20px; cursor: pointer;
+  transition: color .16s ease, background .22s var(--ease), box-shadow .22s var(--ease); }
+.train-tab:hover { color: var(--text); }
+.train-tab.on { color: var(--accent); background: var(--panel-fill); box-shadow: 0 1px 3px rgba(40,30,15,.14); }
+.cb-hidden { display: none; }
+
+/* ---------- command builder: click a token, the command rebuilds ---------- */
+.cmdbuild { margin: 0 0 22px; }
+/* the quickstart .term clips its content (overflow:hidden); the builder terms
+   must NOT, or the token dropdown menu gets clipped to the terminal box */
+.cmdbuild .term { overflow: visible; }
+.lead-tok { color: var(--accent); border-bottom: 1px dashed var(--accent-dim); padding-bottom: 1px; }
+/* the builder IS a .term (same shell as the quickstart), with editable tokens.
+   term-body gives the shared code aesthetic; we only loosen the line-height so
+   the clickable token chips have room to breathe. */
+.cb-body { white-space: normal; line-height: 2.05; }
+.cb-flag { color: var(--dim); }
+.cb-cont { color: var(--dim); }            /* the trailing \ line-continuation */
+.cb-i { display: inline-block; width: 2.4ch; }  /* indent for continued lines */
+/* derived from the tokens (config-path) — green like the tokens to show the link,
+   but plain text (no chip/caret) so it's clearly not separately clickable */
+.cb-drv { color: var(--accent); }
+/* the editable token — reads as a fill-in-the-blank you can click */
+.cb-slot { position: relative; display: inline-block; }
+.cb-tok { font-family: var(--mono); font-size: inherit; color: var(--accent); background: rgba(154,212,110,.09);
+  border: 0; border-bottom: 1px dashed var(--accent-dim); padding: 3px 8px; cursor: pointer; white-space: nowrap;
+  display: inline-flex; align-items: center; gap: 7px; transition: background .15s var(--ease), border-color .15s var(--ease); }
+.cb-tok .cb-txt { white-space: nowrap; }
+.cb-tok:hover { background: rgba(154,212,110,.17); border-bottom-color: var(--accent); }
+.cb-slot.open .cb-tok { background: rgba(154,212,110,.17); border-bottom-style: solid; border-bottom-color: var(--accent); }
+.cb-tcaret { width: 6px; height: 6px; border-right: 1.5px solid var(--accent); border-bottom: 1.5px solid var(--accent);
+  transform: translateY(-2px) rotate(45deg); transition: transform .22s var(--ease); }
+.cb-slot.open .cb-tcaret { transform: translateY(1px) rotate(-135deg); }
+.cb-txt { display: inline-block; }
+/* the silky swap: a green fill commits, then settles back to the token tint */
+.cb-slot.swap .cb-tok { animation: cbFlash .55s var(--ease); }
+.cb-slot.swap .cb-txt { animation: cbLift .4s var(--ease); }
+@keyframes cbFlash { 0%,35% { background: var(--accent); color: var(--pgreen-ink); border-bottom-color: var(--accent); }
+  100% { background: rgba(154,212,110,.09); color: var(--accent); } }
+@keyframes cbLift { 0% { transform: translateY(4px); opacity: .2; } 100% { transform: translateY(0); opacity: 1; } }
+/* derived spans (config-path family/env, dataset/slug…) pulse when a pick updates them */
+.cb-drv.drv-flash { animation: drvFlash .5s var(--ease); border-radius: 3px; }
+@keyframes drvFlash { 0%,30% { background: var(--accent); color: var(--term-fill); }
+  100% { background: transparent; color: var(--accent); } }
+/* the option menu */
+.cb-menu { position: absolute; top: calc(100% + 8px); left: 0; z-index: 30; min-width: 200px; max-height: 300px; overflow-y: auto; background: var(--panel-fill);
+  border: 2px solid var(--panel-edge); padding: 5px; box-shadow: 0 22px 52px -22px rgba(0,0,0,.95);
+  opacity: 0; visibility: hidden; transform: translateY(-8px) scale(.99); transform-origin: top left;
+  transition: opacity .18s var(--ease), transform .18s var(--ease), visibility 0s .18s; }
+.cb-slot.open .cb-menu { opacity: 1; visibility: visible; transform: none; transition: opacity .18s var(--ease), transform .18s var(--ease); }
+.cb-opt { display: block; width: 100%; font-family: var(--mono); font-size: var(--fs-sm); color: var(--muted); background: transparent;
+  border: 0; padding: 8px 12px; cursor: pointer; text-align: left; transition: background .1s ease, color .1s ease; }
+.cb-opt:hover { background: var(--panel-2); color: var(--text); }
+.cb-opt.active { color: var(--accent); }
+/* platform group header inside the env dropdown (grouped like the data viewer) */
+.cb-grp { display: block; font-family: var(--mono); font-size: var(--fs-2xs); letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent-dim); padding: 10px 12px 3px; }
+.cb-grp:first-child { padding-top: 5px; }
+
+/* ---------- SFT configurator card: pick a dataset × a model (orthogonal) ----------
+   a clean bordered control panel above the run_sft terminal — reuses the native
+   .cb-tok/.cb-menu dropdowns, retinted from green-on-dark to sit on cream */
+/* a quiet sub-caption inside a train panel — explains that panel's flow without
+   loading it into the shared section lead */
+.panel-note { max-width: 600px; margin: 0 auto 18px; text-align: center; color: var(--muted); font-size: var(--fs-xl); line-height: 1.62; }
+.sft-cfg { display: flex; align-items: center; gap: 16px; max-width: 660px; margin: 0 auto 16px;
+  padding: 18px 20px; background: var(--panel-fill); border: 1px solid var(--panel-edge); border-radius: 14px;
+  box-shadow: 0 1px 3px rgba(40,30,15,.06); }
+/* label sits inline with its dropdown — "Dataset: <chip>" — not stacked above it */
+.sft-field { display: flex; flex-direction: row; align-items: center; gap: 8px; flex: 1 1 0; min-width: 0; }
+.sft-cfg .sft-field:last-of-type { flex-grow: 1.7; }   /* model names run longer than dataset names */
+.sft-field-label { display: inline-flex; align-items: center; gap: 5px; flex: 0 0 auto; font-family: var(--mono); font-size: var(--fs-xs);
+  letter-spacing: 1px; text-transform: uppercase; color: var(--muted); }   /* Tab/Label register */
+.sft-arrow { font-family: var(--mono); font-size: var(--fs-lg); color: var(--dim); user-select: none; }
+/* the tokens live on cream here (not in a dark term): full-width, panel-tinted chips */
+/* match the site's inline dashed-underline token, not a boxed form select */
+.sft-cfg .cb-slot { display: inline-flex; max-width: 100%; }
+.sft-cfg .cb-tok { font-size: var(--fs-sm); padding: 3px 8px; background: rgba(189,90,56,.08); }   /* one token size site-wide (matches the terminals) */
+.sft-cfg .cb-tok:hover, .sft-cfg .cb-slot.open .cb-tok { background: rgba(189,90,56,.15); }
+.sft-cfg .cb-txt { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.sft-cfg .cb-menu { min-width: 220px; }
+
+
+/* ---------- benchmark coverage — a segmented control + one floating panel ----------
+   Breadth reads at a glance (count badges), never runs long (one platform shown),
+   and feels alive (cards stagger in on switch). Linked to the eval builder. */
+.cov { max-width: 660px; margin: 0 auto; }   /* the section's shared column width — same as .cmdbuild / .lb */
+.cov-tabs { display: inline-flex; gap: 2px; margin: 0 0 20px; padding: 4px;
+  background: var(--panel-2); border: 1px solid var(--panel-edge); border-radius: 999px; }
+.cov-tab { display: inline-flex; align-items: center; gap: 7px; font-family: var(--mono); font-size: var(--fs-xs); letter-spacing: 1px;
+  text-transform: uppercase; color: var(--muted); background: transparent; border: 0; border-radius: 999px; padding: 8px 15px; cursor: pointer;
+  transition: color .16s ease, background .22s var(--ease), box-shadow .22s var(--ease); }
+.cov-tab:hover { color: var(--text); }
+.cov-tab.on { color: var(--accent); background: var(--panel-fill); box-shadow: 0 1px 3px rgba(40,30,15,.14); }
+.cov-n { font-family: var(--mono); font-size: var(--fs-2xs); color: var(--dim); font-variant-numeric: tabular-nums; }
+.cov-tab.on .cov-n { color: var(--accent-dim); }
+/* the floating panel — real depth, like the terminals + data viewer */
+.cov-body { position: relative; background: var(--panel-fill); border: 1px solid var(--panel-edge); border-radius: 14px;
+  box-shadow: 0 26px 50px -30px rgba(40,30,15,.4), 0 3px 8px -4px rgba(40,30,15,.16); padding: 9px; overflow: hidden; }
+.cov-panel { display: none; grid-template-columns: 1fr 1fr; gap: 3px; }
+.cov-panel.on { display: grid; }
+/* each benchmark — a quiet card; staggered reveal on switch, lifts on hover */
+.cov-panel .row { display: flex; flex-direction: column; gap: 3px; padding: 14px 16px; border-radius: 10px;
+  text-decoration: none; opacity: 0; transform: translateY(9px);
+  transition: background .16s ease, transform .16s var(--ease); }
+.cov-panel.on .row { animation: covIn .44s var(--ease) forwards; }
+.cov-panel.on .row:nth-child(1){animation-delay:.03s} .cov-panel.on .row:nth-child(2){animation-delay:.07s}
+.cov-panel.on .row:nth-child(3){animation-delay:.11s} .cov-panel.on .row:nth-child(4){animation-delay:.15s}
+.cov-panel.on .row:nth-child(5){animation-delay:.19s} .cov-panel.on .row:nth-child(6){animation-delay:.23s}
+@keyframes covIn { to { opacity: 1; transform: none; } }
+.cov-panel .row:hover { background: var(--panel-2); transform: translateY(-2px); }
+.r-name { font-family: var(--mono); font-size: var(--fs-md); color: var(--text); transition: color .14s ease; }
+.cov-panel .row:hover .r-name { color: var(--accent); }
+.r-desc { font-family: var(--sans); font-size: var(--fs-sm); color: var(--dim); line-height: 1.35; }
+/* the env the eval builder currently targets — a soft accent card */
+.cov-panel .row.hl { background: rgba(189,90,56,.09); box-shadow: inset 2.5px 0 0 var(--accent); }
+.cov-panel .row.hl .r-name { color: var(--accent); }
+/* the selected agent can't run this benchmark — recede (filter survives the reveal fade) */
+.cov-panel .row.off { filter: grayscale(1) opacity(.4); }
+
+/* ---------- leaderboard — success rates read live from the repo's committed run JSONs ----------
+   A quiet ranked bar chart in the site's own materials: one terracotta series
+   (magnitude is the bar's length, not its color), values as direct labels in
+   ink, no legend (single measure), rows staggered in like the coverage cards. */
+.lb { max-width: 660px; margin: 58px auto 0; position: relative; }
+.section.centered .lb { margin-left: auto; margin-right: auto; text-align: left; }
+.lb-card { background: var(--panel-fill); border: 1px solid var(--panel-edge); border-radius: 14px; overflow: hidden;
+  box-shadow: 0 26px 50px -30px rgba(40,30,15,.4), 0 3px 8px -4px rgba(40,30,15,.16); }
+.lb-bar { display: flex; align-items: center; gap: 14px; padding: 11px 18px; background: var(--panel-2); border-bottom: 1px solid var(--panel-edge); }
+.lb-title { font-family: var(--mono); font-size: var(--fs-2xs); letter-spacing: 1.5px; text-transform: uppercase; color: var(--dim); }
+.lb-tabs { display: inline-flex; flex-wrap: wrap; gap: 2px; }
+.lb-tab { font-family: var(--mono); font-size: var(--fs-xs); letter-spacing: 1px; text-transform: uppercase; color: var(--muted);
+  background: transparent; border: 0; border-radius: 999px; padding: 4px 12px; cursor: pointer;
+  transition: color .16s ease, background .22s var(--ease), box-shadow .22s var(--ease); }
+.lb-tab:hover { color: var(--text); }
+.lb-tab.on { color: var(--accent); background: var(--panel-fill); box-shadow: 0 1px 3px rgba(40,30,15,.14); }
+/* secondary tabs — one env's config settings (default · som · ...); only shown when there are several */
+.lb-cfgs { display: inline-flex; align-items: center; gap: 12px; margin-left: 10px; }
+.lb-cfgs:not(:empty)::before { content: ""; width: 1px; height: 14px; background: var(--line-2); margin-right: 2px; }
+.lb-cfg { font-family: var(--mono); font-size: var(--fs-2xs); letter-spacing: 1.5px; text-transform: uppercase; color: var(--dim);
+  background: transparent; border: 0; padding: 3px 1px; cursor: pointer; box-shadow: inset 0 -1px 0 transparent;
+  transition: color .14s ease, box-shadow .14s ease; }
+.lb-cfg:hover { color: var(--text); }
+.lb-cfg.on { color: var(--accent); box-shadow: inset 0 -1.5px 0 var(--accent); }
+/* a config with no committed run yet — dimmed, prefixed by a small hollow status dot */
+.lb-cfg.pending { opacity: .55; }
+.lb-cfg.pending.on { opacity: .85; }
+.lb-cfg.pending::before { content: ""; display: inline-block; width: 4px; height: 4px; margin-right: 5px;
+  border: 1px solid currentColor; border-radius: 50%; vertical-align: middle; opacity: .8; }
+/* the "composition" chip — box 1's trigger; margin-left:auto floats it (and README) right */
+/* now just a label for the resident composition panel (box 1); on narrow screens the panel
+   hides and this chip's title tooltip becomes the fallback, so it turns into a help cursor there */
+.lb-info { margin-left: auto; display: inline-flex; align-items: center; gap: 5px; cursor: default;
+  background: none; border: 0; padding: 3px 4px; font-family: var(--mono); font-size: var(--fs-2xs);
+  letter-spacing: 1.5px; text-transform: uppercase; color: var(--dim); }
+.lb-info-i { flex: none; opacity: .85; }
+.lb-open { font-family: var(--mono); font-size: var(--fs-sm); color: var(--accent); white-space: nowrap; }
+.lb-open:hover { text-decoration: underline; }
+.lb-body { padding: 10px 14px 8px; }
+.lb-row { display: grid; grid-template-columns: 24px minmax(120px, 246px) 1fr 56px; grid-template-areas: "rank model track val";
+  align-items: center; gap: 0 12px; padding: 6.5px 6px; border-radius: 8px; transition: background .14s ease; }
+.lb-row:hover { background: rgba(60,48,36,.05); }
+.lb-rank { grid-area: rank; font-family: var(--mono); font-size: var(--fs-xs); color: var(--dim); text-align: right; font-variant-numeric: tabular-nums; }
+.lb-model { grid-area: model; font-family: var(--mono); font-size: var(--fs-sm); color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.lb-org { color: var(--dim); }
+/* the name links to the agent's YAML config in the main repo */
+.lb-model a { color: inherit; transition: color .14s ease; }
+.lb-model a:hover { color: var(--accent); text-decoration: underline dashed 1px; text-underline-offset: 3px; }
+.lb-model a:hover .lb-org { color: var(--accent-dim); }
+/* the mark: a thin baseline-anchored bar with a 4px rounded data-end, on a faint full-scale track */
+.lb-track { grid-area: track; position: relative; height: 10px; border-radius: 2px 4px 4px 2px; background: rgba(60,48,36,.06); }
+.lb-fill { position: absolute; top: 0; bottom: 0; left: 0; width: calc(var(--w) * 100%);
+  background: var(--accent); border-radius: 2px 4px 4px 2px; transform-origin: left center; }
+.lb-val { grid-area: val; font-family: var(--mono); font-size: var(--fs-sm); color: var(--text); text-align: right; font-variant-numeric: tabular-nums; }
+.lb-unit { color: var(--dim); font-size: var(--fs-2xs); margin-left: 1px; }
+/* the leader — the same soft accent wash the coverage table uses for its highlighted env */
+.lb-row.top { background: rgba(189,90,56,.07); }
+.lb-row.top .lb-rank { color: var(--accent); font-weight: 600; }
+.lb-row.top .lb-val { font-weight: 600; }
+/* a partial run (a few tasks still unscored) ranks in place but recedes; box 2 says why on hover */
+.lb-row.part { opacity: .55; --o: .55; }
+/* hover brings a receded partial run forward while its detail panel is up.
+   !important beats the entrance animation's forwards-fill, which otherwise pins opacity at .55 */
+.lb-row.part:hover { opacity: 1 !important; }
+/* no committed run yet — a quiet ghost of the board, with the reason on top */
+.lb-none { position: relative; }
+.lb-row.ghost .lb-fill { background: rgba(60,48,36,.10); }
+.lb-gname { grid-area: model; height: 11px; width: calc(52% + var(--i) * 4%); border-radius: 4px; background: var(--panel-2); }
+.lb-gval { grid-area: val; height: 11px; width: 30px; margin-left: auto; border-radius: 4px; background: var(--panel-2); }
+.lb-none-msg { position: absolute; inset: 0; z-index: 2; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 7px;
+  text-align: center; padding: 0 24px; background: linear-gradient(180deg, rgba(254,250,240,.55), rgba(254,250,240,.88) 45%, rgba(254,250,240,.55)); }
+.lb-none-t { font-family: var(--mono); font-size: var(--fs-xs); letter-spacing: 1px; text-transform: uppercase; color: var(--muted); }
+.lb-none-d { font-family: var(--sans); font-size: var(--fs-sm); line-height: 1.5; color: var(--dim); max-width: 420px; }
+.lb-none-d a { color: var(--accent); white-space: nowrap; }
+.lb-none-d a:hover { text-decoration: underline; }
+/* while the run JSON is in flight, the ghost shimmers (same pulse as the HF skeleton) */
+.lb-none.loading .lb-gname, .lb-none.loading .lb-gval { background: linear-gradient(90deg, var(--panel-2) 25%, #fff 50%, var(--panel-2) 75%);
+  background-size: 200% 100%; animation: hfShimmer 1.5s ease-in-out infinite; }
+/* entrance: rows settle in staggered, then each bar grows from the baseline */
+.js-reveal .lb .lb-row { opacity: 0; }
+/* own keyframes (not covIn): the forwards fill must land on the row's OWN resting
+   opacity — a partial run settles at .55, not covIn's hardcoded 1 */
+.js-reveal .lb.in .lb-row { animation: lbIn .4s var(--ease) forwards; animation-delay: calc(.035s * var(--i)); }
+@keyframes lbIn { to { opacity: var(--o, 1); transform: none; } }
+.js-reveal .lb .lb-fill { transform: scaleX(0); }
+.js-reveal .lb.in .lb-fill { animation: lbGrow .6s var(--ease) forwards; animation-delay: calc(.12s + .04s * var(--i)); }
+@keyframes lbGrow { to { transform: scaleX(1); } }
+.lb-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; padding: 11px 18px 12px; border-top: 1px solid var(--line);
+  font-family: var(--mono); font-size: var(--fs-xs); letter-spacing: .4px; color: var(--dim); }
+.lb-foot span + span::before { content: "·"; margin-right: 10px; }
+.lb-foot a { color: var(--accent); }
+.lb-foot a:hover { text-decoration: underline; }
+/* ---- hover panels (box 1 · composition, box 2 · row detail) ----
+   Anchored to .lb so they escape the card's overflow:hidden clip, and float in the
+   whitespace to the card's right. Shared shell; each variant sets its own vertical anchor. */
+.lb-pop { position: absolute; left: 100%; margin-left: 16px; z-index: 20; width: 280px; text-align: left;
+  background: var(--panel-fill); border: 1px solid var(--panel-edge); border-radius: 14px;
+  box-shadow: 0 28px 52px -28px rgba(40,30,15,.46), 0 3px 8px -4px rgba(40,30,15,.16);
+  padding: 15px 17px 16px; opacity: 0; pointer-events: none;
+  transition: opacity .2s var(--ease), transform .2s var(--ease); }
+.lb-comp { top: 0; opacity: 1; pointer-events: auto; transform: none; }   /* resident — always shown */
+.lb-rowpop { transform: translateX(-8px); }   /* JS sets top: stacked just beneath box 1 */
+.lb.rowpop-open .lb-rowpop { opacity: 1; pointer-events: auto; transform: translateX(0); }
+/* panel content */
+.lb-pop-k { font-family: var(--mono); font-size: var(--fs-2xs); letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent-dim); margin-bottom: 6px; }
+.lb-pop-h { font-family: var(--mono); font-size: var(--fs-sm); color: var(--text); word-break: break-word; }
+.lb-pop-h .lb-org { color: var(--dim); }
+.lb-pop-sum { font-family: var(--sans); font-size: var(--fs-sm); line-height: 1.5; color: var(--muted); margin: 8px 0 0; }
+.lb-tally { margin-top: 12px; display: flex; flex-direction: column; gap: 5px; }
+.lb-tl-r { display: flex; align-items: baseline; justify-content: space-between; gap: 12px;
+  font-family: var(--mono); font-size: var(--fs-xs); color: var(--muted); }
+.lb-tl-l { color: var(--dim); }
+.lb-tl-n { display: block; font-size: var(--fs-2xs); letter-spacing: .2px; color: var(--dim); opacity: .8; margin-top: 1px; }
+.lb-tl-v { color: var(--text); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.lb-tl-r.sub .lb-tl-v { color: var(--dim); }
+.lb-tl-r.tot { margin-top: 3px; padding-top: 7px; border-top: 1px solid var(--line); }
+.lb-tl-r.tot .lb-tl-l { color: var(--muted); }
+.lb-tl-r.tot .lb-tl-v { color: var(--accent); font-weight: 600; }
+/* composition box: the divider sits between summary and breakdown, not inside the tally */
+#lb-comp .lb-tally { padding-top: 13px; border-top: 1px solid var(--line); }
+#lb-comp .lb-tl-r.tot { margin-top: 0; padding-top: 0; border-top: none; }
+.lb-pop-d { font-family: var(--sans); font-size: var(--fs-xs); line-height: 1.5; color: var(--dim); margin: 12px 0 0; }
+.lb-pop-f { font-family: var(--sans); font-size: var(--fs-xs); line-height: 1.5; color: var(--muted); margin: 12px 0 0;
+  padding-left: 10px; border-left: 2px solid var(--accent-dim); }
+.lb-pop-run { display: inline-block; margin-top: 13px; padding: 3px 9px; border-radius: 999px;
+  background: var(--panel-2); border: 1px solid var(--line); font-family: var(--mono); font-size: var(--fs-2xs);
+  letter-spacing: .3px; color: var(--muted); }
+.lb-pop-note { font-family: var(--sans); font-size: var(--fs-xs); line-height: 1.5; color: var(--accent); margin: 12px 0 0; }
+/* no room for a right-hand rail (or no hover at all) — fall back to the native title tooltip */
+@media (max-width: 1279px) { .lb-pop { display: none; } .lb-info { cursor: help; } }
+/* phones: the name gets the full line, the bar takes its own row beneath */
+@media (max-width: 560px) {
+  .lb-row { grid-template-columns: 20px minmax(0, 1fr) 56px; grid-template-areas: "rank model val" "rank track track"; row-gap: 6px; padding: 8px 6px; }
+}
+
+/* quickstart */
+/* quickstart is the closing "get started" moment — centered as a focal block,
+   heading/terminal/CTA aligned, instead of a left heading + centered terminal */
+/* centered 'how it works' column — focused, never full-width */
+.section.centered .eyebrow,
+.section.centered h2,
+.section.centered .section-lead { text-align: center; }
+.section.centered .section-lead { margin-left: auto; margin-right: auto; }
+.section.centered .start-term,
+.section.centered .cmdbuild,
+.section.centered .cov,
+.section.centered .hf-embed { margin-left: auto; margin-right: auto; text-align: left; }
+/* the tab bar is centered over the panel */
+.section.centered .cov { text-align: center; }
+.section.centered .cov-body { text-align: left; }
+/* short code lines look lost when stretched — keep the terminals compact */
+.start-term, .cmdbuild, .hf-embed { max-width: 660px; }
+/* the live data viewer sits at section width by default (consistent with the other
+   blocks), but expands wider + taller when the cursor moves into it — data gets room
+   to breathe on engagement, no click needed; it eases back on leave */
+.hf-embed { transition: max-width .55s var(--ease); }
+.hf-embed:hover { max-width: 1120px; }
+.hf-embed:hover .hf-frame { height: 780px; }
+
+/* citation — quiet, multi-line, body voice (no boxed block); title · authors · meta stacked */
+.cite-sec { padding: 44px 0 0; }
+.cite-line { max-width: 600px; margin: 0 auto; text-align: center; }
+.cite-eyebrow { display: block; font-family: var(--mono); font-size: var(--fs-xs); letter-spacing: 2.5px; text-transform: uppercase; color: var(--dim); margin-bottom: 13px; }
+.cite-title { margin: 0; font-size: var(--fs-lg); font-style: italic; color: var(--muted); }
+.cite-authors { margin: 7px 0 0; font-size: var(--fs-sm); line-height: 1.55; color: var(--dim); }
+.cite-authors a { color: var(--muted); text-decoration: none; }   /* linked names sit a touch darker than the plain ones */
+.cite-authors a:hover { color: var(--accent); text-decoration: underline; }
+.cite-meta { margin: 9px 0 0; font-family: var(--mono); font-size: var(--fs-xs); color: var(--dim); }
+.cite-meta a { color: var(--accent); white-space: nowrap; }
+.cite-meta a:hover { text-decoration: underline; }
+
+/* footer */
+.footer { border-top: 1px solid var(--line); padding: 52px 0 48px; margin-top: 36px; }
+.footer-inner { display: flex; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
+.foot-brand { max-width: 380px; }
+.foot-tag { color: var(--dim); font-size: var(--fs-md); margin: 14px 0 0; line-height: 1.7; }
+.foot-affil { display: flex; align-items: center; gap: 16px; margin-top: 24px; }
+.foot-affil-label { font-family: var(--mono); font-size: var(--fs-2xs); letter-spacing: 1.5px; text-transform: uppercase; color: var(--dim); }
+.foot-affil a { display: inline-flex; align-items: center; opacity: .4; filter: grayscale(1); transition: opacity .16s var(--ease), filter .16s var(--ease); }
+.foot-affil a:hover { opacity: .85; filter: grayscale(0); }
+.foot-logo { display: block; width: auto; }
+.foot-logo-berkeley { height: 17px; }
+.footer-links { display: flex; flex-direction: column; gap: 11px; }
+.footer-links a { color: var(--muted); font-size: var(--fs-md); font-weight: 500; transition: color .12s ease; }
+.footer-links a:hover { color: var(--accent); }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+  margin-top: 46px; padding-top: 22px; border-top: 1px solid var(--line);
+  font-family: var(--mono); font-size: var(--fs-sm); letter-spacing: .2px; color: var(--dim); }
+.foot-top { color: var(--dim); transition: color .12s ease; }
+.foot-top:hover { color: var(--accent); }
+
+/* ---------- responsive ---------- */
+@media (max-width: 940px) {
+  .nav-links a:not(.btn-solid):not(.btn-ghost), .nav-sep { display: none; }   /* narrow screens keep only the pills */
+  .ls-pop { display: none; }   /* hover-only detail; below 940 the hidden card would push the page wider than the viewport */
+  .nav-cta { gap: 8px; }
+  .hero { padding: 68px 0 40px; }
+  .hero-grid { grid-template-columns: 1fr; gap: 34px; }
+  .hero-head { max-width: none; }
+  .divider { padding: 14px 0; }
+  .section { padding: 54px 0 12px; }
+  .term-body { min-height: 300px; }
+  .cov-tabs { flex-wrap: wrap; justify-content: center; }
+  .cov-panel { grid-template-columns: 1fr; }   /* single column on phones */
+  .src-two { grid-template-columns: 1fr; }
+}
+/* phones: keep the URL bar + menu inside the viewport */
+@media (max-width: 560px) {
+  /* closed hover-popovers + dropdown menus are absolutely positioned and can
+     extend past the right edge; clip document-level horizontal overflow so a
+     phone never scrolls sideways. (Vertical page — nothing legit scrolls x.) */
+  html { overflow-x: hidden; }
+  .hf-url-host { display: none; }        /* show just cua-lite/<dataset> */
+  .hf-url { font-size: var(--fs-sm); }
+  .hf-bar { gap: 10px; padding: 10px 12px; }
+  /* let the menu span the bar (relative to .hf-bar) instead of the mid-bar token */
+  .hf-ds { position: static; }
+  .hf-menu { left: 12px; right: 12px; width: auto; min-width: 0; max-width: none; }
+  .stat-pop, .ls-pop { display: none; }   /* hover-only detail; the sections cover it on touch (and it can't overflow the viewport) */
+  .cb-body { font-size: var(--fs-sm); padding: 20px 16px; }
+  .section-lead { font-size: var(--fs-lg); }
+  /* stack the two fields but keep their dropdowns left-aligned: a 2-col grid
+     (label | dropdown) with the fields flattened in via display:contents, so
+     "Dataset:" and "Model:" share a column regardless of their differing widths */
+  .sft-cfg { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 11px 12px; }
+  .sft-field { display: contents; }
+  .sft-arrow { display: none; }
+  /* stop the hero overflowing the viewport on phones: let the grid column shrink
+     below its content's min-width, and let the one-row stats wrap instead of
+     forcing a ~480px line. (Desktop keeps the single nowrap row untouched.) */
+  .hero-grid { grid-template-columns: minmax(0, 1fr); }
+  .stats { flex-wrap: wrap; white-space: normal; row-gap: 7px; }
+  /* the device mockup is a fixed-proportion object (~465px min); zoom the whole
+     demo down so it fits a phone without reflowing/clipping its internals. */
+  .hero-demo { min-width: 0; zoom: 0.76; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .typed.caret::after, .spark, .hero::before,
+  .think i, .hero-head > *, .hero-demo, .rl-line, .rl-line .caret { animation: none; }
+  .rl-line { opacity: 1; transform: none; }
+  .js-reveal .reveal { opacity: 1; transform: none; transition: none; }
+  html { scroll-behavior: auto; }
+}
