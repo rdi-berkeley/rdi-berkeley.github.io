@@ -41,7 +41,7 @@ manuscript. Add the post to _data/blogs.yml once publication details are final.
 <em>Draft · Estimated 8-minute read</em>
 </div>
 
-A security update can change the balance between attackers and defenders before it reaches every vulnerable system. Fixes usually arrive as compiled updates, including operating-system packages, firmware images, and proprietary software releases. Deployment takes time. During the interval between release and installation, attackers can compare the patched and unpatched binaries to learn about the vulnerability while defenders are still working to deploy the fix.
+Security fixes usually reach users as compiled updates, such as operating-system packages, firmware images, and releases of proprietary or third-party software. Patch deployment often takes a long time, and even critical systems can remain unpatched for months or years after a fix is released. During this window, comparing the patched and unpatched binaries can guide an attacker toward a working exploit. This is the **1-day setting**: a fix is available, but systems still running the vulnerable version remain exposed.
 
 Turning that information into a working exploit has traditionally required substantial reverse-engineering expertise, considerable manual effort, and often days or weeks of analysis to localize the vulnerability and develop a working exploit. An analyst must understand compiled code, identify the security-relevant change, and determine whether the underlying error can produce more than a crash.
 
