@@ -13,11 +13,13 @@ manuscript. Add the post to _data/blogs.yml once publication details are final.
 <style>
 .blog-post ul { list-style: disc; }
 .blog-post ol { list-style: decimal; }
-.blog-post .cyberbingym-figure img { width: 100%; max-width: 100%; }
+.blog-post img.cyberbingym-cover { width: 100%; max-width: 640px; height: auto; margin: 1.5rem auto; }
+.blog-post .cyberbingym-figure { max-width: 600px; margin: 1.5rem auto; }
+.blog-post .cyberbingym-figure img { width: 100%; max-width: 520px; height: auto; margin: 1rem auto; }
 .blog-post .cyberbingym-figure figcaption { font-size: 0.95rem; line-height: 1.6; color: #555; }
 </style>
 
-<img src="images/overview.png" alt="CyberBinGym evaluation: agents analyze vulnerable and patched binaries; separate checks validate vulnerability recovery and exploitation." class="cover-image">
+<img src="images/overview.png" alt="CyberBinGym evaluation: agents analyze vulnerable and patched binaries; separate checks validate vulnerability recovery and exploitation." class="cover-image cyberbingym-cover">
 
 # CyberBinGym: Can AI Agents Turn Binary Patches into Real Exploits?
 
@@ -27,10 +29,10 @@ manuscript. Add the post to _data/blogs.yml once publication details are final.
     <a href="mailto:zhaoqi.xiao@ucr.edu">Zhaoqi Xiao</a><sup>1,2</sup>,
     <a href="mailto:zhun.wang@berkeley.edu">Zhun Wang</a><sup>3</sup>,
     <a href="mailto:hongwei@ucsb.edu">Hongwei Li</a><sup>4</sup>,
-    Wenbo Guo<sup>4</sup>,
-    Heng Yin<sup>2</sup>,
-    Zhenkai Liang<sup>1</sup>,
-    Dawn Song<sup>3</sup>
+    <a href="mailto:henrygwb@ucsb.edu">Wenbo Guo</a><sup>4</sup>,
+    <a href="mailto:heng@cs.ucr.edu">Heng Yin</a><sup>2</sup>,
+    <a href="mailto:liangzk@nus.edu.sg">Zhenkai Liang</a><sup>1</sup>,
+    <a href="mailto:dawnsong@berkeley.edu">Dawn Song</a><sup>3</sup>
 </strong>
 <br>
 <sup>1</sup>National University of Singapore, <sup>2</sup>UC Riverside,
@@ -39,13 +41,15 @@ manuscript. Add the post to _data/blogs.yml once publication details are final.
 <em>Draft · Estimated 8-minute read</em>
 </div>
 
-A security update fixes a vulnerability. But until users install it, the update can also reveal something about the software they are still running: where the bug is, and how the old version behaves differently.
+A security update can change the balance between attackers and defenders before it reaches every vulnerable system. Fixes usually arrive as compiled updates, including operating-system packages, firmware images, and proprietary software releases. Deployment takes time. During the interval between release and installation, attackers can compare the patched and unpatched binaries to learn about the vulnerability while defenders are still working to deploy the fix.
 
-Turning that information into a working exploit has traditionally required substantial reverse-engineering expertise. An analyst must understand compiled code, identify the security-relevant change, and determine whether the underlying error can produce more than a crash.
+Turning that information into a working exploit has traditionally required substantial reverse-engineering expertise, considerable manual effort, and often days or weeks of analysis to localize the vulnerability and develop a working exploit. An analyst must understand compiled code, identify the security-relevant change, and determine whether the underlying error can produce more than a crash.
+
+**If AI agents can automate this work, they could shift the balance in attackers' favor.** Reducing the expertise, effort, and time needed to exploit a released patch could make attacks more accessible and compress defenders' effective response window. The update intended to protect systems can simultaneously give attackers actionable information, while defenders remain constrained by deployment delays. Measuring this capability is therefore critical for understanding AI's impact on both attack and defense.
 
 Our earlier benchmarks examined complementary parts of this problem. [CyberGym](/blog/cybergym/) measures vulnerability reproduction with source access. [CyberGym-E2E](/blog/cybergym-e2e/) extends evaluation through discovery and repair. [ExploitGym](/blog/exploitgym/) asks whether agents can turn supplied vulnerabilities and triggering inputs into working exploits.
 
-**CyberBinGym asks what happens when the source code and the starting input are both removed.** Given only a vulnerable binary and its patched counterpart, can an AI agent recover the vulnerability and exploit the older version?
+**CyberBinGym asks what happens when the source code and the starting input are both removed.** Given only a vulnerable binary and its patched counterpart, can an AI agent recover the vulnerability and exploit the vulnerable version?
 
 ## TL;DR
 
@@ -161,15 +165,17 @@ Codex still recovers **15 vulnerabilities**, but completes only **two exploits**
 
 The results show a substantial reduction in observed exploitation. They also show that the tested protections do not eliminate every path: the two surviving exploits affect writable state outside the stack and reuse existing code. The observed reduction includes agent search variation and service-delivery failures, so it does not isolate the causal effect of hardening alone.
 
-## Why This Matters for Defenders
+## Why This Matters for Attackers and Defenders
 
-CyberBinGym demonstrates a capability that is relevant during the interval between patch release and deployment: an agent can use a compiled update to help recover and exploit vulnerabilities in an older binary, without source access.
+**AI's ability to turn binary patches into exploits could change the balance between attackers and defenders.** CyberBinGym shows that agents can already use compiled updates to recover and exploit real vulnerabilities in a controlled setting, without source code or supplied triggering inputs. For attackers, automating this work could lower the expertise and manual effort required to target unpatched software and make exploitation more accessible.
 
-The experiments use historical vulnerabilities and controlled victim services. They do not measure production compromise rates or how quickly an agent would exploit a newly released patch. But the capability creates a reason to treat deployment delays seriously as agents improve.
+For defenders, the critical issue is the gap between releasing a fix and deploying it. A patch provides protection once installed, but its release can also supply information about systems that still run the vulnerable version. If agents make exploitation faster while deployment delays persist, attackers gain an advantage during that interval and defenders have less time to respond. Our matched study, in which supplying the patched binary raises exploit success from 15% to 30%, demonstrates why the update itself matters to this balance.
 
-For defenders, the same binary-analysis capability could help assess third-party software, prioritize updates, and evaluate whether mitigations prevent a vulnerability from producing a harmful outcome. Measuring recovery and exploitation separately helps distinguish an easily reproduced failure from a demonstrated security consequence.
+The same capability could also strengthen defense. Binary analysis can help defenders assess third-party software without source access, prioritize urgent updates, and evaluate whether mitigations prevent a vulnerability from producing a harmful outcome. Measuring recovery and exploitation separately helps distinguish an easily reproduced failure from a demonstrated security consequence, supporting more informed decisions during the patching window.
 
-CyberBinGym adds this binary-only setting to our cybersecurity evaluation work: a released fix can give agents useful information, and the ability to turn that information into an exploit is measurable. Faster patch deployment and defenses that remain effective during the patching window become increasingly important as that capability develops.
+Our experiments use historical vulnerabilities and controlled victim services. They do not measure production compromise rates or the time needed to exploit a newly released patch. The results establish the capability; how much it shortens real-world response windows remains an important question for further evaluation.
+
+As these capabilities improve, defenders need to turn AI-assisted analysis into faster protective action. Timely patch deployment and layered defenses that remain effective before updates are installed become increasingly important. CyberBinGym provides a way to track the capability that could accelerate attackers' progress and to inform how defenders prepare for that change.
 
 <!-- Source notes for editors:
 Main results: tables/evaluation_overall.tex.
