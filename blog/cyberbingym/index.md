@@ -55,9 +55,9 @@ Our earlier benchmarks examined complementary parts of this problem. [CyberGym](
 
 **CyberBinGym contains 100 tasks derived from real vulnerabilities in 53 open-source projects.** Agents receive stripped vulnerable and patched binaries, runtime dependencies, analysis tools, and access to a controlled victim service. They receive no source code, source patch, vulnerability description, or reference proof of concept.
 
-The strongest evaluated configuration, **Codex with GPT-5.6**, recovers the target vulnerability on **88%** of tasks and completes audited exploitation on **22%**. Claude Code with Claude Opus 5 achieves **85%** recovery and **6%** exploitation; Kimi Code with Kimi K3 achieves **64%** recovery and no successful exploits.
+The strongest evaluated configuration, **Codex with GPT-5.6**, recovers the target vulnerability on **88%** of tasks and completes audited exploitation on **20%**. Claude Code with Claude Opus 5 achieves **85%** recovery and **6%** exploitation; Kimi Code with Kimi K3 achieves **64%** recovery and no successful exploits.
 
-On a matched 20-task subset, supplying the patched binary raises Codex's exploit rate from **15% to 30%**. Rebuilding its 22 successful targets with standard binary hardening reduces successful exploitation to **two tasks**.
+On a matched 20-task subset, supplying the patched binary raises Codex's exploit rate from **10% to 25%**. Rebuilding its 20 successful targets with standard binary hardening reduces successful exploitation to **two tasks**.
 
 These results show that agents can use compiled patches to develop working exploits in a controlled setting. They also reveal a substantial gap between recovering a vulnerability and turning it into a security consequence.
 
@@ -65,11 +65,11 @@ These results show that agents can use compiled patches to develop working explo
 
 **Binary-only exploitation is already within reach on some real vulnerabilities.** The agents must work from recovered program structure and execution feedback. The strongest configuration succeeds without a supplied bug description or crashing input.
 
-**A crash is only part of the story.** Recovery rates of 64–88% coexist with exploitation rates of 0–22%. Understanding what a bug lets an attacker control remains a major challenge, even after the agent has found an input that triggers it.
+**A crash is only part of the story.** Recovery rates of 64–88% coexist with exploitation rates of 0–20%. Understanding what a bug lets an attacker control remains a major challenge, even after the agent has found an input that triggers it.
 
-**The compiled patch provides useful information.** On the matched subset, access to the fixed version improves both recovery and exploitation. Audited trajectories show that patch information can identify the exploited defect directly or help an agent redirect its search.
+**The compiled patch provides useful information.** On the matched subset, access to the fixed version improves recovery from 55% to 90% and exploitation from 10% to 25%. Audited trajectories show that patch information can identify the exploited defect directly or help an agent redirect its search.
 
-**Hardening substantially reduces observed success.** Two exploits survive the hardened follow-up. That finding supports layered defenses, while leaving open how these capabilities transfer to production systems.
+**Hardening substantially reduces observed success.** Two exploits survive the hardened follow-up on the 20 tasks Codex exploited in the main evaluation. That finding supports layered defenses, while leaving open how these capabilities transfer to production systems.
 
 ## What Is CyberBinGym?
 
@@ -101,7 +101,7 @@ We evaluate three agent–model configurations on the same 100 tasks, with a nom
 
 | Agent | Model | Vulnerability recovery | Audited exploitation | Mean cost per task | Mean time per task |
 | :--- | :--- | ---: | ---: | ---: | ---: |
-| Codex | GPT-5.6 | 88/100 (88%) | 22/100 (22%) | $28.11 | 2.13 hours |
+| Codex | GPT-5.6 | 88/100 (88%) | 20/100 (20%) | $28.11 | 2.13 hours |
 | Claude Code | Claude Opus 5 | 85/100 (85%) | 6/100 (6%) | $14.90 | 1.26 hours |
 | Kimi Code | Kimi K3 | 64/100 (64%) | 0/100 (0%) | $38.34 | 5.80 hours |
 
@@ -109,18 +109,18 @@ We evaluate three agent–model configurations on the same 100 tasks, with a nom
 
 Codex and Claude recover vulnerabilities at similar rates, but their exploit rates differ substantially. Claude uses the least time and money per task. Kimi spends more on average while achieving lower recovery and no exploitation successes. More time spent searching does not necessarily mean more progress.
 
-To examine the gap on tasks with demonstrated exploitability, we look at the **24 tasks that at least one agent successfully exploits**. Codex still stops at a crash-only outcome on two of them, Claude on 13, and Kimi on 17. These failures cannot all be explained by the task being impossible to exploit in the benchmark environment.
+To examine the gap on tasks with demonstrated exploitability, we look at the **22 tasks that at least one agent successfully exploits**. Codex still stops at a crash-only outcome on two of them, Claude on 13, and Kimi on 17. These failures cannot all be explained by the task being impossible to exploit in the benchmark environment.
 
 The trajectory comparisons point to a recurring challenge: maintaining a model of program state beyond the first invalid memory access. Successful agents follow the consequences of an error through later execution and revise hypotheses when runtime evidence contradicts them. Unsuccessful attempts often end at a crash or continue investigating paths the victim cannot reach.
 
 ### Analysis Complexity Does Not Determine Exploitability
 
 <figure class="cyberbingym-figure">
-  <img src="images/complexity.png" alt="By low, medium, and high complexity, Codex recovery is 95%, 87.5%, and 85%, while exploitation is 15%, 17.5%, and 30%. Claude and Kimi results are also shown." loading="lazy">
+  <img src="images/complexity.png" alt="By low, medium, and high complexity, Codex recovery is 95%, 87.5%, and 85%, while exploitation is 15%, 15%, and 27.5%. Claude and Kimi results are also shown." loading="lazy">
   <figcaption><em>Performance by task complexity. Levels describe the burden of analysis and triggering, rather than the strength of the resulting exploit. Groups contain 20, 40, and 40 tasks, respectively.</em></figcaption>
 </figure>
 
-Codex's recovery rate falls from 95% on low-complexity tasks to 85% on high-complexity tasks, while its exploit rate rises from 15% to 30%. A bug can be difficult to locate but offer useful control once found; another can be easy to trigger yet difficult to exploit.
+Codex's recovery rate falls from 95% on low-complexity tasks to 85% on high-complexity tasks, while its exploit rate rises from 15% to 27.5%. A bug can be difficult to locate but offer useful control once found; another can be easy to trigger yet difficult to exploit.
 
 These results do not establish that larger or more complex programs are inherently easier to exploit. The groups are small, and the rubric measures a different property from exploitability. They do show why a single difficulty label cannot replace separate outcome measurements.
 
@@ -130,28 +130,28 @@ On 20 matched tasks, we compare Codex with only the vulnerable binary against Co
 
 | Available binaries | Vulnerability recovery | Audited exploitation | Mean cost per task |
 | :--- | ---: | ---: | ---: |
-| Vulnerable only | 11/20 (55%) | 3/20 (15%) | $36.59 |
-| Vulnerable and patched | 18/20 (90%) | 6/20 (30%) | $31.42 |
+| Vulnerable only | 11/20 (55%) | 2/20 (10%) | $36.59 |
+| Vulnerable and patched | 18/20 (90%) | 5/20 (25%) | $31.42 |
 
 The patched version supplies a comparison that can narrow the search and lets the agent test whether candidate behavior differs between the two versions. Here, better success also comes with lower average cost.
 
-We separately audit how patch information appears in **28 successful trajectories across 24 tasks**. In 18 trajectories, it directly points to the vulnerability later exploited. In eight, it informs a search decision without identifying the eventual exploitation target. In the remaining two, the recorded evidence does not establish a connection.
+We separately audit how patch information appears in **26 successful trajectories across 22 tasks**. In 17 trajectories, it directly points to the vulnerability later exploited. In seven, it informs a search decision without identifying the eventual exploitation target. In the remaining two, the recorded evidence does not establish a connection.
 
 That distinction prevents overstating what a patch reveals. Some agents use the update to locate the final defect; others use it to assess an initial finding and then search elsewhere in the older version. The audit describes observed behavior, while the matched ablation measures the benefit of providing the second binary on that subset.
 
 ## Reasoning and Repeated Attempts Help
 
 <figure class="cyberbingym-figure">
-  <img src="images/codex-ablations.png" alt="On 20 matched tasks, maximum reasoning raises recovery from 30% to 90% and exploitation from 0% to 30%. Providing the patched binary raises recovery from 55% to 90% and exploitation from 15% to 30%." loading="lazy">
+  <img src="images/codex-ablations.png" alt="On 20 matched tasks, maximum reasoning raises recovery from 30% to 90% and exploitation from 0% to 25%. Providing the patched binary raises recovery from 55% to 90% and exploitation from 10% to 25%." loading="lazy">
   <figcaption><em>Codex ablations on 20 matched tasks. Reasoning effort and patched-binary availability are separate comparisons.</em></figcaption>
 </figure>
 
-With maximum reasoning, Codex recovers 18 of 20 vulnerabilities and completes six exploits. Without reasoning, it recovers six and completes none. Average cost rises from $2.33 to $31.42. The recorded traces associate the stronger setting with more sustained analysis across dependent stages, though tool-use failures also contribute to the difference.
+With maximum reasoning, Codex recovers 18 of 20 vulnerabilities and completes five exploits. Without reasoning, it recovers six and completes none. Average cost rises from $2.33 to $31.42. The recorded traces associate the stronger setting with more sustained analysis across dependent stages, though tool-use failures also contribute to the difference.
 
-Repeated attempts improve coverage as well. On a separate 20-task scaling evaluation, recovery rises from **68.3% with one attempt to 90% with three**, and exploitation rises from **13.3% to 30%**. These are Success@k estimates averaged over subsets of three recorded runs per task, so the one-attempt rate differs from the main evaluation and other ablations.
+Repeated attempts improve coverage as well. On a separate 20-task scaling evaluation, recovery rises from **68.3% with one attempt to 90% with three**, and exploitation rises from **11.7% to 25%**. These are Success@k estimates averaged over subsets of three recorded runs per task, so the one-attempt rate differs from the main evaluation and other ablations.
 
 <figure class="cyberbingym-figure">
-  <img src="images/scaling.png" alt="With one, two, and three Codex attempts, recovery rates are 68.3%, 83.3%, and 90%; exploit rates are 13.3%, 23.3%, and 30%. Mean total costs are $35.53, $71.06, and $106.59." loading="lazy">
+  <img src="images/scaling.png" alt="With one, two, and three Codex attempts, recovery rates are 68.3%, 83.3%, and 90%; exploit rates are 11.7%, 20%, and 25%. Mean total costs are $35.53, $71.06, and $106.59." loading="lazy">
   <figcaption><em>Repeated attempts improve success at increasing total cost. Recovery remains substantially more reliable than exploitation.</em></figcaption>
 </figure>
 
@@ -159,9 +159,9 @@ A failed run can reflect an unproductive analysis path rather than a task beyond
 
 ## What Happens with Standard Hardening?
 
-We rebuild the **22 targets Codex successfully exploited in the main experiment** with stack canaries, position-independent executables, full RELRO, non-executable stacks, and Fortify-enabled compilation.
+We rebuild the **20 targets Codex successfully exploited in the main experiment** with stack canaries, position-independent executables, full RELRO, non-executable stacks, and Fortify-enabled compilation.
 
-Codex still recovers **15 vulnerabilities**, but completes only **two exploits**. This is a selected follow-up set of previous successes, not an estimate of hardened exploitation across all 100 tasks.
+Codex still recovers **15 of the 20 vulnerabilities (75%)**, but completes only **two exploits (10%)**. This is a selected follow-up set of previous successes, not an estimate of hardened exploitation across all 100 tasks.
 
 The results show a substantial reduction in observed exploitation. They also show that the tested protections do not eliminate every path: the two surviving exploits affect writable state outside the stack and reuse existing code. The observed reduction includes agent search variation and service-delivery failures, so it does not isolate the causal effect of hardening alone.
 
@@ -169,7 +169,7 @@ The results show a substantial reduction in observed exploitation. They also sho
 
 **AI's ability to turn binary patches into exploits could change the balance between attackers and defenders.** CyberBinGym shows that agents can already use compiled updates to recover and exploit real vulnerabilities in a controlled setting, without source code or supplied triggering inputs. For attackers, automating this work could lower the expertise and manual effort required to target unpatched software and make exploitation more accessible.
 
-For defenders, the critical issue is the gap between releasing a fix and deploying it. A patch provides protection once installed, but its release can also supply information about systems that still run the vulnerable version. If agents make exploitation faster while deployment delays persist, attackers gain an advantage during that interval and defenders have less time to respond. Our matched study, in which supplying the patched binary raises exploit success from 15% to 30%, demonstrates why the update itself matters to this balance.
+For defenders, the critical issue is the gap between releasing a fix and deploying it. A patch provides protection once installed, but its release can also supply information about systems that still run the vulnerable version. If agents make exploitation faster while deployment delays persist, attackers gain an advantage during that interval and defenders have less time to respond. Our matched study, in which supplying the patched binary raises exploit success from 10% to 25%, demonstrates why the update itself matters to this balance.
 
 The same capability could also strengthen defense. Binary analysis can help defenders assess third-party software without source access, prioritize urgent updates, and evaluate whether mitigations prevent a vulnerability from producing a harmful outcome. Measuring recovery and exploitation separately helps distinguish an easily reproduced failure from a demonstrated security consequence, supporting more informed decisions during the patching window.
 
@@ -186,5 +186,5 @@ Hardening: tables/evaluation_hardened.tex; Sections/4_exp.tex.
 Complexity: tables/evaluation_complexity.tex.
 Artifact scale: tables/evaluation_artifact_metrics.tex.
 Patch influence: Sections/4_exp.tex and Sections/patch_influence_audit.tex.
-Images are rasterized directly from the corresponding paper figures.
+Charts are redrawn as SVG from the current evaluation table values.
 -->
