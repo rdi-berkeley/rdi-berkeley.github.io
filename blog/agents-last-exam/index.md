@@ -24,6 +24,8 @@ June 2026
 Also on <a href="https://www.linkedin.com/pulse/introducing-agents-last-exam-ale-new-standard-evaluating-dawn-song-dntuc/" target="_blank">LinkedIn</a> and <a href="https://x.com/dawnsongtweets/status/2065095757988868190" target="_blank">X</a>
 </div>
 
+<img src="cover.png" alt="Agents' Last Exam: a benchmark spanning 55 occupations, with real-world agent pipelines across Manufacturing and Game Development" class="content-image" style="width: 100%; max-width: 100%; padding: 10px;">
+
 
 *Everyone says the latest AI agents will be "job-ready" soon, especially after the release of Fable 5 last week. But is that really the case?*
 
