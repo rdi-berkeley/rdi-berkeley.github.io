@@ -61,6 +61,29 @@ layout: null
 
     .callout { margin: 30px 0; padding: 20px; background-color: #f8f9fa; border-left: 4px solid #CB9445; border-radius: 4px; }
     .callout h3 { color: #CB9445; font-weight: 700; font-size: 20px; margin-bottom: 15px; margin-top: 0; }
+
+    #faq { margin-top: 48px; }
+    #faq h2 { color: #CB9445; font-weight: 700; font-size: 32px; margin: 0 0 16px; }
+    .faq-item { border-top: 1px solid #ececec; }
+    .faq-item:first-of-type { border-top: 0; }
+    .faq-item summary { display: grid; grid-template-columns: 40px 1fr 16px; gap: 12px; align-items: baseline; padding: 20px 0; cursor: pointer; list-style: none; }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-number { color: #CB9445; font-weight: 500; }
+    .faq-question { color: #666; font-size: 18px; font-weight: 400; }
+    .faq-icon { color: #CB9445; font-size: 20px; line-height: 1; transition: transform 0.2s; }
+    .faq-item summary:hover .faq-question, .faq-item[open] .faq-question { color: black; }
+    .faq-item[open] .faq-question { font-weight: 500; }
+    .faq-item[open] .faq-icon { transform: rotate(45deg); }
+    .faq-answer { padding: 0 28px 24px 52px; }
+    .faq-answer ol { list-style: decimal; padding-left: 20px; margin-bottom: 20px; }
+    .faq-answer li { margin-bottom: 8px; }
+    #main-text-container .faq-answer p { margin-bottom: 12px; }
+    #main-text-container .faq-answer > :last-child { margin-bottom: 0; }
+    @media (max-width: 768px) {
+      .faq-item summary { grid-template-columns: 28px 1fr 16px; }
+      .faq-question { font-size: 16px; }
+      .faq-answer { padding: 0 0 24px 40px; }
+    }
   </style>
 </head>
 
@@ -179,6 +202,104 @@ layout: null
         </p>
       </div>
 
+      <section id="faq">
+        <h2>FAQ</h2>
+        <details class="faq-item" name="faq">
+          <summary>
+            <span class="faq-number">01</span>
+            <span class="faq-question">Are visa invitation letters available for Agentic AI Summit attendees?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-answer">
+            <p>Yes. Visa invitation letters are available only to registered Summit attendees.</p>
+            <p>To be eligible:</p>
+            <ol>
+              <li>You must first <a href="https://luma.com/agentic-ai-summit">register for the Summit</a> via Luma.</li>
+              <li>After completing registration, you may submit a request through our <a href="https://docs.google.com/forms/d/e/1FAIpQLSeVkci0XoBeExWMQzg8kp-v8vaVntq1s-3e5tR3DSq0UvcSaw/viewform">Visa Invitation Letter Request Form</a>.</li>
+              <li>Our team will review your submission and follow up if additional information is required.</li>
+            </ol>
+            <p>We recommend that international participants register and submit requests as early as possible to allow adequate processing time.</p>
+          </div>
+        </details>
+        <details class="faq-item" name="faq">
+          <summary>
+            <span class="faq-number">02</span>
+            <span class="faq-question">Do you offer nonprofit pricing, scholarships, fee waivers, or other discounts?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-answer">
+            <p>We're unable to offer additional discounts, scholarships, or fee waivers beyond our current <a href="https://luma.com/agentic-ai-summit">Early Bird ticket pricing</a>, which is already significantly subsidized to maximize accessibility. Ticket prices help cover essential venue, programming, and operational costs so we can deliver a high-quality Summit experience.</p>
+          </div>
+        </details>
+        <details class="faq-item" name="faq">
+          <summary>
+            <span class="faq-number">03</span>
+            <span class="faq-question">Do you provide travel, flight, or hotel assistance or recommendations?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-answer">
+            <p>We do not provide travel or flight assistance, arrange hotel accommodations, or offer travel or lodging recommendations or support. Attendees are responsible for making their own travel and lodging arrangements.</p>
+          </div>
+        </details>
+        <details class="faq-item" name="faq">
+          <summary>
+            <span class="faq-number">04</span>
+            <span class="faq-question">Is virtual attendance available?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-answer">
+            <p>Yes, a livestream option will be available at no cost. Information on how to register for virtual attendance will be shared closer to the event.</p>
+          </div>
+        </details>
+        <details class="faq-item" name="faq">
+          <summary>
+            <span class="faq-number">05</span>
+            <span class="faq-question">How can I get a receipt of purchase?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-answer">
+            <p>You can find your payment history here: <a href="https://luma.com/settings/payment">luma.com/settings/payment</a></p>
+            <p>You can also get here by going to your Luma Settings → Payment tab. You can see your payment history on both the Luma website and the iOS app.</p>
+            <p>Click on the three dots to the right of the tickets you want receipts for, and select Download Receipt or Download Invoice.</p>
+            <p>You will be able to add information to your receipt, like your Billing Address, Tax Information, and any other notes.</p>
+            <p>You can then use your browser's settings (Command + P on Mac, or Control + P on Windows) to print out the receipt/invoice or save it as a PDF.</p>
+          </div>
+        </details>
+        <details class="faq-item" name="faq">
+          <summary>
+            <span class="faq-number">06</span>
+            <span class="faq-question">How do I cancel my registration?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-answer">
+            <p>All registrations and cancellations are handled directly through Luma, our ticketing platform. After registering, you should have received a confirmation email containing your ticket details. From that email, you can click the “Event Page” button to visit the Agentic AI Summit page. On the event page, just below the “Add to Calendar” button, you’ll see the option to “Notify the host by canceling your registration.”</p>
+            <p>If you cancel within the terms of our refund policy, your registration will be eligible for a refund.</p>
+          </div>
+        </details>
+        <details class="faq-item" name="faq">
+          <summary>
+            <span class="faq-number">07</span>
+            <span class="faq-question">I just canceled my registration – when will I receive my refund?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-answer">
+            <p>Refunds are typically processed within 3 business days after a cancellation is completed. Depending on your payment method, it may take additional time for the funds to appear on your statement. You will receive an email notification when the refund has been issued.</p>
+          </div>
+        </details>
+        <details class="faq-item" name="faq">
+          <summary>
+            <span class="faq-number">08</span>
+            <span class="faq-question">How can I correct information if I made a mistake when registering for the event?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-answer">
+            <ol>
+              <li>Please re-register at <a href="https://luma.com/agentic-ai-summit">luma.com/agentic-ai-summit</a> with the correct information.</li>
+              <li>We will then process a refund (minus the processing fee) to your original payment method for the incorrect registration.</li>
+            </ol>
+          </div>
+        </details>
+      </section>
 
     </div>
   </div>
