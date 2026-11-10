@@ -1,3 +1,10 @@
+- link: /blog/aqueduct
+  img: /blog/aqueduct/cover.png
+  title: "Agentic Verified Optimization of Real-World Software"
+  date: "2026-11-10"
+  description: "Coding agents can make programs faster. We ask them to also prove, in Lean, that the faster program returns the same result as the original on every input. On 189 Verina functions, agents produce faster proved rewrites for 156, and on 17 C, C++, Go, and Rust applications migrated into native Lean with Aqueduct, 92 proved rewrites make 47 of 51 application scenarios faster."
+  category: "main"
+
 - link: /blog/cua-lite
   img: /blog/cua-lite/assets/card.png
   title: "CUA-Lite: An Open Platform for Computer-Use Agents"
