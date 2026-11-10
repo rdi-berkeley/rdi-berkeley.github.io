@@ -1,3 +1,10 @@
+- link: /blog/cyberbingym
+  img: /blog/cyberbingym/images/overview.png
+  title: "CyberBinGym: Can AI Agents Turn Binary Patches into Real Exploits?"
+  date: "2026-11-11"
+  description: "A benchmark of 100 real vulnerabilities across 53 projects tests whether AI agents can recover and exploit vulnerabilities from stripped binaries and their compiled patches, without source code or supplied PoCs."
+  category: "main"
+
 - link: /blog/aqueduct
   img: /blog/aqueduct/cover.png
   title: "Agentic Verified Optimization of Real-World Software"
