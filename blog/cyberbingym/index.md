@@ -38,7 +38,7 @@ manuscript. Add the post to _data/blogs.yml once publication details are final.
 <sup>1</sup>National University of Singapore, <sup>2</sup>UC Riverside,
 <sup>3</sup>UC Berkeley, <sup>4</sup>UC Santa Barbara
 <br>
-<em>Draft · Estimated 8-minute read</em>
+<em>Estimated 8-minute read  |  <a href="https://arxiv.org/abs/2611.10723" target="_blank">Paper</a>  |  <a href="https://www.cybergym.io/cyberbingym" target="_blank">Project website</a></em>
 </div>
 
 Security fixes usually reach users as compiled updates, such as operating-system packages, firmware images, and releases of proprietary or third-party software. Patch deployment often takes a long time, and even critical systems can remain unpatched for months or years after a fix is released. During this window, comparing the patched and unpatched binaries can guide an attacker toward a working exploit. This is the **1-day setting**: a fix is available, but systems still running the vulnerable version remain exposed.
@@ -176,6 +176,12 @@ The same capability could also strengthen defense. Binary analysis can help defe
 Our experiments use historical vulnerabilities and controlled victim services. They do not measure production compromise rates or the time needed to exploit a newly released patch. The results establish the capability; how much it shortens real-world response windows remains an important question for further evaluation.
 
 As these capabilities improve, defenders need to turn AI-assisted analysis into faster protective action. Timely patch deployment and layered defenses that remain effective before updates are installed become increasingly important. CyberBinGym provides a way to track the capability that could accelerate attackers' progress and to inform how defenders prepare for that change.
+
+---
+
+The [project website](https://www.cybergym.io/cyberbingym) has more details, and the [paper](https://arxiv.org/abs/2611.10723) has the full method and results.
+
+[Project website](https://www.cybergym.io/cyberbingym)  |  [Paper](https://arxiv.org/abs/2611.10723)
 
 <!-- Source notes for editors:
 Main results: tables/evaluation_overall.tex.
