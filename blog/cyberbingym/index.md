@@ -55,7 +55,7 @@ Our earlier benchmarks examined complementary parts of this problem. [CyberGym](
 
 **CyberBinGym contains 100 tasks derived from real vulnerabilities in 53 open-source projects.** Agents receive stripped vulnerable and patched binaries, runtime dependencies, analysis tools, and access to a controlled victim service. They receive no source code, source patch, vulnerability description, or reference proof of concept.
 
-The strongest evaluated configuration, **Codex with GPT-5.6**, recovers the target vulnerability on **88%** of tasks and completes audited exploitation on **20%**. Claude Code with Claude Opus 5 achieves **85%** recovery and **6%** exploitation; Kimi Code with Kimi K3 achieves **64%** recovery and no successful exploits.
+The strongest evaluated configuration, **Codex with GPT-5.6 Sol**, recovers the target vulnerability on **88%** of tasks and completes audited exploitation on **20%**. Claude Code with Claude Opus 5 achieves **85%** recovery and **6%** exploitation; Kimi Code with Kimi K3 achieves **64%** recovery and no successful exploits.
 
 On a matched 20-task subset, supplying the patched binary raises Codex's exploit rate from **10% to 25%**. Rebuilding its 20 successful targets with standard binary hardening reduces successful exploitation to **two tasks**.
 
@@ -101,7 +101,7 @@ We evaluate three agent–model configurations on the same 100 tasks, with a nom
 
 | Agent | Model | Vulnerability recovery | Audited exploitation | Mean cost per task | Mean time per task |
 | :--- | :--- | ---: | ---: | ---: | ---: |
-| Codex | GPT-5.6 | 88/100 (88%) | 20/100 (20%) | $28.11 | 2.13 hours |
+| Codex | GPT-5.6 Sol | 88/100 (88%) | 20/100 (20%) | $28.11 | 2.13 hours |
 | Claude Code | Claude Opus 5 | 85/100 (85%) | 6/100 (6%) | $14.90 | 1.26 hours |
 | Kimi Code | Kimi K3 | 64/100 (64%) | 0/100 (0%) | $38.34 | 5.80 hours |
 
