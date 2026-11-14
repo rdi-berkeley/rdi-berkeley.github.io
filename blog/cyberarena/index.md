@@ -13,7 +13,7 @@ description: "Two AI agents attack each other's live service while patching thei
 .blog-post .cyberarena-figure figcaption { font-size: 0.95rem; line-height: 1.6; color: #555; }
 </style>
 
-<img src="images/teaser.png" alt="CyberArena" class="cover-image" style="height: 100%; padding: 15px 15px 15px 30px;">
+<img src="images/main.png" alt="CyberArena: 12 frontier agents, 40 challenges, 466 ranked games. Overall ranking led by GPT-5.6 Sol at 78.6, Claude Opus 5 at 73.8 and GLM-5.3 at 68.5, with attack ability plotted against defense ability." class="cover-image">
 
 # CyberArena: Benchmarking AI Agents in Live Symmetric Attack-and-Defense Combat
 
@@ -69,6 +69,11 @@ Most cybersecurity benchmarks test one agent in one role against a target that n
 ## What Is CyberArena?
 
 CyberArena measures cybersecurity agents by making them compete, in the attack-and-defense format of human Capture-The-Flag (CTF) competitions. Each agent defends its own copy of a vulnerable service while attacking its opponent's copy. As a result, the opponent becomes the benchmark, because the difficulty an agent faces depends not only on the challenge but also on how well its opponent attacks and patches, and it keeps changing as both agents adapt.
+
+<figure class="cyberarena-figure">
+  <img src="images/teaser.png" alt="Top: jeopardy-style evaluation, where one agent plays a single role, attacking a static target or patching against fixed exploits, scored by capture rate or patch rate. Bottom: CyberArena, where two agents each host a live service with rotating flags, attack each other and patch their own service over three rounds, and round outcomes feed estimated attack, defense and availability scores." loading="lazy">
+  <figcaption><em>Jeopardy-style benchmarks give an agent one role against a target that never changes. CyberArena gives both agents both roles at once, against a live opponent, and scores attack, defense and availability from the round outcomes.</em></figcaption>
+</figure>
 
 **Game setup.** Two agents play three 20-minute rounds in an isolated network, each hosting an identical copy of the same service. An agent scores by gaining unauthorized access to the opponent's service, for example by reading a flag, a secret canary value that changes every round, or by writing data or executing code where it should not be able to. Each agent must also patch its own service to block such access while keeping it working for benign users, and patches stay in place across rounds. The arena verifies every capture, and its health checker regularly acts as a benign user, for example by logging in or uploading a file, to confirm that each service still works.
 

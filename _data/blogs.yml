@@ -1,10 +1,3 @@
-- link: /blog/cyberarena
-  img: /blog/cyberarena/images/teaser.png
-  title: "CyberArena: Benchmarking AI Agents in Live Symmetric Attack-and-Defense Combat"
-  date: "2026-11-13"
-  description: "Two AI agents attack each other's live service while patching their own. Across 466 games between 12 frontier agents, challenges that agents solve alone become hard again once a defender fights back, and the live contest exposes both advanced tactics and common failures."
-  category: "main"
-
 - link: /blog/cyberbingym
   img: /blog/cyberbingym/images/overview.png
   title: "CyberBinGym: Can AI Agents Turn Binary Patches into Real Exploits?"
